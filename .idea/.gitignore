@@ -1,0 +1,33 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/../../../../../:\laragon\www\ktechlb\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+/node_modules
+/public/hot
+/public/storage
+/public/argon
+/public/js/*.js
+/public/css/*.css
+/storage/*.key
+/storage/framework/laravel-excel
+/vendor
+.idea/*
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+public/css/app.css.map
+public/js/admin.js.map
+public/js/app.js.LICENSE.txt
+public/js/app.js.map
+debug.log
+/resources/js/ziggy.js
+/public/fonts
+
