@@ -40,7 +40,8 @@ class BrandsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $brands = new Brand();
+
     }
 
     /**

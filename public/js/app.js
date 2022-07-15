@@ -1912,19 +1912,10 @@ __webpack_require__.r(__webpack_exports__);
   name: "BrandsForm",
   data: function data() {
     return {
-      onboarding: {
-        industry: '',
-        business_type: '',
-        agency_name: '',
-        domain_name: '',
-        industry_id: '',
-        business_type_id: '',
-        is_agency: 0,
+      branding: {
+        name: '',
         logo_url: [],
-        password: '',
-        first_name: '',
-        last_name: '',
-        email: ''
+        conver_image: []
       },
       isLoading: false,
       fullPage: false,
@@ -1932,57 +1923,30 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    generatePassword: function generatePassword() {
-      this.onboarding.password = this.randomPassword(8);
-    },
-    randomPassword: function randomPassword() {
-      var length = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 8;
-      var randomchars = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()-+<>ABCDEFGHIJKLMNOP1234567890";
-      var pass = "";
-
-      for (var x = 0; x < length; x++) {
-        var i = Math.floor(Math.random() * randomchars.length);
-        pass += randomchars.charAt(i);
-      }
-
-      return pass;
-    },
     handleFileUpload: function handleFileUpload() {
       console.log(this.$refs.form_logo.files[0]);
-      this.onboarding.logo_url = this.$refs.form_logo.files[0];
+      this.branding.logo_url = this.$refs.form_logo.files[0];
     },
-    updateIndustryId: function updateIndustryId(event) {
-      this.onboarding.industry_id = event.id;
-      console.log(event);
-    },
-    updateBusinessTypeId: function updateBusinessTypeId(event) {
-      this.onboarding.business_type_id = event.id;
-      console.log(event);
+    handleFileUploadCover: function handleFileUploadCover() {
+      this.branding.conver_image = this.$refs.form_cover.files[0];
     },
     getFormData: function getFormData() {
       var formData = new FormData();
-      formData.append('logo', this.onboarding.logo_url);
-      formData.append('agency_name', this.onboarding.agency_name);
-      formData.append('domain', this.onboarding.domain_name);
-      formData.append('industry_id', this.onboarding.industry_id);
-      formData.append('business_type_id', this.onboarding.business_type_id);
-      formData.append('first_name', this.onboarding.first_name);
-      formData.append('last_name', this.onboarding.last_name);
-      formData.append('email', this.onboarding.email);
-      formData.append('password', this.onboarding.password);
-      formData.append('is_agency', this.onboarding.is_agency);
+      formData.append('logo', this.branding.logo_url);
+      formData.append('cover', this.branding.conver_image);
+      formData.append('name', this.branding.name);
       return formData;
     },
-    saveOnboardingForm: function saveOnboardingForm() {
+    savebrandingForm: function savebrandingForm() {
       var _this = this;
 
-      this.$refs['onboarding_form'].validate().then(function (success) {
+      this.$refs['branding_form'].validate().then(function (success) {
         if (!success) {
           return false;
         }
 
         _this.isLoading = true;
-        var post_url = "/admin/onboarding-form";
+        var post_url = "/admin/brands";
         axios.post(post_url, _this.getFormData(), {
           headers: {
             'Content-Type': 'multipart/form-data'
@@ -2048,7 +2012,7 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "col-lg-12"
   }, [_c("validation-observer", {
-    ref: "onboarding_form"
+    ref: "branding_form"
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
@@ -2065,8 +2029,8 @@ var render = function render() {
           directives: [{
             name: "model",
             rawName: "v-model",
-            value: _vm.onboarding.agency_name,
-            expression: "onboarding.agency_name"
+            value: _vm.branding.name,
+            expression: "branding.name"
           }],
           staticClass: "form-control",
           attrs: {
@@ -2075,13 +2039,13 @@ var render = function render() {
             placeholder: "Brand Name"
           },
           domProps: {
-            value: _vm.onboarding.agency_name
+            value: _vm.branding.name
           },
           on: {
             input: function input($event) {
               if ($event.target.composing) return;
 
-              _vm.$set(_vm.onboarding, "agency_name", $event.target.value);
+              _vm.$set(_vm.branding, "name", $event.target.value);
             }
           }
         }), _vm._v(" "), _c("span", {
@@ -2090,238 +2054,6 @@ var render = function render() {
       }
     }])
   })], 1)]), _vm._v(" "), _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-md-6 form-group"
-  }, [_c("label", [_vm._v("Are they an Agency?")]), _vm._v(" "), _c("toggle-button", {
-    staticStyle: {
-      "margin-bottom": "0rem"
-    },
-    attrs: {
-      sync: true,
-      labels: true
-    },
-    on: {
-      change: function change($event) {}
-    },
-    model: {
-      value: _vm.onboarding.is_agency,
-      callback: function callback($$v) {
-        _vm.$set(_vm.onboarding, "is_agency", $$v);
-      },
-      expression: "onboarding.is_agency"
-    }
-  })], 1)]), _vm._v(" "), _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-md-6 form-group"
-  }, [_c("validation-provider", {
-    attrs: {
-      name: "Domain Name",
-      rules: "required"
-    },
-    scopedSlots: _vm._u([{
-      key: "default",
-      fn: function fn(v) {
-        return [_c("label", [_vm._v("Domain")]), _vm._v(" "), _c("input", {
-          directives: [{
-            name: "model",
-            rawName: "v-model",
-            value: _vm.onboarding.domain_name,
-            expression: "onboarding.domain_name"
-          }],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            name: "domain_name",
-            placeholder: "Domain"
-          },
-          domProps: {
-            value: _vm.onboarding.domain_name
-          },
-          on: {
-            input: function input($event) {
-              if ($event.target.composing) return;
-
-              _vm.$set(_vm.onboarding, "domain_name", $event.target.value);
-            }
-          }
-        }), _vm._v(" "), _c("span", {
-          staticClass: "field-errors"
-        }, [_vm._v(_vm._s(v.errors[0]))])];
-      }
-    }])
-  })], 1)]), _vm._v(" "), _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-md-6 form-group"
-  }, [_c("validation-provider", {
-    attrs: {
-      name: "first_name",
-      rules: "required"
-    },
-    scopedSlots: _vm._u([{
-      key: "default",
-      fn: function fn(v) {
-        return [_c("label", [_vm._v("User First Name")]), _vm._v(" "), _c("input", {
-          directives: [{
-            name: "model",
-            rawName: "v-model",
-            value: _vm.onboarding.first_name,
-            expression: "onboarding.first_name"
-          }],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            name: "first_name",
-            placeholder: "First Name"
-          },
-          domProps: {
-            value: _vm.onboarding.first_name
-          },
-          on: {
-            input: function input($event) {
-              if ($event.target.composing) return;
-
-              _vm.$set(_vm.onboarding, "first_name", $event.target.value);
-            }
-          }
-        }), _vm._v(" "), _c("span", {
-          staticClass: "field-errors"
-        }, [_vm._v(_vm._s(v.errors[0]))])];
-      }
-    }])
-  })], 1)]), _vm._v(" "), _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-md-6 form-group"
-  }, [_c("validation-provider", {
-    attrs: {
-      name: "last_name",
-      rules: "required"
-    },
-    scopedSlots: _vm._u([{
-      key: "default",
-      fn: function fn(v) {
-        return [_c("label", [_vm._v("User Last Name")]), _vm._v(" "), _c("input", {
-          directives: [{
-            name: "model",
-            rawName: "v-model",
-            value: _vm.onboarding.last_name,
-            expression: "onboarding.last_name"
-          }],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            name: "first_name",
-            placeholder: "Last Name"
-          },
-          domProps: {
-            value: _vm.onboarding.last_name
-          },
-          on: {
-            input: function input($event) {
-              if ($event.target.composing) return;
-
-              _vm.$set(_vm.onboarding, "last_name", $event.target.value);
-            }
-          }
-        }), _vm._v(" "), _c("span", {
-          staticClass: "field-errors"
-        }, [_vm._v(_vm._s(v.errors[0]))])];
-      }
-    }])
-  })], 1)]), _vm._v(" "), _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-md-6 form-group"
-  }, [_c("validation-provider", {
-    attrs: {
-      name: "email",
-      rules: "required|email"
-    },
-    scopedSlots: _vm._u([{
-      key: "default",
-      fn: function fn(v) {
-        return [_c("label", [_vm._v("User Email")]), _vm._v(" "), _c("input", {
-          directives: [{
-            name: "model",
-            rawName: "v-model",
-            value: _vm.onboarding.email,
-            expression: "onboarding.email"
-          }],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            name: "email",
-            placeholder: "Email"
-          },
-          domProps: {
-            value: _vm.onboarding.email
-          },
-          on: {
-            input: function input($event) {
-              if ($event.target.composing) return;
-
-              _vm.$set(_vm.onboarding, "email", $event.target.value);
-            }
-          }
-        }), _vm._v(" "), _c("span", {
-          staticClass: "field-errors"
-        }, [_vm._v(_vm._s(v.errors[0]))])];
-      }
-    }])
-  })], 1)]), _vm._v(" "), _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-md-6 form-group"
-  }, [_c("validation-provider", {
-    attrs: {
-      name: "password",
-      rules: "required|min:8"
-    },
-    scopedSlots: _vm._u([{
-      key: "default",
-      fn: function fn(v) {
-        return [_c("label", [_vm._v("User Password")]), _vm._v(" "), _c("input", {
-          directives: [{
-            name: "model",
-            rawName: "v-model",
-            value: _vm.onboarding.password,
-            expression: "onboarding.password"
-          }],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            name: "password",
-            placeholder: "Password"
-          },
-          domProps: {
-            value: _vm.onboarding.password
-          },
-          on: {
-            input: function input($event) {
-              if ($event.target.composing) return;
-
-              _vm.$set(_vm.onboarding, "password", $event.target.value);
-            }
-          }
-        }), _vm._v(" "), _c("span", {
-          staticClass: "field-errors"
-        }, [_vm._v(_vm._s(v.errors[0]))])];
-      }
-    }])
-  })], 1), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6 mt-4"
-  }, [_c("a", {
-    staticClass: "btn btn-primary btn-xs",
-    attrs: {
-      href: "javascript:;"
-    },
-    on: {
-      click: _vm.generatePassword
-    }
-  }, [_vm._v("Generate Password")])])]), _vm._v(" "), _c("div", {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-6"
@@ -2331,7 +2063,7 @@ var render = function render() {
     attrs: {
       "for": "logo"
     }
-  }, [_vm._v("Logo")]), _vm._v(" "), _c("div", [_c("input", {
+  }, [_vm._v("Brand Logo(W:210px x H:50px)")]), _vm._v(" "), _c("div", [_c("input", {
     ref: "form_logo",
     staticClass: "form-control",
     attrs: {
@@ -2346,6 +2078,30 @@ var render = function render() {
       }
     }
   })])])])]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-6"
+  }, [_c("div", {
+    staticClass: "form-group required"
+  }, [_c("label", {
+    attrs: {
+      "for": "logo"
+    }
+  }, [_vm._v("Cover Image(W:500px x H:500px)")]), _vm._v(" "), _c("div", [_c("input", {
+    ref: "form_cover",
+    staticClass: "form-control",
+    attrs: {
+      accept: "image/*",
+      id: "cover",
+      type: "file",
+      name: "cover"
+    },
+    on: {
+      change: function change($event) {
+        return _vm.handleFileUploadCover();
+      }
+    }
+  })])])])]), _vm._v(" "), _c("div", {
     staticClass: "row mt-3"
   }, [_c("div", {
     staticClass: "col-md-6 text-left"
@@ -2355,7 +2111,7 @@ var render = function render() {
       href: "javascript:;"
     },
     on: {
-      click: _vm.saveOnboardingForm
+      click: _vm.savebrandingForm
     }
   }, [_vm._v("Save")])])])])], 1)])])])])])]);
 };
