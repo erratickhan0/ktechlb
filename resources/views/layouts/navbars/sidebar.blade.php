@@ -104,6 +104,15 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ route('admin.brands.index') }}"  role="button" >
+                        <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Brands') }}</span>
+                    </a>
+
+
+                </li>
+            </ul>
 
                 {{--<li class="nav-item">
                     <a class="nav-link" href="{{ route('icons') }}">

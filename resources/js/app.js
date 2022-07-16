@@ -11,6 +11,7 @@ import { ValidationProvider, ValidationObserver, extend } from 'vee-validate/dis
 Vue.component('validation-provider', ValidationProvider);
 Vue.component('validation-observer', ValidationObserver);
 import VueToast from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-sugar.css';
 Vue.use(VueToast, { position: 'top-right' });
 import { ToggleButton } from 'vue-js-toggle-button';
 Vue.component('ToggleButton', ToggleButton);

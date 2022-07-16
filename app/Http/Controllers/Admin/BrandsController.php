@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Brand;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class BrandsController extends Controller
 {
@@ -15,8 +16,9 @@ class BrandsController extends Controller
      */
     public function index()
     {
+        $brands = Brand::get();
         return response()->view('admin/brands/listing', [
-
+                'brands' => $brands
             ]
         );
     }
@@ -40,8 +42,33 @@ class BrandsController extends Controller
      */
     public function store(Request $request)
     {
-       $brands = new Brand();
-
+        $brand = new Brand();
+        if ($request->hasFile('logo')) {
+            $brand->logo = Storage::disk('public')->putFile('logos', $request->file('logo'));
+        }
+        else{
+            return response()->json([
+                "status" => "ERROR",
+                "message" => "Please add brand logo!",
+            ]);
+        }
+        if ($request->hasFile('cover')) {
+            $brand->cover = Storage::disk('public')->putFile('covers', $request->file('cover'));
+        }
+        else{
+            return response()->json([
+                "status" => "ERROR",
+                "message" => "Please add brand cover!",
+            ]);
+        }
+        $brand->name = $request->input('name');
+        $brand->active_state = (bool)$request->input('active_state');
+        $brand->user_id = auth()->user()->id;
+        $brand->save();
+        return response()->json([
+            "status" => "OK",
+            "message" => "Brand has been added successfully!",
+        ]);
     }
 
     /**
@@ -63,7 +90,9 @@ class BrandsController extends Controller
      */
     public function edit(Brand $brand)
     {
-        //
+
+        return response()->view('admin/brands/form', [
+        'brand' => $brand ]);
     }
 
     /**
@@ -75,7 +104,21 @@ class BrandsController extends Controller
      */
     public function update(Request $request, Brand $brand)
     {
-        //
+        $brand->fill($request->only('name','active_state'));
+        if ($request->hasFile('logo')) {
+            Storage::delete($brand->logo);
+            $brand->logo = Storage::disk('public')->putFile('logos', $request->file('logo'));
+        }
+        if ($request->hasFile('cover')) {
+            Storage::delete($brand->cover);
+            $brand->cover = Storage::disk('public')->putFile('covers', $request->file('cover'));
+        }
+        $brand->save();
+        return response()->json([
+            "status" => "OK",
+            "message" => "Brand has been updated successfully!",
+        ]);
+
     }
 
     /**
@@ -86,6 +129,9 @@ class BrandsController extends Controller
      */
     public function destroy(Brand $brand)
     {
-        //
+        $brand->delete();
+        return redirect()
+            ->route('admin.brands.index')
+            ->with('success', 'Brand has been deleted');
     }
 }

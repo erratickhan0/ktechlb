@@ -24,6 +24,7 @@ Auth::routes();
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
     Route::get('home', 'HomeController@index')->name('home');
     Route::resource('brands', 'BrandsController', ['except' => ['show']]);
+    Route::post('/brands/{brand}', 'BrandsController@update')->name('brands.update');
 	Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);

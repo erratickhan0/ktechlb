@@ -31,6 +31,16 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-6 text-right mt-n3">
+                                            <div v-if="is_edit">
+                                                <img
+                                                    :src="'/storage/' + this.brand.logo"
+                                                    alt="Brand Logo"
+                                                    style="max-width: 120px; max-height: 120px;"
+                                                />
+                                            </div>
+                                            <div><span>Brand Logo</span></div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
@@ -46,6 +56,29 @@
                                                            name="cover" />
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col-6 text-right mt-n3">
+                                            <div v-if="is_edit">
+                                                <img
+                                                    :src="'/storage/' + this.brand.cover"
+                                                    alt="Cover Image"
+                                                    style="max-width: 120px; max-height: 120px;"
+                                                />
+                                            </div>
+                                            <div><span>Cover Image</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 form-group" >
+                                            <label >Active State?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="branding.active_state"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
                                         </div>
                                     </div>
                                     <div class="row mt-3">
@@ -66,6 +99,7 @@
 
 <script>
 export default {
+    props:['brand'],
     name: "BrandsForm",
     data : function() {
         return {
@@ -73,10 +107,12 @@ export default {
                 name:'',
                 logo_url:[],
                 conver_image:[],
+                active_state:0
             },
             isLoading: false,
             fullPage: false,
             loader: "spinner",
+            is_edit: this.brand ? 1 : 0
         }
     },
     methods: {
@@ -92,6 +128,7 @@ export default {
             var formData = new FormData();
             formData.append('logo', this.branding.logo_url);
             formData.append('cover', this.branding.conver_image);
+            formData.append('active_state', this.branding.active_state);
             formData.append('name', this.branding.name);
             return formData;
         },
@@ -101,32 +138,44 @@ export default {
                     return false;
                 }
                 this.isLoading = true;
-                var post_url = `/admin/brands`;
-                axios.post(post_url, this.getFormData(), {
-                    headers: {
-                        'Content-Type': 'multipart/form-data'
-                    }
-                }).then(response => {
-                    this.isLoading = false;
-                    if (response.data.status == 'OK') {
-                        this.$toast.success(response.data.message, {'duration': 5000});
-                        setTimeout( () => {
-                            location.reload();
-                        }, 1000);
-                    }
-                    if (response.data.status == 'ERROR') {
-                        this.$toast.error(response.data.message, {'duration': 5000});
-                    }
-                }).catch(error => {
-                    console.log(JSON.stringify(error));
-                    this.$toast.error(JSON.stringify(error), {'duration': 5000});
 
-                });
+                var post_url = `/admin/brands`;
+                if(this.is_edit){
+                    var post_url = `/admin/brands/`+this.brand.id;
+                }
+                    axios.post(post_url, this.getFormData(), {
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        }
+                    }).then(response => {
+                        this.isLoading = false;
+                        if (response.data.status == 'OK') {
+                            this.$toast.success(response.data.message, {'duration': 5000});
+                            setTimeout( () => {
+                                window.location.href = '/admin/brands';
+                            }, 1000);
+                        }
+                        if (response.data.status == 'ERROR') {
+                            console.log(response.data.message);
+                            this.$toast.error(response.data.message, {'duration': 5000});
+                        }
+                    }).catch(error => {
+                        console.log(JSON.stringify(error));
+                        this.$toast.error(JSON.stringify(error), {'duration': 5000});
+
+                    });
+
+
+
             });
         },
     },
 
     mounted: function() {
+        if(this.brand){
+           this.branding.name = this.brand.name;
+            this.branding.active_state = this.brand.active_state;
+        }
     }
 }
 </script>
