@@ -30,7 +30,8 @@ class BrandsController extends Controller
      */
     public function create()
     {
-        return response()->view('admin/brands/form', [
+        $brand = new Brand();
+        return response()->view('admin/brands/form', [ 'brand' => $brand
         ]);
     }
 
