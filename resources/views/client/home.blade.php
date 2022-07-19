@@ -1,27 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="Ferdinand Tugano" />
-    <link rel="icon" href="favicon.ico" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Bootstrap Stater</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" href="favicon.icon" >
 
+    <title>Home</title>
     <!-- Icons for this template -->
     <link href="{{ asset('css/client/fonts/font-awesome/css/all.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/client/owl.carousel.css') }}" />
     <link href="{{ asset('css/client/owl.theme.css') }}" />
-    <script src="{{ asset('css/app-client.css') }}" ></script>
+    <link href="{{ asset('css/client/owl.carousel.min.css') }}" />
 
 
+    <link href="{{ asset('css/app-client.css') }}" >
 
-    <!-- Stylesheet -->
-    <!-- build:css -->
-    <!-- endbuild -->
-    <style>
+  <style>
         body {
             margin: 0 auto;
             font-family: Arial;
@@ -130,16 +127,16 @@
         <div id="owl-demo" class="owl-carousel owl-theme">
             <div class="item active">
 
-                <a href="#"><img src="/images/ktech/brdcover_1620476734_BRAND1.jpg"></a>
+                <a href="#"><img alt="" src="/images/ktech/brdcover_1620476734_BRAND1.jpg"></a>
             </div>
             <div class="item">
-                <a href="#"><img src="/images/ktech/brdcover_1620476862_BRAND2.jpg"></a>
+                <a href="#"><img alt="" src="/images/ktech/brdcover_1620476862_BRAND2.jpg"></a>
             </div>
             <div class="item">
-                <a href="#"><img src="/images/ktech/brdcover_1620476884_BRAND4.jpg"></a>
+                <a href="#"><img alt="" src="/images/ktech/brdcover_1620476884_BRAND4.jpg"></a>
             </div>
             <div class="item">
-                <a href="#"><img src="/images/ktech/brdcover_1620476884_BRAND4.jpg"></a>
+                <a href="#"><img alt="" src="/images/ktech/brdcover_1620476884_BRAND4.jpg"></a>
             </div>
         </div>
     </div>

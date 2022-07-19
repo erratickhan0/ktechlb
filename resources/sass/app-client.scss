@@ -1,6 +1,11 @@
+// Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-@import "style";
 
+// Variables
+@import 'variables';
+
+// Styles
+@import "style";
 :root {
     --blue: #007bff;
     --indigo: #6610f2;

@@ -1,2 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Nunito);main {
+  min-height: calc(100vh - 7em);
+  overflow: auto;
+}
 
