@@ -114,6 +114,7 @@ class BrandsController extends Controller
             Storage::delete($brand->cover);
             $brand->cover = Storage::disk('public')->putFile('covers', $request->file('cover'));
         }
+
         $brand->save();
         return response()->json([
             "status" => "OK",

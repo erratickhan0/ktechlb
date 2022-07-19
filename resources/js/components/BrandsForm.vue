@@ -76,7 +76,7 @@
                                                 v-model="branding.active_state"
                                                 :sync="true"
                                                 :labels="true"
-                                                @change=""
+                                                @change="changeActive"
                                             />
 
                                         </div>
@@ -116,6 +116,14 @@ export default {
         }
     },
     methods: {
+        changeActive(active){
+            if(active.value == true){
+                this.branding.active_state = 1;
+            }
+            else{
+                this.branding.active_state = 0;
+            }
+        },
         handleFileUpload() {
             console.log(this.$refs.form_logo.files[0]);
             this.branding.logo_url = this.$refs.form_logo.files[0];

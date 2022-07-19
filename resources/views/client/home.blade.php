@@ -11,21 +11,17 @@
 
     <title>Home</title>
     <!-- Icons for this template -->
-    <link href="{{ asset('css/app-client.css') }}" >
     <link href="{{ asset('css/client/fonts/font-awesome/css/all.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/client/owl.theme.css') }}" />
-    <link href="{{ asset('css/client/owl.carousel.min.css') }}" />
+    <link href="{{ asset('css/client/owl.theme.css') }}"  rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/client/owl.carousel.min.css') }}"  rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/app-client.css') }}" >
 
-
-
-
-  <style>
+    <style>
         body {
             margin: 0 auto;
             font-family: Arial;
             background: #e4d6d6;
             background: url(https://ktechlb.com//uploads/configimages/bg_1620475455_wp2732954.jpg) top center;
-            background-size: cover;
             width: 100%;
             height: 100%;
         }
@@ -126,19 +122,13 @@
 <div class="wrapper" id="bgk">
     <div class="brands">
         <div id="owl-demo" class="owl-carousel owl-theme">
-            <div class="item active">
-
-                <a href="#"><img alt="" src="{{ asset('images/ktech/brdcover_1620476734_BRAND1.jpg') }}"></a>
+            @foreach($brands as $brand)
+            @if($brand->active_state)
+            <div class="item ">
+                <a href="#"><img alt="" src="{{ asset('/storage/'.$brand->cover) }}"></a>
             </div>
-            <div class="item">
-                <a href="#"><img alt="" src="{{ asset('images/ktech/brdcover_1620476862_BRAND2.jpg') }}"></a>
-            </div>
-            <div class="item">
-                <a href="#"><img alt="" src="{{ asset('images/ktech/brdcover_1620476884_BRAND4.jpg') }}></a>
-            </div>
-            <div class="item">
-                <a href="#"><img alt="" src="{{ asset('images/ktech/brdcover_1620476884_BRAND4.jpg') }}"></a>
-            </div>
+            @endif
+            @endforeach
         </div>
     </div>
 </div>
@@ -155,12 +145,12 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-
+<script src="{{ asset('js/app.js') }}" ></script>
 <script src="/assets/js/vendor/jquery.slim.min.js"></script>
 <script src="/assets/js/vendor/popper.min.js"></script>
 <script src="/assets/js/vendor/bootstrap.min.js"></script>
 <script src="/assets/js/owl.carousel.min.js"></script>
-<script src="{{ asset('js/app.js') }}" ></script>
+
 <!-- build:js -->
 
 <!-- endbuild -->

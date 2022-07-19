@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('client/home');
+    $brands = \App\Brand::get();
+    return view('client/home',
+        [ 'brands' => $brands
+        ]);
 });
 Auth::routes();
 
