@@ -11,12 +11,13 @@
 
     <title>Home</title>
     <!-- Icons for this template -->
+    <link href="{{ asset('css/app-client.css') }}" >
     <link href="{{ asset('css/client/fonts/font-awesome/css/all.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/client/owl.theme.css') }}" />
     <link href="{{ asset('css/client/owl.carousel.min.css') }}" />
 
 
-    <link href="{{ asset('css/app-client.css') }}" >
+
 
   <style>
         body {
@@ -127,16 +128,16 @@
         <div id="owl-demo" class="owl-carousel owl-theme">
             <div class="item active">
 
-                <a href="#"><img alt="" src="/images/ktech/brdcover_1620476734_BRAND1.jpg"></a>
+                <a href="#"><img alt="" src="{{ asset('images/ktech/brdcover_1620476734_BRAND1.jpg') }}"></a>
             </div>
             <div class="item">
-                <a href="#"><img alt="" src="/images/ktech/brdcover_1620476862_BRAND2.jpg"></a>
+                <a href="#"><img alt="" src="{{ asset('images/ktech/brdcover_1620476862_BRAND2.jpg') }}"></a>
             </div>
             <div class="item">
-                <a href="#"><img alt="" src="/images/ktech/brdcover_1620476884_BRAND4.jpg"></a>
+                <a href="#"><img alt="" src="{{ asset('images/ktech/brdcover_1620476884_BRAND4.jpg') }}></a>
             </div>
             <div class="item">
-                <a href="#"><img alt="" src="/images/ktech/brdcover_1620476884_BRAND4.jpg"></a>
+                <a href="#"><img alt="" src="{{ asset('images/ktech/brdcover_1620476884_BRAND4.jpg') }}"></a>
             </div>
         </div>
     </div>
