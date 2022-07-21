@@ -17,7 +17,10 @@ Vue.use(VueToast, { position: 'top-right' });
 import { ToggleButton } from 'vue-js-toggle-button';
 Vue.component('ToggleButton', ToggleButton);
 Vue.component('brands-form', require('./components/BrandsForm').default);
-console.log('zee');
+import vSelect from 'vue-select';
+Vue.component('v-select', vSelect);
+import 'vue-select/dist/vue-select.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 const app = new Vue({
     el: '#vue-host',
     data: function() {

@@ -33,7 +33,7 @@ class BrandDesignSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now()
             ]];
-        DB::table('brand_design')->insert($brand_designs);
+        DB::table('brand_designs')->insert($brand_designs);
 
     }
 

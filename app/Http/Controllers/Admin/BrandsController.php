@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Brand;
+use App\BrandDesign;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use JavaScript;
+
 
 class BrandsController extends Controller
 {
@@ -16,6 +19,7 @@ class BrandsController extends Controller
      */
     public function index()
     {
+
         $brands = Brand::get();
         return response()->view('admin/brands/listing', [
                 'brands' => $brands
@@ -30,6 +34,13 @@ class BrandsController extends Controller
      */
     public function create()
     {
+        $brand_designs = BrandDesign::get();
+        JavaScript::put([
+            'brand' => '',
+            'brand_designs' => $brand_designs
+            ]
+        );
+
         $brand = new Brand();
         return response()->view('admin/brands/form', [ 'brand' => $brand
         ]);
@@ -64,6 +75,7 @@ class BrandsController extends Controller
         }
         $brand->name = $request->input('name');
         $brand->active_state = (bool)$request->input('active_state');
+        $brand->brand_design_id = $request->input('brand_design_id');
         $brand->user_id = auth()->user()->id;
         $brand->save();
         return response()->json([
@@ -91,6 +103,12 @@ class BrandsController extends Controller
      */
     public function edit(Brand $brand)
     {
+        $brand_designs = BrandDesign::get();
+        JavaScript::put([
+                'brand' => $brand,
+                'brand_designs' => $brand_designs
+            ]
+        );
 
         return response()->view('admin/brands/form', [
         'brand' => $brand ]);
@@ -105,7 +123,7 @@ class BrandsController extends Controller
      */
     public function update(Request $request, Brand $brand)
     {
-        $brand->fill($request->only('name','active_state'));
+        $brand->fill($request->only('name','active_state','brand_design_id'));
         if ($request->hasFile('logo')) {
             Storage::delete($brand->logo);
             $brand->logo = Storage::disk('public')->putFile('logos', $request->file('logo'));

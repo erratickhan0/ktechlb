@@ -69,6 +69,20 @@
                                         </div>
                                     </div>
                                     <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label >Select Design</label>
+                                                <v-select name="brand_design" placeholder="Select Design"
+                                                          v-model="branding.brand_design_id"
+                                                          :options="brand_designs"
+                                                          label="name" code="id"
+                                                          :reduce="label => label.id"
+                                                          @input="selectDesignId"
+                                                ></v-select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-6 form-group" >
                                             <label >Active State?</label>
                                             <toggle-button
@@ -99,7 +113,7 @@
 
 <script>
 export default {
-    props:['brand'],
+
     name: "BrandsForm",
     data : function() {
         return {
@@ -107,15 +121,21 @@ export default {
                 name:'',
                 logo_url:[],
                 conver_image:[],
-                active_state:0
+                active_state:0,
+                brand_design_id : ''
             },
             isLoading: false,
             fullPage: false,
             loader: "spinner",
-            is_edit: this.brand ? 1 : 0
+            is_edit: this.brand ? 1 : 0,
+            brand_designs: brand_designs,
+            brand: brand
         }
     },
     methods: {
+        selectDesignId(event){
+            this.branding.brand_design_id = event.id;
+        },
         changeActive(active){
             if(active.value == true){
                 this.branding.active_state = 1;
@@ -138,6 +158,8 @@ export default {
             formData.append('cover', this.branding.conver_image);
             formData.append('active_state', this.branding.active_state);
             formData.append('name', this.branding.name);
+            formData.append('brand_design_id', this.branding.brand_design_id);
+
             return formData;
         },
         savebrandingForm:function () {
@@ -180,9 +202,11 @@ export default {
     },
 
     mounted: function() {
+        console.log(this.brand,'zee');
         if(this.brand){
            this.branding.name = this.brand.name;
             this.branding.active_state = this.brand.active_state;
+            this.branding.brand_design_id = this.brand.brand_design_id;
         }
     }
 }
