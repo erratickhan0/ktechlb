@@ -1,11 +1,13 @@
 <?php
+
 namespace Database\Seeders;
 
+use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
-class UsersTableSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,13 +16,16 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('users')->insert([
             'name' => 'Admin Admin',
             'email' => 'admin@gmail.com',
             'email_verified_at' => now(),
-            'password' => Hash::make('123qwe12'),
+            'password' => Hash::make('secret'),
             'created_at' => now(),
             'updated_at' => now()
         ]);
+
     }
+
 }
