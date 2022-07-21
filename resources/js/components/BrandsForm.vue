@@ -71,14 +71,17 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
+                                                <validation-provider name="Brand Design" rules="required" v-slot="v">
                                                 <label >Select Design</label>
                                                 <v-select name="brand_design" placeholder="Select Design"
                                                           v-model="branding.brand_design_id"
                                                           :options="brand_designs"
                                                           label="name" code="id"
                                                           :reduce="label => label.id"
-                                                          @input="selectDesignId"
+
                                                 ></v-select>
+                                                 <span class="field-errors">{{ v.errors[0] }}</span>
+                                                </validation-provider>
                                             </div>
                                         </div>
                                     </div>
@@ -127,15 +130,12 @@ export default {
             isLoading: false,
             fullPage: false,
             loader: "spinner",
-            is_edit: this.brand ? 1 : 0,
+            is_edit: 0,
             brand_designs: brand_designs,
             brand: brand
         }
     },
     methods: {
-        selectDesignId(event){
-            this.branding.brand_design_id = event.id;
-        },
         changeActive(active){
             if(active.value == true){
                 this.branding.active_state = 1;
@@ -202,7 +202,8 @@ export default {
     },
 
     mounted: function() {
-        console.log(this.brand,'zee');
+        this.is_edit = this.brand ? 1 : 0 ;
+        console.log(this.is_edit,'zee');
         if(this.brand){
            this.branding.name = this.brand.name;
             this.branding.active_state = this.brand.active_state;
