@@ -52,7 +52,7 @@
                                         <td class="align-middle name mb-0 text-sm">{{$brand->name}}</td>
                                         <td class="align-middle">{{$brand->active_state ? 'Yes':'No'}}</td>
                                         <td class="align-middle">{{$brand->created_at}}</td>
-                                        <td class="align-middle"><img src="{{asset('storage/'.$brand->logo)}}"></td>
+                                        <td class="align-middle"><img width="100px" height="70px" src="{{asset('storage/'.$brand->logo)}}"></td>
                                         <td class="text-right">
                                             <div class="nav-item dropdown text-right">
                                                 <a class="btn btn-default dropdown-toggle" href="javascript:;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

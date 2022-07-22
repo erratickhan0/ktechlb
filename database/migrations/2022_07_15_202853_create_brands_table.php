@@ -18,6 +18,7 @@ class CreateBrandsTable extends Migration
             $table->string('name');
             $table->string('logo')->nullable();
             $table->string('cover')->nullable();
+            $table->string('slug');
             $table->boolean('active_state');
             $table->foreignId('brand_design_id');
             $table->foreignId('user_id');

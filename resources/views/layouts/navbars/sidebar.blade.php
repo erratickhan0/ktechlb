@@ -76,6 +76,21 @@
                     </div>
                 </div>
             </form>
+
+            {{ Form::open(['route' => 'admin.brand.switch', 'method' => 'get', 'id' => 'search-form']) }}
+            <div class="row">
+                <div class="col-md-12">
+
+                    {{ Form::select('brand', $brands, session()->get('selected_brand')? session()->get('selected_brand')->slug:'',[
+                        'placeholder' => 'Please select brand...',
+                        'class' => 'form-control',
+                        'onChange' => 'this.form.submit();'
+                    ]) }}
+                </div>
+                <div class="col-md-6"></div>
+
+            </div>
+            {{ Form::close() }}
             <!-- Navigation -->
             <ul class="navbar-nav">
                 {{--<li class="nav-item">
@@ -112,6 +127,30 @@
 
 
                 </li>
+                @if(session()->get('selected_brand'))
+                    <li class="nav-item">
+                        <a class="nav-link active" href="javascript:;" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                            <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                            <span class="nav-link-text" style="color: #f4645f;">{{ __(session()->get('selected_brand')->name) }}</span>
+                        </a>
+
+                        <div class="collapse show" id="navbar-examples">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.mybrand.slider',session()->get('selected_brand')->slug) }}">
+                                        {{ __('Top Slider') }}
+                                    </a>
+                                </li>
+                                {{--<li class="nav-item">
+                                    <a class="nav-link" href="{{ route('user.index') }}">
+                                        {{ __('User Management') }}
+                                    </a>
+                                </li>--}}
+                            </ul>
+                        </div>
+                    </li>
+                @endif
+
             </ul>
 
                 {{--<li class="nav-item">

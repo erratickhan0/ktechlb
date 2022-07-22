@@ -1922,15 +1922,12 @@ __webpack_require__.r(__webpack_exports__);
       isLoading: false,
       fullPage: false,
       loader: "spinner",
-      is_edit: this.brand ? 1 : 0,
+      is_edit: 0,
       brand_designs: brand_designs,
       brand: brand
     };
   },
   methods: {
-    selectDesignId: function selectDesignId(event) {
-      this.branding.brand_design_id = event.id;
-    },
     changeActive: function changeActive(active) {
       if (active.value == true) {
         this.branding.active_state = 1;
@@ -2004,7 +2001,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    console.log(this.brand, 'zee');
+    this.is_edit = this.brand ? 1 : 0;
+    console.log(this.is_edit, 'zee');
 
     if (this.brand) {
       this.branding.name = this.brand.name;
@@ -2161,27 +2159,37 @@ var render = function render() {
     staticClass: "col-md-6"
   }, [_c("div", {
     staticClass: "form-group"
-  }, [_c("label", [_vm._v("Select Design")]), _vm._v(" "), _c("v-select", {
+  }, [_c("validation-provider", {
     attrs: {
-      name: "brand_design",
-      placeholder: "Select Design",
-      options: _vm.brand_designs,
-      label: "name",
-      code: "id",
-      reduce: function reduce(label) {
-        return label.id;
+      name: "Brand Design",
+      rules: "required"
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(v) {
+        return [_c("label", [_vm._v("Select Design")]), _vm._v(" "), _c("v-select", {
+          attrs: {
+            name: "brand_design",
+            placeholder: "Select Design",
+            options: _vm.brand_designs,
+            label: "name",
+            code: "id",
+            reduce: function reduce(label) {
+              return label.id;
+            }
+          },
+          model: {
+            value: _vm.branding.brand_design_id,
+            callback: function callback($$v) {
+              _vm.$set(_vm.branding, "brand_design_id", $$v);
+            },
+            expression: "branding.brand_design_id"
+          }
+        }), _vm._v(" "), _c("span", {
+          staticClass: "field-errors"
+        }, [_vm._v(_vm._s(v.errors[0]))])];
       }
-    },
-    on: {
-      input: _vm.selectDesignId
-    },
-    model: {
-      value: _vm.branding.brand_design_id,
-      callback: function callback($$v) {
-        _vm.$set(_vm.branding, "brand_design_id", $$v);
-      },
-      expression: "branding.brand_design_id"
-    }
+    }])
   })], 1)])]), _vm._v(" "), _c("div", {
     staticClass: "row"
   }, [_c("div", {

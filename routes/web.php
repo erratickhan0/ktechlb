@@ -25,7 +25,11 @@ Auth::routes();
 
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
+
     Route::get('home', 'HomeController@index')->name('home');
+    Route::get('brand/switch', 'HomeController@switchBrands')->name('brand.switch');
+    Route::get('brand/{slug}', 'HomeController@changeBrand')->name('brand');
+    Route::get('brand/{slug}/slider', 'MyBrandSliderController@index')->name('mybrand.slider');
     Route::resource('brands', 'BrandsController', ['except' => ['show']]);
     Route::post('/brands/{brand}', 'BrandsController@update')->name('brands.update');
 	Route::resource('user', 'UserController', ['except' => ['show']]);

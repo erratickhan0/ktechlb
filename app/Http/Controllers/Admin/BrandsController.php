@@ -7,6 +7,7 @@ use App\BrandDesign;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use JavaScript;
 
 
@@ -74,6 +75,7 @@ class BrandsController extends Controller
             ]);
         }
         $brand->name = $request->input('name');
+        $brand->slug = Str::slug($request->input('name'));
         $brand->active_state = (bool)$request->input('active_state');
         $brand->brand_design_id = $request->input('brand_design_id');
         $brand->user_id = auth()->user()->id;
