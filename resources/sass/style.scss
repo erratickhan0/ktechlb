@@ -1,3 +1,8 @@
+:root {
+    --black: #333;
+    --white: #ffffff;
+    --banner-title-text-color: #303030;
+}
 
 /* utilties */
 
@@ -204,7 +209,7 @@ nav .dropdown>.dropdown-toggle:active {
 }
 
 .video-js .vjs-big-play-button .vjs-icon-placeholder:before {
-    content: url(../images/site/videoPlay.svg);
+    content: url('../images/site/videoPlay.svg');
     transform: scale(2);
 }
 
@@ -278,7 +283,7 @@ p {
 .sec_3 {
     padding: 100px 0;
     position: relative;
-    background: url(../images/site/wc-bg.jpg) center top no-repeat;
+    background: url('../images/site/wc-bg.jpg') center top no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -594,16 +599,6 @@ img.box-image {
     }
 }
 
-@media (max-width:767px) {
-    .site-footer {
-        padding-bottom: 0
-    }
-
-    .site-footer .copyright-text,
-    .site-footer .social-icons {
-        text-align: center
-    }
-}
 
 .social-icons {
     padding-left: 0;
@@ -704,7 +699,7 @@ div[id*='contacts-webchat-'].onchat #contacts-webchat-tabs .chat {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    justify-content: flex-start;
+    justify-content: start;
     -webkit-justify-content: start;
     align-items: center;
     -webkit-box-align: center;
@@ -901,6 +896,15 @@ div[id*='contacts-webchat-'] .text {
     .product-title {
         font-size: 16px;
     }
+
+
+    .contact-webchat-content {
+        display: block !important;
+    }
+
+    .footerDetail {
+        max-width: 100%;
+    }
 }
 
 @media screen and (min-width: 1366px) and (max-width: 1500px) {
@@ -926,5 +930,30 @@ div[id*='contacts-webchat-'] .text {
     .swiper-button-prev {
         top: 42%;
 
+    }
+}
+
+@media (max-width:767px) {
+    .site-footer {
+        padding-bottom: 0
+    }
+
+    .site-footer .copyright-text,
+    .site-footer .social-icons {
+        text-align: center
+    }
+
+    .scrollTo {
+
+        bottom: 126px;
+        right: 13px;
+        font-size: 32px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .site-footer .footerDetail {
+        margin: 0;
+        flex-direction: column !important;
     }
 }
