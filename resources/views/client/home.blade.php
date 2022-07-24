@@ -126,7 +126,7 @@
             @foreach($brands as $brand)
             @if($brand->active_state)
             <div class="item ">
-                <a href="#"><img alt="" src="{{ asset('/storage/'.$brand->cover) }}"></a>
+                <a href="{{ route('mysite.index', [$brand->slug, $brand->brand_design_id] ) }}"><img  alt="" src="{{ asset('/storage/'.$brand->cover) }}"></a>
 
             </div>
             @endif

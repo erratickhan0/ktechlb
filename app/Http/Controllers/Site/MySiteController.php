@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class MySiteController extends Controller
 {
-    public function index($slug){
-
+    public function index($brand,$design){
+        
         return view('site/site');
     }
 }

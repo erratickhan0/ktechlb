@@ -20,9 +20,13 @@ Route::get('/', function () {
         [ 'brands' => $brands
         ]);
 });
-Route::get('/{slug}', 'Site\MySiteController@index')->name('mysite.index');
+
 
 Auth::routes();
+
+Route::get('site/{brand}/{design}', 'Site\MySiteController@index')->name('mysite.index');
+
+
 
 
 

@@ -20,4 +20,15 @@
             </div>
         </div>
     </div>
+    <div class="container-fluid mt--6">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <settings-form></settings-form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

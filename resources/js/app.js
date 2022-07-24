@@ -16,7 +16,12 @@ import 'vue-toast-notification/dist/theme-sugar.css';
 Vue.use(VueToast, { position: 'top-right' });
 import { ToggleButton } from 'vue-js-toggle-button';
 Vue.component('ToggleButton', ToggleButton);
+
+
 Vue.component('brands-form', require('./components/BrandsForm').default);
+Vue.component('settings-form', require('./components/SettingsForm').default);
+
+
 import vSelect from 'vue-select';
 Vue.component('v-select', vSelect);
 import 'vue-select/dist/vue-select.css';
