@@ -14,4 +14,8 @@ class Brand extends Model
     {
         return $this->belongsTo(BrandDesign::class);
     }
+    public function brand_settings()
+    {
+        return $this->hasOne(BrandSettings::class);
+    }
 }

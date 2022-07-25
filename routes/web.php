@@ -34,7 +34,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
 
     Route::get('home', 'HomeController@index')->name('home');
     Route::get('brand/switch', 'HomeController@switchBrands')->name('brand.switch');
-    Route::get('brand/{slug}', 'HomeController@changeBrand')->name('brand');
+    Route::get('brand/{slug}/settings', 'HomeController@changeBrand')->name('mybrand.settings');
     Route::get('brand/{slug}/slider', 'MyBrandSliderController@index')->name('mybrand.slider');
     Route::resource('brands', 'BrandsController', ['except' => ['show']]);
     Route::post('/brands/{brand}', 'BrandsController@update')->name('brands.update');
@@ -46,6 +46,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
 	 Route::get('icons', function () {return view('pages.icons');})->name('icons');
 	 Route::get('table-list', function () {return view('pages.tables');})->name('table');
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+
+    Route::post('/mybrand/settings/{brand}', 'BrandSettingsController@store')->name('mybrand.settings.store');
 });
 
 

@@ -45,10 +45,11 @@ class HomeController extends Controller
        else{
            return redirect()->back();
        }
-        return redirect()->route('admin.brand', ['slug' => $request->input('brand')]);
+        return redirect()->route('admin.mybrand.settings', ['slug' => $request->input('brand')]);
     }
     public function changeBrand($slug){
         $brand = Brand::where('slug',$slug)->first();
+        $brand->load('brand_settings');
         \JavaScript::put([
                 'brand' => $brand,
             ]
