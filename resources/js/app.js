@@ -20,6 +20,7 @@ Vue.component('ToggleButton', ToggleButton);
 
 Vue.component('brands-form', require('./components/BrandsForm').default);
 Vue.component('settings-form', require('./components/SettingsForm').default);
+Vue.component('slider-form', require('./components/SliderForm').default);
 
 
 import vSelect from 'vue-select';

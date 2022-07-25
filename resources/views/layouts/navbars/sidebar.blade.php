@@ -129,13 +129,18 @@
                 </li>
                 @if(session()->get('selected_brand'))
                     <li class="nav-item">
-                        <a class="nav-link active" href="javascript:;" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                        <a class="nav-link " href="#mybrands-navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="mybrands-navbar-examples">
                             <i class="fab fa-laravel" style="color: #f4645f;"></i>
                             <span class="nav-link-text" style="color: #f4645f;">{{ __(session()->get('selected_brand')->name) }}</span>
                         </a>
 
-                        <div class="collapse show" id="navbar-examples">
+                        <div class="collapse show" id="mybrands-navbar-examples">
                             <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.mybrand.settings',session()->get('selected_brand')->slug) }}">
+                                        {{ __('Settings') }}
+                                    </a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('admin.mybrand.slider',session()->get('selected_brand')->slug) }}">
                                         {{ __('Top Slider') }}
@@ -148,6 +153,7 @@
                                 </li>--}}
                             </ul>
                         </div>
+
                     </li>
                 @endif
 
