@@ -2100,7 +2100,89 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "SliderForm"
+  name: "SliderForm",
+  data: function data() {
+    return {
+      slider: {
+        title: '',
+        description: '',
+        banner_image: []
+      },
+      isLoading: false,
+      fullPage: false,
+      loader: "spinner",
+      is_edit: 0,
+      brand: brand,
+      colours: ['white', 'black']
+    };
+  },
+  methods: {
+    handleFileUpload: function handleFileUpload() {
+      console.log(this.$refs.form_logo.files[0]);
+      this.slider.banner_image = this.$refs.form_logo.files[0];
+    },
+    getFormData: function getFormData() {
+      var formData = new FormData();
+      formData.append('banner', this.slider.banner_image);
+      formData.append('description', this.slider.description);
+      formData.append('title', this.slider.title);
+      formData.append('colour', this.slider.colour);
+      return formData;
+    },
+    saveSliderForm: function saveSliderForm() {
+      var _this = this;
+
+      this.$refs['branding_form'].validate().then(function (success) {
+        if (!success) {
+          return false;
+        }
+
+        _this.isLoading = true;
+        var post_url = "/admin/brands";
+
+        if (_this.is_edit) {
+          var post_url = "/admin/brands/" + _this.brand.id;
+        }
+
+        axios.post(post_url, _this.getFormData(), {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }).then(function (response) {
+          _this.isLoading = false;
+
+          if (response.data.status == 'OK') {
+            _this.$toast.success(response.data.message, {
+              'duration': 5000
+            });
+
+            setTimeout(function () {
+              window.location.href = '/admin/brands';
+            }, 1000);
+          }
+
+          if (response.data.status == 'ERROR') {
+            console.log(response.data.message);
+
+            _this.$toast.error(response.data.message, {
+              'duration': 5000
+            });
+          }
+        })["catch"](function (error) {
+          console.log(JSON.stringify(error));
+
+          _this.$toast.error(JSON.stringify(error), {
+            'duration': 5000
+          });
+        });
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.is_edit = this.brand ? 1 : 0;
+
+    if (this.brand) {}
+  }
 });
 
 /***/ }),
@@ -2811,7 +2893,172 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div");
+  return _c("div", [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-lg-12"
+  }, [_c("div", {
+    staticClass: "card"
+  }, [_c("div", {
+    staticClass: "card-body"
+  }, [_c("div", {
+    staticClass: "row mb-2"
+  }, [_c("div", {
+    staticClass: "col-lg-12"
+  }, [_c("validation-observer", {
+    ref: "slider_form"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-6 form-group"
+  }, [_c("validation-provider", {
+    attrs: {
+      name: "Title",
+      rules: "required"
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(v) {
+        return [_c("label", [_vm._v("Slider Title")]), _vm._v(" "), _c("input", {
+          directives: [{
+            name: "model",
+            rawName: "v-model",
+            value: _vm.slider.title,
+            expression: "slider.title"
+          }],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            name: "Title",
+            placeholder: "Title"
+          },
+          domProps: {
+            value: _vm.slider.title
+          },
+          on: {
+            input: function input($event) {
+              if ($event.target.composing) return;
+
+              _vm.$set(_vm.slider, "title", $event.target.value);
+            }
+          }
+        }), _vm._v(" "), _c("span", {
+          staticClass: "field-errors"
+        }, [_vm._v(_vm._s(v.errors[0]))])];
+      }
+    }])
+  })], 1), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 form-group"
+  }, [_c("validation-provider", {
+    attrs: {
+      name: "Description",
+      rules: "required"
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(v) {
+        return [_c("label", [_vm._v("Slider Desc")]), _vm._v(" "), _c("input", {
+          directives: [{
+            name: "model",
+            rawName: "v-model",
+            value: _vm.slider.description,
+            expression: "slider.description"
+          }],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            name: "Description",
+            placeholder: "Description"
+          },
+          domProps: {
+            value: _vm.slider.description
+          },
+          on: {
+            input: function input($event) {
+              if ($event.target.composing) return;
+
+              _vm.$set(_vm.slider, "description", $event.target.value);
+            }
+          }
+        }), _vm._v(" "), _c("span", {
+          staticClass: "field-errors"
+        }, [_vm._v(_vm._s(v.errors[0]))])];
+      }
+    }])
+  })], 1)]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-6"
+  }, [_c("div", {
+    staticClass: "form-group required"
+  }, [_c("label", {
+    attrs: {
+      "for": "logo"
+    }
+  }, [_vm._v("Banner Image(W:500px x H:500px)")]), _vm._v(" "), _c("div", [_c("input", {
+    ref: "form_cover",
+    staticClass: "form-control",
+    attrs: {
+      accept: "image/*,video/mp4,video/x-m4v,video/*",
+      id: "cover",
+      type: "file",
+      name: "cover"
+    },
+    on: {
+      change: function change($event) {
+        return _vm.handleFileUploadCover();
+      }
+    }
+  })])])])]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("validation-provider", {
+    attrs: {
+      name: "Brand Design",
+      rules: "required"
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(v) {
+        return [_c("label", [_vm._v("Select Colour")]), _vm._v(" "), _c("v-select", {
+          attrs: {
+            name: "brand_design",
+            placeholder: "Select Design",
+            options: _vm.colours,
+            label: "name",
+            code: "id",
+            reduce: function reduce(label) {
+              return label.id;
+            }
+          },
+          model: {
+            value: _vm.slider.colour,
+            callback: function callback($$v) {
+              _vm.$set(_vm.slider, "colour", $$v);
+            },
+            expression: "slider.colour"
+          }
+        }), _vm._v(" "), _c("span", {
+          staticClass: "field-errors"
+        }, [_vm._v(_vm._s(v.errors[0]))])];
+      }
+    }])
+  })], 1)])]), _vm._v(" "), _c("div", {
+    staticClass: "row mt-3"
+  }, [_c("div", {
+    staticClass: "col-md-6 text-left"
+  }, [_c("a", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      href: "javascript:;"
+    },
+    on: {
+      click: _vm.saveSliderForm
+    }
+  }, [_vm._v("Save")])])])])], 1)])])])])])]);
 };
 
 var staticRenderFns = [];

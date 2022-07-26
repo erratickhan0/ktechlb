@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class BrandSettings extends Model
 {
+    protected $table = 'brand_settings';
     protected $fillable = [
                 'home_nav_header',
                 'about_nav_header',

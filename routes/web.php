@@ -36,6 +36,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
     Route::get('brand/switch', 'HomeController@switchBrands')->name('brand.switch');
     Route::get('brand/{slug}/settings', 'HomeController@changeBrand')->name('mybrand.settings');
     Route::get('brand/{slug}/slider', 'MyBrandSliderController@index')->name('mybrand.slider');
+    Route::get('brand/{slug}/slider/create', 'MyBrandSliderController@create')->name('mybrand.slider.create');
+
     Route::resource('brands', 'BrandsController', ['except' => ['show']]);
     Route::post('/brands/{brand}', 'BrandsController@update')->name('brands.update');
 	Route::resource('user', 'UserController', ['except' => ['show']]);

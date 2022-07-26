@@ -18,4 +18,8 @@ class Brand extends Model
     {
         return $this->hasOne(BrandSettings::class);
     }
+    public function slider_section()
+    {
+        return $this->hasOne(SliderSection::class);
+    }
 }
