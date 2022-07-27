@@ -18,7 +18,7 @@ class CreateSliderSectionsTable extends Migration
             $table->foreignId('brand_id');
             $table->string('title')->nullable();
             $table->string('description')->nullable();
-            $table->string('file_path');
+            $table->string('file_path')->nullable();
             $table->string('colour')->nullable();
             $table->timestamps();
         });

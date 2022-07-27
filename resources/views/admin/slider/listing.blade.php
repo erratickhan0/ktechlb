@@ -5,7 +5,7 @@
     <div class="header bg-primary pb-6">
         <div class="container-fluid">
             <div class="header-body">
-                <div class="row align-items-center py-4">
+                <div class="row align-items-center py-6">
                     <div class="col-lg-6 col-7">
                         <h6 class="h2 text-white d-inline-block mb-0">
                             <span>Slider Section</span>
@@ -18,7 +18,7 @@
                             </ol>
                         </nav>
                     </div>
-                    <div class="col-lg-6 col-5 text-right">
+                    <div class="col-lg-6 col-5 mt-2 text-right">
                         <a href="{{ route('admin.mybrand.slider.create',['slug' => $slug]) }}" class="btn btn-primary">Create new slide</a>
                     </div>
                 </div>
