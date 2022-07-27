@@ -20,11 +20,10 @@ class MyBrandSliderController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index($slug)
+    public function index(Request $request)
     {
-
-       $brand = Brand::with('slider_section')->where('slug',$slug)->first();
-
+        $my_brand = $request->session()->get('selected_brand', 'default');
+       $brand = Brand::with('slider_section')->where('slug',$my_brand->slug)->first();
         return view('admin.slider.listing',['slider' => $brand->slider_section, 'slug' => $brand->slug ]);
     }
     /**
@@ -32,11 +31,10 @@ class MyBrandSliderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($slug)
+    public function create()
     {
         $brand = new Brand();
-        return response()->view('admin/slider.form', [ 'slug' => $slug
-        ]);
+        return response()->view('admin/slider.form');
     }
     /**
      * Store a newly created resource in storage.
@@ -80,6 +78,18 @@ class MyBrandSliderController extends Controller
         $slider->file_path = Storage::disk('public')->putFile('slider_section', $request->file('file_path'));
         $slider->save();
 
-        return response()->view('admin/slider.listing', [ ]);
+        return redirect()
+            ->route('admin.mybrand.slider')
+            ->with('success', 'New slide has been created');
+    }
+    public function destroy(Request $request){
+
+        $slider = SliderSection::find($request->input('slider'));
+        Storage::disk('public')->delete($slider->file_path);
+        $slider->delete();
+        $brand = $request->session()->get('selected_brand');
+        return redirect()
+            ->route('admin.mybrand.slider',['slug'=> $brand->slug ])
+            ->with('success', 'Slide has been deleted');
     }
 }

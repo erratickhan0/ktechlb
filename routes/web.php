@@ -36,9 +36,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
     Route::get('brand/switch', 'HomeController@switchBrands')->name('brand.switch');
     Route::get('brand/{slug}/settings', 'HomeController@changeBrand')->name('mybrand.settings');
 
-    Route::get('brand/{slug}/slider', 'MyBrandSliderController@index')->name('mybrand.slider');
-    Route::get('brand/{slug}/slider/create', 'MyBrandSliderController@create')->name('mybrand.slider.create');
-    Route::post('brand/{slug}/slider/store', 'MyBrandSliderController@store')->name('mybrand.slider.store');
+    Route::get('mybrand/{slug}/slider', 'MyBrandSliderController@index')->name('mybrand.slider');
+    Route::get('mybrand/slider/create', 'MyBrandSliderController@create')->name('mybrand.slider.create');
+    Route::post('mybrand/slider/store', 'MyBrandSliderController@store')->name('mybrand.slider.store');
+    Route::delete('mybrand/slider/delete', 'MyBrandSliderController@destroy')->name('mybrand.slider.delete');
 
     Route::resource('brands', 'BrandsController', ['except' => ['show']]);
     Route::post('/brands/{brand}', 'BrandsController@update')->name('brands.update');

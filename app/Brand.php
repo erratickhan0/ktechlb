@@ -20,6 +20,6 @@ class Brand extends Model
     }
     public function slider_section()
     {
-        return $this->hasOne(SliderSection::class);
+        return $this->hasMany(SliderSection::class);
     }
 }

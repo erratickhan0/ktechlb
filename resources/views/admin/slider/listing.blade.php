@@ -19,7 +19,7 @@
                         </nav>
                     </div>
                     <div class="col-lg-6 col-5 mt-2 text-right">
-                        <a href="{{ route('admin.mybrand.slider.create',['slug' => $slug]) }}" class="btn btn-primary">Create new slide</a>
+                        <a href="{{ route('admin.mybrand.slider.create') }}" class="btn btn-primary">Create new slide</a>
                     </div>
                 </div>
             </div>
@@ -39,8 +39,8 @@
                             <table class="table align-items-center">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Active Status</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
                                     <th>Created At</th>
                                     <th>Logo</th>
                                     <th><!--Actions --></th>
@@ -48,11 +48,11 @@
                                 </thead>
                                 <tbody>
                                 @foreach($slider ?? []  as $slide)
-<!--                                    <tr>
-                                        <td class="align-middle name mb-0 text-sm">{{$slide->name}}</td>
-                                        <td class="align-middle">{{$brand->active_state ? 'Yes':'No'}}</td>
-                                        <td class="align-middle">{{$brand->created_at}}</td>
-                                        <td class="align-middle"><img width="100px" height="70px" src="{{asset('storage/'.$brand->logo)}}"></td>
+                               <tr>
+                                        <td class="align-middle name mb-0 text-sm">{{$slide->title}}</td>
+                                        <td class="align-middle">{{$slide->description}}</td>
+                                        <td class="align-middle">{{$slide->created_at}}</td>
+                                        <td class="align-middle"><img width="100px" height="70px" src="{{asset('storage/'.$slide->file_path)}}"></td>
                                         <td class="text-right">
                                             <div class="nav-item dropdown text-right">
                                                 <a class="btn btn-default dropdown-toggle" href="javascript:;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -60,17 +60,16 @@
                                                 </a>
 
                                                 <div class="dropdown-menu dropdown-menu-right" >
-                                                    <a class="dropdown-item" href="{{ route('admin.brands.edit', $brand->id) }}">Edit</a>
                                                     <a href="javascript:;"
                                                        class="dropdown-item"
                                                        data-toggle="modal"
                                                        data-target="#confirm_delete"
-                                                       data-action="{{ route('admin.brands.destroy', $brand->id) }}"
+                                                       data-action="{{ route('admin.mybrand.slider.delete',['slider' =>$slide->id] ) }}"
                                                        data-confirm="Are you sure you want to delete this Brand?">Delete</a>
                                                 </div>
                                             </div>
                                         </td>
-                                    </tr>-->
+                                    </tr>
                                 @endforeach
 
                                 </tbody>
