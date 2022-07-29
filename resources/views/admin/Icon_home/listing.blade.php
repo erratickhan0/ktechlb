@@ -8,18 +8,18 @@
                 <div class="row align-items-center py-6">
                     <div class="col-lg-6 col-7">
                         <h6 class="h2 text-white d-inline-block mb-0">
-                            <span>Slider Section</span>
+                            <span>Icon Section</span>
                             <small class="badge badge-light ml-1">Total</small>
                         </h6>
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item active"><a href="#">Slider Section</a></li>
+                                <li class="breadcrumb-item active"><a href="#">Icon Section</a></li>
                             </ol>
                         </nav>
                     </div>
                     <div class="col-lg-6 col-5 mt-2 text-right">
-                        <a href="{{ route('admin.mybrand.slider.create') }}" class="btn btn-primary">Create new slide</a>
+                        <a href="{{ route('admin.mybrand.icon.create') }}" class="btn btn-primary">Create new icon</a>
                     </div>
                 </div>
             </div>
@@ -40,25 +40,19 @@
                                 <thead class="thead-light">
                                 <tr>
                                     <th>Title</th>
-                                    <th>Description</th>
                                     <th>Created At</th>
-                                    <th>Logo</th>
+                                    <th>Icon</th>
                                     <th><!--Actions --></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($slider ?? []  as $slide)
+                                @foreach($icon ?? []  as $icon)
                                <tr>
-                                        <td class="align-middle name mb-0 text-sm">{{$slide->title}}</td>
-                                        <td class="align-middle">{{$slide->description}}</td>
-                                        <td class="align-middle">{{$slide->created_at}}</td>
+                                        <td class="align-middle name mb-0 text-sm">{{$icon->title}}</td>
+                                        <td class="align-middle">{{$icon->created_at}}</td>
 
                                         <td class="align-middle">
-                                            @if($slide->mime_type == 'image')
-                                            <img width="100px" height="70px" src="{{asset('storage/'.$slide->file_path)}}" />
-                                                @else
-                                                <a target="_blank" href="{{asset('storage/'.$slide->file_path)}}">Video Link</a>
-                                                @endif
+                                            <img width="100px" height="70px" src="{{asset('storage/'.$icon->file_path)}}" />
                                         </td>
                                         <td class="text-right">
                                             <div class="nav-item dropdown text-right">
@@ -71,8 +65,8 @@
                                                        class="dropdown-item"
                                                        data-toggle="modal"
                                                        data-target="#confirm_delete"
-                                                       data-action="{{ route('admin.mybrand.slider.delete',['slider' =>$slide->id] ) }}"
-                                                       data-confirm="Are you sure you want to delete this Brand?">Delete</a>
+                                                       data-action="{{ route('admin.mybrand.icon.delete',['icon' =>$icon->id] ) }}"
+                                                       data-confirm="Are you sure you want to delete this Icon?">Delete</a>
                                                 </div>
                                             </div>
                                         </td>

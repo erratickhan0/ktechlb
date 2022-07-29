@@ -36,23 +36,31 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
     Route::get('brand/switch', 'HomeController@switchBrands')->name('brand.switch');
     Route::get('brand/{slug}/settings', 'HomeController@changeBrand')->name('mybrand.settings');
 
-    Route::get('mybrand/{slug}/slider', 'MyBrandSliderController@index')->name('mybrand.slider');
-    Route::get('mybrand/slider/create', 'MyBrandSliderController@create')->name('mybrand.slider.create');
-    Route::post('mybrand/slider/store', 'MyBrandSliderController@store')->name('mybrand.slider.store');
-    Route::delete('mybrand/slider/delete', 'MyBrandSliderController@destroy')->name('mybrand.slider.delete');
-
     Route::resource('brands', 'BrandsController', ['except' => ['show']]);
     Route::post('/brands/{brand}', 'BrandsController@update')->name('brands.update');
-	Route::resource('user', 'UserController', ['except' => ['show']]);
-	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
+
+    Route::resource('user', 'UserController', ['except' => ['show']]);
+
+    Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
-	Route::get('upgrade', function () {return view('pages.upgrade');})->name('upgrade');
-	 Route::get('map', function () {return view('pages.maps');})->name('map');
-	 Route::get('icons', function () {return view('pages.icons');})->name('icons');
-	 Route::get('table-list', function () {return view('pages.tables');})->name('table');
+
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 
-    Route::post('/mybrand/settings/{brand}', 'BrandSettingsController@store')->name('mybrand.settings.store');
+    Route::group(['middleware' => 'mybrandsession'], function () {
+        Route::get('mybrand/{slug}/slider', 'MyBrandSliderController@index')->name('mybrand.slider');
+        Route::get('mybrand/slider/create', 'MyBrandSliderController@create')->name('mybrand.slider.create');
+        Route::post('mybrand/slider/store', 'MyBrandSliderController@store')->name('mybrand.slider.store');
+        Route::delete('mybrand/slider/delete', 'MyBrandSliderController@destroy')->name('mybrand.slider.delete');
+
+        Route::get('mybrand/{slug}/icon', 'MyBrandIconController@index')->name('mybrand.icon');
+        Route::get('mybrand/icon/create', 'MyBrandIconController@create')->name('mybrand.icon.create');
+        Route::post('mybrand/icon/store', 'MyBrandIconController@store')->name('mybrand.icon.store');
+        Route::delete('mybrand/icon/delete', 'MyBrandIconController@destroy')->name('mybrand.icon.delete');
+
+        Route::post('/mybrand/settings/{brand}', 'BrandSettingsController@store')->name('mybrand.settings.store');
+    });
+
+
 });
 
 

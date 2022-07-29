@@ -22,4 +22,8 @@ class Brand extends Model
     {
         return $this->hasMany(SliderSection::class);
     }
+    public function icon_section()
+    {
+        return $this->hasMany(IconSection::class);
+    }
 }

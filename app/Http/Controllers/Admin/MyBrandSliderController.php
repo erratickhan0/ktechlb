@@ -24,7 +24,7 @@ class MyBrandSliderController extends Controller
     {
         $my_brand = $request->session()->get('selected_brand', 'default');
        $brand = Brand::with('slider_section')->where('slug',$my_brand->slug)->first();
-        return view('admin.slider.listing',['slider' => $brand->slider_section, 'slug' => $brand->slug ]);
+        return view('admin.Slider_home.listing',['slider' => $brand->slider_section, 'slug' => $brand->slug ]);
     }
     /**
      * Show the form for creating a new resource.
@@ -34,7 +34,7 @@ class MyBrandSliderController extends Controller
     public function create()
     {
         $brand = new Brand();
-        return response()->view('admin/slider.form');
+        return response()->view('admin/Slider_home.form');
     }
     /**
      * Store a newly created resource in storage.
