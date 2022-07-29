@@ -151,6 +151,11 @@
                                         {{ __('Icon Uploader Section') }}
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.mybrand.product',session()->get('selected_brand')->slug) }}">
+                                        {{ __('Product Uploader Section') }}
+                                    </a>
+                                </li>
                                 {{--<li class="nav-item">
                                     <a class="nav-link" href="{{ route('user.index') }}">
                                         {{ __('User Management') }}

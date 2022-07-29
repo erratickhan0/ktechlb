@@ -7,18 +7,18 @@
             <div class="header-body">
                 <div class="row align-items-center py-6">
                     <div class="col-lg-6 col-7">
-                    <h6 class="h2 text-white d-inline-block mb-0">
-                            <span>Brands Management</span>
+                        <h6 class="h2 text-white d-inline-block mb-0">
+                            <span>Product Section</span>
                         </h6>
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item active"><a href="#">Brands Management</a></li>
+                                <li class="breadcrumb-item active"><a href="#">Product Section</a></li>
                             </ol>
                         </nav>
                     </div>
-                    <div class="col-lg-6 col-5 text-right">
-                        <a href="{{ route('admin.brands.create') }}" class="btn btn-primary">Create Brand</a>
+                    <div class="col-lg-6 col-5 mt-2 text-right">
+                        <a href="{{ route('admin.mybrand.product.create') }}" class="btn btn-primary">Create new product</a>
                     </div>
                 </div>
             </div>
@@ -38,20 +38,22 @@
                             <table class="table align-items-center">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Active Status</th>
+                                    <th>Title</th>
                                     <th>Created At</th>
-                                    <th>Logo</th>
+                                    <th>Product Image</th>
                                     <th><!--Actions --></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($brands as $brand)
-                                    <tr>
-                                        <td class="align-middle name mb-0 text-sm">{{$brand->name}}</td>
-                                        <td class="align-middle">{{$brand->active_state ? 'Yes':'No'}}</td>
-                                        <td class="align-middle">{{$brand->created_at}}</td>
-                                        <td class="align-middle"><img width="100px" height="70px" src="{{asset('storage/'.$brand->logo)}}"></td>
+                                @foreach($products ?? []  as $product)
+                               <tr>
+                                        <td class="align-middle name mb-0 text-sm">{{$product->title}}</td>
+                                        <td class="align-middle">{{$product->created_at}}</td>
+
+                                        <td class="align-middle">
+
+                                            <img width="100px" height="70px" src="{{asset('storage/'.$product->product_image)}}" />
+                                        </td>
                                         <td class="text-right">
                                             <div class="nav-item dropdown text-right">
                                                 <a class="btn btn-default dropdown-toggle" href="javascript:;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -59,13 +61,12 @@
                                                 </a>
 
                                                 <div class="dropdown-menu dropdown-menu-right" >
-                                                    <a class="dropdown-item" href="{{ route('admin.brands.edit', $brand->id) }}">Edit</a>
                                                     <a href="javascript:;"
                                                        class="dropdown-item"
                                                        data-toggle="modal"
                                                        data-target="#confirm_delete"
-                                                       data-action="{{ route('admin.brands.destroy', $brand->id) }}"
-                                                       data-confirm="Are you sure you want to delete this Brand?">Delete</a>
+                                                       data-action="{{ route('admin.mybrand.product.delete',['product' =>$product->id] ) }}"
+                                                       data-confirm="Are you sure you want to delete this Product?">Delete</a>
                                                 </div>
                                             </div>
                                         </td>
