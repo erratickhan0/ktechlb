@@ -76,10 +76,11 @@ class MyBrandSliderController extends Controller
         $slider->fill($request->input());
         $slider->save();
         $slider->file_path = Storage::disk('public')->putFile('slider_section', $request->file('file_path'));
+        $slider->mime_type = $mime_type[0];
         $slider->save();
-
+        $my_brand = $request->session()->get('selected_brand', 'default');
         return redirect()
-            ->route('admin.mybrand.slider')
+            ->route('admin.mybrand.slider',['slug' => $my_brand->slug])
             ->with('success', 'New slide has been created');
     }
     public function destroy(Request $request){

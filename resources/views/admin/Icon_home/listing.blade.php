@@ -52,7 +52,14 @@
                                         <td class="align-middle name mb-0 text-sm">{{$slide->title}}</td>
                                         <td class="align-middle">{{$slide->description}}</td>
                                         <td class="align-middle">{{$slide->created_at}}</td>
-                                        <td class="align-middle"><img width="100px" height="70px" src="{{asset('storage/'.$slide->file_path)}}"></td>
+
+                                        <td class="align-middle">
+                                            @if($slide->mime_type == 'image')
+                                            <img width="100px" height="70px" src="{{asset('storage/'.$slide->file_path)}}" />
+                                                @else
+                                                <a target="_blank" href="{{asset('storage/'.$slide->file_path)}}">Video Link</a>
+                                                @endif
+                                        </td>
                                         <td class="text-right">
                                             <div class="nav-item dropdown text-right">
                                                 <a class="btn btn-default dropdown-toggle" href="javascript:;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
