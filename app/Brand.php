@@ -30,4 +30,8 @@ class Brand extends Model
     {
         return $this->hasMany(ProductSection::class);
     }
+    public function banner_section()
+    {
+        return $this->hasOne(HomepageBanners::class);
+    }
 }

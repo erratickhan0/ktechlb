@@ -156,6 +156,11 @@
                                         {{ __('Product Uploader Section') }}
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.mybrand.banner',session()->get('selected_brand')->slug) }}">
+                                        {{ __('Banners Uploader Section') }}
+                                    </a>
+                                </li>
                                 {{--<li class="nav-item">
                                     <a class="nav-link" href="{{ route('user.index') }}">
                                         {{ __('User Management') }}
