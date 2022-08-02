@@ -182,7 +182,8 @@ export default {
                         if (response.data.status == 'OK') {
                             this.$toast.success(response.data.message, {'duration': 5000});
                             setTimeout( () => {
-                                window.location.href = '/admin/brands';
+                                window.location = Laravel.baseUrl+'admin/brands';
+
                             }, 1000);
                         }
                         if (response.data.status == 'ERROR') {
@@ -203,7 +204,6 @@ export default {
 
     mounted: function() {
         this.is_edit = this.brand ? 1 : 0 ;
-        console.log(this.is_edit,'zee');
         if(this.brand){
            this.branding.name = this.brand.name;
             this.branding.active_state = this.brand.active_state;
