@@ -42,4 +42,8 @@ class Brand extends Model
     {
         return $this->hasOne(LogoTitleSection::class);
     }
+    public function button_accordian_section()
+    {
+        return $this->hasOne(ButtonAccordianSection::class);
+    }
 }

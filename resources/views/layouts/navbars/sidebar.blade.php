@@ -171,6 +171,11 @@
                                         {{ __('Logo Title Uploader Section') }}
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.mybrand.button-accordian',session()->get('selected_brand')->slug) }}">
+                                        {{ __('Button/Accordian Section') }}
+                                    </a>
+                                </li>
                                 {{--<li class="nav-item">
                                     <a class="nav-link" href="{{ route('user.index') }}">
                                         {{ __('User Management') }}

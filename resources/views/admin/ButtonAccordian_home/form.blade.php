@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    @if (!isset($logo_title))
-        {{ Form::open(['route' => ['admin.mybrand.logo-title.store'], 'role' => 'form', 'id' => 'icon-form', 'files' => true]) }}
+    @if (!isset($button_accordian))
+        {{ Form::open(['route' => ['admin.mybrand.button-accordian.store'], 'role' => 'form', 'id' => 'icon-form', 'files' => true]) }}
     @else
-        {{ Form::open(['route' => ['admin.mybrand.logo-title.update',$logo_title->id], 'role' => 'form', 'id' => 'icon-form', 'files' => true]) }}
+        {{ Form::open(['route' => ['admin.mybrand.button-accordian.update',$button_accordian->id], 'role' => 'form', 'id' => 'icon-form', 'files' => true]) }}
     @endif
     <!-- Header -->
     <div class="header bg-primary pb-6">
@@ -14,13 +14,13 @@
                     <div class="col-lg-6 col-7">
 
                         <h6 class="h2 text-white d-inline-block mb-0">
-                            <span>Homepage LogoTitle Uploader</span>
+                            <span>Homepage Button/Accordian Section</span>
                         </h6>
 
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('admin.mybrand.logo-title',['slug'=> session()->get('selected_brand')->slug]) }}">Banner</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.mybrand.button-accordian',['slug'=> session()->get('selected_brand')->slug]) }}">Button/Accordian</a></li>
 
                             </ol>
                         </nav>
@@ -42,17 +42,8 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group required">
-                                            {{ Form::label('title1', 'Title 1*', ['for' => 'title1']) }}
-                                            {{ Form::text('title1', isset($logo_title) ? $logo_title->title1:null, array('class' => 'form-control')) }}
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="form-group required">
-                                            {{ Form::label('title2', 'Title 2*', ['for' => 'title2']) }}
-                                            {{ Form::text('title2', isset($logo_title) ? $logo_title->title2:null, array('class' => 'form-control')) }}
+                                            {{ Form::label('title', 'Title*', ['for' => 'title']) }}
+                                            {{ Form::text('title', isset($button_accordian) ? $button_accordian->title:null, array('class' => 'form-control')) }}
                                         </div>
                                     </div>
 
@@ -61,22 +52,22 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('description', 'Description', ['for' => 'description']) }}
-                                            {{ Form::textarea('description',isset($logo_title) ? $logo_title->description:null, array('class' => 'form-control wysiwyg','rows' => 6, 'cols' => 40)) }}
+                                            {{ Form::textarea('description',isset($button_accordian) ? $button_accordian->description:null, array('class' => 'form-control wysiwyg','rows' => 6, 'cols' => 40)) }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group required">
-                                            {{ Form::label('logo', 'Logo*', ['for' => 'logo']) }}
-                                            <div>{{ Form::file('logo') }}</div>
+                                            {{ Form::label('image', 'Image*', ['for' => 'image']) }}
+                                            <div>{{ Form::file('image') }}</div>
                                         </div>
 
                                     </div>
-                                    @if (isset($logo_title->logo))
+                                    @if (isset($button_accordian->image))
                                         <div class="col-6  mt-n3">
-                                            <div><img src="{{ asset('storage/' .$logo_title->logo) }}" style="max-width:120px;max-height:120px" alt="Logo"></div>
-                                            <div><span>Logo</span></div>
+                                            <div><img src="{{ asset('storage/' .$button_accordian->image) }}" style="max-width:120px;max-height:120px" alt="Image"></div>
+                                            <div><span>Image</span></div>
                                         </div>
                                     @endif
                                 </div>
@@ -86,7 +77,7 @@
                                 <div class="row">
                                     <div class="col-6 mt-5">
                                     {{ Form::button('Save', ['type'=>'submit', 'class'=>'btn btn-primary']) }}
-                                    <a href="{{ route('admin.mybrand.logo-title',['slug' => session()->get('selected_brand')->slug]) }}" class="btn btn-s btn-outline-primary">Cancel</a>
+                                    <a href="{{ route('admin.mybrand.button-accordian',['slug' => session()->get('selected_brand')->slug]) }}" class="btn btn-s btn-outline-primary">Cancel</a>
                                     </div>
                                 </div>
 
