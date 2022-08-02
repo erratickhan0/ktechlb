@@ -71,6 +71,30 @@
                                         </div>
                                     @endif
                                 </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            {{ Form::label('show_button', 'Show/Hide Button', ['for' => 'show_button']) }}
+                                            {{ Form::hidden('show_button', '0') }}
+                                            <label class="custom-toggle">
+                                                {{ Form::checkbox('show_button', '1',isset($button_accordian->show_button) ? $button_accordian->show_button:false) }}
+                                                <span for="show_button" class="custom-toggle-slider rounded-circle"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            {{ Form::label('show_accordian', 'Show/Hide Accordian', ['for' => 'show_accordian']) }}
+                                            {{ Form::hidden('show_accordian', '0') }}
+                                            <label class="custom-toggle">
+                                                {{ Form::checkbox('show_accordian', '1',isset($button_accordian->show_accordian)? $button_accordian->show_accordian:false) }}
+                                                <span for="show_accordian" class="custom-toggle-slider rounded-circle"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
 
 
 
