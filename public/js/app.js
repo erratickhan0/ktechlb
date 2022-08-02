@@ -48004,6 +48004,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+__webpack_require__(/*! ./ckeditor */ "./resources/js/ckeditor.js");
+
 window.bus = new Vue();
 
 if (typeof window.vue_data === 'undefined') {
@@ -48097,6 +48100,54 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/ckeditor.js":
+/*!**********************************!*\
+  !*** ./resources/js/ckeditor.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+window.wysiwyg = {
+  loadEditorScript: function loadEditorScript(url, callback) {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+
+    if (script.readyState) {
+      // only required for IE <9
+      script.onreadystatechange = function () {
+        if (script.readyState === "loaded" || script.readyState === "complete") {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else {
+      //Others
+      script.onload = function () {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  },
+  loadEditor: function loadEditor(selector) {
+    $(selector).ckeditor({
+      enterMode: CKEDITOR.ENTER_BR,
+      autoParagraph: false,
+      allowedContent: true
+    });
+  }
+};
+$(document).ready(function () {
+  wysiwyg.loadEditorScript('//cdn.ckeditor.com/4.15.0/standard/ckeditor.js', function () {
+    wysiwyg.loadEditorScript('//cdn.ckeditor.com/4.15.0/standard/adapters/jquery.js', function () {
+      wysiwyg.loadEditor('textarea.wysiwyg');
+    });
+  });
+});
 
 /***/ }),
 

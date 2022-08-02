@@ -166,6 +166,11 @@
                                         {{ __('BoxIcon Uploader Section') }}
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.mybrand.logo-title',session()->get('selected_brand')->slug) }}">
+                                        {{ __('Logo Title Uploader Section') }}
+                                    </a>
+                                </li>
                                 {{--<li class="nav-item">
                                     <a class="nav-link" href="{{ route('user.index') }}">
                                         {{ __('User Management') }}

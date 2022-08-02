@@ -38,4 +38,8 @@ class Brand extends Model
     {
         return $this->hasOne(HomepageBanners::class);
     }
+    public function logo_title_section()
+    {
+        return $this->hasOne(LogoTitleSection::class);
+    }
 }
