@@ -44,6 +44,7 @@
 
             $("#owl-demo").owlCarousel({
                 navigation: true,
+                autoplay: true,
                 itemsCustom: [
                     [0, 1],
                     [450, 1],
@@ -67,17 +68,23 @@
             // variable 
             var VIDEO_PLAYING_STATE = {
                 "PLAYING": "PLAYING",
-                "PAUSE": "PAUSE"
+                "PAUSE": true,
+                controls: true
             }
             var videoPlayStatus = VIDEO_PLAYING_STATE.PAUSE
             var timeout = null
-            var waiting = 3000
+            var waiting = 2500
             var swiper = new Swiper(
                 '.swiper-container', {
                     navigation: {
                         nextEl: '.swiper-button-next',
                         prevEl: '.swiper-button-prev',
                     },
+                    effect: 'fade',
+                    autoplay: {
+                        delay: 5000,
+                    },
+                    speed: 3000,
                     breakpoints: {
                         // when window width is >= 320px
                         0: {
@@ -114,18 +121,7 @@
 
                 clearTimeout(timeout)
 
-                switch (currentSlideType) {
-                    case 'img':
-                        runNext()
-                        break;
-                    case 'vdo':
-                        player.currentTime(0)
-                        player.play()
-                        videoPlayStatus = VIDEO_PLAYING_STATE.PLAYING
-                        break;
-                    default:
-                        throw new Error('invalid slide type');
-                }
+
             })
 
             // global function
@@ -137,19 +133,13 @@
                 swiper.slideNext();
             }
 
-            function runNext() {
-                timeout = setTimeout(function() {
-                    next()
-                }, waiting)
-            }
 
-            runNext()
             AOS.init();
             $('#owl-carousel').owlCarousel({
                 loop: true,
-                autoplay: false,
-                autoplayTimeout: 2000,
-                autoplayHoverPause: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: false,
                 margin: 20,
                 items: 3,
                 nav: false,
@@ -178,13 +168,13 @@
             });
 
             $('#owl-carousel2').owlCarousel({
-                loop: true,
+                loop: false,
                 autoplay: false,
-                autoplayTimeout: 2000,
-                autoplayHoverPause: true,
-                margin: 20,
-                items: 3,
-                nav: false,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: false,
+                margin: 0,
+                items: 5,
+                nav: true,
                 dots: false,
                 center: false,
 
@@ -193,13 +183,32 @@
                         items: 1
                     },
                     768: {
-                        items: 2
+                        items: 3
                     },
                     1200: {
-                        items: 2
+                        items: 5
                     }
                 }
             })
+            $(document).scroll(function() {
+                var y = $(this).scrollTop();
+                if (y > 1200) {
+                    $('.scrollTo').fadeIn();
+                } else {
+                    $('.scrollTo').fadeOut();
+                }
+            });
+
+            var vid = document.getElementById("playVideo");
+            vid.pause();
+            $('.play-toggle').on('click', function() {
+                vid.play();
+                $('.video-preview-wrapper,.play-toggle').hide();
+            });
+            vid.addEventListener('pause', (event) => {
+                vid.pause();
+                $('.video-preview-wrapper,.play-toggle').show();
+            });
         });
     </script>
 
