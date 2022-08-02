@@ -4,8 +4,8 @@
         <div class="container-fluid">
             <div class="navbar-collapse" id="navbar4">
                 <ul class="navbar-nav ml-auto pl-lg-4 flex-row">
-                    <li class="nav-item px-2 "> <a class="nav-link" href="#"> <span class="d-inline-block icon-width"><i class="fas fa-mobile pr-2"></i></span>
-                            <tel>045628900</tel>
+                    <li class="nav-item px-2 "> <a class="nav-link" href="#"> <span class="d-inline-block icon-width"><i class="fas fa-mobile pr-2" aria-hidden="true"></i></span>
+                            <span>045628900</span>
                         </a>
                     </li>
                     <li class="nav-item px-2"> <a class="nav-link" href="#"><span class="d-inline-block icon-width"></span>Store</a> </li>
