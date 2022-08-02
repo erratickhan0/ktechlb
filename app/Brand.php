@@ -26,6 +26,10 @@ class Brand extends Model
     {
         return $this->hasMany(IconSection::class);
     }
+    public function boxicon_section()
+    {
+        return $this->hasMany(BoxIconSection::class);
+    }
     public function product_section()
     {
         return $this->hasMany(ProductSection::class);
