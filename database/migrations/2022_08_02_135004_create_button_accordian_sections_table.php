@@ -19,7 +19,7 @@ class CreateButtonAccordianSectionsTable extends Migration
             $table->boolean('show_button')->default(0);
             $table->boolean('show_accordian')->default(0);
             $table->string('title');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

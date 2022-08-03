@@ -1,52 +1,45 @@
 @extends('layouts.app-site')
 @section('content')
 <section class="parralaxSection"></section>
+@if(isset($brand->brand_settings))
+@if($brand->brand_settings->banner_slider_section)
 <section class="bannerSection">
-
     <div class="container-fluid">
         <div class="row">
             <a class="book" href="iconAtBanner.html"></a>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" data-slide-type="img"><img src="dist/assets/img/1.jpg" />
+                    @if($brand->slider_section)
+                        @foreach($brand->slider_section as $value)
+                            @if($value->mime_type == 'video')
+                                <div class="swiper-slide" data-slide-type="vdo">
+                                    <video id="my-player" loop="true" autoplay="autoplay" muted>
+                                        <source src="{{ asset('storage/'.$value->file_path) }}" type="video/mp4">
+                                        </source>
+                                        <p class="vjs-no-js">
+                                            To view this video please enable JavaScript, and consider upgrading to a
+                                            web browser that
+                                            <a href="https://videojs.com/html5-video-support/" target="_blank">
+                                                supports HTML5 video
+                                            </a>
+                                        </p>
+                                    </video>
+                                    <div class="setTextPosition">
+                                        <p class="captionh2">{{$value->title}}</p>
+                                        <p class="captiondesc">{{$value->description}}</p>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="swiper-slide" data-slide-type="img"><img src="{{ asset('storage/'.$value->file_path) }}" />
 
-                        <div class="setTextPosition">
-                            <p class="captionh2">COLOP e-mark</p>
-                            <p class="captiondesc">Marking a new era</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" data-slide-type="img"><img src="dist/assets/img/2.jpg" />
-
-                        <div class="setTextPosition">
-                            <p class="captionh2">COLOP e-mark</p>
-                            <p class="captiondesc">Marking a new era</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" data-slide-type="img"><img src="dist/assets/img/3.jpg" />
-
-                        <div class="setTextPosition">
-                            <p class="captionh2">COLOP e-mark</p>
-                            <p class="captiondesc">Marking a new era</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" data-slide-type="vdo">
-
-                        <video id="my-player" loop="true" autoplay="autoplay" muted>
-                            <source src="dist/assets/img/bannervideo.mp4" type="video/mp4">
-                            </source>
-                            <p class="vjs-no-js">
-                                To view this video please enable JavaScript, and consider upgrading to a
-                                web browser that
-                                <a href="https://videojs.com/html5-video-support/" target="_blank">
-                                    supports HTML5 video
-                                </a>
-                            </p>
-                        </video>
-                        <div class="setTextPosition">
-                            <p class="captionh2">COLOP e-mark</p>
-                            <p class="captiondesc">Marking a new era</p>
-                        </div>
-                    </div>
+                                    <div class="setTextPosition">
+                                        <p class="captionh2">{{$value->title}}</p>
+                                        <p class="captiondesc">{{$value->description}}</p>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                        @endif
 
                 </div>
                 <!-- Add Arrows -->
@@ -56,164 +49,69 @@
         </div>
     </div>
 </section>
-
+@endif
+@if($brand->brand_settings->icon_section)
 <section class="productCarousel mt-5 mb-5 pt-5" data-aos="fade-up" data-aos-duration="2500">
     <div class="container-fluid">
         <div class="row">
-            <div class="col col-xs-12">
-                <div class="item_s4">
-                    <div class="sec3_bot ">
-                        <div class="sec3_box aos-init aos-animate">
-                            <img src="dist/assets/img/1.png" alt="">
-                            <h3 class="head_underline_small">Compact</h3>
-                            <span class="underline_head"></span>
-                        </div>
+            @if($brand->icon_section)
+                @foreach($brand->icon_section as $value)
+                <div class="col col-xs-12">
+                    <div class="item_s4">
+                        <div class="sec3_bot ">
+                            <div class="sec3_box aos-init aos-animate">
+                                <img src="{{ asset('storage/'.$value->file_path) }}" alt="">
+                                <h3 class="head_underline_small">{{$value->title}}</h3>
+                                <span class="underline_head"></span>
+                            </div>
 
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col col-xs-12">
-                <div class="item_s4">
-                    <div class="sec3_bot ">
-                        <div class="sec3_box aos-init aos-animate">
-                            <img src="dist/assets/img/2.png" alt="">
-                            <h3 class="head_underline_small">Mobile</h3>
-                            <span class="underline_head"></span>
-                        </div>
+                @endforeach
+            @endif
 
-                    </div>
-                </div>
-            </div>
-            <div class="col col-xs-12">
-                <div class="item_s4">
-                    <div class="sec3_bot ">
-                        <div class="sec3_box aos-init aos-animate">
-                            <img src="dist/assets/img/3.png" alt="">
-                            <h3 class="head_underline_small">Compact</h3>
-                            <span class="underline_head"></span>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col col-xs-12">
-                <div class="item_s4">
-                    <div class="sec3_bot ">
-                        <div class="sec3_box aos-init aos-animate">
-                            <img src="dist/assets/img/4.png" alt="">
-                            <h3 class="head_underline_small">Mobile</h3>
-                            <span class="underline_head"></span>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col col-xs-12">
-                <div class="item_s4">
-                    <div class="sec3_bot ">
-                        <div class="sec3_box aos-init aos-animate">
-                            <img src="dist/assets/img/3.png" alt="">
-                            <h3 class="head_underline_small">Compact</h3>
-                            <span class="underline_head"></span>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
-
+@endif
+@if($brand->brand_settings->product_section)
 <section class="productSection mt-5" data-aos="fade-up" data-aos-duration="2500">
-
+    @if($brand->product_section)
     <div id="owl-carousel2" class="owl-carousel">
-
+        @foreach($brand->product_section as $value)
         <div class="item">
-            <div class="item_s4"> <img src="dist/assets/img/p11.jpg" alt="">
+            <div class="item_s4"> <img src="{{ asset('storage/'.$value->product_image) }}" alt="">
                 <div class="product-detail overlay">
-                    <div class="product-title">Lighter</div>
+                    <div class="product-title">{{$value->title}}</div>
                 </div>
-                <div class="product-logo"><img src="dist/assets/img/logo1.png" alt=""></div>
+                <div class="product-logo"><img src="{{ asset('storage/'.$value->product_logo) }}" alt=""></div>
             </div>
         </div>
-        <div class="item">
-            <div class="item_s4"> <img src="dist/assets/img/p12.jpg" alt="">
-                <div class="product-detail overlay">
-                    <div class="product-title">Camera</div>
-                </div>
-                <div class="product-logo"><img src="dist/assets/img/logo2.png" alt=""></div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="item_s4"> <img src="dist/assets/img/p13.jpg" alt="">
-                <div class="product-detail overlay">
-                    <div class="product-title">Lens</div>
-                </div>
-                <div class="product-logo"><img src="dist/assets/img/logo3.png" alt=""></div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="item_s4"> <img src="dist/assets/img/p14.jpg" alt="">
-                <div class="product-detail overlay">
-                    <div class="product-title">Lenses </div>
-                </div>
-                <div class="product-logo"><img src="dist/assets/img/logo4.png" alt=""></div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="item_s4"> <img src="dist/assets/img/p11.jpg" alt="">
-                <div class="product-detail overlay">
-                    <div class="product-title">Lighter</div>
-                </div>
-                <div class="product-logo"><img src="dist/assets/img/logo1.png" alt=""></div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="item_s4"> <img src="dist/assets/img/p12.jpg" alt="">
-                <div class="product-detail overlay">
-                    <div class="product-title">Camera</div>
-                </div>
-                <div class="product-logo"><img src="dist/assets/img/logo2.png" alt=""></div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="item_s4"> <img src="dist/assets/img/p13.jpg" alt="">
-                <div class="product-detail overlay">
-                    <div class="product-title">Lens</div>
-                </div>
-                <div class="product-logo"><img src="dist/assets/img/logo3.png" alt=""></div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="item_s4"> <img src="dist/assets/img/p14.jpg" alt="">
-                <div class="product-detail overlay">
-                    <div class="product-title">Lenses </div>
-                </div>
-                <div class="product-logo"><img src="dist/assets/img/logo4.png" alt=""></div>
-            </div>
-        </div>
+        @endforeach
     </div>
-
-
-
+    @endif
 </section>
-
+@endif
+@if($brand->brand_settings->logo_description_section)
 <section class="ebarkSection mb-5">
+    @if($brand->logo_title_section)
     <section>
         <div class="container text-center">
             <div class="row">
                 <div class="col mb-5" data-aos="fade-up" data-aos-duration="2000">
                     <div class="emark-text">
-                        <div class="text">e-mark</div>
-                        <img src="dist/assets/img/ebark.jpg" alt="ebark" style="width: 150px;">
-                        <div class="text">secure</div>
+                        <div class="text">{{$brand->logo_title_section->title1}}</div>
+                        <img src="{{ asset('storage/'.$brand->logo_title_section->logo) }}" alt="ebark" style="width: 150px;">
+                        <div class="text">{{$brand->logo_title_section->title2}}</div>
                     </div>
                 </div>
             </div>
             <div class="row" data-aos="fade-up" data-aos-duration="2500">
                 <div class="col">
                     <div class="sec2_right">
-                        <h2 class="head_underline left mb-1">A New Level Of Document Security</h2>
+                        {!! $brand->logo_title_section->description  !!}
+<!--                        <h2 class="head_underline left mb-1">A New Level Of Document Security</h2>
                         <p>
                             The falsification of documents is easier than ever before.</p>
                         <p>Documents can be ordered illegally via the internet or simply forged on the basis of a suitable
@@ -221,84 +119,51 @@
 
                         <p>The damage to the economy and society is immense.</p>
                         <p>With the emark secure we provide a unique solution for forgery-proof protection and easy verification
-                            of important physical and digital documents, fully mobile and useable everywhere.</p>
+                            of important physical and digital documents, fully mobile and useable everywhere.</p>-->
 
                         <div class="mt-4">
                             <button class="main_btn btn_blue">Read More</button>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
+    @endif
 </section>
-
-
+@endif
+@if($brand->brand_settings->logo_icon_and_description_with_boxes_section)
 <section class="sectionThree" style="overflow:hidden">
+    @if($brand->boxicon_section)
     <section class="sec_3" id="choose">
         <div class="container">
             <div class="sec3_bot">
                 <div class="row">
+                    @foreach($brand->boxicon_section as $key => $value)
+                        @if($key == 0 || $key == 3)
                     <div class="col-lg-4 col-md-6 col-xs-12" data-aos-duration="1000" data-aos="fade-right">
+                        @endif
+                        @if($key == 1 || $key == 4)
+                            <div class="col-lg-4 col-md-6 col-xs-12" data-aos-duration="1000" data-aos="fade-up">
+                                @endif
+                                @if($key == 2 || $key == 5)
+                                    <div class="col-lg-4 col-md-6 col-xs-12" data-aos-duration="1000" data-aos="fade-left">
+                                        @endif
                         <div class="sec3_box">
-                            <img src="dist/assets/img/why_choose01.png" alt="">
-                            <h3 class="head_underline_small">Compact and mobile</h3>
+                            <img src="{{ asset('storage/'.$value->box_icon) }}" alt="">
+                            <h3 class="head_underline_small">{{$value->title}}</h3>
                             <span class="underline_head"></span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur
-                                exercitationem</p>
+                            {!! $value->description !!}
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-xs-12" data-aos-duration="1500" data-aos="fade-up">
-                        <div class="sec3_box">
-                            <img src="dist/assets/img/why_choose01.png" alt="">
-                            <h3 class="head_underline_small">Changing imprints flexibly</h3>
-                            <span class="underline_head"></span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur
-                                exercitationem</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-xs-12" data-aos-duration="2500" data-aos="fade-left">
-                        <div class="sec3_box">
-                            <img src="dist/assets/img/why_choose01.png" alt="">
-                            <h3 class="head_underline_small">creating individual imprints easily</h3>
-                            <span class="underline_head"></span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur
-                                exercitationem</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-xs-12" data-aos-duration="1000" data-aos="fade-right">
-                        <div class="sec3_box">
-                            <img src="dist/assets/img/why_choose01.png" alt="">
-                            <h3 class="head_underline_small">printing on many surfaces</h3>
-                            <span class="underline_head"></span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur
-                                exercitationem</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-xs-12" data-aos-duration="2000" data-aos="fade-up">
-                        <div class="sec3_box">
-                            <img src="dist/assets/img/why_choose01.png" alt="">
-                            <h3 class="head_underline_small">Ready to use imprints templates</h3>
-                            <span class="underline_head"></span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur
-                                exercitationem</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-xs-12" data-aos-duration="2500" data-aos="fade-left">
-                        <div class="sec3_box">
-                            <img src="dist/assets/img/why_choose01.png" alt="">
-                            <h3 class="head_underline_small">Multicolor imprints</h3>
-                            <span class="underline_head"></span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur
-                                exercitationem</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
+        </div>
     </section>
+        @endif
 </section>
+@endif
 <section class="sectionFour">
     <div class="container-fluid">
         <div class="row">
@@ -433,4 +298,5 @@
         </div>
     </div>
 </section>
+ @endif
 @endsection
