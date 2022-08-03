@@ -160,6 +160,8 @@
                 </div>
             </div>
         </div>
+        </div>
+        </div>
     </section>
         @endif
 </section>
@@ -171,34 +173,31 @@
         </div>
     </div>
 </section>
+@if($brand->brand_settings->title_description_with_accordian_section)
 <div class="container-fluid" id="about" style="overflow:hidden">
     <div class="row aaa">
         <div class="cover-container d-flex w-100 p-3 mx-auto flex-column bannertop">
+            @if($brand->button_accordian_section)
             <div class="insidecontainermiddlepage">
                 <div class="row">
                     <div class="offset-sm-1 col-sm-5 col-xs-12">
-                        <h3 data-aos="fade-left" data-aos-delay="500">TITLE</h3>
-                        <p data-aos="fade-left" data-aos-duration="700">The COLOP e-mark has been recognized by various award
-                            panels for its remarkable features, design and innovative qualities. Among others, the e-mark won the
-                            coveted IF DESIGN AWARD and EOPA PRODUCT OF THE YEAR AWARD in 2020. in 2019, the same year of its
-                            arrival on the market the e-mark received a RED DOT Honourable Mention.</p>
-                        <button class="main_btn btn_blue mt-3" data-aos="fade-left" data-aos-duration="800">Read More</button>
+                        <h3 >{{$brand->button_accordian_section->title}}</h3>
+                    {!! $brand->button_accordian_section->description !!}
+                        <button class="main_btn btn_blue mt-3" >Read More</button>
                     </div>
-
-
-
                     <div class="col-sm-5  col-xs-12 text-center">
                         <div class="fleximgblock wow fadeInRight">
-                            <img src="./dist/assets/img/earth.gif" data-aos="fade-left" data-aos-duration="1000">
+                            <img src="{{ asset('storage/'.$brand->button_accordian_section->image) }}" >
                         </div>
                     </div>
 
                 </div>
             </div>
+            @endif
         </div>
     </div>
 </div>
-
+@endif
 <section data-layer="main-video" class="bg-white">
     <div id="shopify-section-main-video" class="shopify-section">
         <div class="video-player bg-black" data-section-id="main-video" data-section-type="banner">

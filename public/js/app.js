@@ -48012,9 +48012,9 @@ if (typeof window.vue_data === 'undefined') {
   window.vue_data = {};
 }
 
-axios.defaults.baseURL = "http://localhost/ktechlb/public";
+axios.defaults.baseURL = "https://ktechlb.qa/";
 window.Laravel = {
-  "baseUrl": "http://localhost/ktechlb/public"
+  "baseUrl": "https://ktechlb.qa/"
 };
 
 Vue.component('validation-provider', vee_validate_dist_vee_validate_full_esm__WEBPACK_IMPORTED_MODULE_0__["ValidationProvider"]);
@@ -48390,9 +48390,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\wampp\www\ktechlb\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\wampp\www\ktechlb\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! D:\wampp\www\ktechlb\resources\sass\app-client.scss */"./resources/sass/app-client.scss");
+__webpack_require__(/*! C:\laragon\www\ktechlb\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\laragon\www\ktechlb\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\laragon\www\ktechlb\resources\sass\app-client.scss */"./resources/sass/app-client.scss");
 
 
 /***/ })
