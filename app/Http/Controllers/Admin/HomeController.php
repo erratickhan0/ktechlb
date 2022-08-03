@@ -30,10 +30,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        If(Session::has('selected_brand')){
-
-        }
-        Session::put('selected_brand', '');
         return view('profile.edit');
     }
     public function switchBrands(Request $request){

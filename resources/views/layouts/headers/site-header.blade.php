@@ -1,5 +1,5 @@
 <header class="fixed-top">
-
+    @if(isset($brand->brand_settings))
     <nav class="navbar navbar-expand-lg navbar-dark shadow-sm bg-dark border-bottom ">
         <div class="container-fluid">
             <div class="navbar-collapse" id="navbar4">
@@ -8,17 +8,23 @@
                             <span>045628900</span>
                         </a>
                     </li>
+                    @if($brand->brand_settings->store_nav_header)
                     <li class="nav-item px-2"> <a class="nav-link" href="#"><span class="d-inline-block icon-width"></span>Store</a> </li>
+                    @endif
+                    @if($brand->brand_settings->support_nav_header)
                     <li class="nav-item px-2"> <a class="nav-link" href="#"><span class="d-inline-block icon-width"></span>Support</a> </li>
+                    @endif
+                    @if($brand->brand_settings->login_nav_header)
                     <li class="nav-item px-2"> <a class="nav-link" href="#"><span class="d-inline-block icon-width"></span><span>Login</span><i class="fa fa-user-circle pl-2"></i></a>
                     </li>
+                    @endif
                 </ul>
             </div>
         </div>
     </nav>
     <nav class="navbar navbar-expand-lg navbar-dark shadow-sm bg-dark">
         <div class="container-fluid"> <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="dist/assets/img/bg_1620476500_kanaan.png">
+                <img src="{{ asset('storage/'.$brand->logo) }}">
             </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,8 +32,13 @@
 
             <div class="collapse navbar-collapse" id="navbar4">
                 <ul class="navbar-nav ml-auto pl-lg-4">
+                    @if($brand->brand_settings->home_nav_header)
                     <li class="nav-item px-lg-2 active"> <a class="nav-link" href="#"> <span class="d-inline-block d-lg-none icon-width "></span>Home</a> </li>
+                    @endif
+                        @if($brand->brand_settings->about_nav_header)
                     <li class="nav-item px-lg-2"> <a class="nav-link" href="#"><span class="d-inline-block d-lg-none icon-width"></i></span>About Us</a> </li>
+                        @endif
+                        @if($brand->brand_settings->product_nav_header)
                     <li class="nav-item px-lg-2 dropdown">
                         <a class="nav-link " href="#">
                             <span class="d-inline-block icon-width" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,13 +58,18 @@
                                 <a href="#" class="dropdown-item">colop emark create </a>
                             </li>
                         </ul>
-
-                        </a>
                     </li>
+                        @endif
+                        @if($brand->brand_settings->news_nav_header)
                     <li class="nav-item px-lg-2"> <a class="nav-link" href="#"><span class="d-inline-block d-lg-none icon-width"></span>News</a> </li>
+                        @endif
+                        @if($brand->brand_settings->contact_nav_header)
                     <li class="nav-item px-lg-2"> <a class="nav-link" href="#"><span class="d-inline-block d-lg-none icon-width"></span>Contact Us</a> </li>
+                        @endif
+                        @if($brand->brand_settings->dealer_locator_nav_header)
                     <li class="nav-item px-lg-2"> <a class="nav-link" href="#"><span class="d-inline-block d-lg-none icon-width"></span>Dealer Locator</a>
                     </li>
+                        @endif
                     <li class="nav-item"> <a class="nav-link" href="#">
                             <i class="fa  fa-search"></i>
                         </a> </li>
@@ -64,5 +80,5 @@
             </div>
         </div>
     </nav>
-
+    @endif
 </header>
