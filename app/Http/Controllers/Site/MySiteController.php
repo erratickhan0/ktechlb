@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class MySiteController extends Controller
 {
     public function index($brand,$design){
-        $brand = Brand::with('brand_settings','slider_section','icon_section','product_section','logo_title_section','boxicon_section','button_accordian_section')->where('slug',$brand)->first();
+        $brand = Brand::with('brand_settings','slider_section','icon_section','product_section','logo_title_section','boxicon_section','button_accordian_section','news_section')->where('slug',$brand)->first();
         return view('site/site',['brand' => $brand]);
     }
 }

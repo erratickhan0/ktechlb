@@ -79,6 +79,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::post('mybrand/button-accordian/store', 'MyBrandButtonAccordianSectionController@store')->name('mybrand.button-accordian.store');
         Route::post('mybrand/button-accordian/update/{button_accordian}', 'MyBrandButtonAccordianSectionController@update')->name('mybrand.button-accordian.update');
 
+        Route::get('mybrand/{slug}/news', 'MyBrandNewsSectionController@index')->name('mybrand.news');
+        Route::get('mybrand/news/create', 'MyBrandNewsSectionController@create')->name('mybrand.news.create');
+        Route::post('mybrand/news/store', 'MyBrandNewsSectionController@store')->name('mybrand.news.store');
+        Route::delete('mybrand/news/delete', 'MyBrandNewsSectionController@destroy')->name('mybrand.news.delete');
 
         Route::post('/mybrand/settings/{brand}', 'BrandSettingsController@store')->name('mybrand.settings.store');
     });

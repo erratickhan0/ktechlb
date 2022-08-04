@@ -176,6 +176,11 @@
                                         {{ __('Button/Accordian Section') }}
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.mybrand.news',session()->get('selected_brand')->slug) }}">
+                                        {{ __('News/Blog Section') }}
+                                    </a>
+                                </li>
                                 {{--<li class="nav-item">
                                     <a class="nav-link" href="{{ route('user.index') }}">
                                         {{ __('User Management') }}

@@ -46,4 +46,8 @@ class Brand extends Model
     {
         return $this->hasOne(ButtonAccordianSection::class);
     }
+    public function news_section()
+    {
+        return $this->hasMany(NewsSection::class);
+    }
 }
