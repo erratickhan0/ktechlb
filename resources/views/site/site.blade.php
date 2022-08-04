@@ -217,10 +217,7 @@
                 </svg>
             </button>
         </div>
-
-
-
-    </div>
+ </div>
 </section>
 <section class="sectionSeven " data-aos="fade-up" data-aos-duration="1500">
     <div class="container">
@@ -234,6 +231,7 @@
         </div>
     </div>
 </section>
+@if($brand->brand_settings->news_blogs_section)
 <section class="newsSection spacing">
     <section class="sec_2">
         <div class="container-fluid text-center">
@@ -243,43 +241,19 @@
             </div>
             <div class="s2_bot">
                 <div class="row">
-                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="600" data-aos-duration="600">
+                    @if($brand->news_section)
+                     @foreach($brand->news_section as $key => $value)
+                         @if($key)
+                    <div class="col-md-3"   >
                         <div class="s2_box">
                             <div class="s2_img">
-                                <img class="box-image" src="dist/assets/img/news1.png" alt="">
+                                <img class="box-image" src="{{ asset('storage/'.$value->image) }}" alt="">
                             </div>
-
-
-                        </div>
+                      </div>
                     </div>
-                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="700" data-aos-duration="700">
-                        <div class="s2_box">
-                            <div class="s2_img">
-                                <img class="box-image" src="dist/assets/img/news2.png" alt="">
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="800" data-aos-duration="800">
-                        <div class="s2_box">
-                            <div class="s2_img">
-                                <img class="box-image" src="dist/assets/img/news3.png" alt="">
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="900" data-aos-duration="900">
-                        <div class="s2_box">
-                            <div class="s2_img">
-                                <img class="box-image" src="dist/assets/img/news4.png" alt="">
-                            </div>
-
-
-                        </div>
-                    </div>
-
+                            @endif
+                     @endforeach
+                    @endif
                 </div>
                 <div class="col" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000">
                     <div class="mt-4 mb-2">
@@ -290,6 +264,7 @@
         </div>
     </section>
 </section>
+@endif
 <section class="sectionFour">
     <div class="container-fluid">
         <div class="row">
