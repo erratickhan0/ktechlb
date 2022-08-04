@@ -243,7 +243,6 @@
                 <div class="row">
                     @if($brand->news_section)
                      @foreach($brand->news_section as $key => $value)
-                         @if($key)
                     <div class="col-md-3"   >
                         <div class="s2_box">
                             <div class="s2_img">
@@ -251,7 +250,6 @@
                             </div>
                       </div>
                     </div>
-                            @endif
                      @endforeach
                     @endif
                 </div>
