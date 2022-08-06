@@ -166,13 +166,24 @@
         @endif
 </section>
 @endif
+@if(isset($brand->banner_section))
 <section class="sectionFour">
     <div class="container-fluid">
+        @if(isset($brand->banner_section->fullwidth_banner1_fixed))
         <div class="row">
-            <div class="parallaxOne focus"></div>
+            <div style="
+                background-image: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner1_fixed) }} );
+                height: 64vh;
+                width: 100%;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-attachment: fixed;
+                " ></div>
         </div>
+        @endif
     </div>
 </section>
+@endif
 @if($brand->brand_settings->title_description_with_accordian_section)
 <div class="container-fluid" id="about" style="overflow:hidden">
     <div class="row aaa">
@@ -198,17 +209,20 @@
     </div>
 </div>
 @endif
+@if(isset($brand->banner_section))
 <section data-layer="main-video" class="bg-white">
+    @if(isset($brand->banner_section->fullwidth_video))
     <div id="shopify-section-main-video" class="shopify-section">
         <div class="video-player bg-black" data-section-id="main-video" data-section-type="banner">
             <video class="video-js" autoplay="" loop="" playsinline="" id="playVideo" controls>
-                <source src="https://cdn.shopify.com/videos/c/vp/9986001d050f47c0861a1885351a32bb/9986001d050f47c0861a1885351a32bb.HD-1080p-7.2Mbps.mp4" type="video/mp4" id="main-video">
+                <source src="{{ asset('storage/'.$brand->banner_section->fullwidth_video) }}"  type="video/mp4" id="main-video">
             </video>
-            <div class="video-preview-wrapper">
+           <div class="video-preview-wrapper">
                 <!-- <img class="video-preview-overlay" src="//cdn.shopify.com/s/files/1/0065/3606/9223/t/5/assets/main-video-overlay.png?2453" alt=""> -->
                 <div class="video-preview-overlay"></div>
+
                 <video class="video-preview w-full" autoplay="" loop="" playsinline="" muted="">
-                    <source src="https://cdn.shopify.com/s/files/1/0065/3606/9223/files/main-video-preview.mp4?v=1604838067" type="video/mp4">
+                    <source src="{{ asset('storage/'.$brand->banner_section->fullwidth_video) }}" type="video/mp4">
                 </video>
             </div>
             <button class="play-toggle">
@@ -217,20 +231,26 @@
                 </svg>
             </button>
         </div>
- </div>
+    </div>
+    @endif
 </section>
+@endif
 <section class="sectionSeven " data-aos="fade-up" data-aos-duration="1500">
     <div class="container">
 
     </div>
 </section>
+@if(isset($brand->banner_section))
 <section class="sectionFive" data-aos="fade-up" data-aos-duration="1500">
     <div class="container-fluid">
+        @if(isset($brand->banner_section->fullwidth_banner1_unfixed))
         <div class="row">
-            <img src="./dist/assets/img/glassess.jpg" class="img-fluid w-100" />
+            <img src="{{ asset('storage/'.$brand->banner_section->fullwidth_banner1_unfixed) }}" class="img-fluid w-100" />
         </div>
+            @endif
     </div>
 </section>
+@endif
 @if($brand->brand_settings->news_blogs_section)
 <section class="newsSection spacing">
     <section class="sec_2">
@@ -263,12 +283,24 @@
     </section>
 </section>
 @endif
+@if(isset($brand->banner_section))
 <section class="sectionFour">
     <div class="container-fluid">
+        @if(isset($brand->banner_section->fullwidth_banner2_fixed))
         <div class="row">
-            <div class="parallaxTwo focus"></div>
+            <div style="
+                background: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner2_fixed) }} );
+                height: 59vh;
+                width: 100vw;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-attachment: fixed;
+                background-position: center;
+                " ></div>
         </div>
+        @endif
     </div>
 </section>
+    @endif
  @endif
 @endsection

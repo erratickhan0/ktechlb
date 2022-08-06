@@ -247,25 +247,6 @@ ul.navbar-nav li a {
 
 /* banner section */
 /* section Four parallax */
-.parallaxOne {
-  background: url(../img/M1.jpg);
-  height: 64vh;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-attachment: fixed;
-}
-
-.parallaxTwo {
-  background: url(../img/bg.png);
-  height: 59vh;
-  width: 100vw;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-attachment: fixed;
-  background-position: center;
-}
-
 /* section Four parallax */
 /* plugin video */
 .video-js .vjs-big-play-button {
