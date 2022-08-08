@@ -60,6 +60,7 @@
                                                 </a>
 
                                                 <div class="dropdown-menu dropdown-menu-right" >
+                                                    <a class="dropdown-item" href="{{ route('admin.mybrand.news.details',$news->id ) }}">Details</a>
                                                     <a href="javascript:;"
                                                        class="dropdown-item"
                                                        data-toggle="modal"

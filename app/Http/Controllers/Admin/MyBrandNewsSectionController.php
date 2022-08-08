@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use JavaScript;
 
 class MyBrandNewsSectionController extends Controller
 {
@@ -79,5 +80,31 @@ class MyBrandNewsSectionController extends Controller
         return redirect()
             ->route('admin.mybrand.news',['slug'=> $brand->slug ])
             ->with('success', 'News has been deleted');
+    }
+    public function details(NewsSection $news){
+        JavaScript::put([
+
+                'news' => $news
+            ]
+        );
+        return response()->view('admin/News_home.details');
+
+    }
+    public function update(NewsSection $news,Request $request){
+       $news->fill($request->all());
+       if($request->hasFile('image')){
+           $news->image = Storage::disk('public')->putFile('news_section', $request->file('image'));
+       }
+        if($request->hasFile('details_background_image1')){
+            $news->details_background_image1 = Storage::disk('public')->putFile('news_section', $request->file('details_background_image1'));
+        }
+        if($request->hasFile('details_background_image2')){
+            $news->details_background_image2 = Storage::disk('public')->putFile('news_section', $request->file('details_background_image2'));
+        }
+        $news->save();
+        return response()->json([
+            "status" => "OK",
+            "message" => "News Details are added successfully!",
+        ]);
     }
 }

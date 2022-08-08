@@ -18,6 +18,13 @@ class CreateNewsSectionsTable extends Migration
             $table->foreignId('brand_id');
             $table->string('title')->nullable();
             $table->string('image')->nullable();
+            $table->string('details_title')->nullable();
+            $table->string('details_subtitle')->nullable();
+            $table->string('details_background_image1')->nullable();
+            $table->string('details_background_image2')->nullable();
+            $table->string('details_heading')->nullable();
+            $table->string('details_title_color')->nullable();
+            $table->string('details_description')->nullable();
             $table->timestamps();
         });
     }
