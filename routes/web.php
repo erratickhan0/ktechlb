@@ -84,7 +84,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::post('mybrand/news/store', 'MyBrandNewsSectionController@store')->name('mybrand.news.store');
         Route::delete('mybrand/news/delete', 'MyBrandNewsSectionController@destroy')->name('mybrand.news.delete');
         Route::get('mybrand/news/{news}/details', 'MyBrandNewsSectionController@details')->name('mybrand.news.details');
-        Route::post('mybrand/news/update/{news}', 'MyBrandNewsSectionController@update')->name('mybrand.news.store');
+        Route::post('mybrand/news/update/{news}', 'MyBrandNewsSectionController@update')->name('mybrand.news.update');
+        Route::post('mybrand/news/section-update/{news}', 'MyBrandNewsSectionController@sectionUpdate')->name('mybrand.news.section-update');
+        Route::delete('mybrand/news/section-delete/{news_details}', 'MyBrandNewsSectionController@sectionDelete')->name('mybrand.news.section-delete');
 
         Route::post('/mybrand/settings/{brand}', 'BrandSettingsController@store')->name('mybrand.settings.store');
     });

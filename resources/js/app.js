@@ -21,8 +21,10 @@ import 'vue-toast-notification/dist/theme-sugar.css';
 Vue.use(VueToast, { position: 'top-right' });
 import { ToggleButton } from 'vue-js-toggle-button';
 Vue.component('ToggleButton', ToggleButton);
-
-
+import { BModal } from 'bootstrap-vue';
+Vue.component('b-modal', BModal);
+import { BButton } from 'bootstrap-vue';
+Vue.component('b-button', BButton);
 Vue.component('brands-form', require('./components/BrandsForm').default);
 Vue.component('settings-form', require('./components/SettingsForm').default);
 Vue.component('slider-form', require('./components/SliderForm').default);

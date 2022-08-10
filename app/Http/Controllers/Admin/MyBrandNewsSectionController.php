@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Brand;
 use App\Http\Controllers\Controller;
 use App\IconSection;
+use App\NewsDetail;
 use App\NewsSection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -83,8 +84,8 @@ class MyBrandNewsSectionController extends Controller
     }
     public function details(NewsSection $news){
         JavaScript::put([
-
-                'news' => $news
+            'news' => $news,
+            'detail_section' => $news->news_details
             ]
         );
         return response()->view('admin/News_home.details');
@@ -105,6 +106,38 @@ class MyBrandNewsSectionController extends Controller
         return response()->json([
             "status" => "OK",
             "message" => "News Details are added successfully!",
+        ]);
+    }
+    public function sectionUpdate(NewsSection $news,Request $request){
+        if(!$request->hasFile('image')) {
+            return response()->json([
+                "status" => "ERROR",
+                "message" => "Please upload Image or Video file!",
+            ]);
+        }
+
+       $details =  $news->news_details()->create($request->all());
+        if($request->hasFile('image')){
+            $details->image = Storage::disk('public')->putFile('news_section/details', $request->file('image'));
+        }
+        $mime =    $request->file('image')->getMimeType();
+        $mime_type = $var = preg_split("#/#", $mime);
+        $details->mime_type = $mime_type[0];
+       $details->save();
+        $news->save();
+        return response()->json([
+            "status" => "OK",
+            "message" => "News Details are added successfully!",
+        ]);
+    }
+    public function sectionDelete(NewsDetail $news_details){
+        if($news_details->image){
+            Storage::disk('public')->delete($news_details->image);
+        }
+       $news_details->delete();
+        return response()->json([
+            "status" => "OK",
+            "message" => "One row has been deleted",
         ]);
     }
 }

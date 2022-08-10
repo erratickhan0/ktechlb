@@ -214,5 +214,7 @@ export default {
 </script>
 
 <style scoped>
-
+.field-errors {
+    color: #dd0000;
+}
 </style>
