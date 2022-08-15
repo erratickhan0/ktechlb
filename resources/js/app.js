@@ -29,6 +29,7 @@ Vue.component('brands-form', require('./components/BrandsForm').default);
 Vue.component('settings-form', require('./components/SettingsForm').default);
 Vue.component('slider-form', require('./components/SliderForm').default);
 Vue.component('news-details', require('./components/NewsDetails').default);
+Vue.component('icon-details', require('./components/IconDetails').default);
 
 
 import vSelect from 'vue-select';

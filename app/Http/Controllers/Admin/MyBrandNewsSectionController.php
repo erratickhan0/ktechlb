@@ -89,7 +89,6 @@ class MyBrandNewsSectionController extends Controller
             ]
         );
         return response()->view('admin/News_home.details');
-
     }
     public function update(NewsSection $news,Request $request){
        $news->fill($request->all());
@@ -124,7 +123,6 @@ class MyBrandNewsSectionController extends Controller
         $mime_type = $var = preg_split("#/#", $mime);
         $details->mime_type = $mime_type[0];
        $details->save();
-        $news->save();
         return response()->json([
             "status" => "OK",
             "message" => "News Details are added successfully!",

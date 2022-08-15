@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class IconSection extends Model
 {
     protected $table= 'icon_section';
-    protected $fillable = ['title','brand_id','file_path'];
+    protected $fillable = ['title','brand_id','file_path','details_title','details_subtitle','details_heading','details_title_color','details_description'];
+
+    public function icon_details(){
+        return $this->hasMany(IconDetail::class);
+    }
 }
