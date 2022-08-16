@@ -149,8 +149,11 @@
                                         <div class="col-md-6 text-left">
                                             <a href="javascript:;" @click="saveicon_detailsForm" class="btn btn-primary" >Save</a>
                                         </div>
-                                        <div class="col-md-6 text-left">
-                                            <a href="javascript:;" @click="addiconection" class="btn btn-primary" >Add New Sections</a>
+                                        <div class="col-md-3 text-left">
+                                            <a href="javascript:;" @click="addiconection" class="btn btn-primary" >Add Inner page Sections</a>
+                                        </div>
+                                        <div class="col-md-3 text-left">
+                                            <a href="javascript:;" @click="addVideoSlider" class="btn btn-primary" >Add Video Slider</a>
                                         </div>
                                     </div>
                                 </validation-observer>
@@ -158,6 +161,7 @@
                         </div>
                     </div>
                     <div class="card-body" v-if="detail_section.length">
+                        <h5>Inner Pages Section</h5>
                         <div class="table-responsive p-0">
                             <table class="table align-items-center">
                                 <thead class="thead-light">
@@ -191,7 +195,47 @@
                                         <div class="dropdown">
                                             <a aria-expanded="false" aria-haspopup="true" class="btn btn-sm btn-icon-only text-light btn-actions-dropdown" data-toggle="dropdown" href="#" role="button"><i class="fas fa-ellipsis-v"></i></a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" @click="confirmDelete(detail.id)" href="javascript:;">Delete</a>
+                                                <a class="dropdown-item" @click="confirmDelete(detail.id,'inner_section')" href="javascript:;">Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="float-right"></div>
+                    </div>
+                    <div class="card-body" v-if="detail_slider.length">
+                        <h5>Video Slider Section</h5>
+                        <div class="table-responsive p-0">
+                            <table class="table align-items-center">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>Video</th>
+                                    <th><!--Actions --></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <tr v-for="(detail,index) in detail_slider">
+                                    <td class="align-middle" v-if="detail.mime_type == 'image'">
+                                        <img
+                                            :src="'/storage/' + detail.image"
+                                            alt="Image"
+                                            style="max-width: 120px; max-height: 120px;"
+                                        />
+                                    </td>
+                                    <td class="align-middle" v-else>
+                                        <a
+                                            :href="'/storage/'+detail.image"
+                                            target="_blank"
+                                        >Video Link</a>
+                                    </td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <a aria-expanded="false" aria-haspopup="true" class="btn btn-sm btn-icon-only text-light btn-actions-dropdown" data-toggle="dropdown" href="#" role="button"><i class="fas fa-ellipsis-v"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                <a class="dropdown-item" @click="confirmDelete(detail.id,'slider_section')" href="javascript:;">Delete</a>
                                             </div>
                                         </div>
                                     </td>
@@ -257,6 +301,40 @@
 
             </template>
         </b-modal>
+        <b-modal id="modal-scoped" ref="add_video_section">
+            <template #modal-header="{ close }">
+                <h4 class="modal-title">Add video Section</h4>
+                <b-button class="close" @click="close()">
+                    <span aria-hidden="true">&times;</span>
+                </b-button>
+            </template>
+            <template #default="{ hide }">
+                <validation-observer ref="form_video_section">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group required">
+                                <label for="logo">Upload Video</label>
+                                <div>
+                                    <input accept="image/*,video/mp4,video/x-m4v,video/*"
+                                           id="icon_section_video"
+                                           class="form-control"
+                                           ref="icon_section_video"
+                                           type="file"
+                                           v-on:change="handleFileVideoSection()"
+                                           name="icon_section_video" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </validation-observer>
+            </template>
+            <template #modal-footer="{ ok, cancel, hide }">
+                <b-button variant="primary" @click="saveVideoSection" >Save Changes
+                </b-button>
+                <b-button variant="default" @click="cancel()"> Cancel</b-button>
+
+            </template>
+        </b-modal>
         <b-modal ref="confirm_delete_details" id="modal-scoped">
             <template #modal-header="{ close }">
                 <h4 class="modal-title">Confirm Delete</h4>
@@ -302,13 +380,18 @@ export default {
                 heading:'',
                 description:''
             },
+            new_section_video:{
+                video:'',
+            },
             isLoading: false,
             fullPage: false,
             loader: "spinner",
             is_edit: 0,
             icon: icon,
             detail_section: detail_section,
+            detail_slider: detail_slider,
             delete_target:'',
+            delete_section:'',
             colours:['white','black'],
             ckeditor_config: {
                 enterMode: 2,
@@ -322,12 +405,22 @@ export default {
         addiconection:function(){
             this.$refs['add_new_section'].show();
         },
-        confirmDelete: function (detail_id) {
-            this.delete_target = detail_id;
+        addVideoSlider:function(){
+            this.$refs['add_video_section'].show();
+        },
+        confirmDelete: function (detail_id,section) {
+          this.delete_section = section;
+          this.delete_target = detail_id;
             this.$refs['confirm_delete_details'].show();
         },
         destroyDetail:function(){
-            var post_url = '/admin/mybrand/icon/section-delete/'+ this.delete_target;
+            if(this.delete_section == 'inner_section'){
+                var post_url = '/admin/mybrand/icon/section-delete/'+ this.delete_target;
+            }
+            if(this.delete_section == 'slider_section'){
+                var post_url = '/admin/mybrand/icon/section-delete-slider/'+ this.delete_target;
+            }
+
             axios.delete(post_url).then(response => {
                 if (response.data.status == "OK") {
                     this.$refs['confirm_delete_details'].hide();
@@ -347,6 +440,9 @@ export default {
         },
         handleFileImageSection(){
             this.new_section.image = this.$refs.icon_section_image.files[0];
+        },
+        handleFileVideoSection(){
+            this.new_section_video.video = this.$refs.icon_section_video.files[0];
         },
         getFormData() {
             var formData = new FormData();
@@ -369,6 +465,11 @@ export default {
             formData.append('description', this.new_section.description);
             return formData;
         },
+        getSectionVideoData() {
+            var formData = new FormData();
+            formData.append('image', this.new_section_video.video);
+            return formData;
+        },
         saveIconSection:function () {
             this.$refs['form_new_section'].validate().then(success => {
                 if (!success) {
@@ -377,6 +478,35 @@ export default {
                 this.isLoading = true;
                 var post_url = `/admin/mybrand/icon/section-update/`+this.icon.id;
                 axios.post(post_url, this.getSectionData(), {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                }).then(response => {
+                    this.isLoading = false;
+                    if (response.data.status == 'OK') {
+                        this.$toast.success(response.data.message, {'duration': 5000});
+                        setTimeout( () => {
+                            window.location.reload();
+                        }, 1000);
+                    }
+                    if (response.data.status == 'ERROR') {
+                        console.log(response.data.message);
+                        this.$toast.error(response.data.message, {'duration': 5000});
+                    }
+                }).catch(error => {
+                    console.log(JSON.stringify(error));
+                    this.$toast.error(JSON.stringify(error), {'duration': 5000});
+                });
+            });
+        },
+        saveVideoSection:function () {
+            this.$refs['form_video_section'].validate().then(success => {
+                if (!success) {
+                    return false;
+                }
+                this.isLoading = true;
+                var post_url = `/admin/mybrand/icon/section-update-video/`+this.icon.id;
+                axios.post(post_url, this.getSectionVideoData(), {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }

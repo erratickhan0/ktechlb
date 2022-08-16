@@ -12,4 +12,7 @@ class IconSection extends Model
     public function icon_details(){
         return $this->hasMany(IconDetail::class);
     }
+    public function icon_detail_slider(){
+        return $this->hasMany(IconDetailSlider::class);
+    }
 }

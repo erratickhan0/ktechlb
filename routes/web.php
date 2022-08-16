@@ -60,6 +60,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::post('mybrand/icon/update/{icon}', 'MyBrandIconController@update')->name('mybrand.icon.update');
         Route::post('mybrand/icon/section-update/{icon}', 'MyBrandIconController@sectionUpdate')->name('mybrand.icon.section-update');
         Route::delete('mybrand/icon/section-delete/{icon_details}', 'MyBrandIconController@sectionDelete')->name('mybrand.icon.section-delete');
+        Route::post('mybrand/icon/section-update-video/{icon}', 'MyBrandIconController@sectionUpdateVid')->name('mybrand.icon.section-update-vid');
+        Route::delete('mybrand/icon/section-delete-slider/{icon_detail_slider}', 'MyBrandIconController@sectionDeleteSlider')->name('mybrand.icon.section-delete-slider');
 
         Route::get('mybrand/{slug}/box-icon', 'MyBrandBoxIconController@index')->name('mybrand.box-icon');
         Route::get('mybrand/box-icon/create', 'MyBrandBoxIconController@create')->name('mybrand.box-icon.create');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Brand;
 use App\Http\Controllers\Controller;
 use App\IconDetail;
+use App\IconDetailSlider;
 use App\IconSection;
 use App\SliderSection;
 use Illuminate\Database\Eloquent\Model;
@@ -94,7 +95,8 @@ class MyBrandIconController extends Controller
     public function details(IconSection $icon){
         JavaScript::put([
                 'icon' => $icon,
-                'detail_section' => $icon->icon_details
+                'detail_section' => $icon->icon_details,
+                'detail_slider' => $icon->icon_detail_slider
             ]
         );
         return response()->view('admin/Icon_home.details');
@@ -142,6 +144,38 @@ class MyBrandIconController extends Controller
             Storage::disk('public')->delete($icon_details->image);
         }
         $icon_details->delete();
+        return response()->json([
+            "status" => "OK",
+            "message" => "One row has been deleted",
+        ]);
+    }
+    public function sectionUpdateVid(IconSection $icon,Request $request){
+        if(!$request->hasFile('image')) {
+            return response()->json([
+                "status" => "ERROR",
+                "message" => "Please upload Image or Video file!",
+            ]);
+        }
+
+        $icon_detail_slider = new IconDetailSlider();
+        if($request->hasFile('image')){
+            $icon_detail_slider->image = Storage::disk('public')->putFile('icon_section/slider', $request->file('image'));
+        }
+        $mime =    $request->file('image')->getMimeType();
+        $mime_type = $var = preg_split("#/#", $mime);
+        $icon_detail_slider->mime_type = $mime_type[0];
+        $icon_detail_slider->icon_section_id = $icon->id;
+        $icon_detail_slider->save();
+        return response()->json([
+            "status" => "OK",
+            "message" => "Slider Details are added successfully!",
+        ]);
+    }
+    public function sectionDeleteSlider(IconDetailSlider $icon_detail_slider){
+        if($icon_detail_slider->image){
+            Storage::disk('public')->delete($icon_detail_slider->image);
+        }
+        $icon_detail_slider->delete();
         return response()->json([
             "status" => "OK",
             "message" => "One row has been deleted",
