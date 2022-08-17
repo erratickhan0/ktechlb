@@ -82,6 +82,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::post('mybrand/logo-title/update/{logo_title}', 'MyBrandLogoTitleSectionController@update')->name('mybrand.logo-title.update');
         Route::post('mybrand/logo-title/update-details/{logo_title}', 'MyBrandLogoTitleSectionController@updateDetails')->name('mybrand.logo-title.update-details');
         Route::post('mybrand/logo-title/section-update-inner/{logo_title}', 'MyBrandLogoTitleSectionController@updateDetailInner')->name('mybrand.logo-title.update-details-inner');
+        Route::post('mybrand/logo-title/section-update-inner2/{logo_title}', 'MyBrandLogoTitleSectionController@updateDetailInner2')->name('mybrand.logo-title.update-details-inner');
+        Route::delete('mybrand/logo-title/section-delete1/{logo_title_details}', 'MyBrandLogoTitleSectionController@sectionDelete1')->name('mybrand.logo-title.section-delete1');
+        Route::delete('mybrand/logo-title/section-delete2/{logo_title_detail_slider}', 'MyBrandLogoTitleSectionController@sectionDelete2')->name('mybrand.logo-title.section-delete2');
 
         Route::get('mybrand/{slug}/button-accordian', 'MyBrandButtonAccordianSectionController@index')->name('mybrand.button-accordian');
         Route::post('mybrand/button-accordian/store', 'MyBrandButtonAccordianSectionController@store')->name('mybrand.button-accordian.store');

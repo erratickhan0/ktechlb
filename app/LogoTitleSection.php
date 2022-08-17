@@ -11,4 +11,7 @@ class LogoTitleSection extends Model
     public function logo_title_details(){
         return $this->hasMany(LogoTitleDetail::class);
     }
+    public function logo_title_detail_slider(){
+        return $this->hasMany(LogoTitleDetailSlider::class);
+    }
 }
