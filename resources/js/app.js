@@ -30,6 +30,7 @@ Vue.component('settings-form', require('./components/SettingsForm').default);
 Vue.component('slider-form', require('./components/SliderForm').default);
 Vue.component('news-details', require('./components/NewsDetails').default);
 Vue.component('icon-details', require('./components/IconDetails').default);
+Vue.component('middle-banner-details', require('./components/middleBannerDetails').default);
 
 
 import vSelect from 'vue-select';

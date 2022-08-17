@@ -98,5 +98,10 @@
             </div>
         </div>
     </div>
+    @if(isset($logo_title))
+    <div class="container-fluid mt-6">
+    <middle-banner-details></middle-banner-details>
+    </div>
+    @endif
     {{ Form::close() }}
 @endsection

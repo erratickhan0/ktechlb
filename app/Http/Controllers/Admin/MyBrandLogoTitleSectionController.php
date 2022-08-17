@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use JavaScript;
 
 class MyBrandLogoTitleSectionController extends Controller
 {
@@ -22,6 +23,11 @@ class MyBrandLogoTitleSectionController extends Controller
     {
         $my_brand = $request->session()->get('selected_brand', 'default');
         $brand = Brand::with('logo_title_section')->where('slug',$my_brand->slug)->first();
+
+        JavaScript::put([
+                'logo_title_section' => $brand->logo_title_section
+            ]
+        );
 
         return view('admin.LogoTitle_home.form',['logo_title' => $brand->logo_title_section, 'slug' => $brand->slug ]);
     }
@@ -90,6 +96,42 @@ class MyBrandLogoTitleSectionController extends Controller
             ->route('admin.mybrand.logo-title',['slug' => $logo_title->slug])
             ->with('success', 'Logo Title are updated successfully!');
     }
+    public function updateDetails(LogoTitleSection $logo_title,Request $request)
+    {
+        $logo_title->fill($request->all());
+        if($request->hasFile('details_background_image1')){
+            $logo_title->details_background_image1 = Storage::disk('public')->putFile('logotitle_section', $request->file('details_background_image1'));
+        }
+        if($request->hasFile('details_background_image2')){
+            $logo_title->details_background_image2 = Storage::disk('public')->putFile('logotitle_section', $request->file('details_background_image2'));
+        }
+        $logo_title->save();
+        return response()->json([
+            "status" => "OK",
+            "message" => "Logo Title Details are added successfully!",
+        ]);
+    }
+    public function updateDetailInner(LogoTitleSection $logo_title,Request $request)
+    {
+        if(!$request->hasFile('image')) {
+            return response()->json([
+                "status" => "ERROR",
+                "message" => "Please upload Image or Video file!",
+            ]);
+        }
+        $details =   $logo_title->logo_title_details->create($request->all());
 
+        if($request->hasFile('image')){
+            $details->image = Storage::disk('public')->putFile('logotitle_section/details', $request->file('image'));
+        }
+        $mime =    $request->file('image')->getMimeType();
+        $mime_type = $var = preg_split("#/#", $mime);
+        $details->mime_type = $mime_type[0];
+        $details->save();
+        return response()->json([
+            "status" => "OK",
+            "message" => "News Details are added successfully!",
+        ]);
+    }
 
 }

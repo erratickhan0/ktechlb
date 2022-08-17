@@ -80,6 +80,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::get('mybrand/{slug}/logo-title', 'MyBrandLogoTitleSectionController@index')->name('mybrand.logo-title');
         Route::post('mybrand/logo-title/store', 'MyBrandLogoTitleSectionController@store')->name('mybrand.logo-title.store');
         Route::post('mybrand/logo-title/update/{logo_title}', 'MyBrandLogoTitleSectionController@update')->name('mybrand.logo-title.update');
+        Route::post('mybrand/logo-title/update-details/{logo_title}', 'MyBrandLogoTitleSectionController@updateDetails')->name('mybrand.logo-title.update-details');
+        Route::post('mybrand/logo-title/section-update-inner/{logo_title}', 'MyBrandLogoTitleSectionController@updateDetailInner')->name('mybrand.logo-title.update-details-inner');
 
         Route::get('mybrand/{slug}/button-accordian', 'MyBrandButtonAccordianSectionController@index')->name('mybrand.button-accordian');
         Route::post('mybrand/button-accordian/store', 'MyBrandButtonAccordianSectionController@store')->name('mybrand.button-accordian.store');
