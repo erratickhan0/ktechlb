@@ -99,6 +99,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::post('mybrand/news/section-update/{news}', 'MyBrandNewsSectionController@sectionUpdate')->name('mybrand.news.section-update');
         Route::delete('mybrand/news/section-delete/{news_details}', 'MyBrandNewsSectionController@sectionDelete')->name('mybrand.news.section-delete');
 
+        Route::get('mybrand/{slug}/flipbook', 'FlipbookController@index')->name('mybrand.flipbook');
+        Route::get('mybrand/flipbook/create', 'FlipbookController@create')->name('mybrand.flipbook.create');
+        Route::post('mybrand/flipbook/store', 'FlipbookController@store')->name('mybrand.flipbook.store');
+
         Route::post('/mybrand/settings/{brand}', 'BrandSettingsController@store')->name('mybrand.settings.store');
     });
 

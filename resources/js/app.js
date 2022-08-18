@@ -31,7 +31,7 @@ Vue.component('slider-form', require('./components/SliderForm').default);
 Vue.component('news-details', require('./components/NewsDetails').default);
 Vue.component('icon-details', require('./components/IconDetails').default);
 Vue.component('middle-banner-details', require('./components/middleBannerDetails').default);
-
+Vue.component('flipbook-form', require('./components/FlipbookForm').default);
 
 import vSelect from 'vue-select';
 Vue.component('v-select', vSelect);

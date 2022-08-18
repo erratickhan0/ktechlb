@@ -50,4 +50,9 @@ class Brand extends Model
     {
         return $this->hasMany(NewsSection::class);
     }
+
+    public function flipbook()
+    {
+        return $this->hasOne(FlipBook::class);
+    }
 }
