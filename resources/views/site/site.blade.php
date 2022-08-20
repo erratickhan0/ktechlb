@@ -10,36 +10,36 @@
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     @if($brand->slider_section)
-                        @foreach($brand->slider_section as $value)
-                            @if($value->mime_type == 'video')
-                                <div class="swiper-slide" data-slide-type="vdo">
-                                    <video id="my-player" loop="true" autoplay="autoplay" muted>
-                                        <source src="{{ asset('storage/'.$value->file_path) }}" type="video/mp4">
-                                        </source>
-                                        <p class="vjs-no-js">
-                                            To view this video please enable JavaScript, and consider upgrading to a
-                                            web browser that
-                                            <a href="https://videojs.com/html5-video-support/" target="_blank">
-                                                supports HTML5 video
-                                            </a>
-                                        </p>
-                                    </video>
-                                    <div class="setTextPosition">
-                                        <p class="captionh2">{{$value->title}}</p>
-                                        <p class="captiondesc">{{$value->description}}</p>
-                                    </div>
-                                </div>
-                            @else
-                                <div class="swiper-slide" data-slide-type="img"><img src="{{ asset('storage/'.$value->file_path) }}" />
+                    @foreach($brand->slider_section as $value)
+                    @if($value->mime_type == 'video')
+                    <div class="swiper-slide" data-slide-type="vdo">
+                        <video id="my-player" loop="true" autoplay="autoplay" muted>
+                            <source src="{{ asset('storage/'.$value->file_path) }}" type="video/mp4">
+                            </source>
+                            <p class="vjs-no-js">
+                                To view this video please enable JavaScript, and consider upgrading to a
+                                web browser that
+                                <a href="https://videojs.com/html5-video-support/" target="_blank">
+                                    supports HTML5 video
+                                </a>
+                            </p>
+                        </video>
+                        <div class="setTextPosition">
+                            <p class="captionh2">{{$value->title}}</p>
+                            <p class="captiondesc">{{$value->description}}</p>
+                        </div>
+                    </div>
+                    @else
+                    <div class="swiper-slide" data-slide-type="img"><img src="{{ asset('storage/'.$value->file_path) }}" />
 
-                                    <div class="setTextPosition">
-                                        <p class="captionh2">{{$value->title}}</p>
-                                        <p class="captiondesc">{{$value->description}}</p>
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach
-                        @endif
+                        <div class="setTextPosition">
+                            <p class="captionh2">{{$value->title}}</p>
+                            <p class="captiondesc">{{$value->description}}</p>
+                        </div>
+                    </div>
+                    @endif
+                    @endforeach
+                    @endif
 
                 </div>
                 <!-- Add Arrows -->
@@ -51,24 +51,24 @@
 </section>
 @endif
 @if($brand->brand_settings->icon_section)
-<section class="productCarousel mt-5 mb-5 pt-5" data-aos="fade-up" data-aos-duration="2500">
+<section class="productCarousel mt-5 mb-5 pt-5">
     <div class="container-fluid">
         <div class="row">
             @if($brand->icon_section)
-                @foreach($brand->icon_section as $value)
-                <div class="col col-xs-12">
-                    <div class="item_s4">
-                        <div class="sec3_bot ">
-                            <div class="sec3_box aos-init aos-animate">
-                                <img src="{{ asset('storage/'.$value->file_path) }}" alt="">
-                                <h3 class="head_underline_small">{{$value->title}}</h3>
-                                <span class="underline_head"></span>
-                            </div>
-
+            @foreach($brand->icon_section as $value)
+            <div class="col col-xs-12">
+                <div class="item_s4">
+                    <div class="sec3_bot ">
+                        <div class="sec3_box aos-init aos-animate">
+                            <img src="{{ asset('storage/'.$value->file_path) }}" alt="">
+                            <h3 class="head_underline_small">{{$value->title}}</h3>
+                            <span class="underline_head"></span>
                         </div>
+
                     </div>
                 </div>
-                @endforeach
+            </div>
+            @endforeach
             @endif
 
         </div>
@@ -110,8 +110,8 @@
             <div class="row" data-aos="fade-up" data-aos-duration="2500">
                 <div class="col">
                     <div class="sec2_right">
-                        {!! $brand->logo_title_section->description  !!}
-<!--                        <h2 class="head_underline left mb-1">A New Level Of Document Security</h2>
+                        {!! $brand->logo_title_section->description !!}
+                        <!--                        <h2 class="head_underline left mb-1">A New Level Of Document Security</h2>
                         <p>
                             The falsification of documents is easier than ever before.</p>
                         <p>Documents can be ordered illegally via the internet or simply forged on the basis of a suitable
@@ -140,30 +140,30 @@
             <div class="sec3_bot">
                 <div class="row">
                     @foreach($brand->boxicon_section as $key => $value)
-                        @if($key == 0 || $key == 3)
+                    @if($key == 0 || $key == 3)
                     <div class="col-lg-4 col-md-6 col-xs-12" data-aos-duration="1000" data-aos="fade-right">
                         @endif
                         @if($key == 1 || $key == 4)
-                            <div class="col-lg-4 col-md-6 col-xs-12" data-aos-duration="1000" data-aos="fade-up">
+                        <div class="col-lg-4 col-md-6 col-xs-12" data-aos-duration="1000" data-aos="fade-up">
+                            @endif
+                            @if($key == 2 || $key == 5)
+                            <div class="col-lg-4 col-md-6 col-xs-12" data-aos-duration="1000" data-aos="fade-left">
                                 @endif
-                                @if($key == 2 || $key == 5)
-                                    <div class="col-lg-4 col-md-6 col-xs-12" data-aos-duration="1000" data-aos="fade-left">
-                                        @endif
-                        <div class="sec3_box">
-                            <img src="{{ asset('storage/'.$value->box_icon) }}" alt="">
-                            <h3 class="head_underline_small">{{$value->title}}</h3>
-                            <span class="underline_head"></span>
-                            {!! $value->description !!}
+                                <div class="sec3_box">
+                                    <img src="{{ asset('storage/'.$value->box_icon) }}" alt="">
+                                    <h3 class="head_underline_small">{{$value->title}}</h3>
+                                    <span class="underline_head"></span>
+                                    {!! $value->description !!}
+                                </div>
+                            </div>
+                            @endforeach
                         </div>
                     </div>
-                    @endforeach
                 </div>
             </div>
         </div>
-        </div>
-        </div>
     </section>
-        @endif
+    @endif
 </section>
 @endif
 @if(isset($brand->banner_section))
@@ -178,7 +178,7 @@
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-attachment: fixed;
-                " ></div>
+                "></div>
         </div>
         @endif
     </div>
@@ -192,13 +192,13 @@
             <div class="insidecontainermiddlepage">
                 <div class="row">
                     <div class="offset-sm-1 col-sm-5 col-xs-12">
-                        <h3 >{{$brand->button_accordian_section->title}}</h3>
-                    {!! $brand->button_accordian_section->description !!}
-                        <button class="main_btn btn_blue mt-3" >Read More</button>
+                        <h3>{{$brand->button_accordian_section->title}}</h3>
+                        {!! $brand->button_accordian_section->description !!}
+                        <button class="main_btn btn_blue mt-3">Read More</button>
                     </div>
                     <div class="col-sm-5  col-xs-12 text-center">
                         <div class="fleximgblock wow fadeInRight">
-                            <img src="{{ asset('storage/'.$brand->button_accordian_section->image) }}" >
+                            <img src="{{ asset('storage/'.$brand->button_accordian_section->image) }}">
                         </div>
                     </div>
 
@@ -215,9 +215,9 @@
     <div id="shopify-section-main-video" class="shopify-section">
         <div class="video-player bg-black" data-section-id="main-video" data-section-type="banner">
             <video class="video-js" autoplay="" loop="" playsinline="" id="playVideo" controls>
-                <source src="{{ asset('storage/'.$brand->banner_section->fullwidth_video) }}"  type="video/mp4" id="main-video">
+                <source src="{{ asset('storage/'.$brand->banner_section->fullwidth_video) }}" type="video/mp4" id="main-video">
             </video>
-           <div class="video-preview-wrapper">
+            <div class="video-preview-wrapper">
                 <!-- <img class="video-preview-overlay" src="//cdn.shopify.com/s/files/1/0065/3606/9223/t/5/assets/main-video-overlay.png?2453" alt=""> -->
                 <div class="video-preview-overlay"></div>
 
@@ -247,7 +247,7 @@
         <div class="row">
             <img src="{{ asset('storage/'.$brand->banner_section->fullwidth_banner1_unfixed) }}" class="img-fluid w-100" />
         </div>
-            @endif
+        @endif
     </div>
 </section>
 @endif
@@ -262,15 +262,15 @@
             <div class="s2_bot">
                 <div class="row">
                     @if($brand->news_section)
-                     @foreach($brand->news_section as $key => $value)
-                    <div class="col-md-3"   >
+                    @foreach($brand->news_section as $key => $value)
+                    <div class="col-md-3">
                         <div class="s2_box">
                             <div class="s2_img">
                                 <img class="box-image" src="{{ asset('storage/'.$value->image) }}" alt="">
                             </div>
-                      </div>
+                        </div>
                     </div>
-                     @endforeach
+                    @endforeach
                     @endif
                 </div>
                 <div class="col" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000">
@@ -296,11 +296,11 @@
                 background-size: contain;
                 background-attachment: fixed;
                 background-position: center;
-                " ></div>
+                "></div>
         </div>
         @endif
     </div>
 </section>
-    @endif
- @endif
+@endif
+@endif
 @endsection

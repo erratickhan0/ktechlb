@@ -134,7 +134,7 @@
             }
 
 
-            AOS.init();
+
             $('#owl-carousel').owlCarousel({
                 loop: true,
                 autoplay: true,
@@ -209,6 +209,7 @@
                 vid.pause();
                 $('.video-preview-wrapper,.play-toggle').show();
             });
+            AOS.init();
         });
     </script>
 

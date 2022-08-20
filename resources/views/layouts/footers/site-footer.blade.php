@@ -15,7 +15,7 @@
                         </div>
                         <div id="webchat" class="contact-webchat-content collapse">
                             <div class="step-first webchat-list chat-show">
-                                <h4 class="visible">How could we help you?</h4>
+                                <h4 class="visible text-white helpText">How could we help you?</h4>
                                 <img class="chat-loader" src="https://www.technogym.com/skin/frontend/technogym/default/images/loading.svg">
                                 <button class="button-69528058-32de-403d-8d3e-1c407ed545c8 button-0dcb9003-b132-4baf-b4d5-d66e78d724c1 button-show" data-chat="UAE_INSIDESALES_CHAT" onclick="window.openFooterChatPanel(this);">Products </button>
                                 <button class="button-3014949a-7703-4e88-bad3-38aba32d424c button-3384d67a-14aa-43a7-956b-6ab8cb56d712 button-show" data-chat="UAE_CUSTOMERSERVICE_CHAT" onclick="window.openFooterChatPanel(this);">Orders </button>
@@ -63,34 +63,27 @@
             </div>
 
         </div>
-        <!-- <div class="row">
-        <div class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
-          <h6>Chat</h6>
-        </div>
 
-        <div class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
-          <h6>Call Us</h6>
-        </div>
-
-        <div class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
-          <h6>Write US</h6>
+        <div class="footerDetail ">
 
         </div>
-      </div> -->
-
-        <div class="footerDetail col-sm-12 row  flex-row col-12 col-md-6 ml-auto">
-
-            <div class="col"><a href="#">Contact Us</a></div>
-            <div class="col"><a href="#">Warranty</a></div>
-            <div class="col"><a href="#">Term and Conditions</a></div>
-            <div class="col"><a href="#">Privacy Policy</a></div>
-            <div class="col"><a href="#">About Us</a></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 col-12 ml-auto pr-5">
+                    <div class="d-flex justify-content-end">
+                        <a href="#">Contact Us</a>
+                        <a href="#">Warranty</a>
+                        <a href="#">Term and Conditions</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">About Us</a>
+                    </div>
+                </div>
+            </div>
         </div>
-
         <hr>
     </div>
 
-    <div class="xs-copyright copyright-gray">
+    <div class="xs-copyright copyright-gray container-fluid">
         <div class="">
 
             <div class="col-md-12">
@@ -98,7 +91,7 @@
                     <p>COPYRIGHT @ KANAAN ADVANCED TECHNOLOGIES <img style="padding-left: 25px;height: 20px" src="./dist/assets/img/footericonset2-1.png">
 
                     </p>
-                    <div class="pull-right">
+                    <div class="pull-right pr-5">
                         <ul class="footer-social">
                             <li><a target="_blank" href="https://www.instagram.com/kanaan.advanced.technologies"><i class="fab fa-instagram"></i> </a></li>
                             <li><a target="_blank" href="https://www.facebook.com/gosmart.innovative"><i class="fa fa-facebook">
@@ -115,5 +108,5 @@
             </div>
         </div>
     </div>
-    <div class="scrollTo" style="display: none"><span class="fa fa-angle-left"></span></div>
+    <div class="scrollTo" style="display: none"></div>
 </footer>
