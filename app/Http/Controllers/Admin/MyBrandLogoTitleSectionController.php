@@ -28,8 +28,8 @@ class MyBrandLogoTitleSectionController extends Controller
 
         JavaScript::put([
                 'logo_title_section' => $brand->logo_title_section,
-                'detail_section' => $brand->logo_title_section->logo_title_details,
-                'slider_detail_section' => $brand->logo_title_section->logo_title_detail_slider
+                'detail_section' => $brand->logo_title_section ? $brand->logo_title_section->logo_title_details:'',
+                'slider_detail_section' => $brand->logo_title_section ? $brand->logo_title_section->logo_title_detail_slider : ''
             ]
         );
 

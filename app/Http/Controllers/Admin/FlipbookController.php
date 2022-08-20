@@ -23,7 +23,7 @@ class FlipbookController extends Controller
         JavaScript::put([
                 'brand' => $my_brand,
                 'flipbooks' => $brand->flipbook,
-                'flipbook_slider' => $brand->flipbook->flipbook_slider
+                'flipbook_slider' => $brand->flipbook ? $brand->flipbook->flipbook_slider:''
             ]
         );
         return view('admin.Flipbook.form',['flipbook' => $brand->flipbook, 'slug' => $brand->slug ]);
