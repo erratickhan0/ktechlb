@@ -80,5 +80,16 @@ class FlipbookController extends Controller
             "message" => "Slider Details are added successfully!",
         ]);
     }
+    public function sectionDelete(FlipBookSlider $flipbook_slider){
+        if($flipbook_slider->image){
+            Storage::disk('public')->delete($flipbook_slider->image);
+        }
+        $flipbook_slider->delete();
+        return response()->json([
+            "status" => "OK",
+            "message" => "One row has been deleted",
+        ]);
+
+    }
 
 }

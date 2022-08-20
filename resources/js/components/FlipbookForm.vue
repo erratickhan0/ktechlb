@@ -282,11 +282,7 @@ export default {
     },
     methods:{
         destroyDetail:function(){
-
-            if(this.delete_section == 'slider_section'){
-                var post_url = '/admin/mybrand/icon/section-delete-slider/'+ this.delete_target;
-            }
-
+            var post_url = '/admin/mybrand/flipbook/section-delete/'+ this.delete_target;
             axios.delete(post_url).then(response => {
                 if (response.data.status == "OK") {
                     this.$refs['confirm_delete_details'].hide();
