@@ -25,16 +25,16 @@
                             </p>
                         </video>
                         <div class="setTextPosition">
-                            <p class="captionh2">{{$value->title}}</p>
-                            <p class="captiondesc">{{$value->description}}</p>
+                            <p class="captionh2" style="color:{{$value->colour}}">{{$value->title}}</p>
+                            <p class="captiondesc" style="color:{{$value->colour}}">{{$value->description}}</p>
                         </div>
                     </div>
                     @else
                     <div class="swiper-slide" data-slide-type="img"><img src="{{ asset('storage/'.$value->file_path) }}" />
 
                         <div class="setTextPosition">
-                            <p class="captionh2">{{$value->title}}</p>
-                            <p class="captiondesc">{{$value->description}}</p>
+                            <p class="captionh2" style="color:{{$value->colour}}">{{$value->title}}</p>
+                            <p class="captiondesc" style="color:{{$value->colour}}">{{$value->description}}</p>
                         </div>
                     </div>
                     @endif
