@@ -241,15 +241,23 @@
     </div>
 </section>
 @if(isset($brand->banner_section))
-<section class="sectionFive" data-aos="fade-up" data-aos-duration="1500">
-    <div class="container-fluid">
-        @if(isset($brand->banner_section->fullwidth_banner1_unfixed))
-        <div class="row">
-            <img src="{{ asset('storage/'.$brand->banner_section->fullwidth_banner1_unfixed) }}" class="img-fluid w-100" />
+    <section class="sectionFour">
+        <div class="container-fluid">
+            @if(isset($brand->banner_section->fullwidth_banner2_fixed))
+                <div class="row">
+                    <div style="
+                        background: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner2_fixed) }} );
+                        height: 59vh;
+                        width: 100vw;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-attachment: fixed;
+                        background-position: center;
+                        "></div>
+                </div>
+            @endif
         </div>
-        @endif
-    </div>
-</section>
+    </section>
 @endif
 @if($brand->brand_settings->news_blogs_section)
 <section class="newsSection spacing">
@@ -275,7 +283,7 @@
                 </div>
                 <div class="col" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000">
                     <div class="mt-4 mb-2">
-                        <button class="main_btn btn_blue">Show Older</button>
+<!--                        <button class="main_btn btn_blue">Show Older</button>-->
                     </div>
                 </div>
             </div>
@@ -283,24 +291,24 @@
     </section>
 </section>
 @endif
+
 @if(isset($brand->banner_section))
-<section class="sectionFour">
-    <div class="container-fluid">
-        @if(isset($brand->banner_section->fullwidth_banner2_fixed))
-        <div class="row">
-            <div style="
-                background: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner2_fixed) }} );
-                height: 59vh;
-                width: 100vw;
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-attachment: fixed;
-                background-position: center;
-                "></div>
+    <section class="sectionFour">
+        <div class="container-fluid">
+            @if(isset($brand->banner_section->fullwidth_banner1_unfixed))
+                <div class="row">
+                    <div style="
+                        background-image: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner1_unfixed) }} );
+                        height: 64vh;
+                        width: 100%;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-attachment: fixed;
+                        "></div>
+                </div>
+            @endif
         </div>
-        @endif
-    </div>
-</section>
+    </section>
 @endif
 @endif
 @endsection

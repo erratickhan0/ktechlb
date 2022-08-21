@@ -72,20 +72,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group required">
-                                            {{ Form::label('fullwidth_video', 'Fullwidth Video', ['for' => 'fullwidth_video']) }}
-                                            <div>{{ Form::file('fullwidth_video') }}</div>
-                                        </div>
-                                    </div>
-                                    @if (isset($banner->fullwidth_video))
-                                        <div class="col-6 mt-3">
-                                            <div><a target="_blank" href="{{ asset('storage/' .$banner->fullwidth_video) }}" alt="Video Fixed">Video link</a></div>
-                                        </div>
-                                    @endif
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="form-group required">
-                                            {{ Form::label('fullwidth_banner1_unfixed', 'Fullwidth Banner1 UnFixed', ['for' => 'fullwidth_banner1_unfixed']) }}
+                                            {{ Form::label('fullwidth_banner1_unfixed', 'Fullwidth Banner3 Fixed', ['for' => 'fullwidth_banner1_unfixed']) }}
                                             <div>{{ Form::file('fullwidth_banner1_unfixed') }}</div>
                                         </div>
                                     </div>
@@ -96,6 +83,20 @@
                                         </div>
                                     @endif
                                 </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group required">
+                                            {{ Form::label('fullwidth_video', 'Fullwidth Video', ['for' => 'fullwidth_video']) }}
+                                            <div>{{ Form::file('fullwidth_video') }}</div>
+                                        </div>
+                                    </div>
+                                    @if (isset($banner->fullwidth_video))
+                                        <div class="col-6 mt-3">
+                                            <div><a target="_blank" href="{{ asset('storage/' .$banner->fullwidth_video) }}" alt="Video Fixed">Video link</a></div>
+                                        </div>
+                                    @endif
+                                </div>
+
                                 <div class="row">
                                     <div class="col-6 mt-5">
                                     {{ Form::button('Save', ['type'=>'submit', 'class'=>'btn btn-primary']) }}
