@@ -6,6 +6,7 @@ use App\Brand;
 use App\BrandDesign;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use JavaScript;
@@ -151,6 +152,7 @@ class BrandsController extends Controller
      */
     public function destroy(Brand $brand)
     {
+        Session::put('selected_brand',[]);
         $brand->delete();
         return redirect()
             ->route('admin.brands.index')

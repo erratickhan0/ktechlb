@@ -25,6 +25,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('site/{brand}/{design}', 'Site\MySiteController@index')->name('mysite.index');
+Route::get('site/{brand}/{design}/flipbook', 'Site\MySiteFlipBookController@index')->name('mysite.flipbook.index');
 
 
 

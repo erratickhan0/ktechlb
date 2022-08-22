@@ -6,7 +6,7 @@
 <section class="bannerSection">
     <div class="container-fluid">
         <div class="row">
-            <a class="book" href="iconAtBanner.html"></a>
+            <a class="book" href="{{route('mysite.flipbook.index',['brand' => $brand->slug,'design' => $brand->brand_design_id])}}"></a>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     @if($brand->slider_section)
