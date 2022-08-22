@@ -312,3 +312,6 @@
 @endif
 @endif
 @endsection
+@push('scripts')
+    <script src="{{ asset('js/site/main.js')}}"></script>
+@endpush
