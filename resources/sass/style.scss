@@ -1913,12 +1913,7 @@ div[id*='contacts-webchat-'] .text {
 /* icon at banner */
 
 /* news section */
-.news-cover-container {
-    background: url('../images/site/newsBanner.jpg') !important;
-    background-size: cover !important;
-    height: 550px;
-    margin-top: 85px;
-}
+
 
 
 .grey {
@@ -2818,14 +2813,6 @@ div[id*='contacts-webchat-'] .text {
         display: block;
         margin-right: 0;
         font-weight: 600
-    }
-
-    .news-cover-container {
-        background: url(../images/site/newsBanner.jpg) !important;
-        background-size: cover !important;
-        height: 250px;
-        background-repeat: no-repeat;
-        margin-top: 123px;
     }
 
     .innercustom .cover-heading {

@@ -45,7 +45,7 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group required">
-                                                <label for="logo">Cover Image(W:500px x H:500px)</label>
+                                                <label for="logo">Cover Image</label>
                                                 <div>
                                                     <input accept="image/*"
                                                            id="cover"

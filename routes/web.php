@@ -26,6 +26,7 @@ Auth::routes();
 
 Route::get('site/{brand}/{design}', 'Site\MySiteController@index')->name('mysite.index');
 Route::get('site/{brand}/{design}/flipbook', 'Site\MySiteFlipBookController@index')->name('mysite.flipbook.index');
+Route::get('site/{brand}/{design}/news/{id}', 'Site\MySiteNewsController@index')->name('mysite.news.index');
 
 
 

@@ -274,7 +274,7 @@
                     <div class="col-md-3">
                         <div class="s2_box">
                             <div class="s2_img">
-                                <img class="box-image" src="{{ asset('storage/'.$value->image) }}" alt="">
+                                <a href="{{route('mysite.news.index',['brand' => $brand->slug,'design' => $brand->brand_design_id,'id' => $value->id])}}">  <img class="box-image" src="{{ asset('storage/'.$value->image) }}" alt=""></a>
                             </div>
                         </div>
                     </div>

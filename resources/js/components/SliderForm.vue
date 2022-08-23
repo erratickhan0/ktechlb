@@ -27,7 +27,7 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group required">
-                                                <label for="logo">Banner Image(W:500px x H:500px)</label>
+                                                <label for="logo">Banner Image</label>
                                                 <div>
                                                     <input accept="image/*,video/mp4,video/x-m4v,video/*"
                                                            id="cover"

@@ -44,7 +44,7 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group required">
-                                                <label for="logo">Background Image1(W:500px x H:500px)</label>
+                                                <label for="logo">Background Image1</label>
                                                 <div>
                                                     <input accept="image/*,video/mp4,video/x-m4v,video/*"
                                                            id="middle_banner_details_background_image_1"
@@ -71,7 +71,7 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group required">
-                                                <label for="logo">Background Image2(W:500px x H:500px)</label>
+                                                <label for="logo">Background Image2</label>
                                                 <div>
                                                     <input accept="image/*,video/mp4,video/x-m4v,video/*"
                                                            id="middle_banner_details_background_image_2"
@@ -251,7 +251,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group required">
-                                <label for="logo">Image(W:500px x H:500px)</label>
+                                <label for="logo">Image</label>
                                 <div>
                                     <input accept="image/*,video/mp4,video/x-m4v,video/*"
                                            id="new_section_image1"
@@ -304,7 +304,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group required">
-                                <label for="logo">Image(W:500px x H:500px)</label>
+                                <label for="logo">Image</label>
                                 <div>
                                     <input accept="image/*,video/mp4,video/x-m4v,video/*"
                                            id="new_section_image2"

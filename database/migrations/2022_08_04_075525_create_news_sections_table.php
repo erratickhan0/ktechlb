@@ -24,7 +24,7 @@ class CreateNewsSectionsTable extends Migration
             $table->string('details_background_image2')->nullable();
             $table->string('details_heading')->nullable();
             $table->string('details_title_color')->nullable();
-            $table->string('details_description')->nullable();
+            $table->text('details_description')->nullable();
             $table->timestamps();
         });
     }
