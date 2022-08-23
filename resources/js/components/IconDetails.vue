@@ -104,7 +104,7 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group required">
-                                                <label for="logo">Background Image2</label>
+                                                <label for="logo">Card Image</label>
                                                 <div>
                                                     <input accept="image/*,video/mp4,video/x-m4v,video/*"
                                                            id="icon_details_background_image_2"

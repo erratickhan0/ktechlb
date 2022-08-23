@@ -60,7 +60,7 @@
                 <div class="item_s4">
                     <div class="sec3_bot ">
                         <div class="sec3_box aos-init aos-animate">
-                            <img src="{{ asset('storage/'.$value->file_path) }}" alt="">
+                            <a href="{{route('mysite.icon.index',['brand' => $brand->slug,'design' => $brand->brand_design_id,'id' => $value->id])}}"> <img src="{{ asset('storage/'.$value->file_path) }}" alt=""></a>
                             <h3 class="head_underline_small">{{$value->title}}</h3>
                             <span class="underline_head"></span>
                         </div>
