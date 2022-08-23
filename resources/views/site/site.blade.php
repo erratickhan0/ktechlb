@@ -5,11 +5,11 @@
 @if($brand->brand_settings->banner_slider_section)
 <section class="bannerSection">
     <div class="container-fluid">
+        @if(($brand->slider_section->count()))
         <div class="row">
             <a class="book" href="{{route('mysite.flipbook.index',['brand' => $brand->slug,'design' => $brand->brand_design_id])}}"></a>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    @if($brand->slider_section)
                     @foreach($brand->slider_section as $value)
                     @if($value->mime_type == 'video')
                     <div class="swiper-slide" data-slide-type="vdo">
@@ -39,7 +39,7 @@
                     </div>
                     @endif
                     @endforeach
-                    @endif
+
 
                 </div>
                 <!-- Add Arrows -->
@@ -47,6 +47,7 @@
                 <div class="swiper-button-prev"></div>
             </div>
         </div>
+        @endif
     </div>
 </section>
 @endif
@@ -122,7 +123,7 @@
                             of important physical and digital documents, fully mobile and useable everywhere.</p>-->
 
                         <div class="mt-4">
-                            <button class="main_btn btn_blue">Read More</button>
+                            <a href="{{route('mysite.middle-banner.index',['brand' => $brand->slug,'design' => $brand->brand_design_id])}}"><button class="main_btn btn_blue">Read More</button></a>
                         </div>
                     </div>
                 </div>

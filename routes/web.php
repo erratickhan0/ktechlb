@@ -28,6 +28,7 @@ Route::get('site/{brand}/{design}', 'Site\MySiteController@index')->name('mysite
 Route::get('site/{brand}/{design}/flipbook', 'Site\MySiteFlipBookController@index')->name('mysite.flipbook.index');
 Route::get('site/{brand}/{design}/news/{id}', 'Site\MySiteNewsController@index')->name('mysite.news.index');
 Route::get('site/{brand}/{design}/icon/{id}', 'Site\MySiteIconController@index')->name('mysite.icon.index');
+Route::get('site/{brand}/{design}/middle-banner', 'Site\MySiteMiddleBannerController@index')->name('mysite.middle-banner.index');
 
 
 

@@ -110,7 +110,7 @@
                     @endif
                 @endforeach
             </div>
-            
+
         </div>
     </section>
     @endif
