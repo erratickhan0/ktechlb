@@ -16,6 +16,7 @@ class CreateProductSectionTable extends Migration
         Schema::create('product_section', function (Blueprint $table) {
             $table->id();
             $table->foreignId('brand_id');
+            $table->foreignId('design_id')->nullable();
             $table->string('title')->nullable();
             $table->string('product_logo')->nullable();
             $table->string('product_image')->nullable();

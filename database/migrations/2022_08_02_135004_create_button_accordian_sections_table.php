@@ -16,6 +16,7 @@ class CreateButtonAccordianSectionsTable extends Migration
         Schema::create('button_accordian_sections', function (Blueprint $table) {
             $table->id();
             $table->foreignId('brand_id');
+            $table->foreignId('design_id')->nullable();
             $table->boolean('show_button')->default(0);
             $table->boolean('show_accordian')->default(0);
             $table->string('title');

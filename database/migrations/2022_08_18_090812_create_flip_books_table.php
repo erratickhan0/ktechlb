@@ -16,6 +16,7 @@ class CreateFlipBooksTable extends Migration
         Schema::create('flip_books', function (Blueprint $table) {
             $table->id();
             $table->foreignId('brand_id');
+            $table->foreignId('design_id')->nullable();
             $table->string('section_selector')->nullable();
             $table->string('section2_heading')->nullable();
             $table->string('section2_title')->nullable();

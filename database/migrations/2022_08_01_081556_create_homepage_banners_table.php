@@ -16,6 +16,7 @@ class CreateHomepageBannersTable extends Migration
         Schema::create('homepage_banners', function (Blueprint $table) {
             $table->id();
             $table->foreignId('brand_id');
+            $table->foreignId('design_id')->nullable();
             $table->string('fullwidth_banner1_fixed')->nullable();
             $table->string('fullwidth_banner2_fixed')->nullable();
             $table->string('fullwidth_video')->nullable();

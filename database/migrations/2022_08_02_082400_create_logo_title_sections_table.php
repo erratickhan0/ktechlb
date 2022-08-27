@@ -16,6 +16,7 @@ class CreateLogoTitleSectionsTable extends Migration
         Schema::create('logo_title_sections', function (Blueprint $table) {
             $table->id();
             $table->foreignId('brand_id');
+            $table->foreignId('design_id')->nullable();
             $table->string('title1')->nullable();
             $table->string('title2')->nullable();
             $table->text('description')->nullable();

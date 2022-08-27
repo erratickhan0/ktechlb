@@ -16,6 +16,7 @@ class CreateSliderSectionsTable extends Migration
         Schema::create('slider_sections', function (Blueprint $table) {
             $table->id();
             $table->foreignId('brand_id');
+            $table->foreignId('design_id')->nullable();
             $table->string('title')->nullable();
             $table->string('description')->nullable();
             $table->string('file_path')->nullable();

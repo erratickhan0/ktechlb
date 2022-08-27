@@ -16,6 +16,7 @@ class CreateNewsSectionsTable extends Migration
         Schema::create('news_sections', function (Blueprint $table) {
             $table->id();
             $table->foreignId('brand_id');
+            $table->foreignId('design_id')->nullable();
             $table->string('title')->nullable();
             $table->string('image')->nullable();
             $table->string('details_title')->nullable();
