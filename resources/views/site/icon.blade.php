@@ -145,7 +145,6 @@
                     $('.owl-item.active .item video').get(0).play();
                 }
             });
-            AOS.init();
         });
 
     </script>
