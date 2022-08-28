@@ -94,10 +94,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::post('mybrand/button-accordian/store', 'MyBrandButtonAccordianSectionController@store')->name('mybrand.button-accordian.store');
         Route::post('mybrand/button-accordian/update/{button_accordian}', 'MyBrandButtonAccordianSectionController@update')->name('mybrand.button-accordian.update');
 
-        Route::get('mybrand/{slug}/news', 'MyBrandNewsSectionController@index')->name('mybrand.news');
-        Route::get('mybrand/news/create', 'MyBrandNewsSectionController@create')->name('mybrand.news.create');
-        Route::post('mybrand/news/store', 'MyBrandNewsSectionController@store')->name('mybrand.news.store');
-        Route::delete('mybrand/news/delete', 'MyBrandNewsSectionController@destroy')->name('mybrand.news.delete');
+        Route::get('mybrand/{slug}/news/{design}', 'MyBrandNewsSectionController@index')->name('mybrand.news');
+        Route::get('mybrand/news/create/{design}', 'MyBrandNewsSectionController@create')->name('mybrand.news.create');
+        Route::post('mybrand/news/store/{design}', 'MyBrandNewsSectionController@store')->name('mybrand.news.store');
+        Route::delete('mybrand/news/delete/{design}', 'MyBrandNewsSectionController@destroy')->name('mybrand.news.delete');
+
         Route::get('mybrand/news/{news}/details', 'MyBrandNewsSectionController@details')->name('mybrand.news.details');
         Route::post('mybrand/news/update/{news}', 'MyBrandNewsSectionController@update')->name('mybrand.news.update');
         Route::post('mybrand/news/section-update/{news}', 'MyBrandNewsSectionController@sectionUpdate')->name('mybrand.news.section-update');

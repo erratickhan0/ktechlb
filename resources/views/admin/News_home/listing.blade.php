@@ -18,7 +18,7 @@
                         </nav>
                     </div>
                     <div class="col-lg-6 col-5 mt-2 text-right">
-                        <a href="{{ route('admin.mybrand.news.create') }}" class="btn btn-primary">Create new news</a>
+                        <a href="{{ route('admin.mybrand.news.create',['design' => $design]) }}" class="btn btn-primary">Create new news</a>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                                                        class="dropdown-item"
                                                        data-toggle="modal"
                                                        data-target="#confirm_delete"
-                                                       data-action="{{ route('admin.mybrand.news.delete',['news' =>$news->id] ) }}"
+                                                       data-action="{{ route('admin.mybrand.news.delete',['news' =>$news->id,'design' => $design] ) }}"
                                                        data-confirm="Are you sure you want to delete this News?">Delete</a>
                                                 </div>
                                             </div>

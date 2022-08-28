@@ -177,7 +177,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.mybrand.news',session()->get('selected_brand')->slug) }}">
+                                    <a class="nav-link" href="{{ route('admin.mybrand.news',['slug' => session()->get('selected_brand')->slug,'design' => 'm1']) }}">
                                         {{ __('News/Blog Section') }}
                                     </a>
                                 </li>

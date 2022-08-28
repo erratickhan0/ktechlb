@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Brand;
+use App\BrandDesign;
 use App\Http\Controllers\Controller;
 use App\IconSection;
 use App\NewsDetail;
@@ -22,19 +23,27 @@ class MyBrandNewsSectionController extends Controller
      */
     public function index(Request $request)
     {
+        $design = BrandDesign::where('slug',$request->route('design'))->first();
+        if(!$design){
+            return abort(404);
+        }
         $my_brand = $request->session()->get('selected_brand', 'default');
-        $brand = Brand::with('news_section')->where('slug',$my_brand->slug)->first();
-        return view('admin.News_home.listing',['news' => $brand->news_section, 'slug' => $brand->slug ]);
+        $news = NewsSection::where(['brand_id' => $my_brand->id,'design_id' => $design->id])->get();
+        return view('admin.News_home.listing',['news' => $news, 'slug' => $my_brand->slug,'design' => $request->route('design') ]);
     }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $design = BrandDesign::where('slug',$request->route('design'))->first();
+        if(!$design){
+            return abort(404);
+        }
         $brand = new Brand();
-        return response()->view('admin/News_home.form');
+        return response()->view('admin/News_home.form',['design' => $request->route('design')]);
     }
     /**
      * Store a newly created resource in storage.
@@ -44,6 +53,10 @@ class MyBrandNewsSectionController extends Controller
      */
     public function store(Request $request)
     {
+        $design = BrandDesign::where('slug',$request->route('design'))->first();
+        if(!$design){
+            return abort(404);
+        }
         if(!$request->hasFile('image')) {
             return Redirect::back()->withErrors([
                 'msg' => 'Image file is not attached'
@@ -58,9 +71,9 @@ class MyBrandNewsSectionController extends Controller
             return Redirect::back()->withErrors($validator);
         }
         $brand = $request->session()->get('selected_brand', 'default');
-
+        $design = BrandDesign::where('slug',$request->route('design'))->first();
         $news = new NewsSection;
-        $request->merge(['brand_id' => $brand->id]);
+        $request->merge(['brand_id' => $brand->id,'design_id' => $design->id]);
         $news->fill($request->input());
         $news->save();
         $news->image = Storage::disk('public')->putFile('news_section', $request->file('image'));
@@ -68,10 +81,14 @@ class MyBrandNewsSectionController extends Controller
         $news->save();
         $my_brand = $request->session()->get('selected_brand', 'default');
         return redirect()
-            ->route('admin.mybrand.news',['slug' => $my_brand->slug])
+            ->route('admin.mybrand.news',['slug' => $my_brand->slug,'design' => $request->route('design')])
             ->with('success', 'New news has been created');
     }
     public function destroy(Request $request){
+        $design = BrandDesign::where('slug',$request->route('design'))->first();
+        if(!$design){
+            return abort(404);
+        }
         $news = NewsSection::find($request->input('news'));
         if($news->image){
             Storage::disk('public')->delete($news->image);
@@ -79,7 +96,7 @@ class MyBrandNewsSectionController extends Controller
         $news->delete();
         $brand = $request->session()->get('selected_brand');
         return redirect()
-            ->route('admin.mybrand.news',['slug'=> $brand->slug ])
+            ->route('admin.mybrand.news',['slug'=> $brand->slug,'design' => $request->route('design') ])
             ->with('success', 'News has been deleted');
     }
     public function details(NewsSection $news){
