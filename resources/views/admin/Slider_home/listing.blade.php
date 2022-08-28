@@ -19,7 +19,7 @@
                         </nav>
                     </div>
                     <div class="col-lg-6 col-5 mt-2 text-right">
-                        <a href="{{ route('admin.mybrand.slider.create') }}" class="btn btn-primary">Create new slide</a>
+                        <a href="{{ route('admin.mybrand.slider.create',['design' => $design]) }}" class="btn btn-primary">Create new slide</a>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                                                        class="dropdown-item"
                                                        data-toggle="modal"
                                                        data-target="#confirm_delete"
-                                                       data-action="{{ route('admin.mybrand.slider.delete',['slider' =>$slide->id] ) }}"
+                                                       data-action="{{ route('admin.mybrand.slider.delete',['slider' =>$slide->id,'design' => $design] ) }}"
                                                        data-confirm="Are you sure you want to delete this Brand?">Delete</a>
                                                 </div>
                                             </div>

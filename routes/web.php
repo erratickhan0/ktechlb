@@ -51,10 +51,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 
     Route::group(['middleware' => 'mybrandsession'], function () {
-        Route::get('mybrand/{slug}/slider', 'MyBrandSliderController@index')->name('mybrand.slider');
-        Route::get('mybrand/slider/create', 'MyBrandSliderController@create')->name('mybrand.slider.create');
-        Route::post('mybrand/slider/store', 'MyBrandSliderController@store')->name('mybrand.slider.store');
-        Route::delete('mybrand/slider/delete', 'MyBrandSliderController@destroy')->name('mybrand.slider.delete');
+        Route::get('mybrand/{slug}/slider/{design}', 'MyBrandSliderController@index')->name('mybrand.slider');
+        Route::get('mybrand/slider/create/{design}', 'MyBrandSliderController@create')->name('mybrand.slider.create');
+        Route::post('mybrand/slider/store/{design}', 'MyBrandSliderController@store')->name('mybrand.slider.store');
+        Route::delete('mybrand/slider/delete/{design}', 'MyBrandSliderController@destroy')->name('mybrand.slider.delete');
 
         Route::get('mybrand/{slug}/icon', 'MyBrandIconController@index')->name('mybrand.icon');
         Route::get('mybrand/icon/create', 'MyBrandIconController@create')->name('mybrand.icon.create');

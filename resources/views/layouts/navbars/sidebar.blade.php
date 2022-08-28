@@ -142,7 +142,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.mybrand.slider',session()->get('selected_brand')->slug) }}">
+                                    <a class="nav-link" href="{{ route('admin.mybrand.slider',['slug' => session()->get('selected_brand')->slug,'design' => 'm1']) }}">
                                         {{ __('Top Slider Section') }}
                                     </a>
                                 </li>

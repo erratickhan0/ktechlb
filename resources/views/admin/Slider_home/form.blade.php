@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-        {{ Form::open(['route' => ['admin.mybrand.slider.store'], 'role' => 'form', 'id' => 'slider-form', 'files' => true]) }}
+        {{ Form::open(['route' => ['admin.mybrand.slider.store',['design' => $design]], 'role' => 'form', 'id' => 'slider-form', 'files' => true]) }}
 
     <!-- Header -->
     <div class="header bg-primary pb-6">
@@ -17,7 +17,7 @@
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('admin.mybrand.slider',['slug'=> session()->get('selected_brand')->slug]) }}">Slider</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.mybrand.slider',['slug'=> session()->get('selected_brand')->slug,'design' => $design]) }}">Slider</a></li>
                                 <li class="breadcrumb-item active"><a href="#">Create</a></li>
                             </ol>
                         </nav>
@@ -75,7 +75,7 @@
                                 <div class="row">
                                     <div class="col-6 mt-5">
                                     {{ Form::button('Save', ['type'=>'submit', 'class'=>'btn btn-primary']) }}
-                                    <a href="{{ route('admin.mybrand.slider',['slug' => session()->get('selected_brand')->slug]) }}" class="btn btn-s btn-outline-primary">Cancel</a>
+                                    <a href="{{ route('admin.mybrand.slider',['slug' => session()->get('selected_brand')->slug,'design' => $design]) }}" class="btn btn-s btn-outline-primary">Cancel</a>
                                     </div>
                                 </div>
 

@@ -18,18 +18,18 @@ class BrandDesignSeeder extends Seeder
     {
         $brand_designs = [[
             'name' => 'M1',
-            'slug' => 'brand-m1',
+            'slug' => 'm1',
             'created_at' => now(),
             'updated_at' => now()
         ],
             [
                 'name' => 'M2',
-                'slug' => 'brand-m2',
+                'slug' => 'm2',
                 'created_at' => now(),
                 'updated_at' => now()
             ],[
                 'name' => 'M3',
-                'slug' => 'brand-m3',
+                'slug' => 'm3',
                 'created_at' => now(),
                 'updated_at' => now()
             ]];
