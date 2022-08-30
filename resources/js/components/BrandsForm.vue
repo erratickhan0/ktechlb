@@ -182,7 +182,7 @@ export default {
                         if (response.data.status == 'OK') {
                             this.$toast.success(response.data.message, {'duration': 5000});
                             setTimeout( () => {
-                                window.location = Laravel.baseUrl+'admin/brands';
+                                window.location.reload();
 
                             }, 1000);
                         }
