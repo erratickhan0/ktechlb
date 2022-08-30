@@ -10,8 +10,24 @@ class MySiteController extends Controller
 {
     public function index($brand,$design){
 
-        $brand = Brand::with('banner_section','brand_settings','slider_section','icon_section','product_section','logo_title_section','boxicon_section','button_accordian_section','news_section')
-            ->where(['slug'=>$brand,'brand_design_id' => $design ])->first();
+        $brand = Brand::with(['slider_section' => function($query) use ($design) { $query->where('design_id',$design);}
+            ,'banner_section',
+            'brand_settings',
+            'icon_section',
+            'product_section',
+            'logo_title_section',
+            'boxicon_section',
+            'button_accordian_section',
+            'news_section' => function($query) use ($design) { $query->where('design_id',$design);}])
+            ->where(['slug'=>$brand,'brand_design_id' => $design ])
+            ->whereHas('slider_section', function ($query) use($design) {
+                $query->where('design_id',$design);
+            })
+            ->whereHas('news_section', function ($query) use($design) {
+                $query->where('design_id',$design);
+            })
+            ->first();
+
         if(!$brand){
             return abort(404);
         }

@@ -124,77 +124,115 @@
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('Brands') }}</span>
                     </a>
+                </li>
 
+
+                @if(session()->get('selected_brand'))
+                <li class="nav-item">
+                    <a class="nav-link" href="#navbar-system" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-system">
+                        <i class="fas fa-cog text-primary"></i>
+                        <span class="nav-link-text">{{ __(session()->get('selected_brand')->name) }}</span>
+                    </a>
+                    <div class="collapse" id="navbar-system">
+                        <ul class="nav nav-sm flex-column">
+
+                            <li class="nav-item">
+                                <a href="#navbar-system-general" class="nav-link" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-system-general">M1 DESIGN</a>
+                                <div class="collapse show" id="navbar-system-general" style="">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.settings',session()->get('selected_brand')->slug) }}">
+                                                {{ __('Settings') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.slider',['slug' => session()->get('selected_brand')->slug,'design' => 'm1']) }}">
+                                                {{ __('Top Slider Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.icon',session()->get('selected_brand')->slug) }}">
+                                                {{ __('Icon Uploader Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.product',session()->get('selected_brand')->slug) }}">
+                                                {{ __('Product Uploader Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.banner',session()->get('selected_brand')->slug) }}">
+                                                {{ __('Banners Uploader Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.box-icon',session()->get('selected_brand')->slug) }}">
+                                                {{ __('BoxIcon Uploader Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.logo-title',session()->get('selected_brand')->slug) }}">
+                                                {{ __('Logo Title Uploader Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.button-accordian',session()->get('selected_brand')->slug) }}">
+                                                {{ __('Button/Accordian Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.news',['slug' => session()->get('selected_brand')->slug,'design' => 'm1']) }}">
+                                                {{ __('News/Blog Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.flipbook',session()->get('selected_brand')->slug) }}">
+                                                {{ __('Flipbook Settings') }}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#navbar-system-general-m2" class="nav-link" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-system-general-m2">M2 DESIGN</a>
+                                <div class="collapse show" id="navbar-system-general-m2" style="">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.slider',['slug' => session()->get('selected_brand')->slug,'design' => 'm2']) }}">
+                                                {{ __('Top Slider Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.news',['slug' => session()->get('selected_brand')->slug,'design' => 'm2']) }}">
+                                                {{ __('News/Blog Section') }}
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#navbar-system-general-m3" class="nav-link" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-system-general-m3">M3 DESIGN</a>
+                                <div class="collapse show" id="navbar-system-general-m3" style="">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.slider',['slug' => session()->get('selected_brand')->slug,'design' => 'm3']) }}">
+                                                {{ __('Top Slider Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.news',['slug' => session()->get('selected_brand')->slug,'design' => 'm3']) }}">
+                                                {{ __('News/Blog Section') }}
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
 
                 </li>
-                @if(session()->get('selected_brand'))
-                    <li class="nav-item">
-                        <a class="nav-link " href="#mybrands-navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="mybrands-navbar-examples">
-                            <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                            <span class="nav-link-text" style="color: #f4645f;">{{ __(session()->get('selected_brand')->name) }}</span>
-                        </a>
-
-                        <div class="collapse show" id="mybrands-navbar-examples">
-                            <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.mybrand.settings',session()->get('selected_brand')->slug) }}">
-                                        {{ __('Settings') }}
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.mybrand.slider',['slug' => session()->get('selected_brand')->slug,'design' => 'm1']) }}">
-                                        {{ __('Top Slider Section') }}
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.mybrand.icon',session()->get('selected_brand')->slug) }}">
-                                        {{ __('Icon Uploader Section') }}
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.mybrand.product',session()->get('selected_brand')->slug) }}">
-                                        {{ __('Product Uploader Section') }}
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.mybrand.banner',session()->get('selected_brand')->slug) }}">
-                                        {{ __('Banners Uploader Section') }}
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.mybrand.box-icon',session()->get('selected_brand')->slug) }}">
-                                        {{ __('BoxIcon Uploader Section') }}
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.mybrand.logo-title',session()->get('selected_brand')->slug) }}">
-                                        {{ __('Logo Title Uploader Section') }}
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.mybrand.button-accordian',session()->get('selected_brand')->slug) }}">
-                                        {{ __('Button/Accordian Section') }}
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.mybrand.news',['slug' => session()->get('selected_brand')->slug,'design' => 'm1']) }}">
-                                        {{ __('News/Blog Section') }}
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.mybrand.flipbook',session()->get('selected_brand')->slug) }}">
-                                        {{ __('Flipbook Settings') }}
-                                    </a>
-                                </li>
-                                {{--<li class="nav-item">
-                                    <a class="nav-link" href="{{ route('user.index') }}">
-                                        {{ __('User Management') }}
-                                    </a>
-                                </li>--}}
-                            </ul>
-                        </div>
-
-                    </li>
                 @endif
 
             </ul>
