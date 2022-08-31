@@ -20,14 +20,7 @@ class MySiteController extends Controller
             'button_accordian_section',
             'news_section' => function($query) use ($design) { $query->where('design_id',$design);}])
             ->where(['slug'=>$brand,'brand_design_id' => $design ])
-            ->whereHas('slider_section', function ($query) use($design) {
-                $query->where('design_id',$design);
-            })
-            ->whereHas('news_section', function ($query) use($design) {
-                $query->where('design_id',$design);
-            })
             ->first();
-
         if(!$brand){
             return abort(404);
         }
