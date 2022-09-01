@@ -2,9 +2,9 @@
 
 @section('content')
     @if (!isset($banner))
-        {{ Form::open(['route' => ['admin.mybrand.banner.store'], 'role' => 'form', 'id' => 'icon-form', 'files' => true]) }}
+        {{ Form::open(['route' => ['admin.mybrand.banner.store',['design' => $design]], 'role' => 'form', 'id' => 'icon-form', 'files' => true]) }}
     @else
-        {{ Form::open(['route' => ['admin.mybrand.banner.update',$banner->id], 'role' => 'form', 'id' => 'icon-form', 'files' => true]) }}
+        {{ Form::open(['route' => ['admin.mybrand.banner.update',$banner->id,$design], 'role' => 'form', 'id' => 'icon-form', 'files' => true]) }}
     @endif
     <!-- Header -->
     <div class="header bg-primary pb-6">
@@ -20,7 +20,7 @@
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('admin.mybrand.banner',['slug'=> session()->get('selected_brand')->slug]) }}">Banner</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.mybrand.banner',['slug'=> session()->get('selected_brand')->slug,'design' => $design]) }}">Banner</a></li>
 
                             </ol>
                         </nav>
@@ -100,7 +100,7 @@
                                 <div class="row">
                                     <div class="col-6 mt-5">
                                     {{ Form::button('Save', ['type'=>'submit', 'class'=>'btn btn-primary']) }}
-                                    <a href="{{ route('admin.mybrand.banner',['slug' => session()->get('selected_brand')->slug]) }}" class="btn btn-s btn-outline-primary">Cancel</a>
+                                    <a href="{{ route('admin.mybrand.banner',['slug' => session()->get('selected_brand')->slug,'design' => $design]) }}" class="btn btn-s btn-outline-primary">Cancel</a>
                                     </div>
                                 </div>
 
