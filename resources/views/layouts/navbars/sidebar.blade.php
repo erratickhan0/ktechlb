@@ -203,8 +203,18 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.section2',['slug' => session()->get('selected_brand')->slug,'design' => 'm2']) }}">
+                                                {{ __('Section2') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link" href="{{ route('admin.mybrand.news',['slug' => session()->get('selected_brand')->slug,'design' => 'm2']) }}">
                                                 {{ __('News/Blog Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.product-m2',session()->get('selected_brand')->slug) }}">
+                                                {{ __('Product Uploader Section') }}
                                             </a>
                                         </li>
 
@@ -218,6 +228,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ route('admin.mybrand.slider',['slug' => session()->get('selected_brand')->slug,'design' => 'm3']) }}">
                                                 {{ __('Top Slider Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.section2',['slug' => session()->get('selected_brand')->slug,'design' => 'm3']) }}">
+                                                {{ __('Section2') }}
                                             </a>
                                         </li>
                                         <li class="nav-item">
