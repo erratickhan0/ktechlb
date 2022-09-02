@@ -237,6 +237,11 @@
                                                 {{ __('News/Blog Section') }}
                                             </a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.article',['slug' => session()->get('selected_brand')->slug,'design' => 'm2']) }}">
+                                                {{ __('Article/Blog Section') }}
+                                            </a>
+                                        </li>
 
 
                                     </ul>
