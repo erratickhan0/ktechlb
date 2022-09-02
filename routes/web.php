@@ -90,9 +90,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::delete('mybrand/logo-title/section-delete1/{logo_title_details}', 'MyBrandLogoTitleSectionController@sectionDelete1')->name('mybrand.logo-title.section-delete1');
         Route::delete('mybrand/logo-title/section-delete2/{logo_title_detail_slider}', 'MyBrandLogoTitleSectionController@sectionDelete2')->name('mybrand.logo-title.section-delete2');
 
-        Route::get('mybrand/{slug}/button-accordian', 'MyBrandButtonAccordianSectionController@index')->name('mybrand.button-accordian');
-        Route::post('mybrand/button-accordian/store', 'MyBrandButtonAccordianSectionController@store')->name('mybrand.button-accordian.store');
-        Route::post('mybrand/button-accordian/update/{button_accordian}', 'MyBrandButtonAccordianSectionController@update')->name('mybrand.button-accordian.update');
+        Route::get('mybrand/{slug}/button-accordian/{design}', 'MyBrandButtonAccordianSectionController@index')->name('mybrand.button-accordian');
+        Route::post('mybrand/button-accordian/store/{design}', 'MyBrandButtonAccordianSectionController@store')->name('mybrand.button-accordian.store');
+        Route::post('mybrand/button-accordian/update/{button_accordian}/{design}', 'MyBrandButtonAccordianSectionController@update')->name('mybrand.button-accordian.update');
 
         Route::get('mybrand/{slug}/news/{design}', 'MyBrandNewsSectionController@index')->name('mybrand.news');
         Route::get('mybrand/news/create/{design}', 'MyBrandNewsSectionController@create')->name('mybrand.news.create');

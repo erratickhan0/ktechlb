@@ -176,7 +176,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('admin.mybrand.button-accordian',session()->get('selected_brand')->slug) }}">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.button-accordian',['slug' => session()->get('selected_brand')->slug,'design' => 'm1']) }}">
                                                 {{ __('Button/Accordian Section') }}
                                             </a>
                                         </li>
@@ -228,6 +228,11 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.button-accordian',['slug' => session()->get('selected_brand')->slug,'design' => 'm2']) }}">
+                                                {{ __('Button/Accordian Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link" href="{{ route('admin.mybrand.news',['slug' => session()->get('selected_brand')->slug,'design' => 'm2']) }}">
                                                 {{ __('News/Blog Section') }}
                                             </a>
@@ -249,6 +254,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ route('admin.mybrand.section2',['slug' => session()->get('selected_brand')->slug,'design' => 'm3']) }}">
                                                 {{ __('Section2') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.button-accordian',['slug' => session()->get('selected_brand')->slug,'design' => 'm3']) }}">
+                                                {{ __('Button/Accordian Section') }}
                                             </a>
                                         </li>
                                         <li class="nav-item">
