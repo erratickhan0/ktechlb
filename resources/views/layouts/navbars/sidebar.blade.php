@@ -208,6 +208,16 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.section5',['slug' => session()->get('selected_brand')->slug,'design' => 'm2']) }}">
+                                                {{ __('Section5') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.section6',['slug' => session()->get('selected_brand')->slug,'design' => 'm2']) }}">
+                                                {{ __('Section6') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link" href="{{ route('admin.mybrand.product-m2',session()->get('selected_brand')->slug) }}">
                                                 {{ __('Product Uploader Section') }}
                                             </a>

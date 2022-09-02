@@ -114,7 +114,17 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::get('mybrand/section2/create/{design}', 'MyBrandSection2Controller@create')->name('mybrand.section2.create');
         Route::post('mybrand/section2/store/{design}', 'MyBrandSection2Controller@store')->name('mybrand.section2.store');
         Route::post('mybrand/section2/update/{section2}/{design}', 'MyBrandSection2Controller@update')->name('mybrand.section2.update');
-        Route::delete('mybrand/section2/delete/{design}', 'MyBrandSection2Controller@destroy')->name('mybrand.section2.delete');
+
+        Route::get('mybrand/{slug}/section5/{design}', 'MyBrandSection5Controller@index')->name('mybrand.section5');
+        Route::get('mybrand/section5/create/{design}', 'MyBrandSection5Controller@create')->name('mybrand.section5.create');
+        Route::post('mybrand/section5/store/{design}', 'MyBrandSection5Controller@store')->name('mybrand.section5.store');
+        Route::post('mybrand/section5/update/{section5}/{design}', 'MyBrandSection5Controller@update')->name('mybrand.section5.update');
+
+        Route::get('mybrand/{slug}/section6/{design}', 'MyBrandSection6Controller@index')->name('mybrand.section6');
+        Route::get('mybrand/section6/create/{design}', 'MyBrandSection6Controller@create')->name('mybrand.section6.create');
+        Route::post('mybrand/section6/store/{design}', 'MyBrandSection6Controller@store')->name('mybrand.section6.store');
+        Route::post('mybrand/section6/update/{section6}/{design}', 'MyBrandSection6Controller@update')->name('mybrand.section6.update');
+
 
         Route::get('mybrand/{slug}/product-m2', 'MyBrandProductM2Controller@index')->name('mybrand.product-m2');
         Route::get('mybrand/product-m2/create', 'MyBrandProductM2Controller@create')->name('mybrand.product-m2.create');
