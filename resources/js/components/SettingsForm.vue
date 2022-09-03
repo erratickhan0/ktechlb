@@ -119,7 +119,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 form-group" >
-                                            <h3>Sections Show/Hide Controls</h3>
+                                            <h3>Sections Show/Hide Controls (M1)</h3>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -252,6 +252,161 @@
                                         </div>
 
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-12 form-group" >
+                                            <h3>Sections Show/Hide Controls (M2)</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Slider M2)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.slider_section_m2"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Section2 M2)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.section2_m2"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Product M2)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.product_section_m2"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Fullwidth Video M2)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.fullwidth_video_section_m2"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Section5 M2)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.section5_m2"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Section6 M2)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.section6_m2"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Accordian M2)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.accordian_section_m2"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Fullwidth Image M2)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.fullwidth_image_section1_m2"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Fullwidth Image2 M2)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.fullwidth_image_section2_m2"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Fullwidth Image3 M2)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.fullwidth_image_section3_m2"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(News Blog M2)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.news_blogs_section_m2"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Article M2)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.article_section_m2"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+
+                                    </div>
                                     <div class="row mt-3">
                                         <div class="col-md-6 text-left">
                                             <a href="javascript:;" @click="saveSettingsForm" class="btn btn-primary" >Save</a>
@@ -294,6 +449,18 @@ export default {
                 fullwidth_image_section2:0,
                 news_blogs_section:0,
                 fullwidth_image_section3:0,
+                slider_section_m2:0,
+                section2_m2:0,
+                product_section_m2:0,
+                fullwidth_video_section_m2:0,
+                section5_m2:0,
+                section6_m2:0,
+                accordian_section_m2:0,
+                fullwidth_image_section1_m2:0,
+                fullwidth_image_section2_m2:0,
+                fullwidth_image_section3_m2:0,
+                news_blogs_section_m2:0,
+                article_section_m2:0
             },
             isLoading: false,
             fullPage: false,

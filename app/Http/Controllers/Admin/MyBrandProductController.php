@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Brand;
+use App\BrandDesign;
 use App\Http\Controllers\Controller;
 use App\ProductSection;
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Validator;
 
 class MyBrandProductController extends Controller
 {
+
+    protected $my_design = null;
+    public function __construct(Request $request)
+    {
+        $this->my_design = BrandDesign::where('slug','m1')->first();
+        if(!$this->my_design){
+            return abort(404);
+        }
+    }
     /**
      * Show the application dashboard.
      *
@@ -21,7 +31,7 @@ class MyBrandProductController extends Controller
     public function index(Request $request)
     {
         $my_brand = $request->session()->get('selected_brand', 'default');
-        $brand = Brand::with('product_section')->where('slug',$my_brand->slug)->first();
+        $brand = ProductSection::where('brand_id',$my_brand->id)->where('design_id',$this->my_design->id)->first();
         return view('admin.Product_home.listing',['products' => $brand->product_section, 'slug' => $brand->slug ]);
     }
     /**
@@ -59,7 +69,7 @@ class MyBrandProductController extends Controller
         $brand = $request->session()->get('selected_brand', 'default');
 
         $product = new ProductSection();
-        $request->merge(['brand_id' => $brand->id]);
+        $request->merge(['brand_id' => $brand->id,'design_id' => $this->my_design->id]);
         $product->fill($request->input());
         $product->save();
         if($request->hasFile('product_image')) {

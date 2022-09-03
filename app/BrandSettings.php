@@ -29,6 +29,18 @@ class BrandSettings extends Model
                 'news_blogs_section',
                 'fullwidth_image_section3',
                 'brand_design_id',
-                'brand_id'
+                'brand_id',
+                'slider_section_m2',
+                'section2_m2',
+                'product_section_m2',
+                'fullwidth_video_section_m2',
+                'section5_m2',
+                'section6_m2',
+                'accordian_section_m2',
+                'fullwidth_image_section1_m2',
+                'fullwidth_image_section2_m2',
+                'fullwidth_image_section3_m2',
+                'news_blogs_section_m2',
+                'article_section_m2'
     ];
 }

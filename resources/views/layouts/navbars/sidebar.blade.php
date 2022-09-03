@@ -127,24 +127,24 @@
                 </li>
 
 
-                @if(session()->get('selected_brand'))
+                @if(session()->get('selected_brand') && $brands)
                 <li class="nav-item">
                     <a class="nav-link" href="#navbar-system" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-system">
                         <i class="fas fa-cog text-primary"></i>
                         <span class="nav-link-text">{{ __(session()->get('selected_brand')->name) }}</span>
                     </a>
+
                     <div class="collapse" id="navbar-system">
                         <ul class="nav nav-sm flex-column">
-
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.mybrand.settings',session()->get('selected_brand')->slug) }}">
+                                    {{ __('Settings') }}
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="#navbar-system-general" class="nav-link" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-system-general">M1 DESIGN</a>
                                 <div class="collapse show" id="navbar-system-general" style="">
                                     <ul class="nav nav-sm flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('admin.mybrand.settings',session()->get('selected_brand')->slug) }}">
-                                                {{ __('Settings') }}
-                                            </a>
-                                        </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ route('admin.mybrand.slider',['slug' => session()->get('selected_brand')->slug,'design' => 'm1']) }}">
                                                 {{ __('Top Slider Section') }}
