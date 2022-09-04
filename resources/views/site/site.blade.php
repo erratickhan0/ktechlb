@@ -52,15 +52,16 @@
 </section>
 @endif
 @if($brand->brand_settings->icon_section)
-<section class="productCarousel mt-5 mb-5 pt-5">
-    <div class="container-fluid">
-        <div class="row">
+<section class="productCarousel mt-10 mb-10 pt-5 pb-5">
+    <div class="container text-center">
+        <div class="d-flex justify-content-center align-items-center howToGap">
             @if($brand->icon_section)
             @foreach($brand->icon_section as $value)
-            <div class="col col-xs-12">
+            <div data-aos-easing="linear" data-aos="fade-up" data-aos-delay="200">
                 <div class="item_s4">
+                    <div class="hover-detail overlay"></div>
                     <div class="sec3_bot ">
-                        <div class="sec3_box aos-init aos-animate">
+                        <div class="sec3_box ">
                             <a href="{{route('mysite.icon.index',['brand' => $brand->slug,'design' => $brand->brand_design_id,'id' => $value->id])}}"> <img src="{{ asset('storage/'.$value->file_path) }}" alt=""></a>
                             <h3 class="head_underline_small">{{$value->title}}</h3>
                             <span class="underline_head"></span>
@@ -71,9 +72,9 @@
             </div>
             @endforeach
             @endif
-
         </div>
     </div>
+
 </section>
 @endif
 @if($brand->brand_settings->product_section)
@@ -272,7 +273,8 @@
                 <div class="row">
                     @if($brand->news_section)
                     @foreach($brand->news_section as $key => $value)
-                    <div class="col-md-3">
+                    <div class="col-md-3" data-aos-easing="linear" data-aos="fade-up" data-aos-delay="600"
+                         data-aos-duration="600">
                         <div class="s2_box">
                             <div class="s2_img">
                                 <a href="{{route('mysite.news.index',['brand' => $brand->slug,'design' => $brand->brand_design_id,'id' => $value->id])}}">  <img class="box-image" src="{{ asset('storage/'.$value->image) }}" alt=""></a>
