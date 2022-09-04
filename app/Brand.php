@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Brand extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['active_state','name'];
+    protected $fillable = ['active_state','name','brand_design_id'];
 
     public function brand_design()
     {
@@ -54,5 +54,21 @@ class Brand extends Model
     public function flipbook()
     {
         return $this->hasOne(FlipBook::class);
+    }
+    public function section2()
+    {
+        return $this->hasOne(Section2::class);
+    }
+    public function product_m2()
+    {
+        return $this->hasMany(ProductSectionM2::class);
+    }
+    public function section5()
+    {
+        return $this->hasOne(Section5::class);
+    }
+    public function section6()
+    {
+        return $this->hasOne(Section6::class);
     }
 }

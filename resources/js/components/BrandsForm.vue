@@ -182,7 +182,7 @@ export default {
                         if (response.data.status == 'OK') {
                             this.$toast.success(response.data.message, {'duration': 5000});
                             setTimeout( () => {
-                                window.location.reload();
+                                window.location.href='/admin/brands';
 
                             }, 1000);
                         }
