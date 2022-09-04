@@ -71,4 +71,8 @@ class Brand extends Model
     {
         return $this->hasOne(Section6::class);
     }
+    public function article_section()
+    {
+        return $this->hasMany(ArticleSection::class);
+    }
 }

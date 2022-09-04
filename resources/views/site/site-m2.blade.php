@@ -206,75 +206,62 @@
 @endif
 @endif
 
-@if(isset($brand->banner_section))
-    <section class="sectionFour">
-    <div class="container-fluid">
-    @if(isset($brand->banner_section->fullwidth_banner1_fixed))
-    <div class="row">
-    <div style="
-    background-image: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner1_fixed) }} );
-    height: 64vh;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-attachment: fixed;
-    "></div>
+@if($brand->brand_settings->accordian_section_m2)
+    @if($brand->button_accordian_section)
+    <div class="scrollEffect">
+        <div class="cover-container">
+            <div class="container" id="about" style="overflow:hidden">
+                <div class="row aaa">
+                    <div class="d-flex w-100 p-3 mx-auto flex-column bannertop">
+                        <div class="insidecontainermiddlepage">
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                    <h3 data-aos-easing="linear" data-aos="fade-right" data-aos-delay="500">{{$brand->button_accordian_section->title}}</h3>
+                                    <p data-aos-easing="linear" data-aos="fade-right" data-aos-duration="700">
+                                        {!! $brand->button_accordian_section->description !!}
+                                    </p>
+                                   @if($brand->button_accordian_section->show_button)
+                                    <button class="main_btn btn_blue mt-3" data-aos-easing="linear" data-aos="fade-right"
+                                            data-aos-duration="800">Read
+                                        More</button>
+                                    @endif
+                                </div>
+                                <div class="col-sm-6  col-xs-12 text-right">
+                                    <div class="fleximgblock">
+                                        <img src="{{ asset('storage/'.$brand->button_accordian_section->image) }}" data-aos-easing="linear" data-aos="fade-left"
+                                             data-aos-delay="1000">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     @endif
-    </div>
+    @endif
+@if($brand->brand_settings->fullwidth_image_section1_m2)
+    <section class="sectionFour">
+        <div class="container-fluid">
+            @if(isset($brand->banner_section->fullwidth_banner1_fixed))
+                <div class="row">
+                    <div style="
+                        background: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner1_fixed) }} );
+                        height: 100vh;
+                        width: 100vw;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-attachment: fixed;
+                        background-position: center;
+                        "></div>
+                </div>
+            @endif
+        </div>
     </section>
 @endif
-@if($brand->brand_settings->title_description_with_accordian_section)
-<div class="container-fluid" id="about" style="overflow:hidden">
-<div class="row aaa">
-<div class="cover-container d-flex w-100 p-3 mx-auto flex-column bannertop">
-@if($brand->button_accordian_section)
-<div class="insidecontainermiddlepage">
-<div class="row">
-<div class="offset-sm-1 col-sm-5 col-xs-12">
-    <h3>{{$brand->button_accordian_section->title}}</h3>
-    {!! $brand->button_accordian_section->description !!}
-    <button class="main_btn btn_blue mt-3">Read More</button>
-</div>
-<div class="col-sm-5  col-xs-12 text-center">
-    <div class="fleximgblock wow fadeInRight">
-        <img src="{{ asset('storage/'.$brand->button_accordian_section->image) }}">
-    </div>
-</div>
-
-</div>
-</div>
-@endif
-</div>
-</div>
-</div>
-@endif
-
-<section class="sectionSeven " data-aos="fade-up" data-aos-duration="1500">
-<div class="container">
-
-</div>
-</section>
-@if(isset($brand->banner_section))
-<section class="sectionFour">
-<div class="container-fluid">
-@if(isset($brand->banner_section->fullwidth_banner2_fixed))
-<div class="row">
-<div style="
-    background: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner2_fixed) }} );
-    height: 59vh;
-    width: 100vw;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-attachment: fixed;
-    background-position: center;
-    "></div>
-</div>
-@endif
-</div>
-</section>
-@endif
-@if($brand->brand_settings->news_blogs_section)
+@if($brand->brand_settings->news_blogs_section_m2)
 <section class="newsSection spacing">
 <section class="sec_2">
 <div class="container-fluid text-center">
@@ -308,24 +295,75 @@
 </section>
 @endif
 
-@if(isset($brand->banner_section))
-<section class="sectionFour">
-<div class="container-fluid">
-@if(isset($brand->banner_section->fullwidth_banner1_unfixed))
-<div class="row">
-<div style="
-    background-image: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner1_unfixed) }} );
-    height: 64vh;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-attachment: fixed;
-    "></div>
+@if($brand->brand_settings->fullwidth_image_section2_m2)
+    <section class="sectionFour">
+        <div class="container-fluid">
+            @if(isset($brand->banner_section->fullwidth_banner2_fixed))
+                <div class="row">
+                    <div style="
+                        background: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner2_fixed) }} );
+                        height: 100vh;
+                        width: 100vw;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-attachment: fixed;
+                        background-position: center;
+                        "></div>
+                </div>
+            @endif
+        </div>
+    </section>
+@endif
+@if($brand->brand_settings->article_section_m2)
+@if($brand->article_section)
+<div class="scrollEffect">
+    <div class="blog-archive h-100vh">
+        <div class="ba-hero">
+            <header class="section-header text-center" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="section-title">News and recent articles</h2>
+                <p class="subline">e-mark &amp; e-mark create</p>
+            </header>
+
+        </div>
+        <div class="ba-content masonry" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="2000">
+            <div class="container-fluid">
+                <div class="row">
+                    @foreach($brand->article_section as $key => $value)
+                    <div class="col-lg-3 col-sm-3 col-12">
+                        <article class="ba-item pa-item">
+                            <a href="#" class="ba-item-link" target="_blank">
+                                <h1 class="ba-item-title">{{$value->heading}}</h1>
+                                <img src="{{ asset('storage/'.$value->image) }}" />
+                                @if($value->btn_show)
+                                <div class="ba-item-button-container pa-item-button-container">
+                                    <span class="button light">{{$value->btn_text}}</span>
+                                </div>
+                                @endif
+                            </a>
+                        </article>
+                    </div>
+                    @endforeach
+
+
+
+                </div>
+                <div class="row">
+                    <div class="col-12 mx-auto text-center">
+                        <div class="mb-4">
+                            <button class="main_btn btn_blue">Show More</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 </div>
 @endif
-</div>
-</section>
 @endif
+
+
 @endif
 @endsection
 @push('scripts')

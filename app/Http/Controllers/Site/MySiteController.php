@@ -39,7 +39,9 @@ class MySiteController extends Controller
             ,'banner_section' => function($query) use ($design) { $query->where('design_id',$design);}
             ,'section5' => function($query) use ($design) { $query->where('design_id',$design);}
             ,'section6' => function($query) use ($design) { $query->where('design_id',$design);}
-            ,'button_accordian_section'=> function($query) use ($design) { $query->where('design_id',$design);},
+            ,'button_accordian_section'=> function($query) use ($design) { $query->where('design_id',$design);}
+            ,'news_section' => function($query) use ($design) { $query->where('design_id',$design);}
+            ,'article_section' => function($query) use ($design) { $query->where('design_id',$design);}
             ])
             ->where(['slug'=>$brand,'brand_design_id' => $design ])
             ->first();
