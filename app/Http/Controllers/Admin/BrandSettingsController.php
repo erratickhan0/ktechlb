@@ -47,7 +47,22 @@ class BrandSettingsController extends Controller
                 'fullwidth_image_section2_m2',
                 'fullwidth_image_section3_m2',
                 'news_blogs_section_m2',
-                'article_section_m2'));
+                'article_section_m2',
+                'slider_section_m3',
+                'section2_m3',
+                'product_section_m3',
+                'bg_description_m3',
+                'slider2_m3',
+                'product_description_m3',
+                'fullwidth_video_section_m3',
+                'accordian_section_m3',
+                'fullwidth_image_section1_m3',
+                'fullwidth_image_section2_m3',
+                'fullwidth_image_section3_m3',
+                'section9_m3',
+                'news_blogs_section_m3',
+                'article_section_m3'
+            ));
 
             return response()->json([
                 "status" => "OK",
