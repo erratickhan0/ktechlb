@@ -1,5 +1,6 @@
 <?php
 
+use App\BgDescription;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -140,6 +141,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::get('mybrand/product-m3/create', 'MyBrandProductM3Controller@create')->name('mybrand.product-m3.create');
         Route::post('mybrand/product-m3/store', 'MyBrandProductM3Controller@store')->name('mybrand.product-m3.store');
         Route::delete('mybrand/product-m3/delete', 'MyBrandProductM3Controller@destroy')->name('mybrand.product-m3.delete');
+
+        Route::get('mybrand/{slug}/bg-description/{design}', 'MyBrandBgImageDescriptionController@index')->name('mybrand.bg-description');
+        Route::get('mybrand/bg-description/create/{design}', 'MyBrandBgImageDescriptionController@create')->name('mybrand.bg-description.create');
+        Route::post('mybrand/bg-description/store/{design}', 'MyBrandBgImageDescriptionController@store')->name('mybrand.bg-description.store');
+        Route::post('mybrand/bg-description/update/{BgDescription}/{design}', 'MyBrandBgImageDescriptionController@update')->name('mybrand.bg-description.update');
 
         Route::post('/mybrand/settings/{brand}', 'BrandSettingsController@store')->name('mybrand.settings.store');
 

@@ -267,6 +267,11 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.bg-description',['slug' => session()->get('selected_brand')->slug,'design' => 'm3']) }}">
+                                                {{ __('Background Image with Desc') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link" href="{{ route('admin.mybrand.button-accordian',['slug' => session()->get('selected_brand')->slug,'design' => 'm3']) }}">
                                                 {{ __('Button/Accordian Section') }}
                                             </a>
