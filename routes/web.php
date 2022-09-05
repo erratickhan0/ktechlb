@@ -136,6 +136,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::post('mybrand/article/store/{design}', 'MyBrandArticleController@store')->name('mybrand.article.store');
         Route::delete('mybrand/article/delete/{design}', 'MyBrandArticleController@destroy')->name('mybrand.article.delete');
 
+        Route::get('mybrand/{slug}/product-m3', 'MyBrandProductM3Controller@index')->name('mybrand.product-m3');
+        Route::get('mybrand/product-m3/create', 'MyBrandProductM3Controller@create')->name('mybrand.product-m3.create');
+        Route::post('mybrand/product-m3/store', 'MyBrandProductM3Controller@store')->name('mybrand.product-m3.store');
+        Route::delete('mybrand/product-m3/delete', 'MyBrandProductM3Controller@destroy')->name('mybrand.product-m3.delete');
+
         Route::post('/mybrand/settings/{brand}', 'BrandSettingsController@store')->name('mybrand.settings.store');
 
     });
