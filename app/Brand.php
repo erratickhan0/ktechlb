@@ -75,4 +75,8 @@ class Brand extends Model
     {
         return $this->hasMany(ArticleSection::class);
     }
+    public function product_m3()
+    {
+        return $this->hasMany(ProductSectionM3::class);
+    }
 }

@@ -50,6 +50,22 @@ class MySiteController extends Controller
             }
             return view('site/site-m2',['brand' => $brand]);
         }
+        if($brand_design->slug == 'm3'){
+            $brand = Brand::with(['slider_section' => function($query) use ($design) { $query->where('design_id',$design);}
+                ,'section2' => function($query) use ($design) { $query->where('design_id',$design);}
+                ,'product_m3' => function($query) use ($design) { $query->where('design_id',$design);}
+                ,'banner_section' => function($query) use ($design) { $query->where('design_id',$design);}
+                ,'button_accordian_section'=> function($query) use ($design) { $query->where('design_id',$design);}
+                ,'news_section' => function($query) use ($design) { $query->where('design_id',$design);}
+                ,'article_section' => function($query) use ($design) { $query->where('design_id',$design);}
+            ])
+                ->where(['slug'=>$brand,'brand_design_id' => $design ])
+                ->first();
+            if(!$brand){
+                return abort(404);
+            }
+            return view('site/site-m3',['brand' => $brand]);
+        }
 
     }
 }
