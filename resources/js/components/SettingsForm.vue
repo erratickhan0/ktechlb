@@ -194,7 +194,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4 form-group" >
-                                            <label >Section(title desc with accordian)?</label>
+                                            <label >Section(Accordian/Button)</label>
                                             <toggle-button
                                                 style="margin-bottom: 0rem;"
                                                 v-model="settings.title_description_with_accordian_section"
@@ -407,6 +407,187 @@
                                         </div>
 
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-12 form-group" >
+                                            <h3>Sections Show/Hide Controls (M3)</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Slider M3)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.slider_section_m3"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Section2 M3)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.section2_m3"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Product M3)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.product_section_m3"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Background Desc M3)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.bg_description_m3"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Slider # 2 M3)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.slider2_m3"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Product Desc M3)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.product_description_m3"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Fullwidth Video M3)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.fullwidth_video_section_m3"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Accordian Button M3)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.accordian_section_m3"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Fullwidth Image1 M3)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.fullwidth_image_section1_m3"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Fullwidth Image2 M3)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.fullwidth_image_section2_m3"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Fullwidth Image3 M3)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.fullwidth_image_section3_m3"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Section9 M3)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.section9_m3"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(News Blog M3)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.news_blogs_section_m3"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+                                        <div class="col-md-4 form-group" >
+                                            <label >Section(Article Section M3)?</label>
+                                            <toggle-button
+                                                style="margin-bottom: 0rem;"
+                                                v-model="settings.article_section_m3"
+                                                :sync="true"
+                                                :labels="true"
+                                                @change=""
+                                            />
+
+                                        </div>
+
+                                    </div>
+
                                     <div class="row mt-3">
                                         <div class="col-md-6 text-left">
                                             <a href="javascript:;" @click="saveSettingsForm" class="btn btn-primary" >Save</a>
@@ -460,7 +641,22 @@ export default {
                 fullwidth_image_section2_m2:0,
                 fullwidth_image_section3_m2:0,
                 news_blogs_section_m2:0,
-                article_section_m2:0
+                article_section_m2:0,
+
+                slider_section_m3:0,
+                section2_m3:0,
+                product_section_m3:0,
+                bg_description_m3:0,
+                slider2_m3:0,
+                product_description_m3:0,
+                fullwidth_video_section_m3:0,
+                accordian_section_m3:0,
+                fullwidth_image_section1_m3:0,
+                fullwidth_image_section2_m3:0,
+                fullwidth_image_section3_m3:0,
+                section9_m3:0,
+                news_blogs_section_m3:0,
+                article_section_m3:0,
             },
             isLoading: false,
             fullPage: false,

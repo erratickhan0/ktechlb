@@ -51,6 +51,22 @@ class CreateBrandSettingsTable extends Migration
             $table->boolean('fullwidth_image_section3_m2')->default(0);
             $table->boolean('news_blogs_section_m2')->default(0);
             $table->boolean('article_section_m2')->default(0);
+
+
+            $table->boolean('slider_section_m3')->default(0);
+            $table->boolean('section2_m3')->default(0);
+            $table->boolean('product_section_m3')->default(0);
+            $table->boolean('bg_description_m3')->default(0);
+            $table->boolean('slider2_m3')->default(0);
+            $table->boolean('product_description_m3')->default(0);
+            $table->boolean('fullwidth_video_section_m3')->default(0);
+            $table->boolean('accordian_section_m3')->default(0);
+            $table->boolean('fullwidth_image_section1_m3')->default(0);
+            $table->boolean('fullwidth_image_section2_m3')->default(0);
+            $table->boolean('fullwidth_image_section3_m3')->default(0);
+            $table->boolean('section9_m3')->default(0);
+            $table->boolean('news_blogs_section_m3')->default(0);
+            $table->boolean('article_section_m3')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
