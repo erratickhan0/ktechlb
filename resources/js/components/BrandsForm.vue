@@ -207,7 +207,7 @@ export default {
         if(this.brand){
            this.branding.name = this.brand.name;
             this.branding.active_state = this.brand.active_state;
-            this.branding.brand_design_id = this.brand.brand_design_id;
+            this.branding.brand_design_id = JSON.parse(this.brand.brand_design_id);
         }
     }
 }
