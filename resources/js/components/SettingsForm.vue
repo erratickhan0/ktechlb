@@ -580,6 +580,7 @@
                                                 style="margin-bottom: 0rem;"
                                                 v-model="settings.article_section_m3"
                                                 :sync="true"
+                                                :labels="true"
                                                 @change=""
                                             />
 

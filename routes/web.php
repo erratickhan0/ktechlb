@@ -147,6 +147,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::post('mybrand/bg-description/store/{design}', 'MyBrandBgImageDescriptionController@store')->name('mybrand.bg-description.store');
         Route::post('mybrand/bg-description/update/{BgDescription}/{design}', 'MyBrandBgImageDescriptionController@update')->name('mybrand.bg-description.update');
 
+        Route::get('mybrand/{slug}/slider2/{design}', 'MyBrandSlider2Controller@index')->name('mybrand.slider2');
+        Route::get('mybrand/slider2/create/{design}', 'MyBrandSlider2Controller@create')->name('mybrand.slider2.create');
+        Route::post('mybrand/slider2/store/{design}', 'MyBrandSlider2Controller@store')->name('mybrand.slider2.store');
+        Route::delete('mybrand/slider2/delete/{design}', 'MyBrandSlider2Controller@destroy')->name('mybrand.slider2.delete');
+
         Route::post('/mybrand/settings/{brand}', 'BrandSettingsController@store')->name('mybrand.settings.store');
 
     });
