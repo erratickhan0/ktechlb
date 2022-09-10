@@ -10,6 +10,10 @@ class Brand extends Model
     use SoftDeletes;
     protected $fillable = ['active_state','name','brand_design_id'];
 
+    protected $casts = [
+        'brand_design_id' => 'integer',
+        ];
+
     public function brand_design()
     {
         return $this->belongsTo(BrandDesign::class);
@@ -78,5 +82,17 @@ class Brand extends Model
     public function product_m3()
     {
         return $this->hasMany(ProductSectionM3::class);
+    }
+    public function bg_description_m3()
+    {
+        return $this->hasOne(BgDescription::class);
+    }
+    public function slider2()
+    {
+        return $this->hasMany(SliderSection2::class);
+    }
+    public function product_description()
+    {
+        return $this->hasOne(ProductDescription::class);
     }
 }

@@ -145,6 +145,129 @@
         </div>
     @endif
    @endif
+
+@if($brand->brand_settings->bg_description_m3)
+
+       <div class="page-obsbot-meet page-obsbot-cv1 meet-common-text" data-v-153fe206="">
+           <div class="bg-transition gray-bg black-bg" data-v-153fe206="">
+               <div id="intelligent_framing" class="section-screen-text-wrapper section-screen-text-wrapper--dark-flow"
+                    data-v-6fd0f91b="" data-v-153fe206="">
+                   @if($brand->bg_description_m3)
+                   <div class="bg-area-osbot" data-v-6fd0f91b="">
+                       <div style="background-image: url({{ asset('storage/'.$brand->bg_description_m3->bg_image) }}) !important;
+                                    background-repeat: no-repeat;
+                                    background-size: cover;
+                                    background-position: 39%;"
+                            class="section-screen-text backgroundApplyKid height-100vh h-100vh" >
+
+                           <div class="darker-bg" data-v-6fd0f91b=""></div>
+                           <div class="container w1200" data-v-6fd0f91b="" data-aos-easing="linear" data-aos="fade-up"
+                                data-aos-duration="1000">
+                               <h2 class="hero-title common-text--h1 __sfx-fade-in-up">{{$brand->bg_description_m3->heading}}</h2>
+                               <p class="hero-subtitle common-text--para __sfx-fade-in-up" data-v-6fd0f91b="" data-aos-easing="linear"
+                                  data-aos="fade-up" data-aos-duration="1500">
+                                   {!! $brand->bg_description_m3->description  !!}
+                               </p>
+                           </div>
+                       </div>
+                       <div class="dark-flow-up" data-v-6fd0f91b="">
+                           <div class="dark-flow-up__transparent" data-v-6fd0f91b=""></div>
+                           <div class="dark-flow-up__dark" data-v-6fd0f91b=""></div>
+                       </div>
+                   </div>
+                   @endif
+
+                       @if($brand->brand_settings->slider2_m3)
+                   <section style="background-color: #000">
+                       <div class="scroll-slider">
+                           <div class="scroll-wrapper">
+                               @if(isset($brand->slider2[0]))
+                                   @foreach($brand->slider2 as $value)
+                               <article class="item scroll-slide">
+                                   <div class="scroll-line"></div>
+                                   <div class="thumbContainer">
+                                       <div class="container w1200 mb-2" data-v-4c27d85c="">
+                                           <div class="text-wrapper" data-v-4c27d85c="" data-aos-easing="linear" data-aos="fade-up"
+                                                data-aos-duration="500">
+                                               <div data-v-4c27d85c="">
+                                                   {!! $value->left_description !!}
+                                                   {!! $value->right_description !!}
+
+                                               </div>
+
+                                           </div>
+                                       </div>
+                                       @if($value->mime_type == 'video')
+                                       <video
+                                           src="{{ asset('storage/'.$value->image) }}"
+                                           poster="https://staticmedia.remo-ai.com/4f65c2634fa4422988fd6260cb21406e/snapshots/242dcd6b286845eb99a7d4110192d9d6-00001.jpg"
+                                           autoplay="autoplay" loop="loop" x5-playsinline="" playsinline="" webkit-playsinline=""
+                                           preload="preload" muted="muted" class="b-lazy inner-video b-loaded" data-v-4a279559=""
+                                           data-v-f9b1cc82=""></video>
+                                       @else
+                                           <img src="{{ asset('storage/'.$value->image) }}" />
+                                       @endif
+                                   </div>
+                               </article>
+                                   @endforeach
+                               @endif
+                           </div>
+                       </div>
+                   </section>
+                     @endif
+               </div>
+               @if($brand->brand_settings->product_description_m3)
+                @if($brand->product_description)
+               <div class="section-dual-omni height-100vh" data-v-800533da="" data-v-153fe206="">
+                   <div class="container w1200 layout-lr" data-v-800533da="">
+                       <div class="layout-lr__left" data-v-800533da="" data-aos-easing="linear" data-aos="fade-right"
+                            data-aos-duration="1000" data-aos-delay="2000">
+                           <div
+                              style="background-image: url({{ asset('storage/'.$brand->product_description->background_image) }}) !important;
+                                    background-repeat: no-repeat;"
+                              data-ratio="0.65" class="auto-ratio-box section-dual-omniBG" data-v-f9b1cc82="" data-v-800533da=""
+                                lazy="loaded">
+                               <div class="__height-box" style="padding-bottom:65.00%;" data-v-f9b1cc82=""></div>
+                               <div class="__box-content" data-v-f9b1cc82=""></div>
+                           </div>
+                       </div>
+                       <div class="layout-lr__right" data-v-800533da="" data-aos-easing="linear" data-aos="fade-left"
+                            data-aos-duration="1000" data-aos-delay="2000">
+                          {!! $brand->product_description->description1 !!}
+                       </div>
+                   </div>
+               </div>
+               <div class="bg-area-osbot h-100vh" data-v-6fd0f91b="">
+                   <div class="container w1200 pb-5" data-v-c678f1c0="">
+                       <div class="section-text-image w1200" data-v-e1b6eaaa="" data-v-c678f1c0="">
+                           <div class="section-content" data-v-e1b6eaaa="">
+                               <!---->
+                               <div class="main-text-wrap main-text-wrap--layout-lr" data-v-e1b6eaaa="">
+                                   {!! $brand->product_description->description2 !!}
+                                   {!! $brand->product_description->description3 !!}
+                               </div>
+                               <div data-ratio="0.5" class="auto-ratio-box media-box" data-v-f9b1cc82="" data-v-4ebf90a4=""
+                                    data-v-e1b6eaaa="" lazy="loaded" class="cpu">
+                                   <div class="__height-box" style="padding-bottom:50.00%;" data-v-f9b1cc82=""></div>
+                                   <div class="__box-content" data-v-f9b1cc82="">
+                                       <div class="bg-layer" data-v-f9b1cc82="" data-v-4ebf90a4="" data-aos="fade-up"
+                                            data-aos-duration="2000" data-aos-easing="linear" data-aos-delay="2000">
+                                           <img src="{{ asset('storage/'.$brand->product_description->image) }}" class="img-fluid" />
+                                       </div>
+                                   </div>
+                               </div>
+                               <!---->
+                           </div>
+                       </div>
+                   </div>
+                   <!---->
+               </div>
+                @endif
+               @endif
+           </div>
+       </div>
+
+@endif
 @if($brand->brand_settings->fullwidth_video_section_m3)
     <div class="scrollEffect">
     <section data-layer="main-video" class="bg-white">
