@@ -78,21 +78,21 @@
 </section>
 @endif
 @if($brand->brand_settings->product_section)
-<section class="productSection mt-5" data-aos="fade-up" data-aos-duration="2500">
-    @if($brand->product_section)
+<section class="productSection" >
     <div id="owl-carousel2" class="owl-carousel">
+        @if($brand->product_section)
         @foreach($brand->product_section as $value)
         <div class="item">
-            <div class="item_s4"> <img src="{{ asset('storage/'.$value->product_image) }}" alt="">
+            <div class="item_s4">  <img src="{{ asset('storage/'.$value->product_image) }}" alt="">
                 <div class="product-detail overlay">
-                    <div class="product-title">{{$value->title}}</div>
+                    <div class="product-title">{{--{{$value->title}}--}}</div>
                 </div>
                 <div class="product-logo"><img src="{{ asset('storage/'.$value->product_logo) }}" alt=""></div>
             </div>
         </div>
         @endforeach
+        @endif
     </div>
-    @endif
 </section>
 @endif
 @if($brand->brand_settings->logo_description_section)
@@ -134,84 +134,201 @@
     @endif
 </section>
 @endif
-@if($brand->brand_settings->logo_icon_and_description_with_boxes_section)
-<section class="sectionThree" style="overflow:hidden">
-    @if($brand->boxicon_section)
-    <section class="sec_3" id="choose">
-        <div class="container">
-            <div class="sec3_bot">
+@if(isset($brand->banner_section) && $brand->brand_settings->fullwidth_image_section1)
+    <section class="sectionFour">
+        <div class="container-fluid">
+            @if(isset($brand->banner_section->fullwidth_banner1_fixed))
                 <div class="row">
-                    @foreach($brand->boxicon_section as $key => $value)
-                    @if($key == 0 || $key == 3)
-                    <div class="col-lg-4 col-md-6 col-xs-12" data-aos-duration="1000" data-aos="fade-right">
-                        @endif
-                        @if($key == 1 || $key == 4)
-                        <div class="col-lg-4 col-md-6 col-xs-12" data-aos-duration="1000" data-aos="fade-up">
-                            @endif
-                            @if($key == 2 || $key == 5)
-                            <div class="col-lg-4 col-md-6 col-xs-12" data-aos-duration="1000" data-aos="fade-left">
-                                @endif
-                                <div class="sec3_box">
-                                    <img src="{{ asset('storage/'.$value->box_icon) }}" alt="">
-                                    <h3 class="head_underline_small">{{$value->title}}</h3>
-                                    <span class="underline_head"></span>
-                                    {!! $value->description !!}
+                    <div style="
+                        background-image: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner1_fixed) }} );
+                        width: 100%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-attachment: fixed;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        height: 700px;
+                        background-position: center top;
+                        "></div>
+                </div>
+            @endif
+        </div>
+    </section>
+@endif
+@if($brand->brand_settings->logo_icon_and_description_with_boxes_section)
+<div class="newsSection-second engagementSection  updatedSectionPromotion h-100vh">
+    <section class="sec_3 choose" id="choose">
+        <div>
+            <div>
+                <div class="container">
+                    <div class=" text-center">
+                        @if(isset($brand->boxicon_section[0]))
+
+                        <div class="d-flex justify-content-center align-items-center mb-2 gapNewsSectionSecond">
+                            @foreach($brand->boxicon_section as $key => $value)
+                            @if($key == 0)
+                            <div class="" data-aos-easing="linear" data-aos="fade-right" data-aos-duration="1500">
+                                <div class="EngagementActive">
+                                    <div class="row">
+                                        <div class="col-sm-12  mb-1">
+                                            <img src="{{ asset('storage/'.$value->box_icon) }}" alt="">
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <h2 class="text-dark  mb-2">{{$value->title}}</h2>
+                                            <p> {!! $value->description !!}</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            @endif
+                            @if($key == 1)
+                            <div class="" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1500">
+                                <div class="EngagementActive">
+                                    <div class="row">
+                                        <div class="col-sm-12  mb-1">
+                                            <img src="{{ asset('storage/'.$value->box_icon) }}" alt="">
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <h2 class="text-dark  mb-2">{{$value->title}}</h2>
+                                            <p> {!! $value->description !!}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
+                            @if($key == 2)
+                            <div class="" data-aos-easing="linear" data-aos="fade-left" data-aos-duration="1500">
+                                <div class="EngagementActive">
+                                    <div class="row">
+                                        <div class="col-sm-12  mb-1">
+                                            <img src="{{ asset('storage/'.$value->box_icon) }}" alt="">
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <h2 class="text-dark  mb-2">{{$value->title}}</h2>
+                                            <p> {!! $value->description !!}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
                             @endforeach
+
+
                         </div>
+                            <div class="d-flex justify-content-center align-items-center mb-2 gapNewsSectionSecond">
+                                @foreach($brand->boxicon_section as $key => $value)
+                                    @if($key == 3)
+                                        <div class="" data-aos-easing="linear" data-aos="fade-right" data-aos-duration="1500">
+                                            <div class="EngagementActive">
+                                                <div class="row">
+                                                    <div class="col-sm-12  mb-1">
+                                                        <img src="{{ asset('storage/'.$value->box_icon) }}" alt="">
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <h2 class="text-dark  mb-2">{{$value->title}}</h2>
+                                                        <p> {!! $value->description !!}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    @if($key == 4)
+                                        <div class="" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1500">
+                                            <div class="EngagementActive">
+                                                <div class="row">
+                                                    <div class="col-sm-12  mb-1">
+                                                        <img src="{{ asset('storage/'.$value->box_icon) }}" alt="">
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <h2 class="text-dark  mb-2">{{$value->title}}</h2>
+                                                        <p> {!! $value->description !!}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    @if($key == 5)
+                                        <div class="" data-aos-easing="linear" data-aos="fade-left" data-aos-duration="1500">
+                                            <div class="EngagementActive">
+                                                <div class="row">
+                                                    <div class="col-sm-12  mb-1">
+                                                        <img src="{{ asset('storage/'.$value->box_icon) }}" alt="">
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <h2 class="text-dark  mb-2">{{$value->title}}</h2>
+                                                        <p> {!! $value->description !!}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+
+
+                            </div>
+                         @endif
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    @endif
-</section>
-@endif
-@if(isset($brand->banner_section))
-<section class="sectionFour">
-    <div class="container-fluid">
-        @if(isset($brand->banner_section->fullwidth_banner1_fixed))
-        <div class="row">
-            <div style="
-                background-image: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner1_fixed) }} );
-                height: 64vh;
-                width: 100%;
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-attachment: fixed;
-                "></div>
-        </div>
-        @endif
-    </div>
-</section>
-@endif
-@if($brand->brand_settings->title_description_with_accordian_section)
-<div class="container-fluid" id="about" style="overflow:hidden">
-    <div class="row aaa">
-        <div class="cover-container d-flex w-100 p-3 mx-auto flex-column bannertop">
-            @if($brand->button_accordian_section)
-            <div class="insidecontainermiddlepage">
-                <div class="row">
-                    <div class="offset-sm-1 col-sm-5 col-xs-12">
-                        <h3>{{$brand->button_accordian_section->title}}</h3>
-                        {!! $brand->button_accordian_section->description !!}
-                        <button class="main_btn btn_blue mt-3">Read More</button>
-                    </div>
-                    <div class="col-sm-5  col-xs-12 text-center">
-                        <div class="fleximgblock wow fadeInRight">
-                            <img src="{{ asset('storage/'.$brand->button_accordian_section->image) }}">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            @endif
-        </div>
-    </div>
 </div>
 @endif
-@if(isset($brand->banner_section))
+@if(isset($brand->banner_section) && $brand->brand_settings->fullwidth_image_section2)
+    <section class="sectionFour">
+        <div class="container-fluid">
+            @if(isset($brand->banner_section->fullwidth_banner2_fixed))
+                <div class="row">
+                    <div style="
+                        background: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner2_fixed) }} );
+                        width: 100%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-attachment: fixed;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        height: 700px;
+                        background-position: center top;
+                        "></div>
+                </div>
+            @endif
+        </div>
+    </section>
+@endif
+@if($brand->brand_settings->title_description_with_accordian_section)
+    @if($brand->button_accordian_section)
+    <div class="cover-container">
+        <div class="" id="about" style="overflow:hidden;padding:0px 150px ">
+            <div class="row aaa">
+                <div class="d-flex w-100 p-3 mx-auto flex-column bannertop">
+                    <div class="insidecontainermiddlepage">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="offset-sm-1 col-sm-5 col-xs-12">
+                                <h3 data-aos-easing="linear" data-aos="fade-right" data-aos-delay="500">
+                                    {{$brand->button_accordian_section->title}}</h3>
+                                <p data-aos-easing="linear" data-aos="fade-right" data-aos-duration="700">
+                                    {!! $brand->button_accordian_section->description !!}</p>
+                                @if($brand->button_accordian_section->show_button)
+                                <button class="main_btn btn_blue mt-3 " data-aos-easing="linear" data-aos="fade-right"
+                                        data-aos-duration="800">Read More</button>
+                                @endif
+                            </div>
+                            <div class="col-sm-5  col-xs-12 text-center">
+                                <div class="fleximgblock">
+                                    <img src="{{ asset('storage/'.$brand->button_accordian_section->image) }}" data-aos-easing="linear" data-aos="fade-left"
+                                         data-aos-delay="1000" style="width: 249px;height: 249px;">
+                                </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+    @endif
+@if(isset($brand->banner_section) && $brand->brand_settings->fullwidth_video_section)
 <section data-layer="main-video" class="bg-white">
     @if(isset($brand->banner_section->fullwidth_video))
     <div id="shopify-section-main-video" class="shopify-section">
@@ -237,24 +354,21 @@
     @endif
 </section>
 @endif
-<section class="sectionSeven " data-aos="fade-up" data-aos-duration="1500">
-    <div class="container">
-
-    </div>
-</section>
-@if(isset($brand->banner_section))
+@if(isset($brand->banner_section) && $brand->brand_settings->fullwidth_image_section3)
     <section class="sectionFour">
         <div class="container-fluid">
-            @if(isset($brand->banner_section->fullwidth_banner2_fixed))
+            @if(isset($brand->banner_section->fullwidth_banner1_unfixed))
                 <div class="row">
                     <div style="
-                        background: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner2_fixed) }} );
-                        height: 59vh;
-                        width: 100vw;
+                        background-image: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner1_unfixed) }} );
+                        width: 100%;
                         background-repeat: no-repeat;
-                        background-size: contain;
-                        background-attachment: fixed;
                         background-position: center;
+                        background-attachment: fixed;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        height: 700px;
+                        background-position: center top;
                         "></div>
                 </div>
             @endif
@@ -262,6 +376,7 @@
     </section>
 @endif
 @if($brand->brand_settings->news_blogs_section)
+@if(isset($brand->news_section[0]))
 <section class="newsSection spacing">
     <section class="sec_2">
         <div class="container-fluid text-center">
@@ -271,18 +386,17 @@
             </div>
             <div class="s2_bot">
                 <div class="row">
-                    @if($brand->news_section)
                     @foreach($brand->news_section as $key => $value)
                     <div class="col-md-3" data-aos-easing="linear" data-aos="fade-up" data-aos-delay="600"
                          data-aos-duration="600">
                         <div class="s2_box">
                             <div class="s2_img">
+                                <div class="news-overlay">&nbsp;</div>
                                 <a href="{{route('mysite.news.index',['brand' => $brand->slug,'design' => $brand->brand_design_id,'id' => $value->id])}}">  <img class="box-image" src="{{ asset('storage/'.$value->image) }}" alt=""></a>
                             </div>
                         </div>
                     </div>
                     @endforeach
-                    @endif
                 </div>
                 <div class="col" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000">
                     <div class="mt-4 mb-2">
@@ -294,25 +408,8 @@
     </section>
 </section>
 @endif
-
-@if(isset($brand->banner_section))
-    <section class="sectionFour">
-        <div class="container-fluid">
-            @if(isset($brand->banner_section->fullwidth_banner1_unfixed))
-                <div class="row">
-                    <div style="
-                        background-image: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner1_unfixed) }} );
-                        height: 64vh;
-                        width: 100%;
-                        background-repeat: no-repeat;
-                        background-size: contain;
-                        background-attachment: fixed;
-                        "></div>
-                </div>
-            @endif
-        </div>
-    </section>
 @endif
+
 @endif
 @endsection
 @push('scripts')

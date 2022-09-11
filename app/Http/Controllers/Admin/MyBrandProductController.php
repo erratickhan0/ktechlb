@@ -31,7 +31,7 @@ class MyBrandProductController extends Controller
     public function index(Request $request)
     {
         $my_brand = $request->session()->get('selected_brand', 'default');
-        $product_section = ProductSection::where('brand_id',$my_brand->id)->where('design_id',$this->my_design->id)->first();
+        $product_section = ProductSection::where('brand_id',$my_brand->id)->where('design_id',$this->my_design->id)->get();
         return view('admin.Product_home.listing',['products' => $product_section, 'slug' => $my_brand->slug ]);
     }
     /**
