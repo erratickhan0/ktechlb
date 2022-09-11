@@ -9665,43 +9665,47 @@ h3 {
 
 @font-face {
   font-family: "zapf_humanist_601demi";
-  src: url("../../public/assets/fonts/zapfhumanist601bt-demi-webfont.woff2") format("woff2"), url("../../public/assets/fonts/zapfhumanist601bt-demi-webfont.woff") format("woff");
+  src: url("../fonts/zapfhumanist601bt-demi-webfont.woff2") format("woff2"), url("../fonts/zapfhumanist601bt-demi-webfont.woff") format("woff");
 }
 @font-face {
   font-family: "montserrat-light";
-  src: url("../../public/assets/fonts/montserrat-light-webfont.woff2") format("woff2");
+  src: url("../fonts/montserrat-light-webfont.woff2") format("woff2");
 }
 @font-face {
   font-family: "montserrat-regular";
-  src: url("../../public/assets/fonts/montserrat-regular-webfont.woff2") format("woff2");
+  src: url("../fonts/montserrat-regular-webfont.woff2") format("woff2");
 }
 @font-face {
   font-family: "corbel-light";
-  src: url("../../public/assets/fonts/corbel-light.woff") format(" woff");
+  src: url("../fonts/corbel-light.woff") format("woff");
 }
 @font-face {
   font-family: "aileronblack";
-  src: url("../../public/assets/fonts/aileron-black-webfont.woff2") format("woff2"), url("../../public/assets/fonts/aileron-black-webfont.woff") format("woff");
+  src: url("../fonts/aileron-black-webfont.woff2") format("woff2"), url("../fonts/aileron-black-webfont.woff") format("woff");
 }
 @font-face {
   font-family: "aileronbold";
-  src: url("../../public/assets/fonts/aileron-bold-webfont.woff2") format("woff2"), url("../../public/assets/fonts/aileron-bold-webfont.woff") format("woff");
+  src: url("../fonts/aileron-bold-webfont.woff2") format("woff2"), url("../fonts/aileron-bold-webfont.woff") format("woff");
 }
 @font-face {
   font-family: "aileronheavy";
-  src: url("../../public/assets/fonts/aileron-heavy-webfont.woff2") format("woff2"), url("../../public/assets/fonts/aileron-heavy-webfont.woff") format("woff");
+  src: url("../fonts/aileron-heavy-webfont.woff2") format("woff2"), url("../fonts/aileron-heavy-webfont.woff") format("woff");
 }
 @font-face {
   font-family: "aileronlight";
-  src: url("../../public/assets/fonts/aileron-light-webfont.woff2") format("woff2"), url("../../public/assets/fonts/aileron-light-webfont.woff") format("woff");
+  src: url("../fonts/aileron-light-webfont.woff2") format("woff2"), url("../fonts/aileron-light-webfont.woff") format("woff");
 }
 @font-face {
   font-family: "aileronregular";
-  src: url("../../public/assets/fonts/aileron-regular-webfont.woff2") format("woff2"), url("../../public/assets/fonts/aileron-regular-webfont.woff") format("woff");
+  src: url("../fonts/aileron-regular-webfont.woff2") format("woff2"), url("../fonts/aileron-regular-webfont.woff") format("woff");
 }
 @font-face {
   font-family: "aileronsemibold";
-  src: url("../../public/assets/fonts/aileron-semibold-webfont.woff2") format("woff2"), url("../../public/assets/fonts/aileron-semibold-webfont.woff") format("woff");
+  src: url("../fonts/aileron-semibold-webfont.woff2") format("woff2"), url("../fonts/aileron-semibold-webfont.woff") format("woff");
+}
+@font-face {
+  font-family: "Cursive";
+  src: url("../fonts/cursive.woff2") format("woff2");
 }
 body {
   font-family: "Microsoft YaHei", sans-serif;
@@ -9781,7 +9785,7 @@ h6 {
 }
 
 h3.head_underline_small {
-  font-size: 1rem;
+  font-size: 12px;
   color: #2c3749;
   font-weight: 600;
 }
@@ -9814,8 +9818,8 @@ nav .dropdown > .dropdown-toggle:active {
 }
 
 .navbar-dark .navbar-brand {
-  padding-top: 0.4rem;
-  padding-bottom: 0.4rem;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .navbar-dark .navbar-brand img {
@@ -9829,7 +9833,7 @@ nav .dropdown > .dropdown-toggle:active {
 }
 
 ul.navbar-nav li a {
-  padding: 0.6rem 1rem !important;
+  padding: 0.8rem 1rem !important;
 }
 
 .nav-link,
@@ -9886,17 +9890,22 @@ ul.navbar-nav li a {
 .bannerSection {
   position: relative;
   /* margin-top: 85px; */
-  margin-top: 47px;
+  margin-top: 37px;
 }
 
 .book {
   right: 10%;
-  content: url(../images/site/book2.png);
+  content: url(../img/book2.png);
   position: absolute;
   z-index: 3;
   bottom: -100px;
   width: 277px;
   transform: translate(-2%, -6%);
+  transition: all 0.5s ease 0s;
+}
+
+.book:hover {
+  transform: scale(1.1);
 }
 
 .setTextPosition {
@@ -9941,11 +9950,11 @@ ul.navbar-nav li a {
 }
 
 .swiper-button-next {
-  background: url(../images/site/fs.prevnext.png) -45px -45px no-repeat transparent;
+  background: url(../img/fs.prevnext.png) -45px -45px no-repeat transparent;
 }
 
 .swiper-button-prev {
-  background: url(../images/site/fs.prevnext.png) 0px -45px no-repeat transparent;
+  background: url(../img/fs.prevnext.png) 0px -45px no-repeat transparent;
 }
 
 .swiper-button-next,
@@ -9968,17 +9977,19 @@ ul.navbar-nav li a {
 /* banner section */
 /* section Four parallax */
 .parallaxOne {
-  background: url(../images/site/M1.jpg);
-  height: 630px;
+  background: url(../img/girl.png);
   width: 100%;
   background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: bottom;
+  background-position: center;
   background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 700px;
+  background-position: center top;
 }
 
 .parallaxOneFullHeight {
-  background: url(../images/site/M1.jpg);
+  background: url(../img/M1.jpg);
   height: 100vh;
   width: 100%;
   background-repeat: no-repeat;
@@ -9988,17 +9999,29 @@ ul.navbar-nav li a {
 }
 
 .parallaxTwo {
-  background: url(../images/site/bg.png);
-  height: 630px;
+  background: url(../img/bg.png);
   width: 100%;
   background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: bottom;
+  background-position: center;
   background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 700px;
+  background-position: center top;
 }
 
 .parallaxTwoFullHeight {
-  background: url(../images/site/bg.png);
+  background: url(../img/bg.png);
+  height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.parallaxThreeFullHeight {
+  background: url(../img/M2GlassBlack.jpg);
   height: 100vh;
   width: 100vw;
   background-repeat: no-repeat;
@@ -10008,23 +10031,27 @@ ul.navbar-nav li a {
 }
 
 .parallaxGlass {
-  background: url(../images/site/M2GlassBlack.jpg);
-  height: 630px;
+  background: url(../img/M2GlassBlack.jpg);
   width: 100%;
   background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: bottom;
+  background-position: center;
   background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 700px;
+  background-position: center top;
 }
 
 .parallaxThree {
-  background: url(../images/site/M2GlassBlack.jpg);
-  height: 100vh;
-  width: 100vw;
+  background: url(../img/M2GlassBlack.jpg);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
+  height: 700px;
+  background-position: center top;
 }
 
 /* section Four parallax */
@@ -10045,7 +10072,7 @@ ul.navbar-nav li a {
 }
 
 .video-js .vjs-big-play-button .vjs-icon-placeholder:before {
-  content: url(../images/site/videoPlay.svg);
+  content: url(../img/videoPlay.svg);
   transform: scale(2);
 }
 
@@ -10155,7 +10182,7 @@ p {
 .sec_3 {
   padding: 134px 0;
   position: relative;
-  background: url(../images/site/wc-bg.jpg) center top no-repeat;
+  background: url(../img/wc-bg.jpg) center top no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
@@ -10286,6 +10313,7 @@ p {
 .ebarkSection .sec2_right p {
   color: #525252;
   font-weight: 400;
+  font-size: 16px;
 }
 
 .ebarkSection .main_btn.btn_orange {
@@ -10410,7 +10438,7 @@ img.box-image {
 }
 
 .product-logo img {
-  height: 55px !important;
+  height: 88px !important;
 }
 
 .howToGap {
@@ -10422,14 +10450,18 @@ img.box-image {
 }
 
 #owl-carousel2 .item:hover .product-detail,
-#innerBookCarousel .item:hover .product-detail,
-.productCarousel .item_s4:hover .hover-detail {
+#innerBookCarousel .item:hover .product-detail {
   opacity: 0.6;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.0509803922);
 }
 
 .productCarousel .item_s4 {
   cursor: pointer;
+  transition: all 0.5s ease 0s;
+}
+
+.productCarousel .item_s4:hover {
+  transform: scale(1.2, 1.2);
 }
 
 .product-detail p {
@@ -10716,6 +10748,9 @@ li.inner-dropdown a {
   font-size: 0.643rem !important;
   color: var(--white);
   font-family: "montserrat-light";
+}
+
+.xs-copyright-text p img {
   display: none;
 }
 
@@ -10931,6 +10966,10 @@ ul.footer-social > li {
   width: 100%;
 }
 
+#contacts-webchat-footer .toggle.chat {
+  border-left: none;
+}
+
 div[id*=contacts-webchat-].onready #contacts-webchat-tabs .chat,
 div[id*=contacts-webchat-].onchat #contacts-webchat-tabs .chat {
   display: none;
@@ -10961,6 +11000,16 @@ div[id*=contacts-webchat-].onchat #contacts-webchat-tabs .chat {
   padding: 0 27px 27px;
   text-align: center;
   transition: all 0.3s ease;
+  min-height: 235px;
+  max-height: 235px;
+}
+
+.webchat-list {
+  display: flex;
+  min-height: 235px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 div[id*=contacts-webchat-].onready button,
@@ -11004,7 +11053,7 @@ div[id*=contacts-webchat-] .text {
 }
 
 .scrollTo {
-  background: rgba(0, 0, 0, 0.33) url(../images/site/right-arrow.png) center center no-repeat;
+  background: rgba(0, 0, 0, 0.33) url(../img/right-arrow.png) center center no-repeat;
   width: 36px;
   height: 36px;
   border-radius: 3px;
@@ -11012,9 +11061,10 @@ div[id*=contacts-webchat-] .text {
   transform: rotate(-90deg);
   position: fixed;
   z-index: 999999;
-  right: 50px;
-  bottom: 0;
+  right: 17px;
+  bottom: 27px;
   background-size: 15px;
+  cursor: pointer;
 }
 
 /* product carousel */
@@ -11037,7 +11087,7 @@ div[id*=contacts-webchat-] .text {
   min-height: 131px;
   max-height: 131px;
   cursor: pointer;
-  gap: 20px;
+  gap: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11064,7 +11114,7 @@ div[id*=contacts-webchat-] .text {
 /* product section */
 /*about */
 .cover-container {
-  background-image: url("../images/site/bg2.jpg") !important;
+  /* background-image: url('../img/bg2.jpg') !important; */
   padding: 154px 0px !important;
 }
 
@@ -11145,7 +11195,7 @@ div[id*=contacts-webchat-] .text {
 .werwer {
   padding-bottom: 30px !important;
   margin-bottom: 15px !important;
-  background: transparent url(../images/site/werwer.png) bottom left 0px/92px no-repeat !important;
+  background: transparent url(../img/werwer.png) bottom left 0px/92px no-repeat !important;
 }
 
 .bggreyabout p {
@@ -11179,7 +11229,7 @@ div[id*=contacts-webchat-] .text {
 .werwer {
   padding-bottom: 30px !important;
   margin-bottom: 15px !important;
-  background: transparent url(../images/site/werwer.png) bottom left 0px/92px no-repeat !important;
+  background: transparent url(../img/werwer.png) bottom left 0px/92px no-repeat !important;
 }
 
 .bggreyabout p {
@@ -11259,10 +11309,8 @@ div[id*=contacts-webchat-] .text {
 
 .EngagementActive:hover,
 .EngagementActive.activeEng {
-  will-change: transform;
-  transform: translate3d(-1.1626px, -14.314px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
-  transform-style: preserve-3d;
-  box-shadow: 1px 1px 70px 18px rgba(0, 0, 0, 0.23);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.6);
+  border-radius: 0;
 }
 
 .engagementSection h3 {
@@ -11374,6 +11422,14 @@ div[id*=contacts-webchat-] .text {
 
 /* icon at banner */
 /* news section */
+.news-cover-container {
+  background: url("../img/newsBanner.jpg") !important;
+  background-size: cover !important;
+  height: 550px;
+  /* margin-top: 85px; */
+  margin-top: 37px;
+}
+
 .grey {
   background-color: var(--grey);
 }
@@ -11490,6 +11546,7 @@ div[id*=contacts-webchat-] .text {
   display: flex;
   max-width: 244px;
   min-width: 244px;
+  transition: all 0.4s ease-in-out 0s;
 }
 
 .updatedSectionPromotion .sec_3 .EngagementActive p {
@@ -11500,6 +11557,7 @@ div[id*=contacts-webchat-] .text {
 
 /* updated section promotion */
 .insidecontainermiddlepage p {
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -11637,13 +11695,57 @@ div[id*=contacts-webchat-] .text {
 }
 
 .scrollEffect {
-  padding-top: 60px;
+  /* padding-top: 60px; */
+  padding-top: 38px;
 }
 
 .bannerSectionM2 .swiper-slide video {
   -o-object-fit: cover;
      object-fit: cover;
   height: 100vh;
+}
+
+.bannerSectionM3 .swiper-slide {
+  text-align: center;
+  font-size: 1.286rem;
+  background: var(--white);
+  height: 703px;
+}
+
+.bannerSectionM3 .swiper-slide img {
+  height: 100%;
+}
+
+/* .bannerSectionM3 .swiper-slide video {
+    object-fit: cover;
+
+    height: 100vh;
+} */
+.swiper-slide-active .slider-cont {
+  transform: translateY(0);
+}
+
+.slider-cont {
+  background: url(../img/transformer.png) repeat;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  font-size: 18px !important;
+  color: #fff !important;
+  text-align: left;
+  line-height: 20px !important;
+  margin: 0 !important;
+  padding: 15px 20px;
+  font-size: 22px !important;
+  height: 52px !important;
+  height: 7.32394%;
+  font-size: 21.8141px;
+  line-height: 100%;
+  opacity: 1;
+  top: 88.0282%;
+  left: 0.520833%;
+  transform: translateY(84px);
+  transition: transform 2s;
 }
 
 .scrollEffect .m2NewsSection,
@@ -11678,7 +11780,7 @@ div[id*=contacts-webchat-] .text {
 
 .m2BannerText {
   width: 100%;
-  height: 183px;
+  height: 213px;
   z-index: 2;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.329);
@@ -11694,6 +11796,16 @@ div[id*=contacts-webchat-] .text {
 .m2BannerText h5 {
   color: var(--white);
   font-family: "zapf_humanist_601demi";
+  font-size: 35px;
+}
+
+.m2BannerText small {
+  color: #f7f7f7;
+  font-family: "Roboto", Sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5em;
+  letter-spacing: 0.5px;
 }
 
 /* M2 banner */
@@ -11823,11 +11935,11 @@ div[id*=contacts-webchat-] .text {
 .m2CommunicatorOne {
   height: 100vh;
   width: 100%;
-  background: url(../images/site/M2bg.jpg);
+  background: url(../img/M2bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow: 1px 2px 3px 36px #000;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 
 .greyRight {
@@ -12146,6 +12258,13 @@ div[id*=contacts-webchat-] .text {
     margin-right: 0;
     font-weight: 600;
   }
+  .news-cover-container {
+    background: url(../img/newsBanner.jpg) !important;
+    background-size: cover !important;
+    height: 250px;
+    background-repeat: no-repeat;
+    margin-top: 123px;
+  }
   .innercustom .cover-heading {
     font-size: 2rem !important;
   }
@@ -12262,7 +12381,7 @@ div[id*=contacts-webchat-] .text {
   /* max-width: none; */
   height: 518px;
   overflow: hidden;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
 }
 
 .blog-archive .ba-item {
@@ -12391,8 +12510,8 @@ div[id*=contacts-webchat-] .text {
   .blog-archive .ba-content.masonry {
     margin-left: auto;
     margin-right: auto;
-    max-width: 67.5rem;
-    width: calc(100% - 6rem);
+    max-width: 90%;
+    width: 90%;
   }
 }
 @media (min-width: 37.5rem) {
@@ -12404,21 +12523,13 @@ div[id*=contacts-webchat-] .text {
     padding: 0px 10px 10px 10px;
     text-align: left;
   }
-  .blog-archive .ba-content.masonry .ba-item {
-    /* margin: 0; */
-  }
-  .blog-archive .ba-item {
-    /* margin: 0 1% 2%; */
-    /* max-width: 21.875rem; */
-    /* width: calc(50% - 0.625rem); */
-  }
   .blog-archive .ba-hero {
     justify-content: flex-start;
     padding: 3rem;
   }
 }
 .blog-archive .ba-content.masonry {
-  margin-top: -139px;
+  margin-top: -230px;
 }
 
 .blog-archive h2 {
@@ -12441,6 +12552,7 @@ div[id*=contacts-webchat-] .text {
 .blog-archive .ba-hero .section-title {
   margin: 0 auto 0.6em;
   width: 67.5rem;
+  margin-top: -93px;
 }
 
 .blog-archive h2:not(.no-line)::after {
@@ -12482,7 +12594,29 @@ div[id*=contacts-webchat-] .text {
 }
 
 .ba-hero {
-  background: url("../images/site/teaser.webp") !important;
+  background: url("../img/teaser.webp") !important;
 }
 
 /* use cases*/
+/* text animate */
+.m2CommunicatorOne .h2__section-title.aos-init.aos-animate div {
+  background-position: 100% 0%;
+}
+
+.m2CommunicatorOne .h2__section-title.aos-init.aos-animate div .green {
+  color: var(--neon);
+}
+
+.m2CommunicatorOne h3.h2__section-title.aos-init div {
+  background: linear-gradient(to right, #f7f7f7 50%, transparent 50%);
+  background-size: 200% 100%;
+  color: #f7f7f7;
+  background-position: 0% 0%;
+  transition: background-position 0.5s linear;
+}
+
+.m2CommunicatorOne h3.h2__section-title.aos-init div .green {
+  color: #f7f7f7;
+}
+
+/* text animate */
