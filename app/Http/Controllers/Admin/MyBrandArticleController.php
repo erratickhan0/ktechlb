@@ -54,7 +54,6 @@ class MyBrandArticleController extends Controller
     {
         $validator = Validator::make($request->all(),[
             'heading'=> 'required',
-            'description'=> 'required',
             'image' => 'required|mimes:jpg,jpeg,png,gif,webp',
         ]);
 
