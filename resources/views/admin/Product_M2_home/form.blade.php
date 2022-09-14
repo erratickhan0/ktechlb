@@ -142,7 +142,7 @@
                                             {{ Form::label('btn_show', 'Show/Hide Button', ['for' => 'btn_show']) }}
                                             {{ Form::hidden('btn_show', '0') }}
                                             <label class="custom-toggle">
-                                                {{ Form::checkbox('show_button', '1',false) }}
+                                                {{ Form::checkbox('btn_show', '1',false) }}
                                                 <span for="btn_show" class="custom-toggle-slider rounded-circle"></span>
                                             </label>
                                         </div>
