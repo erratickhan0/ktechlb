@@ -107,7 +107,7 @@
                             @if($value->btn_show)
                             <a  href="{{$value->btn_link}}" target="_blank"><button class="main_btn btn_red mt-3" data-aos-easing="linear" data-aos="fade-right"
                                     data-aos-duration="1400">{{$value->btn_text}}
-                                M4000</button>
+                                </button>
                             </a>
                             @endif
                             <div class="m2Communicator__img" data-aos-easing="linear" data-aos="fade-right" data-aos-duration="1500">
