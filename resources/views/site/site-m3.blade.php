@@ -25,23 +25,14 @@
                                 </a>
                             </p>
                         </video>
-                        <div class="m2BannerText">
-                            <div class="container text-center">
-                                <h5 class="text-uppercase">{{$value->title}}
-                                </h5>
-                                <div><small class="text-uppercase mt-5 mb-5">{{$value->description}}</small></div>
-                            </div>
-                        </div>
                     </div>
                     @else
-                    <div class="swiper-slide" data-slide-type="img"><img src="{{ asset('storage/'.$value->file_path) }}" />
-                    <div class="m2BannerText">
-                        <div class="container text-center">
-                            <h5 class="text-uppercase">{{$value->title}}
-                            </h5>
-                            <div><small class="text-uppercase mt-5 mb-5">{{$value->description}}</small></div>
-                        </div>
-                    </div>
+                    <div class="swiper-slide" data-slide-type="img">
+                        <img src="{{ asset('storage/'.$value->file_path) }}" />
+                        <p style="background: url({{ asset('images/site/transformer.png') }}) repeat;" class="slider-cont fs_obj">
+                            <strong style="font-size: 13.8817px;
+                     line-height: 100%; ">{{$value->title}}</strong>
+                        </p>
                     </div>
                     @endif
                     @endforeach
@@ -49,8 +40,8 @@
 
                 </div>
                 <!-- Add Arrows -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next" style="background: url('/images/site/prev_next.png') -45px -45px no-repeat transparent;"></div>
+                <div class="swiper-button-prev" style="background: url('/images/site/prev_next.png') 0px -45px no-repeat transparent;"></div>
             </div>
         </div>
         @endif

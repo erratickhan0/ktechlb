@@ -9,8 +9,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Ktechlb Site') }}</title>
-    <link href="https://fonts.cdnfonts.com/css/microsoft-yahei" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/client/fonts/font-awesome/css/all.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.cdnfonts.com/css/microsoft-yahei" rel="stylesheet" >
+
     <link href="{{ asset('css/client/owl.theme.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/client/owl.carousel.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/client/video-js.min.css') }}" rel="stylesheet" type="text/css" />

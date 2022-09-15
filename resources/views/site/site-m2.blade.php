@@ -329,16 +329,15 @@
                     @foreach($brand->article_section as $key => $value)
                     <div class="col-lg-3 col-sm-3 col-12">
                         <article class="ba-item pa-item">
-                            <a href="#" class="ba-item-link" target="_blank">
+                            <div class="ba-item-link" target="_blank">
                                 <h1 class="ba-item-title">{{$value->heading}}</h1>
                                 <img src="{{ asset('storage/'.$value->image) }}" />
                                 @if($value->btn_show)
                                 <div class="ba-item-button-container pa-item-button-container">
-                                    <span class="button light"><a>{{$value->btn_text}}</a></span>
+                                    <span class="button light"><a href="{{$value->btn_link}}" target="_blank" class="text-white">{{$value->btn_text}}</a></span>
                                 </div>
-
                                 @endif
-                            </a>
+                            </div>
                         </article>
                     </div>
                     @endforeach
