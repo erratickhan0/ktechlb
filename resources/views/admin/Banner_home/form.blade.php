@@ -96,6 +96,14 @@
                                         </div>
                                     @endif
                                 </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group required">
+                                            {{ Form::label('video_description', 'Video Description', ['for' => 'video_description']) }}
+                                            {{ Form::textarea('video_description',isset($banner) ? $banner->video_description:null, array('class' => 'form-control wysiwyg','rows' => 6, 'cols' => 40)) }}
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="row">
                                     <div class="col-6 mt-5">

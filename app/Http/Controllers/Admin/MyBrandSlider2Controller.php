@@ -67,8 +67,8 @@ class MyBrandSlider2Controller extends Controller
         }
 
         $validator = Validator::make($request->all(),[
-            'left_description' => 'required',
-            'right_description' => 'required',
+           // 'left_description' => 'required',
+           // 'right_description' => 'required',
             'image' => $types,
         ]);
 

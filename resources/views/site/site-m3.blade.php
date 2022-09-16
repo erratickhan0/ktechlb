@@ -177,17 +177,8 @@
                                <article class="item scroll-slide">
                                    <div class="scroll-line"></div>
                                    <div class="thumbContainer">
-                                       <div class="container w1200 mb-2" data-v-4c27d85c="">
-                                           <div class="text-wrapper" data-v-4c27d85c="" data-aos-easing="linear" data-aos="fade-up"
-                                                data-aos-duration="500">
-                                               <div data-v-4c27d85c="">
-                                                   {!! $value->left_description !!}
-                                                   {!! $value->right_description !!}
-
-                                               </div>
-
-                                           </div>
-                                       </div>
+                                       {!! $value->left_description !!}
+                                       {!! $value->right_description !!}
                                        @if($value->mime_type == 'video')
                                        <video
                                            src="{{ asset('storage/'.$value->image) }}"
@@ -259,68 +250,68 @@
        </div>
 
 @endif
-@if($brand->brand_settings->fullwidth_video_section_m3)
-    <div class="scrollEffect">
-    <section data-layer="main-video" class="bg-white">
-        @if(isset($brand->banner_section->fullwidth_video))
-            <div id="shopify-section-main-video" class="shopify-section">
-                <div class="video-player bg-black" data-section-id="main-video" data-section-type="banner">
-                    <video class="video-js" autoplay="" loop="" playsinline="" id="playVideo" controls>
-                        <source src="{{ asset('storage/'.$brand->banner_section->fullwidth_video) }}" type="video/mp4" id="main-video">
-                    </video>
-                    <div class="video-preview-wrapper">
-                        <!-- <img class="video-preview-overlay" src="//cdn.shopify.com/s/files/1/0065/3606/9223/t/5/assets/main-video-overlay.png?2453" alt=""> -->
-                        <div class="video-preview-overlay"></div>
 
-                        <video class="video-preview w-full" autoplay="" loop="" playsinline="" muted="">
-                            <source src="{{ asset('storage/'.$brand->banner_section->fullwidth_video) }}" type="video/mp4">
-                        </video>
+@if($brand->brand_settings->fullwidth_video_section_m3)
+    @if(!empty($brand->banner_section))
+        <section data-layer="main-video"
+                 class="bg-white position-relative section-screen-text-wrapper section-screen-text-wrapper--dark-flow sticky-section">
+            <div class="section-screen-text">
+                <div class="container w1200">
+                    <div class="videoText">
+                       {!! $brand->banner_section->video_description !!}
+                        <div class="videoIconM3 mt-1" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1000">
+                            <svg width="80" height="80" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M24 4.5C13.2478 4.5 4.5 13.2478 4.5 24C4.5 34.7522 13.2478 43.5 24 43.5C34.7522 43.5 43.5 34.7522 43.5 24C43.5 13.2478 34.7522 4.5 24 4.5ZM18.75 32.25V15.75L32.25 24L18.75 32.25Z"
+                                    fill="white"></path>
+                            </svg>
+                        </div>
                     </div>
-                    <button class="play-toggle">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24 4.5C13.2478 4.5 4.5 13.2478 4.5 24C4.5 34.7522 13.2478 43.5 24 43.5C34.7522 43.5 43.5 34.7522 43.5 24C43.5 13.2478 34.7522 4.5 24 4.5ZM18.75 32.25V15.75L32.25 24L18.75 32.25Z" fill="white"></path>
-                        </svg>
-                    </button>
+                </div>
+                <div id="shopify-section-main-video" class="shopify-section beforeNone">
+                    <div class="video-player bg-black" data-section-id="main-video" data-section-type="banner">
+                        <video class="video-js" autoplay="autoplay" loop="loop" playsinline="" id="playVideoM3" controls
+                               poster="./dist/assets/img/poster.JPG">
+                            <source src="{{ asset('storage/'.$brand->banner_section->fullwidth_video) }}" type="video/mp4" id="main-video">
+                        </video>
+
+
+                    </div>
                 </div>
             </div>
-        @endif
     </section>
-    </div>
+    @endif
 @endif
 @if($brand->brand_settings->accordian_section_m3)
     @if($brand->button_accordian_section)
-    <div class="scrollEffect">
         <div class="cover-container">
-            <div class="container" id="about" style="overflow:hidden">
+            <div class="" id="about" style="overflow:hidden;padding:0px 150px ">
                 <div class="row aaa">
                     <div class="d-flex w-100 p-3 mx-auto flex-column bannertop">
                         <div class="insidecontainermiddlepage">
-                            <div class="row">
-                                <div class="col-sm-6 col-xs-12">
-                                    <h3 data-aos-easing="linear" data-aos="fade-right" data-aos-delay="500">{{$brand->button_accordian_section->title}}</h3>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="offset-sm-1 col-sm-5 col-xs-12">
+                                    <h3 data-aos-easing="linear" data-aos="fade-right" data-aos-delay="500">
+                                        {{$brand->button_accordian_section->title}}</h3>
                                     <p data-aos-easing="linear" data-aos="fade-right" data-aos-duration="700">
-                                        {!! $brand->button_accordian_section->description !!}
-                                    </p>
-                                   @if($brand->button_accordian_section->show_button)
-                                    <button class="main_btn btn_blue mt-3" data-aos-easing="linear" data-aos="fade-right"
-                                            data-aos-duration="800">Read
-                                        More</button>
+                                        {!! $brand->button_accordian_section->description !!}</p>
+                                    @if($brand->button_accordian_section->show_button)
+                                        <button class="main_btn btn_blue mt-3 " data-aos-easing="linear" data-aos="fade-right"
+                                                data-aos-duration="800">Read More</button>
                                     @endif
                                 </div>
-                                <div class="col-sm-6  col-xs-12 text-right">
+                                <div class="col-sm-5  col-xs-12 text-center">
                                     <div class="fleximgblock">
                                         <img src="{{ asset('storage/'.$brand->button_accordian_section->image) }}" data-aos-easing="linear" data-aos="fade-left"
-                                             data-aos-delay="1000">
+                                             data-aos-delay="1000" style="width: 249px;height: 249px;">
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     @endif
     @endif
 @if($brand->brand_settings->fullwidth_image_section1_m3)
@@ -343,37 +334,38 @@
     </section>
 @endif
 @if($brand->brand_settings->news_blogs_section_m3)
-<section class="newsSection spacing">
-<section class="sec_2">
-<div class="container-fluid text-center">
-<div class="main_head" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
-<h2 class="head_underline">News and Blogs</h2>
+    @if(isset($brand->news_section[0]))
+    <section class="newsSection spacing">
+        <section class="sec_2">
+            <div class="container-fluid text-center">
+                <div class="main_head" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
+                    <h2 class="head_underline">News and Blogs</h2>
 
-</div>
-<div class="s2_bot">
-<div class="row">
-@if($brand->news_section)
-@foreach($brand->news_section as $key => $value)
-<div class="col-md-3" data-aos-easing="linear" data-aos="fade-up" data-aos-delay="600"
-     data-aos-duration="600">
-    <div class="s2_box">
-        <div class="s2_img">
-            <a href="{{route('mysite.news.index',['brand' => $brand->slug,'design' => $brand->brand_design_id,'id' => $value->id])}}">  <img class="box-image" src="{{ asset('storage/'.$value->image) }}" alt=""></a>
-        </div>
-    </div>
-</div>
-@endforeach
-@endif
-</div>
-<div class="col" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000">
-<div class="mt-4 mb-2">
-<!--                        <button class="main_btn btn_blue">Show Older</button>-->
-</div>
-</div>
-</div>
-</div>
-</section>
-</section>
+                </div>
+                <div class="s2_bot">
+                    <div class="row">
+                        @foreach($brand->news_section as $key => $value)
+                            <div class="col-md-3" data-aos-easing="linear" data-aos="fade-up" data-aos-delay="600"
+                                 data-aos-duration="600">
+                                <div class="s2_box">
+                                    <div class="s2_img">
+                                        <div class="news-overlay">&nbsp;</div>
+                                        <a href="{{route('mysite.news.index',['brand' => $brand->slug,'design' => $brand->brand_design_id,'id' => $value->id])}}">  <img class="box-image" src="{{ asset('storage/'.$value->image) }}" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="col" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000">
+                        <div class="mt-4 mb-2">
+                            <!--                        <button class="main_btn btn_blue">Show Older</button>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    @endif
 @endif
 
 @if($brand->brand_settings->fullwidth_image_section2_m3)
@@ -396,51 +388,51 @@
     </section>
 @endif
 @if($brand->brand_settings->article_section_m3)
-@if($brand->article_section)
-<div class="scrollEffect">
-    <div class="blog-archive h-100vh">
-        <div class="ba-hero">
-            <header class="section-header text-center" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1000">
-                <h2 class="section-title">News and recent articles</h2>
-                <p class="subline">e-mark &amp; e-mark create</p>
-            </header>
+@if(isset($brand->article_section[0]))
+    <div class="scrollEffect">
+        <div class="blog-archive h-100vh">
+            <div class="ba-hero">
+                <header class="section-header text-center" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1000">
+                    <h2 class="section-title">News and recent articles</h2>
+                    <p class="subline">e-mark &amp; e-mark create</p>
+                </header>
 
-        </div>
-        <div class="ba-content masonry" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="2000">
-            <div class="container-fluid">
-                <div class="row">
-                    @foreach($brand->article_section as $key => $value)
-                    <div class="col-lg-3 col-sm-3 col-12">
-                        <article class="ba-item pa-item">
-                            <a href="#" class="ba-item-link" target="_blank">
-                                <h1 class="ba-item-title">{{$value->heading}}</h1>
-                                <img src="{{ asset('storage/'.$value->image) }}" />
-                                @if($value->btn_show)
-                                <div class="ba-item-button-container pa-item-button-container">
-                                    <span class="button light">{{$value->btn_text}}</span>
-                                </div>
-                                @endif
-                            </a>
-                        </article>
+            </div>
+            <div class="ba-content masonry" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="2000">
+                <div class="container-fluid">
+                    <div class="row">
+                        @foreach($brand->article_section as $key => $value)
+                            <div class="col-lg-3 col-sm-3 col-12">
+                                <article class="ba-item pa-item">
+                                    <div class="ba-item-link" target="_blank">
+                                        <h1 class="ba-item-title">{{$value->heading}}</h1>
+                                        <img src="{{ asset('storage/'.$value->image) }}" />
+                                        @if($value->btn_show)
+                                            <div class="ba-item-button-container pa-item-button-container">
+                                                <span class="button light"><a href="{{$value->btn_link}}" target="_blank" class="text-white">{{$value->btn_text}}</a></span>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </article>
+                            </div>
+                        @endforeach
+
+
+
                     </div>
-                    @endforeach
-
-
-
-                </div>
-                <div class="row">
-                    <div class="col-12 mx-auto text-center">
-                        <div class="mb-4">
-                            <button class="main_btn btn_blue">Show More</button>
+                    <div class="row">
+                        <div class="col-12 mx-auto text-center">
+                            <div class="mb-4">
+                                <button class="main_btn btn_blue">Show More</button>
+                            </div>
                         </div>
                     </div>
+
                 </div>
 
             </div>
-
         </div>
     </div>
-</div>
 @endif
 @endif
 
@@ -448,5 +440,202 @@
 @endif
 @endsection
 @push('scripts')
-<script src="{{ asset('js/site/main.js')}}"></script>
+
+<script src="{{ asset('js/site/TweenMax.min.js')}}"></script>
+<script src="{{ asset('js/site/ScrollMagic.min.js')}}"></script>
+<script src="{{ asset('js/site/animation.gsap.js')}}"></script>
+<script >
+    $(document).ready(function () {
+        var vidm3 = document.getElementById("playVideoM3");
+        vidm3.pause();
+        $('.videoIconM3').on('click', function () {
+            vidm3.play();
+            $('.videoIconM3').hide();
+        });
+        vidm3.addEventListener('pause', (event) => {
+            vidm3.pause();
+            $('.videoIconM3').show();
+        });
+        AOS.init();
+        var VIDEO_PLAYING_STATE = {
+            "PLAYING": "PLAYING",
+            "PAUSE": true
+            , controls: true
+        }
+        var videoPlayStatus = VIDEO_PLAYING_STATE.PAUSE
+        var timeout = null
+        var waiting = 2500
+        var swiper = new Swiper(
+            '.swiper-container', {
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                effect: 'fade',
+                autoplay: {
+                    delay: 5000,
+                },
+                speed: 3000,
+                breakpoints: {
+                    // when window width is >= 320px
+                    0: {
+                        slidesPerView: 1
+                    },
+                    // when window width is >= 480px
+                    768: {
+                        slidesPerView: 1
+                    },
+                    // when window width is >= 640px
+                    1200: {
+                        slidesPerView: 1
+                    }
+                }
+            });
+
+        // HTML5 vdo object
+        var options = {};
+        var player = videojs('my-player', options);
+        player.on('ended', function () {
+            next()
+        })
+        // swiper object
+        swiper.on('slideChangeTransitionEnd', function () {
+            var index = swiper.Index
+            var currentSlide = $(swiper.slides[index])
+            var currentSlideType = currentSlide.data('slide-type')
+
+            // incase user click next before video ended
+            if (videoPlayStatus === VIDEO_PLAYING_STATE.PLAYING) {
+                player.pause()
+            }
+
+            clearTimeout(timeout)
+
+
+        })
+
+        // global function
+        function prev() {
+            swiper.slidePrev();
+        }
+
+        function next() {
+            swiper.slideNext();
+        }
+
+    });
+
+ !(function ($) {
+
+        'use strict';
+
+        var $slider = $('.scroll-slider'),
+            $slides = $('.scroll-slide'),
+            $sliderWrapper = $('.scroll-wrapper'),
+            $firstSlide = $slides.first();
+
+        var settings = {},
+            resizing = false,
+            scrollController = null,
+            scrollTween = null,
+            scrollTimeline = null,
+            progress = 0,
+            scrollScene = null;
+
+        function scrollSlider(options) {
+
+            // Default
+            settings = $.extend({
+                slider: '.scroll-slider',
+                sliderWrapper: '.scroll-wrapper',
+                slides: '.scroll-slide',
+                slideWidth: null,
+                slideHeight: null,
+            }, options);
+
+            // Set dimensions
+            setDimensions();
+
+            // On resize
+            $(window).on('resize', function () {
+                clearTimeout(resizing);
+                resizing = setTimeout(function () {
+                    setDimensions();
+                }, 250);
+            });
+
+        }
+
+        function setDimensions() {
+
+            settings.slideWidth = $firstSlide.width();
+            settings.slideHeight = $firstSlide.height();
+
+            console.log(settings.slideWidth);
+            console.log(settings.slideHeight);
+
+            // Calculate slider width and height
+            settings.sliderWidth = Math.ceil((settings.slideWidth * $slides.length));
+            settings.sliderHeight = $firstSlide.outerHeight(true);
+
+            // Set slider width and height
+            $sliderWrapper.width(settings.sliderWidth);
+            //$sliderWrapper.height(settings.sliderHeight);
+
+            // Set scene
+            setScene();
+
+            //resizing = false;
+        }
+
+        function setScene() {
+
+            var xDist = -$slides.width() * ($slides.length - 1),
+                tlParams = { x: xDist, ease: Power2.easeInOut };
+            console.log('d', xDist)
+            if (scrollScene != null && scrollTimeline != null) {
+
+                progress = 0;
+                scrollScene.progress(progress);
+
+                scrollTimeline = new TimelineMax();
+                scrollTimeline.to($sliderWrapper, 1, tlParams);
+
+                scrollScene.setTween(scrollTimeline);
+
+                scrollScene.refresh();
+
+            } else {
+                // Init ScrollMagic controller
+                scrollController = new ScrollMagic.Controller();
+
+                //Create Tween
+                scrollTimeline = new TimelineMax();
+                scrollTimeline.to($sliderWrapper, 1, tlParams);
+                scrollTimeline.progress(progress);
+
+                // Create scene to pin and link animation
+                scrollScene = new ScrollMagic.Scene({
+                    triggerElement: settings.slider,
+                    triggerHook: "onLeave",
+                    duration: settings.sliderWidth
+                })
+                    .setPin(settings.slider)
+                    .setTween(scrollTimeline)
+                    .addTo(scrollController)
+                    .on('start', function (event) {
+                        scrollTimeline.time(100);
+                    });
+            }
+
+        }
+
+        $(document).ready(function () {
+            scrollSlider();
+        });
+
+    })(jQuery);
+
+</script>
+
 @endpush
