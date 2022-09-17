@@ -1,5 +1,8 @@
 @extends('layouts.app-site')
 @section('content')
+@push('css_scripts')
+<link href="{{ asset('css/client/m3.css') }}" rel="stylesheet" type="text/css" />
+@endpush
 <section class="parralaxSection"></section>
 @if(isset($brand->brand_settings))
 @if($brand->brand_settings->slider_section_m3)
