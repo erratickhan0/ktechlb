@@ -127,9 +127,10 @@
     @endif
    @endif
 @if($brand->brand_settings->fullwidth_video_section_m2)
+    @if(!empty($brand->banner_section))
     <div class="scrollEffect">
     <section data-layer="main-video" class="bg-white">
-        @if(isset($brand->banner_section->fullwidth_video))
+
             <div id="shopify-section-main-video" class="shopify-section">
                 <div class="video-player bg-black" data-section-id="main-video" data-section-type="banner">
                     <video class="video-js" autoplay="" loop="" playsinline="" id="playVideo" controls>
@@ -150,9 +151,9 @@
                     </button>
                 </div>
             </div>
-        @endif
     </section>
     </div>
+    @endif
 @endif
 @if($brand->brand_settings->section5_m2)
 @if($brand->section5)
