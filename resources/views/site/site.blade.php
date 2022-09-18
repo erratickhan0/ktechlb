@@ -389,12 +389,10 @@
                     @foreach($brand->news_section as $key => $value)
                     <div class="col-md-3" data-aos-easing="linear" data-aos="fade-up" data-aos-delay="600"
                          data-aos-duration="600">
-                        <div class="s2_box">
                             <div class="s2_img">
                                 <div class="news-overlay">&nbsp;</div>
                                 <a href="{{route('mysite.news.index',['brand' => $brand->slug,'design' => $brand->brand_design_id,'id' => $value->id])}}">  <img class="box-image" src="{{ asset('storage/'.$value->image) }}" alt=""></a>
                             </div>
-                        </div>
                     </div>
                     @endforeach
                 </div>
