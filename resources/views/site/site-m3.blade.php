@@ -407,7 +407,7 @@
                                 <article class="ba-item pa-item">
                                     <div class="ba-item-link" target="_blank">
                                         <h1 class="ba-item-title">{{$value->heading}}</h1>
-                                        <img src="{{ asset('storage/'.$value->image) }}" />
+                                        <img src="{{ asset('storage/'.$value->image) }}" class="w-100" />
                                         @if($value->btn_show)
                                             <div class="ba-item-button-container pa-item-button-container">
                                                 <span class="button light"><a href="{{$value->btn_link}}" target="_blank" class="text-white">{{$value->btn_text}}</a></span>

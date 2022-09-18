@@ -26,22 +26,22 @@
                             </p>
                         </video>
                         <div class="m2BannerText">
-                            <div class="container text-center">
-                                <h5 class="text-uppercase" style="color:{{$value->colour}}">{{$value->title}}
+                            <div class="container-fluid text-right">
+                                <h5 class="text-uppercase">{{$value->title}}
                                 </h5>
-                                <div><small style="color:{{$value->colour}}" class="text-uppercase mt-5 mb-5">{{$value->description}}</small></div>
+                                <div><small class="text-uppercase mt-5 mb-5">{{$value->description}}</small></div>
                             </div>
                         </div>
                     </div>
                     @else
                     <div class="swiper-slide" data-slide-type="img"><img src="{{ asset('storage/'.$value->file_path) }}" />
-                    <div class="m2BannerText">
-                        <div class="container text-center">
-                            <h5 style="color:{{$value->colour}}" class="text-uppercase">{{$value->title}}
-                            </h5>
-                            <div><small style="color:{{$value->colour}}" class="text-uppercase mt-5 mb-5">{{$value->description}}</small></div>
+                        <div class="m2BannerText">
+                            <div class="container-fluid text-right">
+                                <h5 class="text-uppercase">{{$value->title}}
+                                </h5>
+                                <div><small class="text-uppercase mt-5 mb-5">{{$value->description}}</small></div>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     @endif
                     @endforeach
@@ -330,7 +330,7 @@
                         <article class="ba-item pa-item">
                             <div class="ba-item-link" target="_blank">
                                 <h1 class="ba-item-title">{{$value->heading}}</h1>
-                                <img src="{{ asset('storage/'.$value->image) }}" />
+                                <img src="{{ asset('storage/'.$value->image) }}" class="w-100" />
                                 @if($value->btn_show)
                                 <div class="ba-item-button-container pa-item-button-container">
                                     <span class="button light"><a href="{{$value->btn_link}}" target="_blank" class="text-white">{{$value->btn_text}}</a></span>
