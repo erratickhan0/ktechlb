@@ -122,16 +122,10 @@
         </div>
 
     <div class="wrapper" id="bgk">
-        <div class="row" style="text-align: center;color:red">
-            <div class="col-md-12">
-                <h3 class="mt-2">This site is under construction now, We will be right back at the end of September,2022.
-                </h3>
-            </div>
 
-        </div>
         <div class="brands">
 
-<!--        <div id="owl-demo" class="owl-carousel owl-theme">
+        <div id="owl-demo" class="owl-carousel owl-theme">
             @foreach($brands as $brand)
             @if($brand->active_state)
             <div class="item ">
@@ -140,7 +134,7 @@
             </div>
             @endif
             @endforeach
-        </div>-->
+        </div>
         <div class="footer">
             <span style=" color:#fff !important; text-align: left; font-size: 14px!important; margin-left: 15px; display: block;">
                 <p><span style="font-size: x-small;"><span style="font-family: Arial;">Copyright © </span></span><span style="font-size: xx-small;"><span style="font-family: Arial;">KANAAN</span>&nbsp;ADVANCED TECHNOLOGIES</span>

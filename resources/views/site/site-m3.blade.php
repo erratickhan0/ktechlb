@@ -318,54 +318,76 @@
     @endif
     @endif
 @if($brand->brand_settings->fullwidth_image_section1_m3)
-    <section class="sectionFour">
-        <div class="container-fluid">
-            @if(isset($brand->banner_section->fullwidth_banner1_fixed))
-                <div class="row">
-                    <div style="
-                        background: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner1_fixed) }} );
-                        height: 100vh;
-                        width: 100vw;
-                        background-repeat: no-repeat;
-                        background-size: cover;
-                        background-attachment: fixed;
-                        background-position: center;
-                        "></div>
-                </div>
-            @endif
-        </div>
-    </section>
-@endif
-@if($brand->brand_settings->news_blogs_section_m3)
-    @if(isset($brand->news_section[0]))
-    <section class="newsSection spacing">
-        <section class="sec_2">
-            <div class="container-fluid text-center">
-                <div class="main_head" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
-                    <h2 class="head_underline">News and Blogs</h2>
-
-                </div>
-                <div class="s2_bot">
-                    <div class="row">
-                        @foreach($brand->news_section as $key => $value)
-                            <div class="col-md-3" data-aos-easing="linear" data-aos="fade-up" data-aos-delay="600"
-                                 data-aos-duration="600">
-                                    <div class="s2_img">
-                                        <div class="news-overlay">&nbsp;</div>
-                                        <a href="{{route('mysite.news.index',['brand' => $brand->slug,'design' => $brand->brand_design_id,'id' => $value->id])}}">  <img class="box-image" src="{{ asset('storage/'.$value->image) }}" alt=""></a>
-                                    </div>
-                            </div>
-                        @endforeach
-                    </div>
-                    <div class="col" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000">
-                        <div class="mt-4 mb-2">
-                            <!--                        <button class="main_btn btn_blue">Show Older</button>-->
+    @if(isset($brand->banner_section->fullwidth_banner1_fixed))
+        <div class="">
+            <div class="parallaxThree focus">
+                <section style="
+                    background: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner1_fixed) }} );
+                    width: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-attachment: fixed;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    height: 700px;
+                    background-position: center top;" class="sectionGlassBlack position-relative">
+                    <div  class="m2GlassText" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="sec2_right">
+                            <h2 class="head_underline left mb-1 pb-1 text-white">{{$brand->section6->heading}}</h2>
+                            {!! $brand->section6->description !!}
                         </div>
                     </div>
+                </section>
+            </div>
+        </div>
+@endif
+@endif
+@if($brand->brand_settings->article_section_m3)
+    @if(isset($brand->article_section[0]))
+        <div class="scrollEffect">
+            <div class="blog-archive h-100vh">
+                <div class="ba-hero">
+                    <header class="section-header text-center" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1000">
+                        <h2 class="section-title">News and recent articles</h2>
+                        <p class="subline">e-mark &amp; e-mark create</p>
+                    </header>
+
+                </div>
+                <div class="ba-content masonry" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="2000">
+                    <div class="container-fluid">
+                        <div class="row">
+                            @foreach($brand->article_section as $key => $value)
+                                <div class="col-lg-3 col-sm-3 col-12">
+                                    <article class="ba-item pa-item">
+                                        <div class="ba-item-link" target="_blank">
+                                            <h1 class="ba-item-title">{{$value->heading}}</h1>
+                                            <img src="{{ asset('storage/'.$value->image) }}" class="w-100" />
+                                            @if($value->btn_show)
+                                                <div class="ba-item-button-container pa-item-button-container">
+                                                    <span class="button light"><a href="{{$value->btn_link}}" target="_blank" class="text-white">{{$value->btn_text}}</a></span>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </article>
+                                </div>
+                            @endforeach
+
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mx-auto text-center">
+                                <div class="mb-4">
+                                    <button class="main_btn btn_blue">Show More</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
-        </section>
-    </section>
+        </div>
     @endif
 @endif
 
@@ -388,55 +410,39 @@
         </div>
     </section>
 @endif
-@if($brand->brand_settings->article_section_m3)
-@if(isset($brand->article_section[0]))
-    <div class="scrollEffect">
-        <div class="blog-archive h-100vh">
-            <div class="ba-hero">
-                <header class="section-header text-center" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1000">
-                    <h2 class="section-title">News and recent articles</h2>
-                    <p class="subline">e-mark &amp; e-mark create</p>
-                </header>
 
-            </div>
-            <div class="ba-content masonry" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="2000">
-                <div class="container-fluid">
-                    <div class="row">
-                        @foreach($brand->article_section as $key => $value)
-                            <div class="col-lg-3 col-sm-3 col-12">
-                                <article class="ba-item pa-item">
-                                    <div class="ba-item-link" target="_blank">
-                                        <h1 class="ba-item-title">{{$value->heading}}</h1>
-                                        <img src="{{ asset('storage/'.$value->image) }}" class="w-100" />
-                                        @if($value->btn_show)
-                                            <div class="ba-item-button-container pa-item-button-container">
-                                                <span class="button light"><a href="{{$value->btn_link}}" target="_blank" class="text-white">{{$value->btn_text}}</a></span>
-                                            </div>
-                                        @endif
-                                    </div>
-                                </article>
-                            </div>
-                        @endforeach
-
-
+@if($brand->brand_settings->news_blogs_section_m3)
+    @if(isset($brand->news_section[0]))
+        <section class="newsSection spacing">
+            <section class="sec_2">
+                <div class="container-fluid text-center">
+                    <div class="main_head" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
+                        <h2 class="head_underline">News and Blogs</h2>
 
                     </div>
-                    <div class="row">
-                        <div class="col-12 mx-auto text-center">
-                            <div class="mb-4">
-                                <button class="main_btn btn_blue">Show More</button>
+                    <div class="s2_bot">
+                        <div class="row">
+                            @foreach($brand->news_section as $key => $value)
+                                <div class="col-md-3" data-aos-easing="linear" data-aos="fade-up" data-aos-delay="600"
+                                     data-aos-duration="600">
+                                    <div class="s2_img">
+                                        <div class="news-overlay">&nbsp;</div>
+                                        <a href="{{route('mysite.news.index',['brand' => $brand->slug,'design' => $brand->brand_design_id,'id' => $value->id])}}">  <img class="box-image" src="{{ asset('storage/'.$value->image) }}" alt=""></a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="col" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000">
+                            <div class="mt-4 mb-2">
+                                <!--                        <button class="main_btn btn_blue">Show Older</button>-->
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-            </div>
-        </div>
-    </div>
+            </section>
+        </section>
+    @endif
 @endif
-@endif
-
 
 @endif
 @endsection
