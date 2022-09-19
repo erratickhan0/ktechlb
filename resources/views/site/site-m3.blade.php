@@ -331,12 +331,14 @@
                     background-size: cover;
                     height: 700px;
                     background-position: center top;" class="sectionGlassBlack position-relative">
+                    @if($brand->section6)
                     <div  class="m2GlassText" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1000">
                         <div class="sec2_right">
                             <h2 class="head_underline left mb-1 pb-1 text-white">{{$brand->section6->heading}}</h2>
                             {!! $brand->section6->description !!}
                         </div>
                     </div>
+                     @endif
                 </section>
             </div>
         </div>
@@ -454,15 +456,17 @@
 <script >
     $(document).ready(function () {
         var vidm3 = document.getElementById("playVideoM3");
-        vidm3.pause();
-        $('.videoIconM3').on('click', function () {
-            vidm3.play();
-            $('.videoIconM3').hide();
-        });
-        vidm3.addEventListener('pause', (event) => {
+        if(typeof(vid) != 'undefined' && vid != null) {
             vidm3.pause();
-            $('.videoIconM3').show();
-        });
+            $('.videoIconM3').on('click', function () {
+                vidm3.play();
+                $('.videoIconM3').hide();
+            });
+            vidm3.addEventListener('pause', (event) => {
+                vidm3.pause();
+                $('.videoIconM3').show();
+            });
+        }
         AOS.init();
         var VIDEO_PLAYING_STATE = {
             "PLAYING": "PLAYING",
