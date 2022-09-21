@@ -315,6 +315,12 @@
 
                 </li>
                 @endif
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('admin.p1.index') }}"  role="button" >
+                        <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">{{ __('P1') }}</span>
+                    </a>
+                </li>
 
             </ul>
 
