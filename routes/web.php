@@ -159,9 +159,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
 
         Route::post('/mybrand/settings/{brand}', 'BrandSettingsController@store')->name('mybrand.settings.store');
 
-        Route::resource('p1', 'MyBrandP1Controller')->except(['show']);
-
     });
+    Route::resource('p1', 'MyBrandP1Controller')->except(['show']);
+    Route::resource('p1-slide-changer', 'MyBrandP1SlideChangerController')->except(['show']);
 
 
 });

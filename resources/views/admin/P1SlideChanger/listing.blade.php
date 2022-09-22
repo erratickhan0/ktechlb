@@ -13,12 +13,12 @@
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item active"><a href="#">P1 Section</a></li>
+                                <li class="breadcrumb-item active"><a href="#">P1 Slide Changer Section</a></li>
                             </ol>
                         </nav>
                     </div>
                     <div class="col-lg-6 col-5 mt-2 text-right">
-                        <a href="{{ route('admin.p1.create') }}" class="btn btn-primary">Create new page</a>
+                        <a href="{{ route('admin.p1-slide-changer.create',['p1' => $p1->id]) }}" class="btn btn-primary">Create new Slide Changer page</a>
                     </div>
                 </div>
             </div>
@@ -40,21 +40,31 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Heading</th>
-                                    <th>Title</th>
-                                    <th>Product Image</th>
+                                    <th>Description</th>
+                                    <th>Left Image</th>
+                                    <th>Right Image</th>
+                                    <th>BG Image</th>
                                     <th><!--Actions --></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($p1 ?? []  as $page)
+                                @foreach($p1->slide_changer ?? []  as $slide)
                                     <tr>
-                                        <td class="align-middle name mb-0 text-sm">{{$page->id}}</td>
-                                        <td class="align-middle name mb-0 text-sm">{{$page->heading}}</td>
-                                        <td class="align-middle">{{$page->title}}</td>
+                                        <td class="align-middle name mb-0 text-sm">{{$slide->id}}</td>
+                                        <td class="align-middle name mb-0 text-sm">{{$slide->heading}}</td>
+                                        <td class="align-middle">{{$slide->description}}</td>
 
                                         <td class="align-middle">
 
-                                            <img width="100px" height="70px" src="{{asset('storage/'.$page->image)}}" />
+                                            <img width="100px" alt="Image not found" height="70px" src="{{asset('storage/'.$slide->left_image)}}" />
+                                        </td>
+                                        <td class="align-middle">
+
+                                            <img width="100px" height="70px" alt="Image not found" src="{{asset('storage/'.$slide->right_image)}}" />
+                                        </td>
+                                        <td class="align-middle">
+
+                                            <img width="100px" height="70px" alt="Image not found" src="{{asset('storage/'.$slide->right_bg_image)}}" />
                                         </td>
                                         <td class="text-right">
                                             <div class="nav-item dropdown text-right">
@@ -63,13 +73,12 @@
                                                 </a>
 
                                                 <div class="dropdown-menu dropdown-menu-right" >
-                                                    <a class="dropdown-item" href="{{ route('admin.p1.edit', $page->id) }}">Edit</a>
-                                                    <a class="dropdown-item" href="{{ route('admin.p1-slide-changer.index',['p1' => $page->id]) }}">Slider Changer</a>
+                                                    <a class="dropdown-item" href="{{ route('admin.p1-slide-changer.edit', [$slide->id, 'p1' => $slide->p1_id]) }}">Edit</a>
                                                     <a href="javascript:;"
                                                        class="dropdown-item"
                                                        data-toggle="modal"
                                                        data-target="#confirm_delete"
-                                                       data-action="{{ route('admin.p1.destroy',$page->id ) }}"
+                                                       data-action="{{ route('admin.p1-slide-changer.destroy',$slide->id ) }}"
                                                        data-confirm="Are you sure you want to delete this Page?">Delete</a>
                                                 </div>
                                             </div>
