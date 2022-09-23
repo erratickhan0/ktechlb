@@ -14,5 +14,9 @@ class ProductDetailsP1 extends Model
     {
         return $this->hasMany(P1SlideChanger::class,'p1_id');
     }
+    public function slide_changer2()
+    {
+        return $this->hasMany(P1SlideChanger2::class,'p1_id');
+    }
 
 }

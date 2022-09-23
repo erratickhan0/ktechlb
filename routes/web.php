@@ -162,6 +162,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
     });
     Route::resource('p1', 'MyBrandP1Controller')->except(['show']);
     Route::resource('p1-slide-changer', 'MyBrandP1SlideChangerController')->except(['show']);
+    Route::resource('p1-slide-changer2', 'MyBrandP1SlideChanger2Controller')->except(['show']);
 
 
 });
