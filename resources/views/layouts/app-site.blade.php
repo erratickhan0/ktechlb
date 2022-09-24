@@ -16,6 +16,7 @@
     <link href="{{ asset('css/client/video-js.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/client/swiper.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/client/aos.css') }}" rel="stylesheet" type="text/css" />
+    @stack('css_scripts_p1')
     <link href="{{ asset('css/app-client.css') }}" rel="stylesheet" type="text/css" />
     @stack('css_scripts')
 

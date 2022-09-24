@@ -78,7 +78,7 @@
                                                        class="dropdown-item"
                                                        data-toggle="modal"
                                                        data-target="#confirm_delete"
-                                                       data-action="{{ route('admin.p1-slide-changer.destroy',$slide->id ) }}"
+                                                       data-action="{{ route('admin.p1-slide-changer.destroy',[$slide->id, 'p1' => $slide->p1_id] ) }}"
                                                        data-confirm="Are you sure you want to delete this Page?">Delete</a>
                                                 </div>
                                             </div>

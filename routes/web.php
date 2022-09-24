@@ -31,7 +31,7 @@ Route::get('site/{brand}/{design}/news/{id}', 'Site\MySiteNewsController@index')
 Route::get('site/{brand}/{design}/icon/{id}', 'Site\MySiteIconController@index')->name('mysite.icon.index');
 Route::get('site/{brand}/{design}/middle-banner', 'Site\MySiteMiddleBannerController@index')->name('mysite.middle-banner.index');
 
-
+Route::get('product-details/p1/{p1}', 'ProductPages\P1Controller@index')->name('p1.index');
 
 
 
