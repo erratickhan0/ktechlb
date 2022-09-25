@@ -15,7 +15,7 @@
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><em class="fas fa-home"></em></a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('admin.mybrand.news',['slug'=> session()->get('selected_brand')->slug]) }}">News</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.mybrand.news',['slug'=> session()->get('selected_brand')->slug,'design' => $design]) }}">News</a></li>
                                 <li class="breadcrumb-item active"><a href="#">Details</a></li>
                             </ol>
                         </nav>
