@@ -12,4 +12,7 @@ class FlipBook extends Model
     public function flipbook_slider(){
         return $this->hasMany(FlipBookSlider::class,'flipbook_id');
     }
+    public function flipbook_pdf(){
+        return $this->hasOne(FlipbookPdf::class,'flipbook_id');
+    }
 }
