@@ -65,17 +65,19 @@
             @if($brand->icon_section)
             @foreach($brand->icon_section as $value)
             <div data-aos-easing="linear" data-aos="fade-up" data-aos-delay="200">
-                <div class="item_s4">
+                <a href="{{route('mysite.icon.index',['brand' => $brand->slug,'design' => $brand->brand_design_id,'id' => $value->id])}}">
+                    <div class="item_s4">
                     <div class="hover-detail overlay"></div>
                     <div class="sec3_bot ">
                         <div class="sec3_box ">
-                            <a href="{{route('mysite.icon.index',['brand' => $brand->slug,'design' => $brand->brand_design_id,'id' => $value->id])}}"> <img src="{{ asset('storage/'.$value->file_path) }}" alt=""></a>
+                             <img src="{{ asset('storage/'.$value->file_path) }}" alt="">
                             <h3 class="head_underline_small">{{$value->title}}</h3>
                             <span class="underline_head"></span>
                         </div>
 
                     </div>
                 </div>
+                </a>
             </div>
             @endforeach
             @endif
