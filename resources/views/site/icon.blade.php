@@ -2,7 +2,7 @@
 @section('content')
 @if($icon)
     <div style="
-        background-image: url({{ asset('storage/'.$icon->details_background_image1) }} );
+        background-image: url({{ asset('storage/'.$icon->details_background_image1) }} )!important;
         background-size: cover !important;
         height: 550px;
         margin-top: 85px;" class=" d-flex w-100 p-3 mx-auto flex-column news-cover-container">
