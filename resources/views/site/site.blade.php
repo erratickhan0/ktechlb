@@ -7,7 +7,14 @@
     <div class="container-fluid">
         @if(($brand->slider_section->count()))
         <div class="row">
-            <a class="book" href="{{route('mysite.flipbook.index',['brand' => $brand->slug,'design' => $brand->brand_design_id])}}"></a>
+            <a style="    right: 10%;
+    content: url({{asset('/images/book2.png')}});
+    position: absolute;
+    z-index: 3;
+    bottom: -100px;
+    width: 277px;
+    transform: translate(-2%, -6%);
+    transition: all 0.5s ease 0s;" class="book" href="{{route('mysite.flipbook.index',['brand' => $brand->slug,'design' => $brand->brand_design_id])}}"></a>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     @foreach($brand->slider_section as $value)

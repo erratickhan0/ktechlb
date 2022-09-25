@@ -2,7 +2,36 @@
 @section('content')
 
     @if($flipbook)
+    @if($flipbook->section_selector == 'section1')
+        <div class="opt2 container position-relative mt-10">
+            <section class="catalogue  mt-5 mb-5">
+                <div class="container">
+                    <div class="heading-innerPage text-dark">Catalogue</div>
+                    <p class="text-para-big  mb-2">e mark</p>
+                    <p class="paraText">The COLOP e-mark is a useful tool in many
+                        industries. It is ideally suited for use in
+                        offices, hotels and
+                        restaurants, in event and
+                        agency management, in law offices, in healthcare organisations as well as for inspection and
+                        controlling
+                        purposes.
+                        Numerous accessories and an extensive label range make using the e-mark even easier and a practical
+                        device for a wide range of
+                        applications.
+                    </p>
+                    <p class="paraText mb-5">Flip through our e-mark catalogue to
+                        find out how you could use it in your
+                        business.</p>
+                    <div class="flipBookPDF" id="flipBookPDF">
 
+                    </div>
+                    <div class="mt-5 text-center" data-aos="fade-up" data-aos-duration="1500">
+                        <button class="main_btn btn_blue" href="{{asset('images/ktech/sample.pdf')}}">Download</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+     @endif
     @if($flipbook->section_selector == 'section2')
         <div class="opt2 container position-relative mt-10">
     <section class="bookVideo  mt-5 mb-5">
@@ -118,6 +147,10 @@
     @endif
 @endsection
 @push('scripts')
+    <script src="{{ asset('js/site/html2canvas.min.js')}}"></script>
+
+    <script src="{{ asset('js/site/pdf.min.js')}}"></script>
+    <script src="{{ asset('js/site/three.min.js')}}"></script>
     <script>
         $(document).ready(function() {
             AOS.init();
@@ -150,4 +183,5 @@
 });
 
     </script>
+
 @endpush
