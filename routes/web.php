@@ -106,6 +106,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::delete('mybrand/news/section-delete/{news_details}', 'MyBrandNewsSectionController@sectionDelete')->name('mybrand.news.section-delete');
 
         Route::get('mybrand/{slug}/flipbook', 'FlipbookController@index')->name('mybrand.flipbook');
+        Route::post('mybrand/flipbook/section1/store/{brand}', 'FlipbookController@section1Store')->name('mybrand.flipbook.section1.store');
         Route::post('mybrand/flipbook/section2/store/{brand}', 'FlipbookController@section2Store')->name('mybrand.flipbook.section2.store');
         Route::post('mybrand/flipbook/section2-video/{flipbook}', 'FlipbookController@section2Slider')->name('mybrand.flipbook.section2.slider');
         Route::post('mybrand/flipbook/section3/store/{brand}', 'FlipbookController@section3Store')->name('mybrand.flipbook.section3.store');

@@ -6,28 +6,19 @@
         <div class="opt2 container position-relative mt-10">
             <section class="catalogue  mt-5 mb-5">
                 <div class="container">
-                    <div class="heading-innerPage text-dark">Catalogue</div>
-                    <p class="text-para-big  mb-2">e mark</p>
-                    <p class="paraText">The COLOP e-mark is a useful tool in many
-                        industries. It is ideally suited for use in
-                        offices, hotels and
-                        restaurants, in event and
-                        agency management, in law offices, in healthcare organisations as well as for inspection and
-                        controlling
-                        purposes.
-                        Numerous accessories and an extensive label range make using the e-mark even easier and a practical
-                        device for a wide range of
-                        applications.
+                    <div class="heading-innerPage text-dark">{{$flipbook->section1_heading}}</div>
+                    <p class="text-para-big  mb-2">{{$flipbook->section1_title}}</p>
+                    <p class="paraText">
+                    {!! $flipbook->section1_description !!}
                     </p>
-                    <p class="paraText mb-5">Flip through our e-mark catalogue to
-                        find out how you could use it in your
-                        business.</p>
-                    <div class="flipBookPDF" id="flipBookPDF">
-
+                    <div align="center" class="innerPdfViewer w-100" data-aos="fade-up" data-aos-duration="1500">
+                        <embed class="w-100 h-100" src="{{asset('storage/'.$flipbook->pdf)}}" type="application/pdf"></embed>
                     </div>
-                    <div class="mt-5 text-center" data-aos="fade-up" data-aos-duration="1500">
-                        <button class="main_btn btn_blue" href="{{asset('images/ktech/sample.pdf')}}">Download</button>
+                    @if($flipbook->btn_show)
+                    <div class="mt-4 align-middle aos-init" data-aos="fade-up" data-aos-duration="1500">
+                        <a href="{{$flipbook->btn_link}}" target="_blank"><button class="main_btn btn_blue">{{$flipbook->btn_text}}</button></a>
                     </div>
+                     @endif
                 </div>
             </section>
         </div>
