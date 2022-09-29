@@ -60,7 +60,8 @@
         #owl-demo .item img {
             display: block;
             width: 100%;
-            height: auto;
+            height: 354px;
+            object-fit: cover;
         }
 
 
@@ -120,8 +121,11 @@
                 <center><img src="images/ktech/bg_1620476500_kanaan.png"></center>
             </div>
         </div>
+
     <div class="wrapper" id="bgk">
+
         <div class="brands">
+
         <div id="owl-demo" class="owl-carousel owl-theme">
             @foreach($brands as $brand)
             @if($brand->active_state)

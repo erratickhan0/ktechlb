@@ -2,7 +2,27 @@
 @section('content')
 
     @if($flipbook)
-
+    @if($flipbook->section_selector == 'section1')
+        <div class="opt2 container position-relative mt-10">
+            <section class="catalogue  mt-5 mb-5">
+                <div class="container">
+                    <div class="heading-innerPage text-dark">{{$flipbook->section1_heading}}</div>
+                    <p class="text-para-big  mb-2">{{$flipbook->section1_title}}</p>
+                    <p class="paraText">
+                    {!! $flipbook->section1_description !!}
+                    </p>
+                    <div align="center" class="innerPdfViewer w-100" data-aos="fade-up" data-aos-duration="1500">
+                        <embed class="w-100 h-100" src="{{asset('storage/'.$flipbook->pdf)}}" type="application/pdf"></embed>
+                    </div>
+                    @if($flipbook->btn_show)
+                    <div class="mt-4 align-middle aos-init" data-aos="fade-up" data-aos-duration="1500">
+                        <a href="{{$flipbook->btn_link}}" target="_blank"><button class="main_btn btn_blue">{{$flipbook->btn_text}}</button></a>
+                    </div>
+                     @endif
+                </div>
+            </section>
+        </div>
+     @endif
     @if($flipbook->section_selector == 'section2')
         <div class="opt2 container position-relative mt-10">
     <section class="bookVideo  mt-5 mb-5">
@@ -118,6 +138,10 @@
     @endif
 @endsection
 @push('scripts')
+    <script src="{{ asset('js/site/html2canvas.min.js')}}"></script>
+
+    <script src="{{ asset('js/site/pdf.min.js')}}"></script>
+    <script src="{{ asset('js/site/three.min.js')}}"></script>
     <script>
         $(document).ready(function() {
             AOS.init();
@@ -150,4 +174,5 @@
 });
 
     </script>
+
 @endpush

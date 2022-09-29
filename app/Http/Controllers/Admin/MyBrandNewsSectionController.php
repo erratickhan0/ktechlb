@@ -99,13 +99,15 @@ class MyBrandNewsSectionController extends Controller
             ->route('admin.mybrand.news',['slug'=> $brand->slug,'design' => $request->route('design') ])
             ->with('success', 'News has been deleted');
     }
-    public function details(NewsSection $news){
+    public function details(NewsSection $news,Request $request){
+        $brand = $request->session()->get('selected_brand');
+
         JavaScript::put([
             'news' => $news,
             'detail_section' => $news->news_details
             ]
         );
-        return response()->view('admin/News_home.details');
+        return response()->view('admin/News_home.details',['design' => $brand->brand_design->slug]);
     }
     public function update(NewsSection $news,Request $request){
        $news->fill($request->all());

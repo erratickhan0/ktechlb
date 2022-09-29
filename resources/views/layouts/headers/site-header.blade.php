@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbar4">
                 <ul class="navbar-nav ml-auto pl-lg-4">
                     @if($brand->brand_settings->home_nav_header)
-                    <li class="nav-item px-lg-2 active"> <a class="nav-link" href="#"> <span class="d-inline-block d-lg-none icon-width "></span>Home</a> </li>
+                    <li class="nav-item px-lg-2 active"> <a class="nav-link" href="{{ url('/') }}"> <span class="d-inline-block d-lg-none icon-width "></span>Home</a> </li>
                     @endif
                     @if($brand->brand_settings->about_nav_header)
                     <li class="nav-item px-lg-2"> <a class="nav-link" href="#"><span class="d-inline-block d-lg-none icon-width"></i></span>About Us</a> </li>

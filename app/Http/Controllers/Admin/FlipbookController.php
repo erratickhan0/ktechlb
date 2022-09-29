@@ -28,6 +28,23 @@ class FlipbookController extends Controller
         );
         return view('admin.Flipbook.form',['flipbook' => $brand->flipbook, 'slug' => $brand->slug ]);
     }
+    public function section1Store(Request $request,Brand $brand){
+        $data = $request->all();
+        $data['brand_id'] = $brand->id;
+        $flipbook = FlipBook::updateOrCreate(
+            ['id' => $data['id']],
+            $data
+        );
+        if ($request->hasFile('pdf')) {
+            $flipbook->pdf = Storage::disk('public')->putFile('flipbook/section1', $request->file('pdf'));
+        }
+        $flipbook->save();
+        return response()->json([
+            "status" => "OK",
+            "message" => "Section1 details are being saved!",
+        ]);
+
+    }
     public function section2Store(Request $request,Brand $brand){
         $data = $request->all();
         $data['brand_id'] = $brand->id;

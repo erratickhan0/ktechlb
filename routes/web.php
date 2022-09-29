@@ -1,5 +1,6 @@
 <?php
 
+use App\BgDescription;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +31,7 @@ Route::get('site/{brand}/{design}/news/{id}', 'Site\MySiteNewsController@index')
 Route::get('site/{brand}/{design}/icon/{id}', 'Site\MySiteIconController@index')->name('mysite.icon.index');
 Route::get('site/{brand}/{design}/middle-banner', 'Site\MySiteMiddleBannerController@index')->name('mysite.middle-banner.index');
 
-
+Route::get('product-details/p1/{p1}', 'ProductPages\P1Controller@index')->name('p1.index');
 
 
 
@@ -77,9 +78,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::post('mybrand/product/store', 'MyBrandProductController@store')->name('mybrand.product.store');
         Route::delete('mybrand/product/delete', 'MyBrandProductController@destroy')->name('mybrand.product.delete');
 
-        Route::get('mybrand/{slug}/banner', 'MyBrandHomepageBannerController@index')->name('mybrand.banner');
-        Route::post('mybrand/banner/store', 'MyBrandHomepageBannerController@store')->name('mybrand.banner.store');
-        Route::post('mybrand/banner/update/{banner}', 'MyBrandHomepageBannerController@update')->name('mybrand.banner.update');
+        Route::get('mybrand/{slug}/banner/{design}', 'MyBrandHomepageBannerController@index')->name('mybrand.banner');
+        Route::post('mybrand/banner/store/{design}', 'MyBrandHomepageBannerController@store')->name('mybrand.banner.store');
+        Route::post('mybrand/banner/update/{banner}/{design}', 'MyBrandHomepageBannerController@update')->name('mybrand.banner.update');
 
         Route::get('mybrand/{slug}/logo-title', 'MyBrandLogoTitleSectionController@index')->name('mybrand.logo-title');
         Route::post('mybrand/logo-title/store', 'MyBrandLogoTitleSectionController@store')->name('mybrand.logo-title.store');
@@ -90,9 +91,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::delete('mybrand/logo-title/section-delete1/{logo_title_details}', 'MyBrandLogoTitleSectionController@sectionDelete1')->name('mybrand.logo-title.section-delete1');
         Route::delete('mybrand/logo-title/section-delete2/{logo_title_detail_slider}', 'MyBrandLogoTitleSectionController@sectionDelete2')->name('mybrand.logo-title.section-delete2');
 
-        Route::get('mybrand/{slug}/button-accordian', 'MyBrandButtonAccordianSectionController@index')->name('mybrand.button-accordian');
-        Route::post('mybrand/button-accordian/store', 'MyBrandButtonAccordianSectionController@store')->name('mybrand.button-accordian.store');
-        Route::post('mybrand/button-accordian/update/{button_accordian}', 'MyBrandButtonAccordianSectionController@update')->name('mybrand.button-accordian.update');
+        Route::get('mybrand/{slug}/button-accordian/{design}', 'MyBrandButtonAccordianSectionController@index')->name('mybrand.button-accordian');
+        Route::post('mybrand/button-accordian/store/{design}', 'MyBrandButtonAccordianSectionController@store')->name('mybrand.button-accordian.store');
+        Route::post('mybrand/button-accordian/update/{button_accordian}/{design}', 'MyBrandButtonAccordianSectionController@update')->name('mybrand.button-accordian.update');
 
         Route::get('mybrand/{slug}/news/{design}', 'MyBrandNewsSectionController@index')->name('mybrand.news');
         Route::get('mybrand/news/create/{design}', 'MyBrandNewsSectionController@create')->name('mybrand.news.create');
@@ -105,14 +106,64 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::delete('mybrand/news/section-delete/{news_details}', 'MyBrandNewsSectionController@sectionDelete')->name('mybrand.news.section-delete');
 
         Route::get('mybrand/{slug}/flipbook', 'FlipbookController@index')->name('mybrand.flipbook');
+        Route::post('mybrand/flipbook/section1/store/{brand}', 'FlipbookController@section1Store')->name('mybrand.flipbook.section1.store');
         Route::post('mybrand/flipbook/section2/store/{brand}', 'FlipbookController@section2Store')->name('mybrand.flipbook.section2.store');
         Route::post('mybrand/flipbook/section2-video/{flipbook}', 'FlipbookController@section2Slider')->name('mybrand.flipbook.section2.slider');
         Route::post('mybrand/flipbook/section3/store/{brand}', 'FlipbookController@section3Store')->name('mybrand.flipbook.section3.store');
         Route::delete('mybrand/flipbook/section-delete/{flipbook_slider}', 'FlipbookController@sectionDelete')->name('mybrand.flipbook.section-delete');
 
+        Route::get('mybrand/{slug}/section2/{design}', 'MyBrandSection2Controller@index')->name('mybrand.section2');
+        Route::get('mybrand/section2/create/{design}', 'MyBrandSection2Controller@create')->name('mybrand.section2.create');
+        Route::post('mybrand/section2/store/{design}', 'MyBrandSection2Controller@store')->name('mybrand.section2.store');
+        Route::post('mybrand/section2/update/{section2}/{design}', 'MyBrandSection2Controller@update')->name('mybrand.section2.update');
+
+        Route::get('mybrand/{slug}/section5/{design}', 'MyBrandSection5Controller@index')->name('mybrand.section5');
+        Route::get('mybrand/section5/create/{design}', 'MyBrandSection5Controller@create')->name('mybrand.section5.create');
+        Route::post('mybrand/section5/store/{design}', 'MyBrandSection5Controller@store')->name('mybrand.section5.store');
+        Route::post('mybrand/section5/update/{section5}/{design}', 'MyBrandSection5Controller@update')->name('mybrand.section5.update');
+
+        Route::get('mybrand/{slug}/section6/{design}', 'MyBrandSection6Controller@index')->name('mybrand.section6');
+        Route::get('mybrand/section6/create/{design}', 'MyBrandSection6Controller@create')->name('mybrand.section6.create');
+        Route::post('mybrand/section6/store/{design}', 'MyBrandSection6Controller@store')->name('mybrand.section6.store');
+        Route::post('mybrand/section6/update/{section6}/{design}', 'MyBrandSection6Controller@update')->name('mybrand.section6.update');
+
+
+        Route::get('mybrand/{slug}/product-m2', 'MyBrandProductM2Controller@index')->name('mybrand.product-m2');
+        Route::get('mybrand/product-m2/create', 'MyBrandProductM2Controller@create')->name('mybrand.product-m2.create');
+        Route::post('mybrand/product-m2/store', 'MyBrandProductM2Controller@store')->name('mybrand.product-m2.store');
+        Route::delete('mybrand/product-m2/delete', 'MyBrandProductM2Controller@destroy')->name('mybrand.product-m2.delete');
+
+        Route::get('mybrand/{slug}/article/{design}', 'MyBrandArticleController@index')->name('mybrand.article');
+        Route::get('mybrand/article/create/{design}', 'MyBrandArticleController@create')->name('mybrand.article.create');
+        Route::post('mybrand/article/store/{design}', 'MyBrandArticleController@store')->name('mybrand.article.store');
+        Route::delete('mybrand/article/delete/{design}', 'MyBrandArticleController@destroy')->name('mybrand.article.delete');
+
+        Route::get('mybrand/{slug}/product-m3', 'MyBrandProductM3Controller@index')->name('mybrand.product-m3');
+        Route::get('mybrand/product-m3/create', 'MyBrandProductM3Controller@create')->name('mybrand.product-m3.create');
+        Route::post('mybrand/product-m3/store', 'MyBrandProductM3Controller@store')->name('mybrand.product-m3.store');
+        Route::delete('mybrand/product-m3/delete', 'MyBrandProductM3Controller@destroy')->name('mybrand.product-m3.delete');
+
+        Route::get('mybrand/{slug}/bg-description/{design}', 'MyBrandBgImageDescriptionController@index')->name('mybrand.bg-description');
+        Route::get('mybrand/bg-description/create/{design}', 'MyBrandBgImageDescriptionController@create')->name('mybrand.bg-description.create');
+        Route::post('mybrand/bg-description/store/{design}', 'MyBrandBgImageDescriptionController@store')->name('mybrand.bg-description.store');
+        Route::post('mybrand/bg-description/update/{BgDescription}/{design}', 'MyBrandBgImageDescriptionController@update')->name('mybrand.bg-description.update');
+
+        Route::get('mybrand/{slug}/slider2/{design}', 'MyBrandSlider2Controller@index')->name('mybrand.slider2');
+        Route::get('mybrand/slider2/create/{design}', 'MyBrandSlider2Controller@create')->name('mybrand.slider2.create');
+        Route::post('mybrand/slider2/store/{design}', 'MyBrandSlider2Controller@store')->name('mybrand.slider2.store');
+        Route::delete('mybrand/slider2/delete/{design}', 'MyBrandSlider2Controller@destroy')->name('mybrand.slider2.delete');
+
+        Route::get('mybrand/{slug}/product-description/{design}', 'MyBrandProductDescriptionController@index')->name('mybrand.product-description');
+        Route::get('mybrand/product-description/create/{design}', 'MyBrandProductDescriptionController@create')->name('mybrand.product-description.create');
+        Route::post('mybrand/product-description/store/{design}', 'MyBrandProductDescriptionController@store')->name('mybrand.product-description.store');
+        Route::post('mybrand/product-description/update/{ProductDescription}/{design}', 'MyBrandProductDescriptionController@update')->name('mybrand.product-description.update');
 
         Route::post('/mybrand/settings/{brand}', 'BrandSettingsController@store')->name('mybrand.settings.store');
+
     });
+    Route::resource('p1', 'MyBrandP1Controller')->except(['show']);
+    Route::resource('p1-slide-changer', 'MyBrandP1SlideChangerController')->except(['show']);
+    Route::resource('p1-slide-changer2', 'MyBrandP1SlideChanger2Controller')->except(['show']);
 
 
 });

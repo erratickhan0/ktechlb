@@ -16,6 +16,16 @@ use Illuminate\Support\Str;
 
 class MyBrandSliderController extends Controller
 {
+
+
+    protected $my_design = null;
+    public function __construct(Request $request)
+    {
+        $this->my_design = BrandDesign::where('slug',$request->route('design'))->first();
+        if(!$this->my_design){
+            return abort(404);
+        }
+    }
     /**
      * Show the application dashboard.
      *
@@ -23,12 +33,9 @@ class MyBrandSliderController extends Controller
      */
     public function index(Request $request)
     {
-        $design = BrandDesign::where('slug',$request->route('design'))->first();
-        if(!$design){
-            return abort(404);
-        }
+
         $my_brand = $request->session()->get('selected_brand', 'default');
-        $slider = SliderSection::where(['brand_id' => $my_brand->id,'design_id' => $design->id])->get();
+        $slider = SliderSection::where(['brand_id' => $my_brand->id,'design_id' => $this->my_design->id])->get();
         return view('admin.Slider_home.listing',['slider' => $slider, 'slug' => $my_brand->slug,'design' => $request->route('design') ]);
     }
     /**
@@ -38,10 +45,6 @@ class MyBrandSliderController extends Controller
      */
     public function create(Request $request)
     {
-        $design = BrandDesign::where('slug',$request->route('design'))->first();
-        if(!$design){
-            return abort(404);
-        }
         $brand = new Brand();
         return response()->view('admin/Slider_home.form',['design' => $request->route('design')]);
     }
@@ -53,10 +56,7 @@ class MyBrandSliderController extends Controller
      */
     public function store(Request $request)
     {
-        $design = BrandDesign::where('slug',$request->route('design'))->first();
-        if(!$design){
-            return abort(404);
-        }
+
         if(!$request->hasFile('file_path')) {
         return Redirect::back()->withErrors([
                 'msg' => 'Image or video file is not attached'
@@ -74,7 +74,7 @@ class MyBrandSliderController extends Controller
 
         $validator = Validator::make($request->all(),[
             'title'=> 'required',
-            'description' => 'required',
+           // 'description' => 'required',
             'colour' => 'required',
             'file_path' => $types,
         ]);
@@ -85,8 +85,7 @@ class MyBrandSliderController extends Controller
         $brand = $request->session()->get('selected_brand', 'default');
 
         $slider = new SliderSection();
-        $design = BrandDesign::where('slug',$request->route('design'))->first();
-        $request->merge(['brand_id' => $brand->id,'design_id' => $design->id ]);
+        $request->merge(['brand_id' => $brand->id,'design_id' => $this->my_design->id ]);
         $slider->fill($request->input());
         $slider->save();
         $slider->file_path = Storage::disk('public')->putFile('slider_section', $request->file('file_path'));
@@ -99,10 +98,7 @@ class MyBrandSliderController extends Controller
     }
     public function destroy(Request $request){
 
-        $design = BrandDesign::where('slug',$request->route('design'))->first();
-        if(!$design){
-            return abort(404);
-        }
+
         $slider = SliderSection::find($request->input('slider'));
         Storage::disk('public')->delete($slider->file_path);
         $slider->delete();

@@ -16,8 +16,6 @@
                         <div id="webchat" class="contact-webchat-content collapse">
                             <div class="step-first webchat-list chat-show">
                                 <h4 class="visible text-white helpText">How could we help you?</h4>
-                                <img class="chat-loader" src="https://www.technogym.com/skin/frontend/technogym/default/images/loading.svg">
-                                <button class="button-69528058-32de-403d-8d3e-1c407ed545c8 button-0dcb9003-b132-4baf-b4d5-d66e78d724c1 button-show" data-chat="UAE_INSIDESALES_CHAT" onclick="window.openFooterChatPanel(this);">Products </button>
                                 <button class="button-3014949a-7703-4e88-bad3-38aba32d424c button-3384d67a-14aa-43a7-956b-6ab8cb56d712 button-show" data-chat="UAE_CUSTOMERSERVICE_CHAT" onclick="window.openFooterChatPanel(this);">Orders </button>
                                 <button class="button-9edbdbf8-6a97-4ef2-b3cb-9551e39a09dc button-b9c5847e-c506-4a52-975f-03dc7be58040 button-show" data-chat="UAE_AFTERSALES_CHAT" onclick="window.openFooterChatPanel(this);">Assistance </button>
                             </div>
@@ -88,19 +86,23 @@
 
             <div class="col-md-12">
                 <div class="xs-copyright-text">
-                    <p>COPYRIGHT @ KANAAN ADVANCED TECHNOLOGIES <img style="padding-left: 25px;height: 20px" src="./dist/assets/img/footericonset2-1.png">
+                    <p>COPYRIGHT @ KANAAN ADVANCED TECHNOLOGIES <img style="padding-left: 25px;height: 20px"
+                                                                     src="./dist/assets/img/footericonset2-1.png">
 
                     </p>
-                    <div class="pull-right pr-5">
+                    <div class="pull-right">
                         <ul class="footer-social">
-                            <li><a target="_blank" href="https://www.instagram.com/kanaan.advanced.technologies"><i class="fab fa-instagram"></i> </a></li>
+                            <li><a target="_blank" href="https://www.instagram.com/kanaan.advanced.technologies"><i
+                                        class="fab fa-instagram"></i> </a></li>
                             <li><a target="_blank" href="https://www.facebook.com/gosmart.innovative"><i class="fa fa-facebook">
                                     </i> </a></li>
                             <li><a target="_blank" href="https://twitter.com/AdvancedKanaan"><i class="fa fa-twitter"></i> </a>
                             </li>
-                            <li><a target="_blank" href="https://www.youtube.com/channel/UCY4EKuG0HY5QXPqfNcvMOnQ"><i class="fa fa-youtube"></i> </a></li>
+                            <li><a target="_blank" href="https://www.youtube.com/channel/UCY4EKuG0HY5QXPqfNcvMOnQ"><i
+                                        class="fa fa-youtube"></i> </a></li>
 
-                            <li><a target="_blank" href="https://www.youtube.com/channel/UCY4EKuG0HY5QXPqfNcvMOnQ"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a target="_blank" href="https://www.youtube.com/channel/UCY4EKuG0HY5QXPqfNcvMOnQ"><i
+                                        class="fab fa-linkedin-in"></i></a></li>
                         </ul>
                     </div>
                     <p></p>

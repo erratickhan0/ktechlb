@@ -2,9 +2,9 @@
 
 @section('content')
     @if (!isset($button_accordian))
-        {{ Form::open(['route' => ['admin.mybrand.button-accordian.store'], 'role' => 'form', 'id' => 'icon-form', 'files' => true]) }}
+        {{ Form::open(['route' => ['admin.mybrand.button-accordian.store',['design' => $design]], 'role' => 'form', 'id' => 'icon-form', 'files' => true]) }}
     @else
-        {{ Form::open(['route' => ['admin.mybrand.button-accordian.update',$button_accordian->id], 'role' => 'form', 'id' => 'icon-form', 'files' => true]) }}
+        {{ Form::open(['route' => ['admin.mybrand.button-accordian.update',['button_accordian' =>$button_accordian->id,'design' => $design]], 'role' => 'form', 'id' => 'icon-form', 'files' => true]) }}
     @endif
     <!-- Header -->
     <div class="header bg-primary pb-6">
@@ -20,7 +20,7 @@
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('admin.mybrand.button-accordian',['slug'=> session()->get('selected_brand')->slug]) }}">Button/Accordian</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.mybrand.button-accordian',['slug'=> session()->get('selected_brand')->slug,'design' => $design]) }}">Button/Accordian</a></li>
 
                             </ol>
                         </nav>
@@ -101,7 +101,7 @@
                                 <div class="row">
                                     <div class="col-6 mt-5">
                                     {{ Form::button('Save', ['type'=>'submit', 'class'=>'btn btn-primary']) }}
-                                    <a href="{{ route('admin.mybrand.button-accordian',['slug' => session()->get('selected_brand')->slug]) }}" class="btn btn-s btn-outline-primary">Cancel</a>
+                                    <a href="{{ route('admin.mybrand.button-accordian',['slug' => session()->get('selected_brand')->slug,'design' => $design]) }}" class="btn btn-s btn-outline-primary">Cancel</a>
                                     </div>
                                 </div>
 

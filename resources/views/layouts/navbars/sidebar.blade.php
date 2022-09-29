@@ -127,24 +127,24 @@
                 </li>
 
 
-                @if(session()->get('selected_brand'))
+                @if(session()->get('selected_brand') && $brands)
                 <li class="nav-item">
                     <a class="nav-link" href="#navbar-system" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-system">
                         <i class="fas fa-cog text-primary"></i>
                         <span class="nav-link-text">{{ __(session()->get('selected_brand')->name) }}</span>
                     </a>
+
                     <div class="collapse" id="navbar-system">
                         <ul class="nav nav-sm flex-column">
-
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.mybrand.settings',session()->get('selected_brand')->slug) }}">
+                                    {{ __('Settings') }}
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="#navbar-system-general" class="nav-link" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-system-general">M1 DESIGN</a>
                                 <div class="collapse show" id="navbar-system-general" style="">
                                     <ul class="nav nav-sm flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('admin.mybrand.settings',session()->get('selected_brand')->slug) }}">
-                                                {{ __('Settings') }}
-                                            </a>
-                                        </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ route('admin.mybrand.slider',['slug' => session()->get('selected_brand')->slug,'design' => 'm1']) }}">
                                                 {{ __('Top Slider Section') }}
@@ -161,7 +161,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('admin.mybrand.banner',session()->get('selected_brand')->slug) }}">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.banner',['slug'=> session()->get('selected_brand')->slug,'design'=>'m1']) }}">
                                                 {{ __('Banners Uploader Section') }}
                                             </a>
                                         </li>
@@ -176,7 +176,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('admin.mybrand.button-accordian',session()->get('selected_brand')->slug) }}">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.button-accordian',['slug' => session()->get('selected_brand')->slug,'design' => 'm1']) }}">
                                                 {{ __('Button/Accordian Section') }}
                                             </a>
                                         </li>
@@ -203,10 +203,46 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.section2',['slug' => session()->get('selected_brand')->slug,'design' => 'm2']) }}">
+                                                {{ __('Section2') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.section5',['slug' => session()->get('selected_brand')->slug,'design' => 'm2']) }}">
+                                                {{ __('Section5') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.section6',['slug' => session()->get('selected_brand')->slug,'design' => 'm2']) }}">
+                                                {{ __('Section6') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.product-m2',session()->get('selected_brand')->slug) }}">
+                                                {{ __('Product Uploader Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.banner',['slug'=> session()->get('selected_brand')->slug,'design'=>'m2']) }}">
+                                                {{ __('Banners Uploader Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.button-accordian',['slug' => session()->get('selected_brand')->slug,'design' => 'm2']) }}">
+                                                {{ __('Button/Accordian Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link" href="{{ route('admin.mybrand.news',['slug' => session()->get('selected_brand')->slug,'design' => 'm2']) }}">
                                                 {{ __('News/Blog Section') }}
                                             </a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.article',['slug' => session()->get('selected_brand')->slug,'design' => 'm2']) }}">
+                                                {{ __('Article/Blog Section') }}
+                                            </a>
+                                        </li>
+
 
                                     </ul>
                                 </div>
@@ -218,6 +254,51 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ route('admin.mybrand.slider',['slug' => session()->get('selected_brand')->slug,'design' => 'm3']) }}">
                                                 {{ __('Top Slider Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.section2',['slug' => session()->get('selected_brand')->slug,'design' => 'm3']) }}">
+                                                {{ __('Section2') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.product-m3',session()->get('selected_brand')->slug) }}">
+                                                {{ __('Product Uploader Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.bg-description',['slug' => session()->get('selected_brand')->slug,'design' => 'm3']) }}">
+                                                {{ __('Background Image with Desc') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.slider2',['slug' => session()->get('selected_brand')->slug,'design' => 'm3']) }}">
+                                                {{ __('Slider#2 Uploader') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.product-description',['slug' => session()->get('selected_brand')->slug,'design' => 'm3']) }}">
+                                                {{ __('Product Image with Desc') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.button-accordian',['slug' => session()->get('selected_brand')->slug,'design' => 'm3']) }}">
+                                                {{ __('Button/Accordian Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.section6',['slug' => session()->get('selected_brand')->slug,'design' => 'm3']) }}">
+                                                {{ __('Section6') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.article',['slug' => session()->get('selected_brand')->slug,'design' => 'm3']) }}">
+                                                {{ __('Article/Blog Section') }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.mybrand.banner',['slug'=> session()->get('selected_brand')->slug,'design'=>'m3']) }}">
+                                                {{ __('Banners Uploader Section') }}
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -234,6 +315,12 @@
 
                 </li>
                 @endif
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('admin.p1.index') }}"  role="button" >
+                        <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">{{ __('P1') }}</span>
+                    </a>
+                </li>
 
             </ul>
 

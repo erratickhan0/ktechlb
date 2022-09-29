@@ -20,6 +20,106 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card-body" v-show="flipbook.section_selector == 'section1'">
+                        <div class="row mb-2">
+                            <div class="col-lg-12">
+                                <h2>Section1 Details</h2>
+                            </div>
+                        </div>
+                        <validation-observer ref="section1_details_form">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-12 form-group">
+                                        <validation-provider name="heading" rules="required" v-slot="v">
+                                            <label>Heading</label>
+                                            <input class="form-control" type="text" name="Heading" v-model="flipbook.section1_heading" placeholder="Heading">
+                                            <span class="field-errors">{{ v.errors[0] }}</span>
+                                        </validation-provider>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 form-group">
+                                        <validation-provider name="title" rules="required" v-slot="v">
+                                            <label>Title</label>
+                                            <input class="form-control" type="text" name="Title" v-model="flipbook.section1_title" placeholder="Title">
+                                            <span class="field-errors">{{ v.errors[0] }}</span>
+                                        </validation-provider>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            <ckeditor name="description3"  v-model="flipbook.section1_description" ></ckeditor>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 form-group">
+                                        <validation-provider name="button_link" rules="required" v-slot="v">
+                                            <label>Button link</label>
+                                            <input class="form-control" type="text" name="Title" v-model="flipbook.btn_link" placeholder="Button Link">
+                                            <span class="field-errors">{{ v.errors[0] }}</span>
+                                        </validation-provider>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 form-group">
+                                        <validation-provider name="button_text" rules="required" v-slot="v">
+                                            <label>Button Text</label>
+                                            <input class="form-control" type="text" name="Title" v-model="flipbook.btn_text" placeholder="Button Text">
+                                            <span class="field-errors">{{ v.errors[0] }}</span>
+                                        </validation-provider>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 form-group" >
+                                        <label >Button Show</label>
+                                        <toggle-button
+                                            style="margin-bottom: 0rem;"
+                                            v-model="flipbook.btn_show"
+                                            :sync="true"
+                                            :labels="true"
+                                            @change=""
+                                        />
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group required">
+                                            <label for="logo">PDF</label>
+                                            <div>
+                                                <input accept="application/pdf"
+                                                       id="flipbook_section1_pdf"
+                                                       class="form-control"
+                                                       ref="pdf"
+                                                       type="file"
+                                                       v-on:change="handleSection1Pdf()"
+                                                       name="flipbook_section1_pdf" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 text-right mt-n3">
+                                        <div  v-if="this.flipbook.pdf">
+                                            <a target="_blank"
+                                                :href="'/storage/' + this.flipbook.pdf"
+                                                alt="Pdf"
+                                                style="max-width: 120px; max-height: 120px;"
+                                            >View Pdf</a>
+                                        </div>
+                                        <div><span>Section1 Pdf</span></div>
+                                    </div>
+
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-3 text-left">
+                                        <a href="javascript:;" @click="section1_detailsForm" class="btn btn-primary" >Save</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </validation-observer>
+                    </div>
                     <div class="card-body" v-show="flipbook.section_selector == 'section2'">
                         <div class="row mb-2">
                             <div class="col-lg-12">
@@ -263,7 +363,14 @@ export default {
                 section3_description:'',
                 section3_btn_link:'',
                 section3_image:'',
-                id:''
+                id:'',
+                section1_heading:'',
+                section1_title:'',
+                section1_description:'',
+                section1_pdf:'',
+                btn_text:'',
+                btn_show:'',
+                btn_link:''
             },
             flipbook_slider:flipbook_slider,
             isLoading: false,
@@ -340,6 +447,9 @@ export default {
 
             this.flipbook.section3_image = this.$refs.flipbook_section3_image.files[0];
         },
+        handleSection1Pdf:function(){
+            this.flipbook.pdf = this.$refs.pdf.files[0];
+        },
         getSection2Data:function(){
             var formData = new FormData();
             formData.append('section_selector', this.flipbook.section_selector);
@@ -348,6 +458,19 @@ export default {
             formData.append('section2_description', this.flipbook.section2_description);
             formData.append('id', this.flipbook.id);
 
+            return formData;
+        },
+        getSection1Data:function(){
+            var formData = new FormData();
+            formData.append('section_selector', this.flipbook.section_selector);
+            formData.append('section1_heading', this.flipbook.section1_heading);
+            formData.append('section1_title', this.flipbook.section1_title);
+            formData.append('section1_description', this.flipbook.section1_description);
+            formData.append('pdf', this.flipbook.pdf);
+            formData.append('btn_text', this.flipbook.btn_text);
+            formData.append('btn_link', this.flipbook.btn_link);
+            formData.append('btn_show', this.flipbook.btn_show);
+            formData.append('id', this.flipbook.id);
             return formData;
         },
         getSection3Data:function(){
@@ -361,6 +484,37 @@ export default {
             formData.append('id', this.flipbook.id);
 
             return formData;
+        },
+        section1_detailsForm:function () {
+            this.$refs['section1_details_form'].validate().then(success => {
+                if (!success) {
+                    return false;
+                }
+                this.isLoading = true;
+
+                var post_url = `/admin/mybrand/flipbook/section1/store/`+this.brand.id;
+                axios.post(post_url, this.getSection1Data(), {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                }).then(response => {
+                    this.isLoading = false;
+                    if (response.data.status == 'OK') {
+                        this.$toast.success(response.data.message, {'duration': 5000});
+                        setTimeout( () => {
+                            window.location.reload();
+                        }, 1000);
+                    }
+                    if (response.data.status == 'ERROR') {
+                        console.log(response.data.message);
+                        this.$toast.error(response.data.message, {'duration': 5000});
+                    }
+                }).catch(error => {
+                    console.log(JSON.stringify(error));
+                    this.$toast.error(JSON.stringify(error), {'duration': 5000});
+
+                });
+            });
         },
         section2_detailsForm:function () {
             this.$refs['section2_details_form'].validate().then(success => {

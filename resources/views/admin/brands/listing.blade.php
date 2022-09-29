@@ -40,6 +40,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Active Status</th>
+                                    <th>Design</th>
                                     <th>Created At</th>
                                     <th>Logo</th>
                                     <th><!--Actions --></th>
@@ -50,6 +51,7 @@
                                     <tr>
                                         <td class="align-middle name mb-0 text-sm">{{$brand->name}}</td>
                                         <td class="align-middle">{{$brand->active_state ? 'Yes':'No'}}</td>
+                                        <td class="align-middle">{{$brand->brand_design->name}}</td>
                                         <td class="align-middle">{{$brand->created_at}}</td>
                                         <td class="align-middle"><img width="100px" height="70px" src="{{asset('storage/'.$brand->logo)}}"></td>
                                         <td class="text-right">

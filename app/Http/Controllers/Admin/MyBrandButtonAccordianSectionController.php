@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Brand;
+use App\BrandDesign;
 use App\ButtonAccordianSection;
 use App\Http\Controllers\Controller;
 use App\LogoTitleSection;
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Validator;
 
 class MyBrandButtonAccordianSectionController extends Controller
 {
+
+    protected $my_design = null;
+    public function __construct(Request $request)
+    {
+        $this->my_design = BrandDesign::where('slug',$request->route('design'))->first();
+        if(!$this->my_design){
+            return abort(404);
+        }
+    }
     /**
      * Show the application dashboard.
      *
@@ -21,9 +31,8 @@ class MyBrandButtonAccordianSectionController extends Controller
     public function index(Request $request)
     {
         $my_brand = $request->session()->get('selected_brand', 'default');
-        $brand = Brand::with('button_accordian_section')->where('slug',$my_brand->slug)->first();
-
-        return view('admin.ButtonAccordian_home.form',['button_accordian' => $brand->button_accordian_section, 'slug' => $brand->slug ]);
+        $button_accordian = ButtonAccordianSection::where('brand_id',$my_brand->id)->where('design_id',$this->my_design->id)->first();
+        return view('admin.ButtonAccordian_home.form',['button_accordian' => $button_accordian , 'slug' => $my_brand->slug,'design' => $this->my_design->slug ]);
     }
     /**
      * Show the form for creating a new resource.
@@ -60,14 +69,14 @@ class MyBrandButtonAccordianSectionController extends Controller
         $brand = $request->session()->get('selected_brand', 'default');
 
         $button_accordian = new ButtonAccordianSection();
-        $request->merge(['brand_id' => $brand->id]);
+        $request->merge(['brand_id' => $brand->id,'design_id' => $this->my_design->id]);
         $button_accordian->fill($request->input());
         $button_accordian->save();
         $button_accordian->image = Storage::disk('public')->putFile('buttonaccordian_section', $request->file('image'));
         $button_accordian->save();
 
         return redirect()
-            ->route('admin.mybrand.button-accordian',['slug' => $brand->slug])
+            ->route('admin.mybrand.button-accordian',['slug' => $brand->slug,'design' => $request->route('design')])
             ->with('success', 'New icon has been created');
     }
     /**
@@ -86,7 +95,7 @@ class MyBrandButtonAccordianSectionController extends Controller
         $button_accordian->save();
         $button_accordian = $request->session()->get('selected_brand', 'default');
         return redirect()
-            ->route('admin.mybrand.button-accordian',['slug' => $button_accordian->slug])
+            ->route('admin.mybrand.button-accordian',['slug' => $button_accordian->slug,'design' => $request->route('design')])
             ->with('success', 'Logo Title are updated successfully!');
     }
 }

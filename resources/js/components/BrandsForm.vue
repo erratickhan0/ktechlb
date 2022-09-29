@@ -182,7 +182,7 @@ export default {
                         if (response.data.status == 'OK') {
                             this.$toast.success(response.data.message, {'duration': 5000});
                             setTimeout( () => {
-                                window.location = Laravel.baseUrl+'admin/brands';
+                                window.location.href='/admin/brands';
 
                             }, 1000);
                         }
@@ -207,7 +207,7 @@ export default {
         if(this.brand){
            this.branding.name = this.brand.name;
             this.branding.active_state = this.brand.active_state;
-            this.branding.brand_design_id = this.brand.brand_design_id;
+            this.branding.brand_design_id = JSON.parse(this.brand.brand_design_id);
         }
     }
 }
