@@ -131,7 +131,30 @@ h6 {
     font-size: 1.857rem;
 }
 
+.updatedSectionPromotion .sec_3 .EngagementActive p::-webkit-scrollbar {
+    font-size: 16px;
+    max-height: 150px;
+    overflow-y: auto;
+}
 
+/* Track */
+.updatedSectionPromotion .sec_3 .EngagementActive p::-webkit-scrollbar {
+    width: 10px;
+}
+
+.updatedSectionPromotion .sec_3 .EngagementActive p::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.updatedSectionPromotion .sec_3 .EngagementActive p::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.updatedSectionPromotion .sec_3 .EngagementActive p::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
 
 /* utilties */
 .f-s-2 {
@@ -217,10 +240,7 @@ nav .dropdown>.dropdown-toggle:active {
 
 
 
-.navbar-dark .navbar-brand img {
-    width: 110px;
-    margin-bottom: 0;
-}
+
 
 .navbar-dark .navbar-brand {
     padding-top: 0;
@@ -228,8 +248,8 @@ nav .dropdown>.dropdown-toggle:active {
 }
 
 .navbar-dark .navbar-brand img {
-    width: 110px;
     margin-bottom: 0;
+    height: 34px;
 }
 
 .navbar {
@@ -922,6 +942,10 @@ img.box-image {
 #innerBookCarousel .item:hover .product-detail {
     opacity: 0.6;
     box-shadow: 0px 2px 10px #0000000d;
+}
+
+#owl-carousel2 .owl-stage {
+    margin: 0 auto;
 }
 
 .productCarousel .item_s4 {
@@ -2342,6 +2366,14 @@ div[id*='contacts-webchat-'] .text {
     background-color: rgba(0, 0, 0, 0.329);
     bottom: 0;
     padding: 30px;
+    padding-right: 70px;
+}
+
+.body-text.bodyTextCenter {
+    width: 60% !important;
+    font-size: 17px;
+    text-align: center;
+    line-height: 1.4;
 }
 
 .m2BannerText .container {

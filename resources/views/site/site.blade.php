@@ -61,6 +61,8 @@
 @if($brand->brand_settings->icon_section)
 <section class="productCarousel mt-10 mb-10 pt-5 pb-5">
     <div class="container text-center">
+        <h3 data-aos-easing="linear" data-aos="fade-right" data-aos-delay="500" class="mb-5">
+            Sample Title Text</h3>
         <div class="d-flex justify-content-center align-items-center howToGap">
             @if($brand->icon_section)
             @foreach($brand->icon_section as $value)
