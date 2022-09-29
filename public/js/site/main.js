@@ -124,31 +124,32 @@ $(document).ready(function() {
         }, 1000);
     });
 
-    $('#owl-carousel2').owlCarousel({
-        loop: false,
-        autoplay: false,
-
-        autoplayTimeout: 5000,
-        autoplayHoverPause: false,
-        margin: 0,
-        items: 4,
-        nav: true,
-        navText: ['<div class="swiper-button-prev" style="background: url(\'/images/site/prev_next.png\') 0px -45px no-repeat transparent;" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="false"></div>', '<div class="swiper-button-next" style="background: url(\'/images/site/prev_next.png\') -45px -45px no-repeat transparent;" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></div>'],
-        dots: false,
-        center: false,
-
-        responsive: {
-            0: {
-                items: 1
-            },
-            768: {
-                items: 3
-            },
-            1200: {
-                items: 4
+    var itemCount = $('#owl-carousel2 .item').length;
+    if(itemCount.length>4)
+    {itemCount=4}
+    setTimeout(function () {
+        $('#owl-carousel2').owlCarousel({
+            loop: false,
+            margin: 0,
+            autoplay: false,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: false,
+            nav: true,
+            navText: ['<div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="false"></div>', '<div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></div>'],
+            dots: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                1200: {
+                    items: itemCount
+                }
             }
-        }
-    })
+        })
+    }, 1000)
 
 
 
