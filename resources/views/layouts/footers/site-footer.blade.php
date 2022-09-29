@@ -110,5 +110,16 @@
             </div>
         </div>
     </div>
-    <div class="scrollTo" style="display: none"></div>
+    <div style="background: rgba(0,0,0,.33) url( '/images/ktech/right-arrow.png' ) 50% no-repeat;
+    width: 36px;
+    height: 36px;
+    border-radius: 3px;
+    display: block;
+    transform: rotate(-90deg);
+    position: fixed;
+    z-index: 999999;
+    right: 17px;
+    bottom: 27px;
+    background-size: 15px;
+    cursor: pointer;" class="scrollTo" style="display: none"></div>
 </footer>
