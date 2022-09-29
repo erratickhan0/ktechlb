@@ -115,7 +115,7 @@
                 <div class="col mb-5" data-aos="fade-up" data-aos-duration="2000">
                     <div class="emark-text">
                         <div class="text">{{$brand->logo_title_section->title1}}</div>
-                        <img src="{{ asset('storage/'.$brand->logo_title_section->logo) }}" alt="ebark" style="width: 150px;">
+                        <img src="{{ asset('storage/'.$brand->logo_title_section->logo) }}" alt="ebark" style="width: 350px;">
                         <div class="text">{{$brand->logo_title_section->title2}}</div>
                     </div>
                 </div>
