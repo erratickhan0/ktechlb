@@ -1,10 +1,10 @@
 @extends('layouts.app-site')
 @section('content')
     @push('css_scripts_p1')
-        <link href="{{ asset('css/client/animate.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('css/client/p1.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('css/client/index_ipad.css') }}" rel="stylesheet"  type="text/css" />
-        <link href="{{ asset('css/client/YouTubePopUp.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/client/animate.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/client/p1.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/client/index_ipad.css') }}" rel="stylesheet"  />
+        <link href="{{ asset('css/client/YouTubePopUp.css') }}" rel="stylesheet" />
         <script src="{{ asset('js/site/scrolling.js')}}"></script>
     @endpush
     <header class="fixed-top">
@@ -136,7 +136,7 @@
                 <div class="row   " style="background-color: #fff;">
 
                     <div class="col-sm main-title p-0 flexLeftAlign wow bounceInDown" data-wow-duration="1s"
-                         data-wow-iteration="1" style="visibility: visible; animation-duration: 2s; animation-iteration-count: 1; animation-name: bounceInDown;">
+                         data-wow-iteration="1">
                         <h1 class="fontStyle ml-265">{{$p1->heading}}</h1>
                         <p class="site-description fontStyle werwer ml-265" style="color:#000">
                             {{$p1->title}} </p>
@@ -219,12 +219,12 @@
                             @if($p1->slide_changer)
                                 @foreach($p1->slide_changer as $key  => $value)
                                        @if($key == 0)
-                                    <div class="text-box skrollable skrollable-before test1"
+                                    <div class="text-box skrollable skrollable-before test1 active"
                                          data-bottom-top="transform:translate(0px, 50px); opacity: 1; transition:all 0s ease 0s;"
                                          data-center-top="transform:translate(0px, 0px); opacity: 1; transition:all 1.1s ease 0s;"
                                          style="transform: translate(0px, 50px); opacity: 1; transition: all 0s ease 0s; height: 140px;">
                                         <div class="productOverlayBgImg ">
-                                            <img style="max-width: 100%; height: auto; visibility: visible; animation-duration: 10s; animation-name: bounceInLeft;" src="{{asset('/storage/'.$value->right_image)}}" class="wow bounceInLeft" data-wow-duration="3s">
+                                            <img src="{{asset('/storage/'.$value->right_image)}}" style="max-width:100%; height:auto">
                                         </div>
                                         <div class="text">
                                             <h2 class="fontStyle werwer" style="width:50%; margin:auto">{{$value->heading}}</h2>
@@ -238,7 +238,7 @@
                                          style="transform: translate(0px, 50px); opacity: 1; transition: all 0s ease 0s; height: 140px;">
                                         <div class="productOverlayBgImg">
                                             <img src="{{asset('/storage/'.$value->right_image)}}"
-                                                 style="max-width: 100%; height: auto; visibility: visible; animation-duration: 14s; animation-name: bounceInLeft;"  class="wow bounceInLeft" data-wow-duration="4s">
+                                                 style="max-width:100%; height:auto" class="wow bounceInLeft" data-wow-duration="3s">
                                         </div>
                                         <div class="text">
                                             <h2 class="fontStyle werwer" style="width:50%; margin:auto">{{$value->heading}} </h2>
@@ -252,7 +252,7 @@
                                          style="transform: translate(0px, 50px); opacity: 1; transition: all 0s ease 0s; height: 140px;">
                                         <div class="productOverlayBgImg">
                                             <img src="{{asset('/storage/'.$value->right_image)}}"
-                                                 style="max-width: 100%; height: auto; visibility: visible; animation-duration: 18s; animation-name: bounceInLeft;" class="wow bounceInLeft" data-wow-duration="5s">
+                                                 style="max-width:100%; height:auto" class="wow bounceInLeft" data-wow-duration="4s">
                                         </div>
                                         <div class="text">
                                             <h2 class="fontStyle werwer" style="width:50%; margin:auto">{{$value->heading}}</h2>
@@ -266,7 +266,7 @@
                                          style="transform: translate(0px, 50px); opacity: 1; transition: all 0s ease 0s; height: 140px;">
                                         <div class="productOverlayBgImg">
                                             <img src="{{asset('/storage/'.$value->right_image)}}"
-                                                 style="max-width: 100%; height: auto; visibility: visible; animation-duration: 22s; animation-name: bounceInLeft;" class="wow bounceInLeft" data-wow-duration="6s">
+                                                 style="max-width:100%; height:auto" class="wow bounceInLeft" data-wow-duration="5s">
                                         </div>
                                         <div class="text">
                                             <h2 class="fontStyle werwer" style="width:50%; margin:auto">{{$value->heading}}</h2>
@@ -280,7 +280,7 @@
                                              style="transform: translate(0px, 50px); opacity: 1; transition: all 0s ease 0s; height: 140px;">
                                             <div class="productOverlayBgImg">
                                                 <img src="{{asset('/storage/'.$value->right_image)}}"
-                                                     style="max-width: 100%; height: auto; visibility: visible; animation-duration: 26s; animation-name: bounceInLeft;" class="wow bounceInLeft" data-wow-duration="7s">
+                                                     style="max-width:100%; height:auto" class="wow bounceInLeft" data-wow-duration="5s">
                                             </div>
                                             <div class="text">
                                                 <h2 class="fontStyle werwer" style="width:50%; margin:auto">{{$value->heading}}</h2>
@@ -300,7 +300,7 @@
                 <div class="row   " style="background-color: #fff;">
 
                     <div class="col-sm main-title p-0 flexLeftAlign wow bounceInDown" data-wow-duration="1s"
-                         data-wow-iteration="1" style="visibility: visible; animation-duration: 5s; animation-iteration-count: 1; animation-name: bounceInDown;">
+                         data-wow-iteration="1">
                         <h1 class="fontStyle ml-265">{{$p1->section2_heading}}</h1>
                         <p class="site-description fontStyle werwer ml-265" style="color:#000">
                             {{$p1->section2_title}}</p>
@@ -332,7 +332,7 @@
             <div class="highlights content-block">
                 @if($p1->slide_changer2)
                     @foreach($p1->slide_changer2 as $value)
-                <div style="visibility: visible; animation-duration: 20s; animation-name: bounceInUp;align-items: flex-start;
+                <div style="align-items: flex-start;
     background: #fff;
     border: 1px solid #d2d2d2;
     border-radius: 0.25rem;
@@ -387,6 +387,87 @@ background-image:url({{asset('/storage/'.$value->image)}}" class="card cover   w
 
     </script>
     <script type="text/javascript">
+        $(document).ready(function () {
+        //Items
+        var $card = $(".c-card_b");
+        var $container = $(".innercustom");
+        var $bike = $(".innercustom img");
+
+        //Moving Animation Event
+        $container.on("mousemove", function (e) {
+            let xAxis = (window.innerWidth / 2 - e.clientX) / 30;
+            let yAxis = (window.innerHeight / 2 - e.clientY) / 30;
+            $card.css("transform", `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`);
+        });
+
+        //Animate on Hover
+        $container.hover(function () {
+            $card.toggleClass("has-transform");
+            $bike.toggleClass("has-transform");
+        });
+
+        //Pop Back on mouseleave
+        $container.on("mouseleave", function () {
+            $card.css("transform", `rotateY(0deg) rotateX(0deg)`);
+        });
+
+        /* p1 card */
+        var $cardP1 = $(".p1Card .c-card_b");
+        var $containerP1 = $(".p1Card");
+        var $bikeP1 = $(".p1Card img");
+
+        //Moving Animation Event
+        $containerP1.on("mousemove", function (e) {
+            let xAxisP1 = (window.innerWidth / 2 - e.clientX) / 30;
+            let yAxisP1 = (window.innerHeight / 2 - e.clientY) / 30;
+            $card.css("transform", `rotateY(${xAxisP1}deg) rotateX(${yAxisP1}deg)`);
+        });
+
+        //Animate on Hover
+        $containerP1.hover(function () {
+            $cardP1.toggleClass("has-transform");
+            $bikeP1.toggleClass("has-transform");
+        });
+
+        //Pop Back on mouseleave
+        $containerP1.on("mouseleave", function () {
+            $cardP1.css("transform", `rotateY(0deg) rotateX(0deg)`);
+        });
+        /* p1 card */
+        });
+        WOW.prototype.addBox = function(element) {
+            this.boxes.push(element);
+        };
+        wow = new WOW();
+        wow.init();
+
+        var checkWOWJsReset = function() {
+            var resetWOWJsAnimation = function() {
+                var $that = $(this);
+
+                // determine if container is in viewport
+                // you might pass an offset in pixel - a negative offset will trigger loading earlier, a postive value later
+                // credits @ https://stackoverflow.com/a/33979503/2379196
+                var isInViewport = function($container, offset) {
+                    var containerTop = $container.offset().top;
+                    var containerBottom = containerTop + $container.outerHeight();
+
+                    var viewportTop = $(window).scrollTop();
+                    var viewportBottom = viewportTop + $(window).height();
+
+                    return containerBottom > viewportTop && containerTop + offset < viewportBottom;
+                };
+
+                // only reset animation when no long in viewport and already animated (but not running)
+                // you might want to use a different offset for isInViewport()
+                if (!isInViewport($that, 0) && $that.css('animation-name') != 'none' && !$that.hasClass('animated')) {
+                    $that.css({'visibility': 'hidden', 'animation-name': 'none'}); // reset animation
+                    wow.addBox(this);
+                }
+            };
+            $('.wow').each(resetWOWJsAnimation); // check if reset is necessary for any element
+        };
+        $(window).on('resize scroll', checkWOWJsReset);
 
 
         $(function () {
