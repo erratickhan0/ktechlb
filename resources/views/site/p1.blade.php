@@ -1,9 +1,10 @@
 @extends('layouts.app-site')
 @section('content')
     @push('css_scripts_p1')
-        <link href="{{ asset('css/client/p1.css') }}" rel="stylesheet" />
-        <link href="{{ asset('css/client/index_ipad.css') }}" rel="stylesheet"  />
-        <link href="{{ asset('css/client/YouTubePopUp.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/client/animate.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/client/p1.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/client/index_ipad.css') }}" rel="stylesheet"  type="text/css" />
+        <link href="{{ asset('css/client/YouTubePopUp.css') }}" rel="stylesheet" type="text/css" />
         <script src="{{ asset('js/site/scrolling.js')}}"></script>
     @endpush
     <header class="fixed-top">
@@ -135,7 +136,7 @@
                 <div class="row   " style="background-color: #fff;">
 
                     <div class="col-sm main-title p-0 flexLeftAlign wow bounceInDown" data-wow-duration="1s"
-                         data-wow-iteration="1">
+                         data-wow-iteration="1" style="visibility: visible; animation-duration: 2s; animation-iteration-count: 1; animation-name: bounceInDown;">
                         <h1 class="fontStyle ml-265">{{$p1->heading}}</h1>
                         <p class="site-description fontStyle werwer ml-265" style="color:#000">
                             {{$p1->title}} </p>
@@ -218,12 +219,12 @@
                             @if($p1->slide_changer)
                                 @foreach($p1->slide_changer as $key  => $value)
                                        @if($key == 0)
-                                    <div class="text-box skrollable skrollable-before test1 active"
+                                    <div class="text-box skrollable skrollable-before test1"
                                          data-bottom-top="transform:translate(0px, 50px); opacity: 1; transition:all 0s ease 0s;"
                                          data-center-top="transform:translate(0px, 0px); opacity: 1; transition:all 1.1s ease 0s;"
                                          style="transform: translate(0px, 50px); opacity: 1; transition: all 0s ease 0s; height: 140px;">
                                         <div class="productOverlayBgImg ">
-                                            <img src="{{asset('/storage/'.$value->right_image)}}" style="max-width:100%; height:auto">
+                                            <img style="max-width: 100%; height: auto; visibility: visible; animation-duration: 10s; animation-name: bounceInLeft;" src="{{asset('/storage/'.$value->right_image)}}" class="wow bounceInLeft" data-wow-duration="3s">
                                         </div>
                                         <div class="text">
                                             <h2 class="fontStyle werwer" style="width:50%; margin:auto">{{$value->heading}}</h2>
@@ -237,7 +238,7 @@
                                          style="transform: translate(0px, 50px); opacity: 1; transition: all 0s ease 0s; height: 140px;">
                                         <div class="productOverlayBgImg">
                                             <img src="{{asset('/storage/'.$value->right_image)}}"
-                                                 style="max-width:100%; height:auto" class="wow bounceInLeft" data-wow-duration="3s">
+                                                 style="max-width: 100%; height: auto; visibility: visible; animation-duration: 14s; animation-name: bounceInLeft;"  class="wow bounceInLeft" data-wow-duration="4s">
                                         </div>
                                         <div class="text">
                                             <h2 class="fontStyle werwer" style="width:50%; margin:auto">{{$value->heading}} </h2>
@@ -251,7 +252,7 @@
                                          style="transform: translate(0px, 50px); opacity: 1; transition: all 0s ease 0s; height: 140px;">
                                         <div class="productOverlayBgImg">
                                             <img src="{{asset('/storage/'.$value->right_image)}}"
-                                                 style="max-width:100%; height:auto" class="wow bounceInLeft" data-wow-duration="4s">
+                                                 style="max-width: 100%; height: auto; visibility: visible; animation-duration: 18s; animation-name: bounceInLeft;" class="wow bounceInLeft" data-wow-duration="5s">
                                         </div>
                                         <div class="text">
                                             <h2 class="fontStyle werwer" style="width:50%; margin:auto">{{$value->heading}}</h2>
@@ -265,7 +266,7 @@
                                          style="transform: translate(0px, 50px); opacity: 1; transition: all 0s ease 0s; height: 140px;">
                                         <div class="productOverlayBgImg">
                                             <img src="{{asset('/storage/'.$value->right_image)}}"
-                                                 style="max-width:100%; height:auto" class="wow bounceInLeft" data-wow-duration="5s">
+                                                 style="max-width: 100%; height: auto; visibility: visible; animation-duration: 22s; animation-name: bounceInLeft;" class="wow bounceInLeft" data-wow-duration="6s">
                                         </div>
                                         <div class="text">
                                             <h2 class="fontStyle werwer" style="width:50%; margin:auto">{{$value->heading}}</h2>
@@ -279,7 +280,7 @@
                                              style="transform: translate(0px, 50px); opacity: 1; transition: all 0s ease 0s; height: 140px;">
                                             <div class="productOverlayBgImg">
                                                 <img src="{{asset('/storage/'.$value->right_image)}}"
-                                                     style="max-width:100%; height:auto" class="wow bounceInLeft" data-wow-duration="5s">
+                                                     style="max-width: 100%; height: auto; visibility: visible; animation-duration: 26s; animation-name: bounceInLeft;" class="wow bounceInLeft" data-wow-duration="7s">
                                             </div>
                                             <div class="text">
                                                 <h2 class="fontStyle werwer" style="width:50%; margin:auto">{{$value->heading}}</h2>
@@ -299,7 +300,7 @@
                 <div class="row   " style="background-color: #fff;">
 
                     <div class="col-sm main-title p-0 flexLeftAlign wow bounceInDown" data-wow-duration="1s"
-                         data-wow-iteration="1">
+                         data-wow-iteration="1" style="visibility: visible; animation-duration: 5s; animation-iteration-count: 1; animation-name: bounceInDown;">
                         <h1 class="fontStyle ml-265">{{$p1->section2_heading}}</h1>
                         <p class="site-description fontStyle werwer ml-265" style="color:#000">
                             {{$p1->section2_title}}</p>
@@ -331,7 +332,7 @@
             <div class="highlights content-block">
                 @if($p1->slide_changer2)
                     @foreach($p1->slide_changer2 as $value)
-                <div style="align-items: flex-start;
+                <div style="visibility: visible; animation-duration: 20s; animation-name: bounceInUp;align-items: flex-start;
     background: #fff;
     border: 1px solid #d2d2d2;
     border-radius: 0.25rem;
