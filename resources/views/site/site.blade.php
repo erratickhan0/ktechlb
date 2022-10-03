@@ -135,7 +135,7 @@
                             of important physical and digital documents, fully mobile and useable everywhere.</p>-->
 
                         <div class="mt-4">
-                            <a href="{{route('mysite.middle-banner.index',['brand' => $brand->slug,'design' => $brand->brand_design_id])}}"><button class="main_btn btn_blue">Read More</button></a>
+                            <button class="main_btn btn_blue">Read More</button>
                         </div>
                     </div>
                 </div>
@@ -321,8 +321,9 @@
                                 <p data-aos-easing="linear" data-aos="fade-right" data-aos-duration="700">
                                     {!! $brand->button_accordian_section->description !!}</p>
                                 @if($brand->button_accordian_section->show_button)
-                                <button class="main_btn btn_blue mt-3 " data-aos-easing="linear" data-aos="fade-right"
-                                        data-aos-duration="800">Read More</button>
+                                    <a target="_blank" href="{{route('mysite.middle-banner.index',['brand' => $brand->slug,'design' => $brand->brand_design_id])}}">
+                                    <button class="main_btn btn_blue mt-3 " data-aos-easing="linear" data-aos="fade-right" data-aos-duration="800">Read More</button>
+                                    </a>
                                 @endif
                             </div>
                             <div class="col-sm-5  col-xs-12 text-center">
