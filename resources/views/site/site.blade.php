@@ -61,8 +61,12 @@
 @if($brand->brand_settings->icon_section)
 <section class="productCarousel mt-10 mb-10 pt-5 pb-5">
     <div class="container text-center">
-        <h3 data-aos-easing="linear" data-aos="fade-right" data-aos-delay="500" class="mb-5">
-            Sample Title Text</h3>
+        <div class="text-center mb-5">
+            <h5 class="text-uppercase" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1000">WHAT IS THE E-MARK</h5>
+            <p data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1250" class="mt-3 mb-1">The e-mark is an electronic mobile marketing device to create and change own imprints</p>
+            <p data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1500" class="mb-1 ">Using an app on a mobile device or PC</p>
+            <p data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1750" class="mb-1 ">Easy print in just an easy smoothly slide movement</p>
+        </div>
         <div class="d-flex justify-content-center align-items-center howToGap">
             @if($brand->icon_section)
             @foreach($brand->icon_section as $value)
