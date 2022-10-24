@@ -1,0 +1,221 @@
+.d1Right {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+
+    padding: 60px;
+}
+
+.w-200 {
+    width: 200px;
+}
+
+.d1Table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.d-heading.h3__section-title {
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.d1scrollEffect {
+    padding-top: 36px
+}
+
+.p-50 {
+    padding: 50px;
+}
+
+.pl-50 {
+    padding-left: 50px;
+}
+
+.pr-50 {
+    padding-right: 50px;
+}
+
+.bg-black {
+    background: #000 !important;
+}
+
+
+
+.card-link {
+
+    display: inline-block;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-right: 20px;
+    -webkit-transition: color 200ms cubic-bezier(.215, .61, .355, 1);
+    transition: color 200ms cubic-bezier(.215, .61, .355, 1);
+    font-family: aileron, sans-serif;
+    color: #f7f7f7;
+    font-size: 26px;
+    line-height: 1;
+    font-weight: 900;
+    text-align: left;
+    text-transform: uppercase;
+    white-space: normal;
+
+}
+
+.feature-divider {
+    position: relative;
+    z-index: 90;
+    height: 1px;
+    background-image: -webkit-gradient(linear, left top, right top, from(#d2ff64), color-stop(40%, rgba(210, 255, 100, 0)));
+    background-image: linear-gradient(90deg, #d2ff64, rgba(210, 255, 100, 0) 40%);
+    text-align: right;
+}
+
+.feature-hidden-text-wrapper {
+    position: static;
+    display: block;
+    overflow: hidden;
+    width: 80%;
+    max-height: 20vh;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-top: 0px;
+    text-align: left;
+}
+
+.card-link[aria-expanded="true"] {
+    color: #d2ff64;
+}
+
+.d1generalDetailSection .card {
+    background-color: transparent;
+    color: var(--white) !important;
+
+}
+
+.d1generalDetailSection .card:last-child {
+    border-right: 1px solid #fff !important;
+    border-left: none;
+}
+
+.d1generalDetailSection div div:nth-child(2) .card {
+    border-right: none !important;
+}
+
+.d1generalDetailSection .card p {
+    color: var(--white) !important;
+}
+
+.d1generalDetailSection .list-ul {
+    color: var(--white) !important
+}
+
+.d1LastSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 51px;
+    padding: 70px;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.d1LastSection .d1-card-image {
+    height: 314px;
+    width: 417px;
+    max-height: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    cursor: pointer;
+    display: block;
+    transition: all 0.2s ease-out;
+    box-shadow: 0 8px 30px rgb(14 21 47 / 60%);
+}
+
+.d1Item {
+    width: 417px;
+}
+
+.tech-accordion {
+
+    width: 45%;
+    margin: 0 auto;
+
+}
+
+.tech-accordion a[data-toggle="collapse"] {
+    background: #242424;
+    border: 1px solid #fff;
+    font-size: 20px;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-size-17 {
+    font-size: 17px !important
+}
+
+.tech-accordion a[data-toggle="collapse"][aria-expanded="true"] .tech-icon.fa-plus:before {
+    content: "\f068" !important;
+}
+
+.tech-accordion a[data-toggle="collapse"]:hover {
+    text-decoration: none;
+}
+
+.tech-text {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.tech-icon {
+    margin-left: auto;
+    display: flex;
+}
+
+.tech-accordion .card {
+
+    border: 1px solid #fff;
+    border-top: none;
+    border-radius: 0;
+    color: #fff;
+    box-shadow: 0 8px 30px rgb(14 21 47 / 60%);
+    background: #242424;
+}
+
+.img-container-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.activeCard a {
+    transform: translate(-50%, -50%) !important;
+    top: 50% !important;
+    left: 50% !important;
+    z-index: 999 !important;
+    position: absolute !important;
+    width: 600px !important;
+    height: 600px !important;
+}
+
+/* button 2 d1 sub page */
+.diSubPage .d1Right,
+.diSubPage.m2CommunicatorOne {
+    height: auto;
+}
+
+.diSubPage .greyRight,
+.diSubPage .greyLeft {
+    padding: 60px
+}
+
+/* button 2 d1 sub page */

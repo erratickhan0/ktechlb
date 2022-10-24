@@ -32,7 +32,8 @@ Route::get('site/{brand}/{design}/icon/{id}', 'Site\MySiteIconController@index')
 Route::get('site/{brand}/{design}/middle-banner', 'Site\MySiteMiddleBannerController@index')->name('mysite.middle-banner.index');
 
 Route::get('product-details/p1/{p1}', 'ProductPages\P1Controller@index')->name('p1.index');
-
+Route::get('product-details/d1', 'ProductPages\D1Controller@index')->name('d1.index');
+Route::get('product-details/button2/{button2}', 'ProductPages\Button2Controller@index')->name('button2.index');
 
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
@@ -164,6 +165,15 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
     Route::resource('p1', 'MyBrandP1Controller')->except(['show']);
     Route::resource('p1-slide-changer', 'MyBrandP1SlideChangerController')->except(['show']);
     Route::resource('p1-slide-changer2', 'MyBrandP1SlideChanger2Controller')->except(['show']);
+
+    Route::resource('d1', 'MyBrandD1Controller')->except(['show']);
+    Route::resource('d1-slide-changer1', 'MyBrandD1SlideChanger1Controller')->except(['show']);
+    Route::resource('d1-slide-changer2', 'MyBrandD1SlideChanger2Controller')->except(['show']);
+    Route::resource('d1-slide-changer3', 'MyBrandD1SlideChanger3Controller')->except(['show']);
+
+    Route::resource('button2', 'Button2Controller')->except(['show']);
+    Route::resource('button2-slide-changer', 'MyButton2SlideChangerController')->except(['show']);
+
 
 
 });
