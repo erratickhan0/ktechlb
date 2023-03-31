@@ -39,6 +39,7 @@
                                 <thead class="thead-light">
                                 <tr>
                                     <th>ID</th>
+                                    <th>Font</th>
                                     <th>Heading</th>
                                     <th>Title</th>
                                     <th>URL</th>
@@ -50,6 +51,7 @@
                                 @foreach($p1 ?? []  as $page)
                                     <tr>
                                         <td class="align-middle name mb-0 text-sm">{{$page->id}}</td>
+                                        <td class="align-middle name mb-0 text-sm">{{$page->page_font == 1 ? 'Classic':'Modern'}}</td>
                                         <td class="align-middle name mb-0 text-sm">{{$page->heading}}</td>
                                         <td class="align-middle">{{$page->title}}</td>
                                         <td class="align-middle"><a href="{{ route('p1.index',['p1' => $page->id ]) }}" target="_blank">URL</a></td>

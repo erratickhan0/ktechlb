@@ -5,6 +5,11 @@
         <link href="{{ asset('css/client/p1.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/client/index_ipad.css') }}" rel="stylesheet"  />
         <link href="{{ asset('css/client/YouTubePopUp.css') }}" rel="stylesheet" />
+        <style>
+            .font-class {
+                font-family: "Calibri"!important;
+            }
+        </style>
         <script src="{{ asset('js/site/scrolling.js')}}"></script>
     @endpush
     <header class="fixed-top">
@@ -87,7 +92,7 @@
             </div>
         </nav>
  </header>
-    <div class="mobile">
+    <div class="mobile {{$p1->page_font == 1 ? 'font-class': ''}}">
         <div class="container-fluid">
             <div class="row">
                 @if($p1->image)
@@ -96,8 +101,8 @@
                 <div class="col-sm-12 text-center intro">
                     <div class="row justify-content-center">
                         <div class="col-sm-10">
-                            <h2 class="fontStyle">{{$p1->heading}}</h2>
-                            <p class="site-description fontStyle">{{$p1->title}}</p>
+                            <h2 class="fontStyle {{$p1->page_font == 1 ? 'font-class': ''}}">{{$p1->heading}}</h2>
+                            <p class="site-description fontStyle {{$p1->page_font == 1 ? 'font-class': ''}}">{{$p1->title}}</p>
                               @if($p1->video_link)
                             <a href="{{$p1->video_link}}" class="videoBtn">
                                 <img width="70" src="{{asset('/images/ktech/video-btn.png')}}">
@@ -120,8 +125,8 @@
                 <div class="col-sm-12 text-center intro">
                     <div class="row justify-content-center p-0">
                         <div class="col-sm-10 p-0">
-                            <h2 class="fontStyle">{{$value->heading}}</h2>
-                        <p class="fontStyle">{!! $value->description !!}</p>
+                            <h2 class="fontStyle {{$p1->page_font == 1 ? 'font-class': ''}}">{{$value->heading}}</h2>
+                        <p class="fontStyle {{$p1->page_font == 1 ? 'font-class': ''}}">{!! $value->description !!}</p>
                         </div>
                     </div>
                 </div>
@@ -130,15 +135,15 @@
             @endforeach
         @endif
     </div>
-    <div class="desktop  ">
+    <div class="desktop {{$p1->page_font == 1 ? 'font-class': ''}}">
         <div>
             <div class="container-fluid">
                 <div class="row   " style="background-color: #fff;">
 
                     <div class="col-sm main-title p-0 flexLeftAlign wow bounceInDown" data-wow-duration="1s"
                          data-wow-iteration="1">
-                        <h1 class="fontStyle ml-265">{{$p1->heading}}</h1>
-                        <p class="site-description fontStyle werwer ml-265" style="color:#000">
+                        <h1 class="fontStyle {{$p1->page_font == 1 ? 'font-class': ''}} ml-265">{{$p1->heading}}</h1>
+                        <p class="site-description fontStyle {{$p1->page_font == 1 ? 'font-class': ''}} werwer ml-265" style="color:#000">
                             {{$p1->title}} </p>
                         @if($p1->video_link)
                         <a href="{{$p1->video_link}}" class="videoBtn ml-265">
@@ -227,7 +232,7 @@
                                             <img src="{{asset('/storage/'.$value->right_image)}}" style="max-width:100%; height:auto">
                                         </div>
                                         <div class="text">
-                                            <h2 class="fontStyle werwer" style="width:50%; margin:auto">{{$value->heading}}</h2>
+                                            <h2 class="fontStyle {{$p1->page_font == 1 ? 'font-class': ''}} werwer" style="width:50%; margin:auto">{{$value->heading}}</h2>
                                             <p>{!! $value->description !!}</p>
                                         </div>
                                     </div>
@@ -241,7 +246,7 @@
                                                  style="max-width:100%; height:auto" class="wow bounceInLeft" data-wow-duration="3s">
                                         </div>
                                         <div class="text">
-                                            <h2 class="fontStyle werwer" style="width:50%; margin:auto">{{$value->heading}} </h2>
+                                            <h2 class="fontStyle {{$p1->page_font == 1 ? 'font-class': ''}} werwer" style="width:50%; margin:auto">{{$value->heading}} </h2>
                                             <p>{!! $value->description !!}</p>
                                         </div>
                                     </div>
@@ -255,7 +260,7 @@
                                                  style="max-width:100%; height:auto" class="wow bounceInLeft" data-wow-duration="4s">
                                         </div>
                                         <div class="text">
-                                            <h2 class="fontStyle werwer" style="width:50%; margin:auto">{{$value->heading}}</h2>
+                                            <h2 class="fontStyle {{$p1->page_font == 1 ? 'font-class': ''}} werwer" style="width:50%; margin:auto">{{$value->heading}}</h2>
                                             <p>{!! $value->description !!}</p>
                                         </div>
                                     </div>
@@ -269,7 +274,7 @@
                                                  style="max-width:100%; height:auto" class="wow bounceInLeft" data-wow-duration="5s">
                                         </div>
                                         <div class="text">
-                                            <h2 class="fontStyle werwer" style="width:50%; margin:auto">{{$value->heading}}</h2>
+                                            <h2 class="fontStyle {{$p1->page_font == 1 ? 'font-class': ''}} werwer" style="width:50%; margin:auto">{{$value->heading}}</h2>
                                             <p>{!! $value->description !!}</p>
                                         </div>
                                     </div>
@@ -283,7 +288,7 @@
                                                      style="max-width:100%; height:auto" class="wow bounceInLeft" data-wow-duration="5s">
                                             </div>
                                             <div class="text">
-                                                <h2 class="fontStyle werwer" style="width:50%; margin:auto">{{$value->heading}}</h2>
+                                                <h2 class="fontStyle {{$p1->page_font == 1 ? 'font-class': ''}} werwer" style="width:50%; margin:auto">{{$value->heading}}</h2>
                                                 <p>{!! $value->description !!}</p>
                                             </div>
                                         </div>
@@ -301,8 +306,8 @@
 
                     <div class="col-sm main-title p-0 flexLeftAlign wow bounceInDown" data-wow-duration="1s"
                          data-wow-iteration="1">
-                        <h1 class="fontStyle ml-265">{{$p1->section2_heading}}</h1>
-                        <p class="site-description fontStyle werwer ml-265" style="color:#000">
+                        <h1 class="fontStyle {{$p1->page_font == 1 ? 'font-class': ''}} ml-265">{{$p1->section2_heading}}</h1>
+                        <p class="site-description fontStyle {{$p1->page_font == 1 ? 'font-class': ''}} werwer ml-265" style="color:#000">
                             {{$p1->section2_title}}</p>
                     </div>
                     <div class="col-sm p-0 position-relative p1Card h-100vh">

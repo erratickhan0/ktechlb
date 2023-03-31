@@ -174,6 +174,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
     Route::resource('button2', 'Button2Controller')->except(['show']);
     Route::resource('button2-slide-changer', 'MyButton2SlideChangerController')->except(['show']);
 
+    Route::resource('p2', 'MyBrandP2Controller')->except(['show']);
+
 
 
 });
