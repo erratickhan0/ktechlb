@@ -114,7 +114,8 @@
           @foreach($icon->icon_detail_slider as $key => $value)
               @if($value->mime_type == 'video')
                 <div class="item">
-                    <video   class="img-fluid" poster="{{asset('images/site/poster.JPG')}}">
+                    <video   class="square-image" poster="{{asset('images/site/poster.JPG')}}">
+                        <source src="{{ asset('storage/'.$value->image) }}" type="video/mp4">
                     </video>
                 </div>
               @endif
