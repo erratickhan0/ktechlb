@@ -23,11 +23,11 @@
 </div>
 <div class="newsSection mt-5 pt-5">
 
-    <div class="container text-center">
+    <div class="container text-center" data-aos-easing="linear" data-aos="zoom-in-up"
+         data-aos-duration="1200">
         <h5 class="text-uppercase"  >
             {{$news->details_heading}}
         </h5>
-    <div >
         <p>{!! $news->details_description !!}</p>
     </div>
      @if($news->news_details)
@@ -87,3 +87,11 @@
 </div>
 @endif
 @endsection
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            AOS.init();
+        });
+
+    </script>
+@endpush
