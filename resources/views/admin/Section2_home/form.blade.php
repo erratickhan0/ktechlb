@@ -84,6 +84,21 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group required">
+                                            {{ Form::label('background_image', 'Background Image*', ['for' => 'background_image']) }}
+                                            <div>{{ Form::file('background_image') }}</div>
+                                        </div>
+
+                                    </div>
+                                    @if (isset($section2->background_image))
+                                        <div class="col-6  mt-n3">
+                                            <div><img src="{{ asset('storage/' .$section2->background_image) }}" style="max-width:120px;max-height:120px" alt="Image"></div>
+                                            <div><span>Background Image</span></div>
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="row">
                                     <div class="col-6 mt-5">
                                     {{ Form::button('Save', ['type'=>'submit', 'class'=>'btn btn-primary']) }}
                                     <a href="{{ route('admin.mybrand.section2',['slug' => session()->get('selected_brand')->slug,'design' => $design]) }}" class="btn btn-s btn-outline-primary">Cancel</a>

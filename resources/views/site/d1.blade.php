@@ -232,7 +232,7 @@
 
 
                 </div>
-                <div class="tech-accordion">
+<!--                <div class="tech-accordion">
                     <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
                        aria-controls="multiCollapseExample1">
                         <div class="tech-text">TECHNICAL SPECIFICATION</div>
@@ -248,19 +248,27 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
 
         </div>
     </div>
     @endif
-    <div class="d1scrollEffect">
-        <section class="m2CommunicatorOne d1Table" style="height: 100vh;
+    <div class="tech-accordion" style="width:100%;background-color: grey">
+        <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
+           aria-controls="multiCollapseExample1">
+            <div class="tech-text">TECHNICAL SPECIFICATION</div>
+            <div class="fa fa-plus tech-icon" aria-hidden="true"></div>
+        </a>
+    </div>
+    <div class="d1scrollEffect collapse multi-collapse" id="multiCollapseExample1">
+
+        <section  class=" m2CommunicatorOne d1Table" style="height: 100vh;
     width: 100%;
     background: url({{ asset('images/site/M2bg.jpg') }});
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 1px 2px 3px 36px #000;
+    box-shadow: 0px 2px 3px 36px #000;
     /* margin-top: 60px;">
             <div class="container px-0 ">
 
