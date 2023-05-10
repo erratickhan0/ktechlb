@@ -61,6 +61,7 @@
                                                 </a>
 
                                                 <div class="dropdown-menu dropdown-menu-right" >
+                                                    <a class="dropdown-item" href="{{ route('admin.mybrand.product.edit', $product->id) }}">Edit</a>
                                                     <a href="javascript:;"
                                                        class="dropdown-item"
                                                        data-toggle="modal"

@@ -78,6 +78,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::get('mybrand/{slug}/product', 'MyBrandProductController@index')->name('mybrand.product');
         Route::get('mybrand/product/create', 'MyBrandProductController@create')->name('mybrand.product.create');
         Route::post('mybrand/product/store', 'MyBrandProductController@store')->name('mybrand.product.store');
+        Route::get('mybrand/product/{id}/edit', 'MyBrandProductController@edit')->name('mybrand.product.edit');
+        Route::put('mybrand/product/{id}/update', 'MyBrandProductController@update')->name('mybrand.product.update');
         Route::delete('mybrand/product/delete', 'MyBrandProductController@destroy')->name('mybrand.product.delete');
 
         Route::get('mybrand/{slug}/banner/{design}', 'MyBrandHomepageBannerController@index')->name('mybrand.banner');

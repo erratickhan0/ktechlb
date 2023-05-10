@@ -44,6 +44,23 @@ class MyBrandProductController extends Controller
         return response()->view('admin/Product_home.form');
     }
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $product = ProductSection::find($id);
+        if(!$product){
+            return abort(404);
+        }
+
+        return response()->view('admin.Product_home.form', ['product' => $product]);
+    }
+
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -84,6 +101,51 @@ class MyBrandProductController extends Controller
             ->route('admin.mybrand.product',['slug' => $my_brand->slug])
             ->with('success', 'New icon has been created');
     }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $product = ProductSection::find($id);
+        if(!$product){
+            return abort(404);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'product_image' => 'nullable|mimes:jpg,jpeg,png,gif',
+            'product_logo' => 'nullable|mimes:jpg,jpeg,png,gif',
+        ]);
+
+        if($validator->fails()) {
+            return Redirect::back()->withErrors($validator);
+        }
+
+        $product->fill($request->input());
+        if($request->hasFile('product_image')) {
+            if($product->product_image){
+                Storage::disk('public')->delete($product->product_image);
+            }
+            $product->product_image = Storage::disk('public')->putFile('product_section', $request->file('product_image'));
+        }
+        if($request->hasFile('product_logo')) {
+            if($product->product_logo){
+                Storage::disk('public')->delete($product->product_logo);
+            }
+            $product->product_logo = Storage::disk('public')->putFile('product_section/product_logo', $request->file('product_logo'));
+        }
+        $product->save();
+
+        $my_brand = $request->session()->get('selected_brand', 'default');
+        return redirect()
+            ->route('admin.mybrand.product',['slug' => $my_brand->slug])
+            ->with('success', 'Product has been updated');
+    }
+
     public function destroy(Request $request){
         $product = ProductSection::find($request->input('product'));
         if($product->product_image){

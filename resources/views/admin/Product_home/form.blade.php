@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+    @if(isset($product))
+        {{ Form::model($product,['route' => ['admin.mybrand.product.update', $product->id], 'role' => 'form', 'id' => 'product-form', 'files' => true]) }}
+        {{ method_field('PUT') }}
+    @else
         {{ Form::open(['route' => ['admin.mybrand.product.store'], 'role' => 'form', 'id' => 'product-form', 'files' => true]) }}
+    @endif
+
 
     <!-- Header -->
     <div class="header bg-primary pb-6">
@@ -52,7 +58,11 @@
                                             {{ Form::label('product_logo', 'Product Logo*', ['for' => 'product_logo']) }}
                                             <div>{{ Form::file('product_logo') }}</div>
                                         </div>
-
+                                    </div>
+                                    <div class="col-6">
+                                        @if ($product->product_logo)
+                                            <img  src="{{ asset('/storage/' . $product->product_logo) }}" alt="Product Logo" width="100px" height="70px">
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="row">
@@ -61,9 +71,14 @@
                                             {{ Form::label('product_image', 'Product Image*', ['for' => 'product_image']) }}
                                             <div>{{ Form::file('product_image') }}</div>
                                         </div>
-
+                                    </div>
+                                    <div class="col-6">
+                                        @if ($product->product_image)
+                                            <img src="{{ asset('/storage/' . $product->product_image) }}" alt="Product Image" width="100px" height="70px">
+                                        @endif
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group">
