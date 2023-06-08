@@ -1,5 +1,4 @@
-<div class="scrollEffect">
-<footer class="site-footer position-relative ">
+<footer class="site-footer position-relative">
     <div class="container-fluid ">
         <div id="contacts-webchat-footer" class="mb-3 contacts-webchat onready desktop row">
             <div class="contacts-webchat-wrapper w-100">
@@ -124,5 +123,3 @@
     background-size: 15px;
     cursor: pointer;" class="scrollTo" style="display: none"></div>
 </footer>
-</div>
-

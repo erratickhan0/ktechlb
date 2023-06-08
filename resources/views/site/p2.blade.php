@@ -1,7 +1,7 @@
 @extends('layouts.app-site')
 @section('content')
     @push('css_scripts_p1')
-        <link href="{{ asset('dist/assets/css/p2.css') }}" rel="stylesheet" />
+        <link href="{{ asset('dist/assets/css/p1.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/client/index_ipad.css') }}" rel="stylesheet"  />
         <link href="{{ asset('css/client/YouTubePopUp.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/client/animate.css') }}" rel="stylesheet" />

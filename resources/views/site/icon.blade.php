@@ -1,11 +1,11 @@
 @extends('layouts.app-site')
 @section('content')
-@if($icon)
+@if( $icon )
     <div style="
         background-image: url({{ asset('storage/'.$icon->details_background_image1) }} )!important;
         background-size: cover !important;
         height: 550px;
-        margin-top: 85px;" class=" d-flex w-100 p-3 mx-auto flex-column news-cover-container">
+        margin-top: 38px;" class=" d-flex p-3 mx-auto flex-column news-cover-container">
         <main role="main" class="innercustom">
             <h1 class="white-text cover-heading "
                 style="display: block !important; visibility: visible; animation-duration: 1s; animation-delay: 0.5s; animation-name: fadeInDown;">
@@ -20,18 +20,18 @@
             </div>
         </main>
     </div>
-    <section class="bggreyabout">
+    <section class="bggreyabout icon">
         <div class="container-fluid">
-            <div class="row" >
-                <div class="col-md-12 text-center   banner-left-text">
+            <div class="heading1" >
+                <div data-aos-easing="linear" data-aos="zoom-in-up" data-aos-duration="1200" class="col-md-12 container-fluid-sm text-center aos-init aos-animate  banner-left-text">
                     <h2 class="fontStyle werwer">{{$icon->details_heading}}</h2>
                     <p class="">
                         {!! $icon->details_description !!} </p>
                 </div>
             </div>
         </div>
-    </section>
-    <section class="extrafeatureshow newsSection ">
+    </section>      
+    <section class="extrafeatureshow newsSection icon">
         <div class="container">
             @if($icon->icon_details)
                 @foreach($icon->icon_details as $key => $value)
@@ -41,17 +41,17 @@
                                 <div>
                                     <div class="row">
                                         @if($value->mime_type == 'video')
-                                            <div class="col-sm-6" >
+                                            <div data-aos-easing="linear" data-aos="zoom-in-left" data-aos-duration="1200" class="col-sm-6 aos-init aos-animate">
                                                 <video class="w-439" muted loop autoplay controls>
                                                     <source src="{{asset('storage/'.$value->image)}}" type="video/mp4">
                                                 </video>
                                             </div>
                                         @else
-                                            <div class="col-sm-6" >
+                                            <div data-aos-easing="linear" data-aos="zoom-in-left" data-aos-duration="1200" class="col-sm-6 aos-init aos-animate" >
                                                 <img src="{{asset('storage/'.$value->image)}}" class="w-439" />
                                             </div>
                                         @endif
-                                        <div class=" col-md-6" >
+                                        <div data-aos-easing="linear" data-aos="zoom-in-right" data-aos-duration="1200" class="col-sm-6 aos-init aos-animate" >
                                             <div class="imgabouttextcustom" style="float:left;">
                                                 <div>
                                                     <h3 class="fontStyle werwer">{{$value->heading}}</h3>
@@ -68,7 +68,7 @@
                             <div>
                                 <div>
                                     <div class="row">
-                                        <div class=" col-md-6" >
+                                        <div data-aos-easing="linear" data-aos="zoom-in-left" data-aos-duration="1200" class="col-sm-6 aos-init aos-animate" >
                                             <div class=" imgabouttextcustom" style="float:left;">
                                                 <div>
                                                     <h3 class="fontStyle werwer">{{$value->heading}}</h3>
@@ -77,13 +77,13 @@
                                             </div>
                                         </div>
                                         @if($value->mime_type == 'video')
-                                            <div class="col-sm-6" >
+                                            <div data-aos-easing="linear" data-aos="zoom-in-right" data-aos-duration="1200" class="col-sm-6 aos-init aos-animate" >
                                                 <video class="w-439" muted loop autoplay controls>
                                                     <source src="{{asset('storage/'.$value->image)}}" type="video/mp4">
                                                 </video>
                                             </div>
                                         @else
-                                            <div class="col-sm-6" >
+                                            <div data-aos-easing="linear" data-aos="zoom-in-right" data-aos-duration="1200" class="col-sm-6 aos-init aos-animate" >
                                                 <img src="{{asset('storage/'.$value->image)}}" class="w-439" />
                                             </div>
                                         @endif
@@ -99,6 +99,9 @@
     @if($icon->icon_detail_slider && isset($icon->icon_detail_slider[0]))
     <section>
         <div class="container ">
+            <div class="video-title"> 
+                <h3 class="fontStyle"> WATCH VIDEO </h3>
+            </div>
             <div id="sync1" class="owl-carousel">
                 @foreach($icon->icon_detail_slider as $key => $value)
                     @if($value->mime_type == 'video')
@@ -114,7 +117,7 @@
           @foreach($icon->icon_detail_slider as $key => $value)
               @if($value->mime_type == 'video')
                 <div class="item">
-                    <video   class="square-image" poster="{{asset('images/site/poster.JPG')}}">
+                    <video   class="square-image" poster="{{asset('images/site/poster.JPG')}}" >
                         <source src="{{ asset('storage/'.$value->image) }}" type="video/mp4">
                     </video>
                 </div>
@@ -136,7 +139,7 @@
 
             var sync1 = $("#sync1");
             var sync2 = $("#sync2");
-            var slidesPerPage = 4; //globaly define number of elements per page
+            var slidesPerPage = 5; //globaly define number of elements per page
             var syncedSecondary = true;
 
             sync1.owlCarousel({

@@ -1,7 +1,5 @@
 @extends('layouts.app-site')
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-
 @section('content')
 
 <section class="parralaxSection"></section>
@@ -134,12 +132,7 @@
 
                 <div class="container text-center">
 
-                <div data-aos="fade-up" data-aos-duration="2000" class="col aos-init">
-
-                    <img src="{{ asset('images/m2-2-logo.png') }}" class="img-fluid" style="width: 565px; height: auto;">
-
-                </div>
-                    <h5 class="text-uppercase" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1000" style="padding-top: 67px;">{{$brand->section2->heading}}</h5>
+                    <h5 class="text-uppercase" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1000">{{$brand->section2->heading}}</h5>
 
                         {!! $brand->section2->description  !!}</h5>
 
@@ -151,7 +144,7 @@
 
 <div class="mt-4 mb-2 text-center">
 
-    <a class="main_btn btn_blue" target="_blank"   href="{{$brand->section2->btn_link}}">{{$brand->section2->btn_text}}</a>
+    <button class="main_btn btn_blue" ><a target="_blank"   href="{{$brand->section2->btn_link}}">{{$brand->section2->btn_text}}</a></button>
 
 </div>
 
@@ -229,26 +222,17 @@
 
                             @endif
 
-                            @if(isset($value->right_product_image1) || isset($value->right_product_image2) || isset($value->right_product_image3) || isset($value->right_product_image4))
                             <div class="m2Communicator__img" data-aos-easing="linear" data-aos="fade-right" data-aos-duration="1500">
-                                @if(isset($value->right_product_image1))
-                                    <img src="{{ asset('storage/'.$value->right_product_image1) }}" />
-                                @endif
-                                
-                                @if(isset($value->right_product_image2))
-                                    <img src="{{ asset('storage/'.$value->right_product_image2) }}" />
-                                @endif
-                                
-                                @if(isset($value->right_product_image3))
-                                    <img src="{{ asset('storage/'.$value->right_product_image3) }}" />
-                                @endif
-                                
-                                @if(isset($value->right_product_image4))
-                                    <img src="{{ asset('storage/'.$value->right_product_image4) }}" />
-                                @endif
-                            </div>
-                        @endif
 
+                                <img src="{{ asset('storage/'.$value->right_product_image1) }}" />
+
+                                <img src="{{ asset('storage/'.$value->right_product_image2) }}" />
+
+                                <img src="{{ asset('storage/'.$value->right_product_image3) }}" />
+
+                                <img src="{{ asset('storage/'.$value->right_product_image4) }}" />
+
+                            </div>
 
                         </div>
 
@@ -336,11 +320,11 @@
 
     <section class="sectionGlassWhite position-relative" data-aos-easing="linear" data-aos="fade-up"
 
-             data-aos-duration="1500" style="height: 100vh;">
+             data-aos-duration="1500">
 
-        <div class="m2GlassText" style="height: 10vh;">
+        <div class="m2GlassText">
 
-            <div class="sec2_right aos-init aos-animate" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1000">
+            <div class="sec2_right">
 
                 <h2 class="head_underline left mb-1 pb-1">{{$brand->section5->heading}}</h2>
 
@@ -370,21 +354,8 @@
 
              @endif
 
-        </div>
 
-        <div class="extender-wrapper aos-init aos-animate" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1000">
-            <div class="button-wrapper">
-                <p>
-                    <a class="m2togg-btn" data-bs-toggle="collapse" href="#m2accessories-toggle" role="button" aria-expanded="false" aria-controls="m2accessories-toggle">
-                    TECHNICAL SPECIFICATIONS <i class="fa fa-plus me-2"></i>
-                    </a>
-                </p>
-            </div>
-            <div class="collapse" id="m2accessories-toggle">
-                <div class="card card-body">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                </div>
-            </div>
+
         </div>
 
     </section>
@@ -401,19 +372,19 @@
 
 <div class="scrollEffect">
 
-    <div class="parallaxThree focus" style="background-image: url('{{ asset('storage/'.$brand->banner_section->fullwidth_banner1_fixed) }}');
+    <div class="parallaxThree focus" style="background: url('{{ asset('storage/'.$brand->banner_section->fullwidth_banner1_fixed) }}');
 
-    width: 100%;
+    height: 100vh;
 
-    background-repeat: round;
+    width: 100vw;
 
-    background-position: center top;
-
-    background-attachment: fixed;
+    background-repeat: no-repeat;
 
     background-size: cover;
 
-    height: 100vh;">
+    background-attachment: fixed;
+
+    background-position: center;">
 
         <section class="sectionGlassBlack position-relative">
 
@@ -444,18 +415,18 @@
 @if($brand->brand_settings->accordian_section_m2)
 
     @if($brand->button_accordian_section)
-    <div class="scrollEffect">
+
         <div class="cover-container">
 
-            <div class="" id="about" style="overflow:hidden;padding:0px 150px;width:95%;">
+            <div class="" id="about" style="overflow:hidden;padding:0px 150px ">
 
-                <div class="row">
+                <div class="row aaa">
 
                     <div class="d-flex w-100 p-3 mx-auto flex-column bannertop">
 
                         <div class="insidecontainermiddlepage">
 
-                            <div class="d-flex">
+                            <div class="d-flex justify-content-between align-items-center">
 
                                 <div class="offset-sm-1 col-sm-5 col-xs-12">
 
@@ -483,7 +454,7 @@
 
                                         <img src="{{ asset('storage/'.$brand->button_accordian_section->image) }}" data-aos-easing="linear" data-aos="fade-left"
 
-                                             data-aos-delay="1000" style="width: 270px !important;height: 270px !important;">
+                                             data-aos-delay="1000" style="width: 249px;height: 249px;">
 
                                     </div>
 
@@ -500,7 +471,6 @@
             </div>
 
         </div>
-    </div>
 
     @endif
 
@@ -509,7 +479,7 @@
 
 
 @if($brand->brand_settings->fullwidth_image_section2_m2)
-<div class="scrollEffect">
+
     <section class="sectionFour">
 
         <div class="container-fluid">
@@ -520,19 +490,19 @@
 
                     <div style="
 
-                        background-image: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner2_fixed) }} );
+                        background: url({{ asset('storage/'.$brand->banner_section->fullwidth_banner2_fixed) }} );
 
-                        width: 100%;
+                        height: 100vh;
 
-                        background-repeat: round;
+                        width: 100vw;
 
-                        background-position: center top;
-
-                        background-attachment: fixed;
+                        background-repeat: no-repeat;
 
                         background-size: cover;
 
-                        height: 100vh;
+                        background-attachment: fixed;
+
+                        background-position: center;
 
                         "></div>
 
@@ -543,7 +513,6 @@
         </div>
 
     </section>
-</div>
 
 @endif
 
@@ -552,7 +521,7 @@
 @if($brand->brand_settings->news_blogs_section_m2)
 
     @if(isset($brand->news_section[0]))
-    <div class="scrollEffect">
+
         <section class="newsSection spacing">
 
             <section class="sec_2">
@@ -608,13 +577,13 @@
             </section>
 
         </section>
-    </div>
+
     @endif
 
 @endif
 
 @if(isset($brand->banner_section) && $brand->brand_settings->fullwidth_image_section3_m2)
-<div class="scrollEffect">
+
     <section class="sectionFour">
 
         <div class="container-fluid">
@@ -629,15 +598,19 @@
 
                         width: 100%;
 
-                        background-repeat: round;
+                        background-repeat: no-repeat;
 
-                        background-position: center top;
+                        background-position: center;
 
                         background-attachment: fixed;
+
+                        background-repeat: no-repeat;
 
                         background-size: cover;
 
                         height: 100vh;
+
+                        background-position: center top;
 
                         "></div>
 
@@ -648,7 +621,6 @@
         </div>
 
     </section>
-</div>
 
 @endif
 
@@ -678,7 +650,7 @@
 
             <div class="container-fluid">
 
-                <div class="row m2-last">
+                <div class="row">
 
                     @foreach($brand->article_section as $key => $value)
 
@@ -720,7 +692,7 @@
 
                 <div class="row">
 
-                    <!-- <div class="col-12 mx-auto text-center">
+                    <div class="col-12 mx-auto text-center">
 
                         <div class="mb-4">
 
@@ -728,21 +700,6 @@
 
                         </div>
 
-                    </div> -->
-
-                    <div class="extender-wrapper">
-                        <div class="button-wrapper">
-                            <p>
-                                <a class="m2togg-btn" data-bs-toggle="collapse" href="#m2accessories-toggle" role="button" aria-expanded="false" aria-controls="m2accessories-toggle">
-                                TECHNICAL SPECIFICATIONS <i class="fa fa-plus me-2"></i>
-                                </a>
-                            </p>
-                        </div>
-                        <div class="collapse" id="m2accessories-toggle">
-                            <div class="card card-body">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                            </div>
-                        </div>
                     </div>
 
                 </div>
@@ -771,12 +728,9 @@
 
 @endsection
 
-
 @push('scripts')
 
 <script src="{{ asset('js/site/main.js?version=1.1')}}"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js"></script>
 
 @endpush
 

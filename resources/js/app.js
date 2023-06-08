@@ -8,6 +8,11 @@ window.bus = new Vue();
 if (typeof window.vue_data === 'undefined') {
     window.vue_data = {};
 }
+import axios from 'axios';
+
+axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate/dist/vee-validate.full.esm';
 Vue.component('validation-provider', ValidationProvider);
 Vue.component('validation-observer', ValidationObserver);

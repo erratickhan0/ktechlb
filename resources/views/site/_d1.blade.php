@@ -1,13 +1,8 @@
 @extends('layouts.app-site')
 @section('content')
     @push('css_scripts_p1')
-        <link href="{{ asset('css/client/d1.css?version=1.9') }}" rel="stylesheet" />
+        <link href="{{ asset('css/client/d1.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/client/p1.css') }}" rel="stylesheet" />
-        <style>
-          .scrollEffect {
-                background-color: #040404;
-            }
-        </style>
     @endpush
    <header class="fixed-top">
      <nav class="navbar navbar-expand-lg navbar-dark shadow-sm bg-dark border-bottom-thin  d-none">
@@ -91,68 +86,69 @@
  </header>
    @if($slider1->count())
    <div class="scrollEffect">
-      <section class="bannerSectionM2">
-        <!-- <div class="m2BannerText">
-          <div class="container-fluid text-right">
-            <h5 class="text-uppercase">Fascinating seaform </h5>
-            <div>
-              <small class="text-uppercase mt-5 mb-5">made in germany - since 1917</small>
-            </div>
-          </div>
-        </div> -->
-        <div class="container-fluid">
-          <div class="row">
-            <div class="swiper-container">
-              <div class="swiper-wrapper"> 
-                @foreach($slider1 as $value) 
-                  @if($value->mime_type == 'video') 
-                    <div class="swiper-slide" data-slide-type="vdo">
-                      <video id="my-player" loop="true" autoplay="autoplay" muted>
-                        <source src="{{ asset('storage/'.$value->file_path) }}" type="video/mp4">
-                        </source>
-                        <p class="vjs-no-js"> To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="https://videojs.com/html5-video-support/" target="_blank"> supports HTML5 video </a>
-                        </p>
-                      </video>
-                      <div class="m2BannerText">
-                        <div class="container-fluid text-right">
-                          <h5 class="text-uppercase">{{$value->title}}
-                          </h5>
-                          <div>
-                            <small class="text-uppercase mt-5 mb-5">{{$value->description}}</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div> 
-                  @else 
-                    <div class="swiper-slide" data-slide-type="img">
-                      <img src="{{ asset('storage/'.$value->file_path) }}" />
-                      <div class="m2BannerText">
-                        <div class="container-fluid text-right">
-                          <h5 class="text-uppercase">{{$value->title}}
-                          </h5>
-                          <div>
-                            <small class="text-uppercase mt-5 mb-5">{{$value->description}}</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div> 
-                  @endif 
-                @endforeach 
-              </div>
-              <!-- Add Arrows -->
-              <div class="swiper-button-next" style="background: url('/images/site/prev_next.png') -45px -45px no-repeat transparent;"></div>
-              <div class="swiper-button-prev" style="background: url('/images/site/prev_next.png') 0px -45px no-repeat transparent;"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+       <section class="bannerSectionM2">
+           <div class="m2BannerText">
+               <div class="container-fluid text-right">
+                   <h5 class="text-uppercase">Fascinating seaform
+                   </h5>
+                   <div><small class="text-uppercase mt-5 mb-5">made in germany -
+                           since 1917</small></div>
+               </div>
+           </div>
+           <div class="container-fluid">
+               <div class="row">
+                   <div class="swiper-container">
+                       <div class="swiper-wrapper">
+                           @foreach($slider1 as $value)
+                               @if($value->mime_type == 'video')
+                                   <div class="swiper-slide" data-slide-type="vdo">
+                                       <video id="my-player" loop="true" autoplay="autoplay" muted>
+                                           <source src="{{ asset('storage/'.$value->file_path) }}" type="video/mp4">
+                                           </source>
+                                           <p class="vjs-no-js">
+                                               To view this video please enable JavaScript, and consider upgrading to a
+                                               web browser that
+                                               <a href="https://videojs.com/html5-video-support/" target="_blank">
+                                                   supports HTML5 video
+                                               </a>
+                                           </p>
+                                       </video>
+                                       <div class="m2BannerText">
+                                           <div class="container-fluid text-right">
+                                               <h5 class="text-uppercase">{{$value->title}}
+                                               </h5>
+                                               <div><small class="text-uppercase mt-5 mb-5">{{$value->description}}</small></div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               @else
+                                   <div class="swiper-slide" data-slide-type="img"><img src="{{ asset('storage/'.$value->file_path) }}" />
+                                       <div class="m2BannerText">
+                                           <div class="container-fluid text-right">
+                                               <h5 class="text-uppercase">{{$value->title}}
+                                               </h5>
+                                               <div><small class="text-uppercase mt-5 mb-5">{{$value->description}}</small></div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               @endif
+                           @endforeach
+
+                       </div>
+                       <!-- Add Arrows -->
+                       <div class="swiper-button-next" style="background: url('/images/site/prev_next.png') -45px -45px no-repeat transparent;"></div>
+                       <div class="swiper-button-prev" style="background: url('/images/site/prev_next.png') 0px -45px no-repeat transparent;"></div>
+                   </div>
+               </div>
+           </div>
+       </section>
+   </div>
     @endif
    @if($slider2->count())
    @foreach($slider2 as $value )
    @if($loop->iteration % 2 == 0)
    <div class="scrollEffect">
-       <section class="d1CommunicatorOne" style="height: 100vh;
+       <section class="m2CommunicatorOne" style="height: 100vh;
     width: 100%;
     background: url({{ asset('images/site/M2bg.jpg') }});
     background-repeat: no-repeat;
@@ -163,7 +159,7 @@
                <div class="row">
                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                        <div class="greyLeft">
-                           <div class="img-container w-100 aos-init aos-animate" data-aos-easing="linear" data-aos="fade-right" data-aos-duration="1000">
+                           <div class="img-container w-100">
                                <img src="{{ asset('storage/'.$value->image) }}" class="img-fluid">
                            </div>
                        </div>
@@ -178,7 +174,7 @@
    </div>
     @else
    <div class="scrollEffect">
-       <section class="d1CommunicatorOne" style="height: 100vh;
+       <section class="m2CommunicatorOne" style="height: 100vh;
            width: 100%;
            background: url({{ asset('images/site/M2bg.jpg') }});
            background-repeat: no-repeat;
@@ -186,17 +182,19 @@
            box-shadow: 1px 2px 3px 36px #000;">
            <div class="container-fluid px-0">
                <div class="row">
+
                    <div class="col-lg-6 col-md-6 col-sm-6 col-12 text-left">
                     {!! $value->description !!}
                    </div>
                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                        <div class="greyLeft">
-                           <div class="img-container w-100 aos-init aos-animate" data-aos-easing="linear" data-aos="fade-left" data-aos-duration="1000">
+                           <div class="img-container w-100">
                                <img src="{{ asset('storage/'.$value->image) }}" class="img-fluid">
                            </div>
                        </div>
                    </div>
                </div>
+
            </div>
        </section>
    </div>
@@ -205,7 +203,7 @@
     @endif
 
     <div class="scrollEffect">
-       <section class="d1CommunicatorOne" style="height: 100vh;
+       <section class="m2CommunicatorOne" style="height: 100vh;
            width: 100%;
            background: url({{ asset('images/site/M2bg.jpg') }});
            background-repeat: no-repeat;
@@ -236,11 +234,138 @@
            </div>
        </section>
    </div>
-
-  <!-- New Section Added -->
-  <div class="scrollEffect">
+    <!-- New slider section Added -->
+    <div class="scrollEffect">
+    <section class="m2CommunicatorOne" style="height: 100vh;
+           width: 100%;
+           background: url({{ asset('images/site/M2bg.jpg') }});
+           background-repeat: no-repeat;
+           background-size: cover;
+           box-shadow: 1px 2px 3px 36px #000;">
+      <div class="container">
+        <div class="blog-archive">
+        <div >
+          <header class="section-header text-center" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="section-title text-white">ACCESSORIES</h2>
+          </header>
+          <div>
+              
+          </div>
+        </div>
+        <div data-aos-easing="linear" data-aos="fade-up" data-aos-duration="2000">
+        <div class="customNavigation">
+          <a class="btn gray prev"><i class="icon ion-ios-arrow-left"></i></a>
+          <a class="btn gray next"><i class="icon ion-ios-arrow-right"></i></a>
+        </div>
+      
+      
+        <div id="slider-carousel" class="owl-carousel" >
+          <div class="item">
+            <a  href="#">
+              <div class="figure">
+                <i class="icon ion-search"></i>
+              </div>
+              <div class="figure">
+                <i class="icon ion-link"></i>
+              </div>
+              <div class="overlay">
+              </div>
+              <img src="http://dummyimage.com/350x300/f0f0f0/333">
+            </a>
+            
+            <p>Sample Item</p>
+          </div>
+      
+          <div class="item">
+            <a  href="#">
+              <div class="figure">
+                <i class="icon ion-search"></i>
+              </div>
+              <div class="figure">
+                <i class="icon ion-link"></i>
+              </div>
+              <div class="overlay">
+              </div>
+              <img src="http://dummyimage.com/350x300/f0f0f0/333">
+            </a>
+            
+            <p>Sample Item</p>
+          </div>
+      
+          <div class="item">
+            <a  href="#">
+              <div class="figure">
+                <i class="icon ion-search"></i>
+              </div>
+              <div class="figure">
+                <i class="icon ion-link"></i>
+              </div>
+              <div class="overlay">
+              </div>
+              <img src="http://dummyimage.com/350x300/f0f0f0/333">
+            </a>
+            
+            <p>Sample Item</p>
+          </div>
+      
+          <div class="item">
+            <a  href="#">
+              <div class="figure">
+                <i class="icon ion-search"></i>
+              </div>
+              <div class="figure">
+                <i class="icon ion-link"></i>
+              </div>
+              <div class="overlay">
+              </div>
+              <img src="http://dummyimage.com/350x300/f0f0f0/333">
+            </a>
+            
+            <p>Sample Item</p>
+          </div>
+      
+          <div class="item">
+            <a  href="#">
+              <div class="figure">
+                <i class="icon ion-search"></i>
+              </div>
+              <div class="figure">
+                <i class="icon ion-link"></i>
+              </div>
+              <div class="overlay">
+              </div>
+              <img src="http://dummyimage.com/350x300/f0f0f0/333">
+            </a>
+            
+            <p>Sample Item</p>
+          </div>
+      
+          <div class="item">
+            <a  href="#">
+              <div class="figure">
+                <i class="icon ion-search"></i>
+              </div>
+              <div class="figure">
+                <i class="icon ion-link"></i>
+              </div>
+              <div class="overlay">
+              </div>
+              <img src="http://dummyimage.com/350x300/f0f0f0/333">
+            </a>
+            
+            <p>Sample Item</p>
+          </div>
+      
+        </div>
+      </div>
+      </div></div>
+      </section>
+</div>
+    <!-- New slider section Added -->
+    <!-- New Section Added -->
+   <div class="scrollEffect">
     <div>
-      <section class="d1CommunicatorOne" style="height: 100vh;
+      <section class="m2CommunicatorOne" style="height: 100vh;
            width: 100%;
            background: url({{ asset('images/site/M2bg.jpg') }});
            background-repeat: no-repeat;
@@ -333,205 +458,11 @@
     </div>
   </div>
   <!-- New Section Added -->
-
-
-
-
-    <!-- New slider section Added -->
-    <div class="scrollEffect">
-      <section class="d1CommunicatorOne" style="
-            width: 100%;
-            background: url({{ asset('images/site/M2bg.jpg') }});
-            background-repeat: no-repeat;
-            background-size: cover;
-            box-shadow: 1px 2px 3px 36px #000;
-              min-height: 100vh;
-              justify-content: center;
-              align-items: center;
-              display: flex;
-              flex-direction: column;
-            ">
-        <div class="container-fluid px-0">
-          <div class="d1-3-wrapper pt-0" style="height: 76vh;">
-            <div class="blog-archive">
-              <div class="mb-5">
-                <header class="section-header text-center" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1000">
-                  <h2 class="section-title text-white">ACCESSORIES</h2>
-                </header>
-                <div data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1000" class="mt-4 text-white text-center text-uppercase">seaform kitchens &amp; wardrobes</div>
-                <p style="margin-bottom: 7% !important;" data-aos-easing="linear" data-aos="fade-up" data-aos-duration="1500" class=" mb-1 text-center text-white">We design extraordinary spaces to create, experience and live in the city of master. We design extraordiar.</p>
-                <div></div>
-              </div>
-              <div data-aos-easing="linear" data-aos="fade-up" data-aos-duration="2000">
-                <div class="customNavigation">
-                  <a class="btn gray prev">
-                    <i class="icon ion-ios-arrow-left"></i>
-                  </a>
-                  <a class="btn gray next">
-                    <i class="icon ion-ios-arrow-right"></i>
-                  </a>
-                </div>
-                <div id="slider-carousel" class="owl-carousel">
-                  <div class="item">
-                    <a href="#" data-toggle="modal" data-target="#d1exampleModals">
-                      <div class="figure">
-                        <i class="icon ion-search"></i>
-                      </div>
-                      <div class="figure">
-                        <i class="icon ion-link"></i>
-                      </div>
-                      <div class="overlay"></div>
-                      <img src="{{ asset('images/d1Slider/M series Hat Mount.png') }}">
-                    </a>
-                    <p>Sample Item</p>
-                  </div>
-                  <div class="item">
-                    <a href="#" data-toggle="modal" data-target="#d1exampleModal">
-                      <div class="figure">
-                        <i class="icon ion-search"></i>
-                      </div>
-                      <div class="figure">
-                        <i class="icon ion-link"></i>
-                      </div>
-                      <div class="overlay"></div>
-                      <img src="{{ asset('images/d1Slider/M-SERIES HEADBAND.png') }}">
-                    </a>
-                    <p>Sample Item</p>
-                  </div>
-                  <div class="item">
-                    <a href="#" data-toggle="modal" data-target="#d1exampleModal">
-                      <div class="figure">
-                        <i class="icon ion-search"></i>
-                      </div>
-                      <div class="figure">
-                        <i class="icon ion-link"></i>
-                      </div>
-                      <div class="overlay"></div>
-                      <img src="{{ asset('images/d1Slider/M-SERIES LENSLESS FRAMES.png') }}">
-                    </a>
-                    <p>Sample Item</p>
-                  </div>
-                  <div class="item">
-                    <a href="#" data-toggle="modal" data-target="#d1exampleModal">
-                      <div class="figure">
-                        <i class="icon ion-search"></i>
-                      </div>
-                      <div class="figure">
-                        <i class="icon ion-link"></i>
-                      </div>
-                      <div class="overlay"></div>
-                      <img src="{{ asset('images/d1Slider/M400 Power bank.png') }}">
-                    </a>
-                    <p>Sample Item</p>
-                  </div>
-                  <div class="item">
-                    <a href="#" data-toggle="modal" data-target="#d1exampleModal">
-                      <div class="figure">
-                        <i class="icon ion-search"></i>
-                      </div>
-                      <div class="figure">
-                        <i class="icon ion-link"></i>
-                      </div>
-                      <div class="overlay"></div>
-                      <img src="{{ asset('images/d1Slider/M400 USb-A to USB-C Charging.png') }}">
-                    </a>
-                    <p>Sample Item</p>
-                  </div>
-                  <div class="item">
-                    <a href="#" data-toggle="modal" data-target="#d1exampleModal">
-                      <div class="figure">
-                        <i class="icon ion-search"></i>
-                      </div>
-                      <div class="figure">
-                        <i class="icon ion-link"></i>
-                      </div>
-                      <div class="overlay"></div>
-                      <img src="{{ asset('images/d1Slider/M series Hat Mount.png') }}">
-                    </a>
-                    <p>Sample Item</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-        <div class="blog-container" style="width: 80%;">
-        <div class="tech-accordion" style="width:100%;background-color: grey">
-        <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-          <div class="tech-text">TECHNICAL SPECIFICATION</div>
-          <div class="fa fa-plus tech-icon" aria-hidden="true"></div>
-        </a>
-      </div>
-      <div class=" collapse multi-collapse" id="multiCollapseExample1">
-          <div class="container px-0 ">
-            <section class="generalDetailSection  mt-5 mb-5 d1generalDetailSection">
-              <div class="row-grid">
-                <div data-aos-easing="linear" data-aos="zoom-in-left" data-aos-duration="1500" class="aos-init aos-animate">
-                  <div class="card table-card" style="border-top:none;">
-                    <div class="card-body p-1">
-                      <p class="text-para-big  mb-2">General Details</p>
-                      <ul class="list-ul">
-                        <li>Display 5.99 inch, 2160 x 1080 pixel (primary)</li>
-                        <li>1.91 inch, 570 x 240 pixel AMOLED (cover display)</li>
-                        <li>Processor MediaTek Helio P70</li>
-                        <li>x ARM Cortex-A73 CPU cores @ 2.1 GHz</li>
-                        <li>Display 5.99 inch, 2160 x 1080 pixel (primary)</li>
-                        <li>1.91 inch, 570 x 240 pixel AMOLED (cover display)</li>
-                        <li>Processor MediaTek Helio P70</li>
-                        <li>x ARM Cortex-A73 CPU cores @ 2.1 GHz</li>
-                        <li>Display 5.99 inch, 2160 x 1080 pixel (primary)</li>
-                        <li>1.91 inch, 570 x 240 pixel AMOLED (cover display)</li>
-                        <li>Processor MediaTek Helio P70</li>
-                        <li>x ARM Cortex-A73 CPU cores @ 2.1 GHz</li>
-                        <li>Display 5.99 inch, 2160 x 1080 pixel (primary)</li>
-                        <li>1.91 inch, 570 x 240 pixel AMOLED (cover display)</li>
-                        <li>Processor MediaTek Helio P70</li>
-                        <li>x ARM Cortex-A73 CPU cores @ 2.1 GHz</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div data-aos-easing="linear" data-aos="zoom-in-right" data-aos-duration="1500" class="aos-init aos-animate">
-                  <div class="card table-card"  style="border-top:none;">
-                    <div class="card-body p-1">
-                      <p class="text-para-big  mb-2 invisible">General</p>
-                      <ul class="list-ul">
-                        <li>Display 5.99 inch, 2160 x 1080 pixel (primary)</li>
-                        <li>1.91 inch, 570 x 240 pixel AMOLED (cover display)</li>
-                        <li>Processor MediaTek Helio P70</li>
-                        <li>x ARM Cortex-A73 CPU cores @ 2.1 GHz</li>
-                        <li>Display 5.99 inch, 2160 x 1080 pixel (primary)</li>
-                        <li>1.91 inch, 570 x 240 pixel AMOLED (cover display)</li>
-                        <li>Processor MediaTek Helio P70</li>
-                        <li>x ARM Cortex-A73 CPU cores @ 2.1 GHz</li>
-                        <li>Display 5.99 inch, 2160 x 1080 pixel (primary)</li>
-                        <li>1.91 inch, 570 x 240 pixel AMOLED (cover display)</li>
-                        <li>Processor MediaTek Helio P70</li>
-                        <li>x ARM Cortex-A73 CPU cores @ 2.1 GHz</li>
-                        <li>Display 5.99 inch, 2160 x 1080 pixel (primary)</li>
-                        <li>1.91 inch, 570 x 240 pixel AMOLED (cover display)</li>
-                        <li>Processor MediaTek Helio P70</li>
-                        <li>x ARM Cortex-A73 CPU cores @ 2.1 GHz</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-       
-      </div>
-        </div>
-      </section>
-    </div>
-    <!-- New slider section Added -->  
-  
-    <!-- @if($slider3->count())
+    @if($slider3->count())
     <div class="scrollEffect">
 
         <div class="standard">
-            <div class="d1CommunicatorOne" style="height: 100vh;
+            <div class="m2CommunicatorOne" style="height: 100vh;
                 width: 100%;
                 background: url({{ asset('images/site/M2bg.jpg') }});
                 background-repeat: no-repeat;
@@ -557,7 +488,7 @@
 
 
 
-                </div> -->
+                </div>
                 <!--<div class="tech-accordion">
                     <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
                        aria-controls="multiCollapseExample1">
@@ -575,67 +506,93 @@
                         </div>
                     </div>
                 </div>-->
-            <!-- </div>
+            </div>
 
         </div>
     </div>
-    @endif -->
-
-
-    <div class="modal fade" id="d1exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content" style="top: 8rem; height: 656px;">
-          <div class="modal-body row">
-            <div class="col-md-6">
-              <div class="image-section">
-                <img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image" style="width: 90%; margin: 50px 0px 35px 65px;">
-                <div class="row mt-3" style="margin-left: 3%;">
-                  <div class="col-3 col-md-2 mb-3">
-                    <img src="https://via.placeholder.com/100x100" class="img-fluid" alt="Image">
-                  </div>
-                  <div class="col-3 col-md-2 mb-3">
-                    <img src="https://via.placeholder.com/100x100" class="img-fluid" alt="Image">
-                  </div>
-                  <div class="col-3 col-md-2 mb-3">
-                    <img src="https://via.placeholder.com/100x100" class="img-fluid" alt="Image">
-                  </div>
-                  <div class="col-3 col-md-2 mb-3">
-                    <img src="https://via.placeholder.com/100x100" class="img-fluid" alt="Image">
-                  </div>
-                  <div class="col-3 col-md-2 mb-3">
-                    <img src="https://via.placeholder.com/100x100" class="img-fluid" alt="Image">
-                  </div>
-                  <div class="col-3 col-md-2 mb-3">
-                    <img src="https://via.placeholder.com/100x100" class="img-fluid" alt="Image">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="text-section" style="width: 77%; margin: 16%;">
-                <h2>Product Title</h2>
-                <p>Product Heading</p>
-                <p>Description of the product, which should be at least 5 lines long. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum, libero a euismod finibus, neque tellus semper est, vel eleifend tortor magna ac tellus. Quisque non ipsum eget turpis efficitur imperdiet. Donec non elit quis elit vulputate lacinia. Pellentesque sit amet pulvinar justo.</p>
-                <div class="row mt-3">
-                  <div class="col-2 mb-3">
-                    <div class="square-box bg-danger"></div>
-                  </div>
-                  <div class="col-2 mb-3">
-                    <div class="square-box bg-danger"></div>
-                  </div>
-                  <div class="col-2 mb-3">
-                    <div class="square-box bg-danger"></div>
-                  </div>
-                  <div class="col-2 mb-3">
-                    <div class="square-box bg-danger"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    @endif
+    <div class="scrollEffect">
+    <div class="tech-accordion" style="width:100%;background-color: grey">
+            <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
+               aria-controls="multiCollapseExample1">
+                <div class="tech-text">TECHNICAL SPECIFICATION</div>
+                <div class="fa fa-plus tech-icon" aria-hidden="true"></div>
+            </a>
         </div>
-      </div>
+        </div>
+        <div class="scrollEffect">
+    <div class=" collapse multi-collapse" id="multiCollapseExample1">
+        <section  class=" d1Table" style="
+            width: 100%;
+            background: url({{ asset('images/site/M2bg.jpg') }});
+            background-repeat: no-repeat;
+            background-size: cover;
+            box-shadow: 1px 2px 3px 36px #000;
+            /* margin-top: 60px;">
+            <div class="container px-0 ">
+
+                <section class="generalDetailSection  mt-5 mb-5 d1generalDetailSection">
+
+                    <div class="row-grid">
+                        <div data-aos-easing="linear" data-aos="zoom-in-left" data-aos-duration="1500" class="aos-init aos-animate">
+                            <div class="card table-card ">
+                                <div class="card-body p-1">
+                                    <p class="text-para-big  mb-2">General Details</p>
+                                    <ul class="list-ul">
+                                        <li>Display 5.99 inch, 2160 x 1080 pixel (primary)</li>
+                                        <li>1.91 inch, 570 x 240 pixel AMOLED (cover display)</li>
+                                        <li>Processor MediaTek Helio P70</li>
+                                        <li>x ARM Cortex-A73 CPU cores @ 2.1 GHz</li>
+                                        <li>Display 5.99 inch, 2160 x 1080 pixel (primary)</li>
+                                        <li>1.91 inch, 570 x 240 pixel AMOLED (cover display)</li>
+                                        <li>Processor MediaTek Helio P70</li>
+                                        <li>x ARM Cortex-A73 CPU cores @ 2.1 GHz</li>
+                                        <li>Display 5.99 inch, 2160 x 1080 pixel (primary)</li>
+                                        <li>1.91 inch, 570 x 240 pixel AMOLED (cover display)</li>
+                                        <li>Processor MediaTek Helio P70</li>
+                                        <li>x ARM Cortex-A73 CPU cores @ 2.1 GHz</li>
+                                        <li>Display 5.99 inch, 2160 x 1080 pixel (primary)</li>
+                                        <li>1.91 inch, 570 x 240 pixel AMOLED (cover display)</li>
+                                        <li>Processor MediaTek Helio P70</li>
+                                        <li>x ARM Cortex-A73 CPU cores @ 2.1 GHz</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-aos-easing="linear" data-aos="zoom-in-right" data-aos-duration="1500"
+                             class="aos-init aos-animate">
+                            <div class="card table-card ">
+                                <div class="card-body p-1">
+                                    <p class="text-para-big  mb-2 invisible">General</p>
+                                    <ul class="list-ul">
+                                        <li>Display 5.99 inch, 2160 x 1080 pixel (primary)</li>
+                                        <li>1.91 inch, 570 x 240 pixel AMOLED (cover display)</li>
+                                        <li>Processor MediaTek Helio P70</li>
+                                        <li>x ARM Cortex-A73 CPU cores @ 2.1 GHz</li>
+                                        <li>Display 5.99 inch, 2160 x 1080 pixel (primary)</li>
+                                        <li>1.91 inch, 570 x 240 pixel AMOLED (cover display)</li>
+                                        <li>Processor MediaTek Helio P70</li>
+                                        <li>x ARM Cortex-A73 CPU cores @ 2.1 GHz</li>
+                                        <li>Display 5.99 inch, 2160 x 1080 pixel (primary)</li>
+                                        <li>1.91 inch, 570 x 240 pixel AMOLED (cover display)</li>
+                                        <li>Processor MediaTek Helio P70</li>
+                                        <li>x ARM Cortex-A73 CPU cores @ 2.1 GHz</li>
+                                        <li>Display 5.99 inch, 2160 x 1080 pixel (primary)</li>
+                                        <li>1.91 inch, 570 x 240 pixel AMOLED (cover display)</li>
+                                        <li>Processor MediaTek Helio P70</li>
+                                        <li>x ARM Cortex-A73 CPU cores @ 2.1 GHz</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </section>
+            </div>
+        </section>
     </div>
+        </div>
 @endsection
 @push('scripts')
     <script src="{{ asset('js/site/main.js')}}"></script>
@@ -677,19 +634,19 @@
             });
             if (!(/Android|webOS|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(navigator.userAgent))) { //if not these devices(userAgents)
 
-              $.scrollify({
-              section: ".scrollEffect",
-              interstitialSection: ".stop",
-              easing: "easeOutExpo",
-              scrollSpeed: 900,
-              offset: 0,
-              scrollbars: true,
-              standardScrollElements: ".standard",
-              setHeights: false,
-              overflowScroll: false,
-              updateHash: false,
-              touchScroll: true,
-              });
+            $.scrollify({
+            section: ".scrollEffect",
+            interstitialSection: ".stop",
+            easing: "easeOutExpo",
+            scrollSpeed: 900,
+            offset: 0,
+            scrollbars: true,
+            standardScrollElements: ".standard",
+            setHeights: false,
+            overflowScroll: false,
+            updateHash: false,
+            touchScroll: true,
+            });
 
             }
             
