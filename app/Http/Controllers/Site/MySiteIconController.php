@@ -11,16 +11,19 @@ use Illuminate\Http\Request;
 
 class MySiteIconController extends Controller
 {
-    public function index($brand,$design,$id){
-        $brands = Brand::where(['slug'=>$brand,'brand_design_id' => $design ])->first();
-        if(!$brands){
-            return abort(404);
-        }
-        $icon = IconSection::with('icon_details','icon_detail_slider')->where(['brand_id' => $brands->id,'id' => $id])->first();
-        if(!$icon){
-        return    redirect()->route('mysite.index', ['brand' => $brand,'design' => $design ]);
+    public function index( $brand, $design, $id ) {
+        $brands = Brand::where( [ 'slug' => $brand, 'brand_design_id' => $design ] ) -> first();
+
+        if ( ! $brands ) {
+            return abort( 404 );
         }
 
-        return view('site/icon',['icon' => $icon]);
+        $icon = IconSection::with( 'icon_details', 'icon_detail_slider' ) -> where( [ 'brand_id' => $brands -> id, 'id' => $id ] ) -> first();
+
+        if ( ! $icon ) {
+            return redirect() -> route( 'mysite.index', [ 'brand' => $brand, 'design' => $design ] );
+        }
+
+        return view( 'site/icon', [ 'icon' => $icon ] );
     }
 }
