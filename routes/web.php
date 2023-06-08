@@ -15,20 +15,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () { 
     $brands = \App\Brand::get();
     return view('client/home',
         [ 'brands' => $brands
         ]);
 });
 
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+    echo 'cache cleared';
+    return true;
+    // return what you want
+});
 
 Auth::routes();
 
 Route::get('site/{brand}/{design}', 'Site\MySiteController@index')->name('mysite.index');
 Route::get('site/{brand}/{design}/flipbook', 'Site\MySiteFlipBookController@index')->name('mysite.flipbook.index');
 Route::get('site/{brand}/{design}/news/{id}', 'Site\MySiteNewsController@index')->name('mysite.news.index');
-Route::get('site/{brand}/{design}/icon/{id}', 'Site\MySiteIconController@index')->name('mysite.icon.index');
+Route::get('/site/{brand}/{design}/icon/{id}', 'Site\MySiteIconController@index')->name('mysite.icon.index');
 Route::get('site/{brand}/{design}/middle-banner', 'Site\MySiteMiddleBannerController@index')->name('mysite.middle-banner.index');
 
 Route::get('product-details/p1/{p1}', 'ProductPages\P1Controller@index')->name('p1.index');
@@ -176,7 +185,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
 
     Route::resource('button2', 'Button2Controller')->except(['show']);
     Route::resource('button2-slide-changer', 'MyButton2SlideChangerController')->except(['show']);
-
+    
     Route::resource('p2', 'MyBrandP2Controller')->except(['show']);
     Route::resource('p2-slide-changer1', 'MyBrandP2SlideChanger1Controller')->except(['show']);
     Route::resource('p2-slide-changer2', 'MyBrandP2SlideChanger2Controller')->except(['show']);
