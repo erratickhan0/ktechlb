@@ -138,9 +138,10 @@
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.mybrand.settings',session()->get('selected_brand')->slug) }}">
-                                    {{ __('Settings') }}
+                                    {{ __('Settings')  }}
                                 </a>
                             </li>
+                            @if(session()->get('selected_brand')->brand_design->slug == 'm1')
                             <li class="nav-item">
                                 <a href="#navbar-system-general" class="nav-link" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-system-general">M1 DESIGN</a>
                                 <div class="collapse show" id="navbar-system-general" style="">
@@ -193,6 +194,8 @@
                                     </ul>
                                 </div>
                             </li>
+                            @endif
+                            @if(session()->get('selected_brand')->brand_design->slug == 'm2')
                             <li class="nav-item">
                                 <a href="#navbar-system-general-m2" class="nav-link" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-system-general-m2">M2 DESIGN</a>
                                 <div class="collapse show" id="navbar-system-general-m2" style="">
@@ -247,6 +250,8 @@
                                     </ul>
                                 </div>
                             </li>
+                            @endif
+                            @if(session()->get('selected_brand')->brand_design->slug == 'm3')
                             <li class="nav-item">
                                 <a href="#navbar-system-general-m3" class="nav-link" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-system-general-m3">M3 DESIGN</a>
                                 <div class="collapse show" id="navbar-system-general-m3" style="">
@@ -310,6 +315,7 @@
                                     </ul>
                                 </div>
                             </li>
+                              @endif
                         </ul>
                     </div>
 

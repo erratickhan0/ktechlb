@@ -421,7 +421,7 @@ export default {
                 var post_url = '/admin/mybrand/icon/section-delete-slider/'+ this.delete_target;
             }
 
-            axios.delete(post_url).then(response => {
+            axios.post(post_url, { _method: 'DELETE' }).then(response => {
                 if (response.data.status == "OK") {
                     this.$refs['confirm_delete_details'].hide();
                     this.delete_target = 0;
