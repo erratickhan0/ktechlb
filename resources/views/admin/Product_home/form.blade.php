@@ -60,7 +60,7 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        @if ($product->product_logo)
+                                        @if (isset($product) && $product->product_logo)
                                             <img  src="{{ asset('/storage/' . $product->product_logo) }}" alt="Product Logo" width="100px" height="70px">
                                         @endif
                                     </div>
@@ -73,7 +73,7 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        @if ($product->product_image)
+                                        @if (isset($product) && $product->product_image)
                                             <img src="{{ asset('/storage/' . $product->product_image) }}" alt="Product Image" width="100px" height="70px">
                                         @endif
                                     </div>
