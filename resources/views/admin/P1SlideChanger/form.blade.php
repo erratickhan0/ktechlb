@@ -57,7 +57,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('left_image', 'Left Image*', ['for' => 'image']) }}
-                                            <div>{{ Form::file('left_image') }}</div>
+                                            <div>{{ Form::file('left_image',['accept' => 'image/*']) }}</div>
                                             @if($slide_changer != null)
                                                 <img width="100px" height="70px" src="{{asset('storage/'.$slide_changer->left_image)}}" />
                                              @endif
@@ -67,7 +67,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('right_image', 'Right Image*', ['for' => 'image']) }}
-                                            <div>{{ Form::file('right_image') }}</div>
+                                            <div>{{ Form::file('right_image',['accept' => 'image/*']) }}</div>
                                             @if($slide_changer != null)
                                                 <img width="100px" height="70px" src="{{asset('storage/'.$slide_changer->right_image)}}" />
                                             @endif
@@ -80,7 +80,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('right_bg_image', 'Right Background Image', ['for' => 'section2_image']) }}
-                                            <div>{{ Form::file('right_bg_image') }}</div>
+                                            <div>{{ Form::file('right_bg_image',['accept' => 'image/*']) }}</div>
                                             @if($slide_changer != null)
                                                 <img alt="No Image Found" width="100px" height="70px" src="{{asset('storage/'.$slide_changer->right_bg_image)}}" />
                                             @endif

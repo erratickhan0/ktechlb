@@ -48,7 +48,7 @@
                                     </div>
                                     <div class="form-group required">
                                         {{ Form::label('image', 'Left Image*', ['for' => 'image']) }}
-                                        <div>{{ Form::file('image') }}</div>
+                                        <div>{{ Form::file('image',['accept' => 'image/*']) }}</div>
                                         @if($slide_changer2 != null)
                                             <img width="100px" height="70px" src="{{asset('storage/'.$slide_changer2->image)}}" />
                                         @endif

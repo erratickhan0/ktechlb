@@ -57,7 +57,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('file_path', 'Banner Image or Video*', ['for' => 'file_path']) }}
-                                            <div>{{ Form::file('file_path') }}</div>
+                                            <div>{{ Form::file('file_path', ['accept' => 'image/*, video/*']) }}</div>
                                         </div>
 
                                     </div>

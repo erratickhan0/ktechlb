@@ -43,7 +43,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('fullwidth_banner1_fixed', 'Fullwidth Banner1 Fixed*', ['for' => 'fullwidth_banner1_fixed']) }}
-                                            <div>{{ Form::file('fullwidth_banner1_fixed') }}</div>
+                                            <div>{{ Form::file('fullwidth_banner1_fixed',['accept' => 'image/*']) }}</div>
                                         </div>
 
                                     </div>
@@ -58,7 +58,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('fullwidth_banner2_fixed', 'Fullwidth Banner2 Fixed', ['for' => 'fullwidth_banner2_fixed']) }}
-                                            <div>{{ Form::file('fullwidth_banner2_fixed') }}</div>
+                                            <div>{{ Form::file('fullwidth_banner2_fixed',['accept' => 'image/*']) }}</div>
                                         </div>
 
                                     </div>
@@ -73,7 +73,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('fullwidth_banner1_unfixed', 'Fullwidth Banner3 Fixed', ['for' => 'fullwidth_banner1_unfixed']) }}
-                                            <div>{{ Form::file('fullwidth_banner1_unfixed') }}</div>
+                                            <div>{{ Form::file('fullwidth_banner1_unfixed',['accept' => 'image/*']) }}</div>
                                         </div>
                                     </div>
                                     @if (isset($banner->fullwidth_banner1_unfixed))
@@ -87,7 +87,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('fullwidth_video', 'Fullwidth Video', ['for' => 'fullwidth_video']) }}
-                                            <div>{{ Form::file('fullwidth_video') }}</div>
+                                            <div>{{ Form::file('fullwidth_video',['accept' => 'video/*']) }}</div>
                                         </div>
                                     </div>
                                     @if (isset($banner->fullwidth_video))

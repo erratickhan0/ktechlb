@@ -67,7 +67,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('background_image', 'Background Image*', ['for' => 'background_image']) }}
-                                            <div>{{ Form::file('background_image') }}</div>
+                                            <div>{{ Form::file('background_image',['accept' => 'image/*']) }}</div>
                                         </div>
 
                                     </div>
@@ -82,7 +82,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('image', 'Image*', ['for' => 'image']) }}
-                                            <div>{{ Form::file('image') }}</div>
+                                            <div>{{ Form::file('image',['accept' => 'image/*']) }}</div>
                                         </div>
 
                                     </div>

@@ -72,7 +72,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('image', 'Image*', ['for' => 'image']) }}
-                                            <div>{{ Form::file('image') }}</div>
+                                            <div>{{ Form::file('image',['accept' => 'image/*']) }}</div>
                                             @if($p1 != null)
                                                 <img width="100px" height="70px" src="{{asset('storage/'.$p1->image)}}" />
                                              @endif
@@ -110,7 +110,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('section2_image', 'Image Middle Sec*', ['for' => 'section2_image']) }}
-                                            <div>{{ Form::file('section2_image') }}</div>
+                                            <div>{{ Form::file('section2_image',['accept' => 'image/*']) }}</div>
                                             @if($p1 != null)
                                                 <img alt="No Image Found" width="100px" height="70px" src="{{asset('storage/'.$p1->section2_image)}}" />
                                             @endif

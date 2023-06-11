@@ -59,7 +59,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('bg_image', 'Background Image*', ['for' => 'bg_image']) }}
-                                            <div>{{ Form::file('bg_image') }}</div>
+                                            <div>{{ Form::file('bg_image',['accept' => 'image/*']) }}</div>
                                         </div>
 
                                     </div>

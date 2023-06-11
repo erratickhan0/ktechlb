@@ -56,7 +56,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('product_logo', 'Product Logo*', ['for' => 'product_logo']) }}
-                                            <div>{{ Form::file('product_logo') }}</div>
+                                            <div>{{ Form::file('product_logo',['accept' => 'image/*']) }}</div>
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -69,7 +69,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('product_image', 'Product Image*', ['for' => 'product_image']) }}
-                                            <div>{{ Form::file('product_image') }}</div>
+                                            <div>{{ Form::file('product_image',['accept' => 'image/*']) }}</div>
                                         </div>
                                     </div>
                                     <div class="col-6">

@@ -59,7 +59,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('image1', 'Cover Image*', ['for' => 'image']) }}
-                                            <div>{{ Form::file('image1') }}</div>
+                                            <div>{{ Form::file('image1',['accept' => 'image/*']) }}</div>
                                             @if($button2 != null)
                                                 <img width="100px" height="70px" src="{{asset('storage/'.$button2->image1)}}" />
                                             @endif
@@ -71,7 +71,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('image2', 'Hover Image*', ['for' => 'image']) }}
-                                            <div>{{ Form::file('image2') }}</div>
+                                            <div>{{ Form::file('image2',['accept' => 'image/*']) }}</div>
                                             @if($button2 != null)
                                                 <img width="100px" height="70px" src="{{asset('storage/'.$button2->image2)}}" />
                                             @endif

@@ -55,7 +55,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('left_product_image', 'Product Image*', ['for' => 'left_product_image']) }}
-                                            <div>{{ Form::file('left_product_image') }}</div>
+                                            <div>{{ Form::file('left_product_image',['accept' => 'image/*']) }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('background_image', 'Background Image*', ['for' => 'background_image']) }}
-                                            <div>{{ Form::file('background_image') }}</div>
+                                            <div>{{ Form::file('background_image',['accept' => 'image/*']) }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -88,7 +88,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('right_product_image1', 'Product Image Small 1', ['for' => 'right_product_image1']) }}
-                                            <div>{{ Form::file('right_product_image1') }}</div>
+                                            <div>{{ Form::file('right_product_image1',['accept' => 'image/*']) }}</div>
                                         </div>
 
                                     </div>
@@ -97,7 +97,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('right_product_image2', 'Product Image Small 2', ['for' => 'right_product_image2']) }}
-                                            <div>{{ Form::file('right_product_image2') }}</div>
+                                            <div>{{ Form::file('right_product_image2',['accept' => 'image/*']) }}</div>
                                         </div>
 
                                     </div>
@@ -106,7 +106,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('right_product_image3', 'Product Image Small 3', ['for' => 'right_product_image3']) }}
-                                            <div>{{ Form::file('right_product_image3') }}</div>
+                                            <div>{{ Form::file('right_product_image3',['accept' => 'image/*']) }}</div>
                                         </div>
 
                                     </div>
@@ -115,7 +115,7 @@
                                     <div class="col-6">
                                         <div class="form-group required">
                                             {{ Form::label('right_product_image4', 'Product Image Small 4', ['for' => 'right_product_image4']) }}
-                                            <div>{{ Form::file('right_product_image4') }}</div>
+                                            <div>{{ Form::file('right_product_image4',['accept' => 'image/*']) }}</div>
                                         </div>
 
                                     </div>

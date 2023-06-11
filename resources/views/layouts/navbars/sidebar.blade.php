@@ -336,13 +336,13 @@
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('admin.d1.index') }}"  role="button" >
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">{{ __('D1') }}</span>
+                        <span class="nav-link-text" style="color: #f4645f;">{{ __('P3') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('admin.button2.index') }}"  role="button" >
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Button2') }}</span>
+                        <span class="nav-link-text" style="color: #f4645f;">{{ __('D1') }}</span>
                     </a>
                 </li>
 
