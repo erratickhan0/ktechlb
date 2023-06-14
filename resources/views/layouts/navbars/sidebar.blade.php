@@ -315,7 +315,7 @@
                                 </div>
                             </li>
                               @endif
-                            @if(session()->get('selected_brand')->product_design->slug == 'p1')
+                            @if(session()->get('selected_brand')->product_design && session()->get('selected_brand')->product_design->slug == 'p1')
                             <li class="nav-item">
                                 <a href="#navbar-system-general-p1" class="nav-link" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-system-general-p1">P1 DESIGN</a>
                                 <div class="collapse show" id="navbar-system-general-p1" style="">
@@ -330,7 +330,7 @@
                                 </div>
                             </li>
                             @endif
-                            @if(session()->get('selected_brand')->product_design->slug == 'p2')
+                            @if(session()->get('selected_brand')->product_design && session()->get('selected_brand')->product_design->slug == 'p2')
                             <li class="nav-item">
                                 <a href="#navbar-system-general-p2" class="nav-link" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-system-general-p2">P2 DESIGN</a>
                                 <div class="collapse show" id="navbar-system-general-p2" style="">
@@ -345,7 +345,7 @@
                                 </div>
                             </li>
                             @endif
-                            @if(session()->get('selected_brand')->product_design->slug == 'p3')
+                            @if(session()->get('selected_brand')->product_design && session()->get('selected_brand')->product_design->slug == 'p3')
                             <li class="nav-item">
                                 <a href="#navbar-system-general-p3" class="nav-link" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-system-general-p3">P3 DESIGN</a>
                                 <div class="collapse show" id="navbar-system-general-p3" style="">
@@ -360,7 +360,7 @@
                                 </div>
                             </li>
                             @endif
-                            @if(session()->get('selected_brand')->detail_design->slug == 'd1')
+                            @if(session()->get('selected_brand')->detail_design && session()->get('selected_brand')->detail_design->slug == 'd1')
                             <li class="nav-item">
                                 <a href="#navbar-system-general-d1" class="nav-link" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-system-general-d1">D1 DESIGN</a>
                                 <div class="collapse show" id="navbar-system-general-d1" style="">
