@@ -36,6 +36,7 @@ class HomeController extends Controller
 
        if($request->has('brand') && !empty($request['brand'])){
            $brand = Brand::where('slug',$request['brand'])->first();
+           $brand->load('brand_design','product_design','detail_design');
            Session::put('selected_brand',$brand);
        }
        else{

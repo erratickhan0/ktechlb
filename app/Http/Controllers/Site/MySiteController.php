@@ -30,6 +30,7 @@ class MySiteController extends Controller
             if(!$brand){
                 return abort(404);
             }
+            $brand->load('brand_design','product_design','detail_design');
             return view('site/site',['brand' => $brand]);
         }
         if($brand_design->slug == 'm2'){
@@ -48,6 +49,7 @@ class MySiteController extends Controller
             if(!$brand){
                 return abort(404);
             }
+            $brand->load('brand_design','product_design','detail_design');
             return view('site/site-m2',['brand' => $brand]);
         }
         if($brand_design->slug == 'm3'){
@@ -64,6 +66,8 @@ class MySiteController extends Controller
             if(!$brand){
                 return abort(404);
             }
+            $brand->load('brand_design','product_design','detail_design');
+
             return view('site/site-m3',['brand' => $brand]);
         }
 

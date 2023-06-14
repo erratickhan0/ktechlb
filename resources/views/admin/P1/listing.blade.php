@@ -18,7 +18,9 @@
                         </nav>
                     </div>
                     <div class="col-lg-6 col-5 mt-2 text-right">
+                        @if(count($p1) == 0)
                         <a href="{{ route('admin.p1.create') }}" class="btn btn-primary">Create new page</a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -54,7 +56,7 @@
                                         <td class="align-middle name mb-0 text-sm">{{$page->page_font == 1 ? 'Classic':'Modern'}}</td>
                                         <td class="align-middle name mb-0 text-sm">{{$page->heading}}</td>
                                         <td class="align-middle">{{$page->title}}</td>
-                                        <td class="align-middle"><a href="{{ route('p1.index',['p1' => $page->id ]) }}" target="_blank">URL</a></td>
+                                        <td class="align-middle"><a href="{{ route('p1.index') }}" target="_blank">URL</a></td>
 
                                         <td class="align-middle">
 

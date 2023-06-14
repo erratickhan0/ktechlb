@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Brand extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['active_state','name','brand_design_id'];
+    protected $fillable = ['active_state','name','brand_design_id','product_design_id','detail_design_id'];
 
     protected $casts = [
         'brand_design_id' => 'integer',
@@ -17,6 +17,14 @@ class Brand extends Model
     public function brand_design()
     {
         return $this->belongsTo(BrandDesign::class);
+    }
+    public function product_design()
+    {
+        return $this->belongsTo(ProductDesign::class);
+    }
+    public function detail_design()
+    {
+        return $this->belongsTo(ProductDetailDesign::class);
     }
     public function brand_settings()
     {

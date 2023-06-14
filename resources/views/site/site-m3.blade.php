@@ -187,9 +187,15 @@
                                 @if($value->btn_show)
 
                                 <div class="mozBtn">
-
+                                    @if($brand->product_design->slug == 'p1')
+                                    <a href="/product-details/p1" target="_blank" class="info">{{$value->btn_text}}</a>
+                                    @elseif($brand->product_design->slug == 'p2')
+                                        <a href="/product-details/p2" target="_blank" class="info">{{$value->btn_text}}</a>
+                                    @elseif($brand->product_design->slug == 'p3')
+                                        <a href="/product-details/p3" target="_blank" class="info">{{$value->btn_text}}</a>
+                                    @else
                                     <a href="{{$value->btn_link}}" target="_blank" class="info">{{$value->btn_text}}</a>
-
+                                    @endif
                                 </div>
 
                                  @endif
@@ -221,8 +227,16 @@
                                 @if($value->btn_show)
 
                                     <div class="mozBtn">
+                                        @if($brand->product_design->slug == 'p1')
+                                            <a href="/product-details/p1" target="_blank" class="info">{{$value->btn_text}}</a>
+                                        @elseif($brand->product_design->slug == 'p2')
+                                            <a href="/product-details/p2" target="_blank" class="info">{{$value->btn_text}}</a>
+                                        @elseif($brand->product_design->slug == 'p3')
+                                            <a href="/product-details/p3" target="_blank" class="info">{{$value->btn_text}}</a>
+                                        @else
+                                            <a href="{{$value->btn_link}}" target="_blank" class="info">{{$value->btn_text}}</a>
+                                        @endif
 
-                                        <a href="{{$value->btn_link}}" target="_blank" class="info">{{$value->btn_text}}</a>
 
                                     </div>
 
@@ -254,7 +268,15 @@
 
                                     <div class="mozBtn">
 
-                                        <a href="{{$value->btn_link}}" target="_blank" class="info">{{$value->btn_text}}</a>
+                                        @if($brand->product_design->slug == 'p1')
+                                            <a href="/product-details/p1" target="_blank" class="info">{{$value->btn_text}}</a>
+                                        @elseif($brand->product_design->slug == 'p2')
+                                            <a href="/product-details/p2" target="_blank" class="info">{{$value->btn_text}}</a>
+                                        @elseif($brand->product_design->slug == 'p3')
+                                            <a href="/product-details/p3" target="_blank" class="info">{{$value->btn_text}}</a>
+                                        @else
+                                            <a href="{{$value->btn_link}}" target="_blank" class="info">{{$value->btn_text}}</a>
+                                        @endif
 
                                     </div>
 

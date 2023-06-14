@@ -97,15 +97,19 @@
     <div id="owl-carousel2" class="owl-carousel">
         @if($brand->product_section)
         @foreach($brand->product_section as $value)
-        <div class="item">
-            <div class="item_s4">  <img src="{{ asset('storage/'.$value->product_image) }}" alt="">
-                <div class="product-detail overlay">
-                    <div class="product-title">{{--{{$value->title}}--}}</div>
+                <div class="item">
+                    <div class="item_s4">
+                        <a href="{{ $brand->product_design->slug === 'p1' ? '/product-details/p1' : ($brand->product_design->slug === 'p2' ? '/product-details/p2' : ($brand->product_design->slug === 'p3' ? '/product-details/p3' : '')) }}" target="_blank" class="info">
+                            <img src="{{ asset('storage/'.$value->product_image) }}" alt="">
+                            <div class="product-detail overlay">
+                                <div class="product-title">{{--{{$value->title}}--}}</div>
+                            </div>
+                            <div class="product-logo"><img src="{{ asset('storage/'.$value->product_logo) }}" alt=""></div>
+                        </a>
+                    </div>
                 </div>
-                <div class="product-logo"><img src="{{ asset('storage/'.$value->product_logo) }}" alt=""></div>
-            </div>
-        </div>
-        @endforeach
+
+            @endforeach
         @endif
     </div>
 </section>

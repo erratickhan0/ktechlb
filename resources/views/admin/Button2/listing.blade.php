@@ -18,7 +18,9 @@
                         </nav>
                     </div>
                     <div class="col-lg-6 col-5 mt-2 text-right">
+                        @if(count($button2) == 0)
                         <a href="{{ route('admin.button2.create') }}" class="btn btn-primary">Create new page</a>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -126,7 +126,6 @@
                     </a>
                 </li>
 
-
                 @if(session()->get('selected_brand') && $brands)
                 <li class="nav-item">
                     <a class="nav-link" href="#navbar-system" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-system">
@@ -316,35 +315,71 @@
                                 </div>
                             </li>
                               @endif
+                            @if(session()->get('selected_brand')->product_design->slug == 'p1')
+                            <li class="nav-item">
+                                <a href="#navbar-system-general-p1" class="nav-link" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-system-general-p1">P1 DESIGN</a>
+                                <div class="collapse show" id="navbar-system-general-p1" style="">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link " href="{{ route('admin.p1.index') }}"  role="button" >
+                                                <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                                                <span class="nav-link-text" style="color: #f4645f;">{{ __('P1') }}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            @endif
+                            @if(session()->get('selected_brand')->product_design->slug == 'p2')
+                            <li class="nav-item">
+                                <a href="#navbar-system-general-p2" class="nav-link" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-system-general-p2">P2 DESIGN</a>
+                                <div class="collapse show" id="navbar-system-general-p2" style="">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link " href="{{ route('admin.p2.index') }}"  role="button" >
+                                                <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                                                <span class="nav-link-text" style="color: #f4645f;">{{ __('P2') }}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            @endif
+                            @if(session()->get('selected_brand')->product_design->slug == 'p3')
+                            <li class="nav-item">
+                                <a href="#navbar-system-general-p3" class="nav-link" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-system-general-p3">P3 DESIGN</a>
+                                <div class="collapse show" id="navbar-system-general-p3" style="">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link " href="{{ route('admin.d1.index') }}"  role="button" >
+                                                <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                                                <span class="nav-link-text" style="color: #f4645f;">{{ __('P3') }}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            @endif
+                            @if(session()->get('selected_brand')->detail_design->slug == 'd1')
+                            <li class="nav-item">
+                                <a href="#navbar-system-general-d1" class="nav-link" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-system-general-d1">D1 DESIGN</a>
+                                <div class="collapse show" id="navbar-system-general-d1" style="">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link " href="{{ route('admin.button2.index') }}"  role="button" >
+                                                <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                                                <span class="nav-link-text" style="color: #f4645f;">{{ __('D1') }}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            @endif
                         </ul>
                     </div>
 
                 </li>
                 @endif
-                <li class="nav-item">
-                    <a class="nav-link " href="{{ route('admin.p1.index') }}"  role="button" >
-                        <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">{{ __('P1') }}</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="{{ route('admin.p2.index') }}"  role="button" >
-                        <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">{{ __('P2') }}</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="{{ route('admin.d1.index') }}"  role="button" >
-                        <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">{{ __('P3') }}</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="{{ route('admin.button2.index') }}"  role="button" >
-                        <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">{{ __('D1') }}</span>
-                    </a>
-                </li>
 
             </ul>
 

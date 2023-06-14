@@ -18,7 +18,9 @@
                         </nav>
                     </div>
                     <div class="col-lg-6 col-5 mt-2 text-right">
+                        @if(count($p2) == 0)
                         <a href="{{ route('admin.p2.create') }}" class="btn btn-primary">Create new page</a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -61,7 +63,7 @@
 
                                             <img width="100px" height="70px" src="{{asset('storage/'.$page->image)}}" />
                                         </td>
-                                        <td class="align-middle"><a href="{{ route('p2.index',['p2' => $page->id ]) }}" target="_blank">URL</a></td>
+                                        <td class="align-middle"><a href="{{ route('p2.index') }}" target="_blank">URL</a></td>
 
 
                                         <td class="text-right">

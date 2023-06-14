@@ -86,6 +86,40 @@
                                         </div>
                                     </div>
                                     <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <validation-provider name="Product Design" rules="required" v-slot="v">
+                                                    <label >Select Product Design</label>
+                                                    <v-select name="product_design" placeholder="Select Design"
+                                                              v-model="branding.product_design_id"
+                                                              :options="product_designs"
+                                                              label="name" code="id"
+                                                              :reduce="label => label.id"
+
+                                                    ></v-select>
+                                                    <span class="field-errors">{{ v.errors[0] }}</span>
+                                                </validation-provider>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <validation-provider name="Detail Design" rules="required" v-slot="v">
+                                                    <label >Select Detail Design</label>
+                                                    <v-select name="detail_design" placeholder="Select Design"
+                                                              v-model="branding.detail_design_id"
+                                                              :options="detail_designs"
+                                                              label="name" code="id"
+                                                              :reduce="label => label.id"
+
+                                                    ></v-select>
+                                                    <span class="field-errors">{{ v.errors[0] }}</span>
+                                                </validation-provider>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-6 form-group" >
                                             <label >Active State?</label>
                                             <toggle-button
@@ -125,13 +159,17 @@ export default {
                 logo_url:[],
                 conver_image:[],
                 active_state:0,
-                brand_design_id : ''
+                brand_design_id : '',
+                product_design_id:'',
+                detail_design_id:''
             },
             isLoading: false,
             fullPage: false,
             loader: "spinner",
             is_edit: 0,
             brand_designs: brand_designs,
+            product_designs: product_designs,
+            detail_designs: detail_designs,
             brand: brand
         }
     },
@@ -159,6 +197,8 @@ export default {
             formData.append('active_state', this.branding.active_state);
             formData.append('name', this.branding.name);
             formData.append('brand_design_id', this.branding.brand_design_id);
+            formData.append('product_design_id', this.branding.product_design_id);
+            formData.append('detail_design_id', this.branding.detail_design_id);
 
             return formData;
         },
@@ -208,6 +248,8 @@ export default {
            this.branding.name = this.brand.name;
             this.branding.active_state = this.brand.active_state;
             this.branding.brand_design_id = JSON.parse(this.brand.brand_design_id);
+            this.branding.product_design_id = JSON.parse(this.brand.product_design_id);
+            this.branding.detail_design_id = JSON.parse(this.brand.detail_design_id);
         }
     }
 }

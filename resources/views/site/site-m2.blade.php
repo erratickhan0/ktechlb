@@ -219,7 +219,8 @@
 
                             @if($value->btn_show)
 
-                            <a  href="{{$value->btn_link}}" target="_blank"><button class="main_btn btn_red mt-3" data-aos-easing="linear" data-aos="fade-right"
+                             <a href="{{ $brand->product_design->slug === 'p1' ? '/product-details/p1' : ($brand->product_design->slug === 'p2' ? '/product-details/p2' : ($brand->product_design->slug === 'p3' ? '/product-details/p3' : $value->btn_link)) }}" target="_blank">
+                                <button class="main_btn btn_red mt-3" data-aos-easing="linear" data-aos="fade-right"
 
                                     data-aos-duration="1400">{{$value->btn_text}}
 
@@ -234,15 +235,15 @@
                                 @if(isset($value->right_product_image1))
                                     <img src="{{ asset('storage/'.$value->right_product_image1) }}" />
                                 @endif
-                                
+
                                 @if(isset($value->right_product_image2))
                                     <img src="{{ asset('storage/'.$value->right_product_image2) }}" />
                                 @endif
-                                
+
                                 @if(isset($value->right_product_image3))
                                     <img src="{{ asset('storage/'.$value->right_product_image3) }}" />
                                 @endif
-                                
+
                                 @if(isset($value->right_product_image4))
                                     <img src="{{ asset('storage/'.$value->right_product_image4) }}" />
                                 @endif
